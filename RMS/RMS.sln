@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusinessObject", "BusinessO
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccess", "DataAccess\DataAccess.csproj", "{F085B449-C3AA-460F-AA31-54B0099FC213}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassLibrary1", "ClassLibrary1\ClassLibrary1.csproj", "{C06FCB6E-9717-47DC-915F-C4D975071918}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{F085B449-C3AA-460F-AA31-54B0099FC213}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F085B449-C3AA-460F-AA31-54B0099FC213}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F085B449-C3AA-460F-AA31-54B0099FC213}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C06FCB6E-9717-47DC-915F-C4D975071918}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C06FCB6E-9717-47DC-915F-C4D975071918}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C06FCB6E-9717-47DC-915F-C4D975071918}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C06FCB6E-9717-47DC-915F-C4D975071918}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
