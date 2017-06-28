@@ -16,5 +16,22 @@ namespace RMS
         {
             InitializeComponent();
         }
+
+        private void btnCloseX_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
+        }
+
+        private void btnLogin_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            RMS.Forms.frmMain Main = new Forms.frmMain();
+            Main.Visible = true;
+        }
     }
 }
