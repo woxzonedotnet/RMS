@@ -80,5 +80,34 @@ namespace RMS.Forms
                 }
             }
         }
+
+        private void supplierDetailsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                frmSupplierDetails open = Application.OpenForms["frmSupplierDetails"] as frmSupplierDetails;
+                if (open == null)
+                {
+                    frmSupplierDetails childSupplierDetails = new frmSupplierDetails();
+                    childSupplierDetails.MdiParent = this;
+                    childSupplierDetails.Show();
+                }
+                else
+                {
+                    if (open.WindowState == FormWindowState.Minimized)
+                    {
+                        open.WindowState = FormWindowState.Normal;
+                    }
+                    else
+                    {
+                        open.Activate();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
     }
 }

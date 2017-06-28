@@ -30,6 +30,7 @@
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.logoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.masterDataToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.supplierCategoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.supplierDetailsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -49,17 +50,16 @@
             this.bankCardsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.setupSettingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.transactionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.processToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ssToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ddToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.userToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ffToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.button1 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.button3 = new System.Windows.Forms.Button();
-            this.logoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.aaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ssToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ddToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ffToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -89,6 +89,12 @@
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 31);
             this.fileToolStripMenuItem.Text = "File";
+            // 
+            // logoutToolStripMenuItem
+            // 
+            this.logoutToolStripMenuItem.Name = "logoutToolStripMenuItem";
+            this.logoutToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.logoutToolStripMenuItem.Text = "Logout";
             // 
             // masterDataToolStripMenuItem
             // 
@@ -127,6 +133,7 @@
             this.supplierDetailsToolStripMenuItem.Name = "supplierDetailsToolStripMenuItem";
             this.supplierDetailsToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
             this.supplierDetailsToolStripMenuItem.Text = "Supplier Details";
+            this.supplierDetailsToolStripMenuItem.Click += new System.EventHandler(this.supplierDetailsToolStripMenuItem_Click);
             // 
             // departmentDetailsToolStripMenuItem
             // 
@@ -227,6 +234,12 @@
             this.transactionToolStripMenuItem.Size = new System.Drawing.Size(80, 31);
             this.transactionToolStripMenuItem.Text = "Transaction";
             // 
+            // aaToolStripMenuItem
+            // 
+            this.aaToolStripMenuItem.Name = "aaToolStripMenuItem";
+            this.aaToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.aaToolStripMenuItem.Text = "aa";
+            // 
             // processToolStripMenuItem
             // 
             this.processToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -235,6 +248,12 @@
             this.processToolStripMenuItem.Name = "processToolStripMenuItem";
             this.processToolStripMenuItem.Size = new System.Drawing.Size(59, 31);
             this.processToolStripMenuItem.Text = "Process";
+            // 
+            // ssToolStripMenuItem
+            // 
+            this.ssToolStripMenuItem.Name = "ssToolStripMenuItem";
+            this.ssToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.ssToolStripMenuItem.Text = "ss";
             // 
             // reportsToolStripMenuItem
             // 
@@ -245,6 +264,12 @@
             this.reportsToolStripMenuItem.Size = new System.Drawing.Size(59, 31);
             this.reportsToolStripMenuItem.Text = "Reports";
             // 
+            // ddToolStripMenuItem
+            // 
+            this.ddToolStripMenuItem.Name = "ddToolStripMenuItem";
+            this.ddToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.ddToolStripMenuItem.Text = "dd";
+            // 
             // userToolStripMenuItem
             // 
             this.userToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -254,6 +279,12 @@
             this.userToolStripMenuItem.Name = "userToolStripMenuItem";
             this.userToolStripMenuItem.Size = new System.Drawing.Size(42, 31);
             this.userToolStripMenuItem.Text = "User";
+            // 
+            // ffToolStripMenuItem
+            // 
+            this.ffToolStripMenuItem.Name = "ffToolStripMenuItem";
+            this.ffToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.ffToolStripMenuItem.Text = "ff";
             // 
             // button1
             // 
@@ -297,36 +328,6 @@
             this.button3.TabIndex = 4;
             this.button3.Text = "_";
             this.button3.UseVisualStyleBackColor = false;
-            // 
-            // logoutToolStripMenuItem
-            // 
-            this.logoutToolStripMenuItem.Name = "logoutToolStripMenuItem";
-            this.logoutToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.logoutToolStripMenuItem.Text = "Logout";
-            // 
-            // aaToolStripMenuItem
-            // 
-            this.aaToolStripMenuItem.Name = "aaToolStripMenuItem";
-            this.aaToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.aaToolStripMenuItem.Text = "aa";
-            // 
-            // ssToolStripMenuItem
-            // 
-            this.ssToolStripMenuItem.Name = "ssToolStripMenuItem";
-            this.ssToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.ssToolStripMenuItem.Text = "ss";
-            // 
-            // ddToolStripMenuItem
-            // 
-            this.ddToolStripMenuItem.Name = "ddToolStripMenuItem";
-            this.ddToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.ddToolStripMenuItem.Text = "dd";
-            // 
-            // ffToolStripMenuItem
-            // 
-            this.ffToolStripMenuItem.Name = "ffToolStripMenuItem";
-            this.ffToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.ffToolStripMenuItem.Text = "ff";
             // 
             // frmMain
             // 
