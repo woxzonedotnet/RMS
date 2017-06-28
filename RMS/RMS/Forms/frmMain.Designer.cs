@@ -52,11 +52,22 @@
             this.processToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.userToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.button1 = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.button3 = new System.Windows.Forms.Button();
+            this.logoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ssToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ddToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ffToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
             // 
+            this.menuStrip1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(41)))), ((int)(((byte)(46)))));
+            this.menuStrip1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
             this.masterDataToolStripMenuItem,
@@ -66,14 +77,17 @@
             this.userToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(843, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(843, 35);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // fileToolStripMenuItem
             // 
+            this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.logoutToolStripMenuItem});
+            this.fileToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(146)))), ((int)(((byte)(150)))), ((int)(((byte)(153)))));
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 31);
             this.fileToolStripMenuItem.Text = "File";
             // 
             // masterDataToolStripMenuItem
@@ -96,8 +110,9 @@
             this.tableDetailsToolStripMenuItem,
             this.bankCardsToolStripMenuItem,
             this.setupSettingsToolStripMenuItem});
+            this.masterDataToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(146)))), ((int)(((byte)(150)))), ((int)(((byte)(153)))));
             this.masterDataToolStripMenuItem.Name = "masterDataToolStripMenuItem";
-            this.masterDataToolStripMenuItem.Size = new System.Drawing.Size(82, 20);
+            this.masterDataToolStripMenuItem.Size = new System.Drawing.Size(82, 31);
             this.masterDataToolStripMenuItem.Text = "Master Data";
             // 
             // supplierCategoryToolStripMenuItem
@@ -105,6 +120,7 @@
             this.supplierCategoryToolStripMenuItem.Name = "supplierCategoryToolStripMenuItem";
             this.supplierCategoryToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
             this.supplierCategoryToolStripMenuItem.Text = "Supplier Category";
+            this.supplierCategoryToolStripMenuItem.Click += new System.EventHandler(this.supplierCategoryToolStripMenuItem_Click);
             // 
             // supplierDetailsToolStripMenuItem
             // 
@@ -204,41 +220,132 @@
             // 
             // transactionToolStripMenuItem
             // 
+            this.transactionToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.aaToolStripMenuItem});
+            this.transactionToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(146)))), ((int)(((byte)(150)))), ((int)(((byte)(153)))));
             this.transactionToolStripMenuItem.Name = "transactionToolStripMenuItem";
-            this.transactionToolStripMenuItem.Size = new System.Drawing.Size(80, 20);
+            this.transactionToolStripMenuItem.Size = new System.Drawing.Size(80, 31);
             this.transactionToolStripMenuItem.Text = "Transaction";
             // 
             // processToolStripMenuItem
             // 
+            this.processToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ssToolStripMenuItem});
+            this.processToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(146)))), ((int)(((byte)(150)))), ((int)(((byte)(153)))));
             this.processToolStripMenuItem.Name = "processToolStripMenuItem";
-            this.processToolStripMenuItem.Size = new System.Drawing.Size(59, 20);
+            this.processToolStripMenuItem.Size = new System.Drawing.Size(59, 31);
             this.processToolStripMenuItem.Text = "Process";
             // 
             // reportsToolStripMenuItem
             // 
+            this.reportsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ddToolStripMenuItem});
+            this.reportsToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(146)))), ((int)(((byte)(150)))), ((int)(((byte)(153)))));
             this.reportsToolStripMenuItem.Name = "reportsToolStripMenuItem";
-            this.reportsToolStripMenuItem.Size = new System.Drawing.Size(59, 20);
+            this.reportsToolStripMenuItem.Size = new System.Drawing.Size(59, 31);
             this.reportsToolStripMenuItem.Text = "Reports";
             // 
             // userToolStripMenuItem
             // 
+            this.userToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ffToolStripMenuItem});
+            this.userToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(146)))), ((int)(((byte)(150)))), ((int)(((byte)(153)))));
+            this.userToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(54)))), ((int)(((byte)(61)))));
             this.userToolStripMenuItem.Name = "userToolStripMenuItem";
-            this.userToolStripMenuItem.Size = new System.Drawing.Size(42, 20);
+            this.userToolStripMenuItem.Size = new System.Drawing.Size(42, 31);
             this.userToolStripMenuItem.Text = "User";
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(41)))), ((int)(((byte)(46)))));
+            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.button1.Dock = System.Windows.Forms.DockStyle.Right;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(146)))), ((int)(((byte)(150)))), ((int)(((byte)(153)))));
+            this.button1.Location = new System.Drawing.Point(806, 0);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(37, 35);
+            this.button1.TabIndex = 2;
+            this.button1.Text = "X";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(41)))), ((int)(((byte)(46)))));
+            this.panel1.Controls.Add(this.button3);
+            this.panel1.Controls.Add(this.button1);
+            this.panel1.Controls.Add(this.menuStrip1);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(843, 35);
+            this.panel1.TabIndex = 3;
+            // 
+            // button3
+            // 
+            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(41)))), ((int)(((byte)(46)))));
+            this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.button3.Dock = System.Windows.Forms.DockStyle.Right;
+            this.button3.FlatAppearance.BorderSize = 0;
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(146)))), ((int)(((byte)(150)))), ((int)(((byte)(153)))));
+            this.button3.Location = new System.Drawing.Point(769, 0);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(37, 35);
+            this.button3.TabIndex = 4;
+            this.button3.Text = "_";
+            this.button3.UseVisualStyleBackColor = false;
+            // 
+            // logoutToolStripMenuItem
+            // 
+            this.logoutToolStripMenuItem.Name = "logoutToolStripMenuItem";
+            this.logoutToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.logoutToolStripMenuItem.Text = "Logout";
+            // 
+            // aaToolStripMenuItem
+            // 
+            this.aaToolStripMenuItem.Name = "aaToolStripMenuItem";
+            this.aaToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.aaToolStripMenuItem.Text = "aa";
+            // 
+            // ssToolStripMenuItem
+            // 
+            this.ssToolStripMenuItem.Name = "ssToolStripMenuItem";
+            this.ssToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.ssToolStripMenuItem.Text = "ss";
+            // 
+            // ddToolStripMenuItem
+            // 
+            this.ddToolStripMenuItem.Name = "ddToolStripMenuItem";
+            this.ddToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.ddToolStripMenuItem.Text = "dd";
+            // 
+            // ffToolStripMenuItem
+            // 
+            this.ffToolStripMenuItem.Name = "ffToolStripMenuItem";
+            this.ffToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.ffToolStripMenuItem.Text = "ff";
             // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(843, 289);
-            this.Controls.Add(this.menuStrip1);
+            this.BackColor = System.Drawing.SystemColors.Control;
+            this.ClientSize = new System.Drawing.Size(843, 361);
+            this.Controls.Add(this.panel1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.IsMdiContainer = true;
             this.Name = "frmMain";
             this.Text = "Restaurants Management System";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.frmMain_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -268,5 +375,13 @@
         private System.Windows.Forms.ToolStripMenuItem processToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem reportsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem userToolStripMenuItem;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.ToolStripMenuItem logoutToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem aaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ssToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ddToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ffToolStripMenuItem;
     }
 }
