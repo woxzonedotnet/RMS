@@ -138,5 +138,34 @@ namespace RMS.Forms
                 MessageBox.Show(ex.Message);
             }
         }
+
+        private void locationDetailsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                frmSubLocation open = Application.OpenForms["frmSubLocation"] as frmSubLocation;
+                if (open == null)
+                {
+                    frmSubLocation childSubLocation = new frmSubLocation();
+                    childSubLocation.MdiParent = this;
+                    childSubLocation.Show();
+                }
+                else
+                {
+                    if (open.WindowState == FormWindowState.Minimized)
+                    {
+                        open.WindowState = FormWindowState.Normal;
+                    }
+                    else
+                    {
+                        open.Activate();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
     }
 }
