@@ -13,5 +13,6 @@ namespace BusinessObject
         public string SubLocationName { get; set; }
         public bool ShowInFrontEnd { get; set; }
         public bool IsOrderLocation { get; set; }
+        public bool IsExists { get; set; }
     }
 }
