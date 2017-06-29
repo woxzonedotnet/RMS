@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.menuStripMain = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.logoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.masterDataToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -60,26 +60,26 @@
             this.button1 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.button3 = new System.Windows.Forms.Button();
-            this.menuStrip1.SuspendLayout();
+            this.menuStripMain.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // menuStrip1
+            // menuStripMain
             // 
-            this.menuStrip1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(41)))), ((int)(((byte)(46)))));
-            this.menuStrip1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menuStripMain.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(41)))), ((int)(((byte)(46)))));
+            this.menuStripMain.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.menuStripMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
             this.masterDataToolStripMenuItem,
             this.transactionToolStripMenuItem,
             this.processToolStripMenuItem,
             this.reportsToolStripMenuItem,
             this.userToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(843, 35);
-            this.menuStrip1.TabIndex = 1;
-            this.menuStrip1.Text = "menuStrip1";
+            this.menuStripMain.Location = new System.Drawing.Point(0, 0);
+            this.menuStripMain.Name = "menuStripMain";
+            this.menuStripMain.Size = new System.Drawing.Size(843, 35);
+            this.menuStripMain.TabIndex = 1;
+            this.menuStripMain.Text = "menuStrip1";
             // 
             // fileToolStripMenuItem
             // 
@@ -93,7 +93,7 @@
             // logoutToolStripMenuItem
             // 
             this.logoutToolStripMenuItem.Name = "logoutToolStripMenuItem";
-            this.logoutToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.logoutToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
             this.logoutToolStripMenuItem.Text = "Logout";
             // 
             // masterDataToolStripMenuItem
@@ -231,13 +231,13 @@
             this.aaToolStripMenuItem});
             this.transactionToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(146)))), ((int)(((byte)(150)))), ((int)(((byte)(153)))));
             this.transactionToolStripMenuItem.Name = "transactionToolStripMenuItem";
-            this.transactionToolStripMenuItem.Size = new System.Drawing.Size(80, 31);
+            this.transactionToolStripMenuItem.Size = new System.Drawing.Size(81, 31);
             this.transactionToolStripMenuItem.Text = "Transaction";
             // 
             // aaToolStripMenuItem
             // 
             this.aaToolStripMenuItem.Name = "aaToolStripMenuItem";
-            this.aaToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.aaToolStripMenuItem.Size = new System.Drawing.Size(86, 22);
             this.aaToolStripMenuItem.Text = "aa";
             // 
             // processToolStripMenuItem
@@ -252,7 +252,7 @@
             // ssToolStripMenuItem
             // 
             this.ssToolStripMenuItem.Name = "ssToolStripMenuItem";
-            this.ssToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.ssToolStripMenuItem.Size = new System.Drawing.Size(84, 22);
             this.ssToolStripMenuItem.Text = "ss";
             // 
             // reportsToolStripMenuItem
@@ -267,7 +267,7 @@
             // ddToolStripMenuItem
             // 
             this.ddToolStripMenuItem.Name = "ddToolStripMenuItem";
-            this.ddToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.ddToolStripMenuItem.Size = new System.Drawing.Size(88, 22);
             this.ddToolStripMenuItem.Text = "dd";
             // 
             // userToolStripMenuItem
@@ -283,7 +283,7 @@
             // ffToolStripMenuItem
             // 
             this.ffToolStripMenuItem.Name = "ffToolStripMenuItem";
-            this.ffToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.ffToolStripMenuItem.Size = new System.Drawing.Size(82, 22);
             this.ffToolStripMenuItem.Text = "ff";
             // 
             // button1
@@ -307,7 +307,7 @@
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(41)))), ((int)(((byte)(46)))));
             this.panel1.Controls.Add(this.button3);
             this.panel1.Controls.Add(this.button1);
-            this.panel1.Controls.Add(this.menuStrip1);
+            this.panel1.Controls.Add(this.menuStripMain);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
@@ -342,8 +342,8 @@
             this.Text = "Restaurants Management System";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmMain_Load);
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
+            this.menuStripMain.ResumeLayout(false);
+            this.menuStripMain.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
@@ -352,7 +352,7 @@
 
         #endregion
 
-        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.MenuStrip menuStripMain;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem masterDataToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem supplierCategoryToolStripMenuItem;
