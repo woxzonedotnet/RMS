@@ -20,7 +20,31 @@ namespace RMS.Forms
         public frmMain()
         {
             InitializeComponent();
+            menuStripMain.Renderer = new MyRenderer();
         }
+
+        class MyRenderer : ToolStripProfessionalRenderer // MenuStrip Render Function
+        {
+            public MyRenderer() : base(new MyColors()) { }
+        }
+
+        class MyColors : ProfessionalColorTable //MenuStrip Color Changes
+        {
+            public override Color MenuItemSelected
+            {
+
+                get { return Color.FromArgb(3,102,214); }
+            }
+            public override Color MenuItemSelectedGradientBegin
+            {
+                get { return Color.FromArgb(255,255,255); }
+            }
+            public override Color MenuItemSelectedGradientEnd
+            {
+                get { return Color.FromArgb(255,255,255); }
+            }
+        }
+
 
         private void button1_Click(object sender, EventArgs e)
         {
