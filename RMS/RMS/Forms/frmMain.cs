@@ -43,6 +43,11 @@ namespace RMS.Forms
             {
                 get { return Color.FromArgb(255,255,255); }
             }
+            public override Color MenuItemBorder
+            {
+                get { return Color.FromArgb(255,255,255); }
+            }
+            
         }
 
 
