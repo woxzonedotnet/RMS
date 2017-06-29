@@ -45,6 +45,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="clsGlobleVariable.cs" />
     <Compile Include="ColumnComboBox.cs">
       <SubType>Component</SubType>
     </Compile>

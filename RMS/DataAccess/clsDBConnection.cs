@@ -16,6 +16,7 @@ namespace DataAccess
         #endregion
 
         #region Variables
+        string strConnectionString;
         private string strServerName;
         private string strDatabaseName;
         private string strSecurity;
@@ -28,11 +29,7 @@ namespace DataAccess
         #region Server Connection
         public clsDBConnection() 
         {
-            //Data Source=.;Initial Catalog=time_attendence;Integrated Security=True
-
             db_loc = @"Data Source=THARINDU\SQLEXPRESS;Initial Catalog=RMS;Integrated Security=True";
-
-            //m_strFileName = @"C:\Users\kanchana\Desktop\Time Attendance 3Tire\Time_Attendance\Time_Attendance\serverConfig.xml";
 
             m_strFileName = System.AppDomain.CurrentDomain.BaseDirectory + "serverConfig.xml";
             XmlTextReader bankReader = null;
@@ -65,7 +62,6 @@ namespace DataAccess
         #region Connection State
         private void Connection()
         {
-            string strConnectionString;
             strConnectionString = "Data Source=" + strServerName;
             strConnectionString += ";Initial Catalog=" + strDatabaseName;
             strConnectionString += ";Integrated Security=" + strSecurity;
@@ -118,6 +114,37 @@ namespace DataAccess
             {
                 dbConn.Close();
             }
+        }
+        #endregion
+
+        #region Search Data and Return Table
+        public DataTable SearchData(string strTableName, string strWhereClause)
+        {
+            try
+            {
+                SqlCommand command = new SqlCommand("sp_SearchData");
+
+                Connection();
+
+                command.Connection = dbConn;
+                command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.AddWithValue("@tblName", strTableName);
+                command.Parameters.AddWithValue("@WhereClause", strWhereClause);
+
+                SqlDataAdapter dataadapter = new SqlDataAdapter(command);
+                DataTable datatable = new DataTable();
+                dataadapter.Fill(datatable);
+                return datatable;
+            }
+            catch (Exception ex)
+            {
+                System.Windows.Forms.MessageBox.Show(ex.Message);
+                return null;
+            }
+            finally
+            { 
+                dbConn.Close();
+            } 
         }
         #endregion
     }

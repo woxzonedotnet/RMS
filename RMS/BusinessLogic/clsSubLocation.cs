@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using BusinessObject;
 using DataAccess;
+using System.Data;
 
 
 namespace BusinessLogic
@@ -12,7 +13,7 @@ namespace BusinessLogic
     public class clsSubLocation
     {
         #region Objects
-        //objSubLocation oSubLocation = new objSubLocation();
+        objSubLocation oSubLocation = new objSubLocation();
         clsDBConnection cDBConnection = new clsDBConnection(); 
         #endregion
 
@@ -37,5 +38,32 @@ namespace BusinessLogic
 
             return cDBConnection.Insert("sp_insert_update_sublocation", arrParameter);
         }
+
+        #region GetSubLocation Data Using LocationCode and SubLocationCode
+        public objSubLocation GetSubLocationData(string strLocationCode, string strSubLocationCode)
+        {
+            string strWhere = "fldLocationCode='" + strLocationCode + "' AND fldSubLocationCode ='" + strSubLocationCode + "'";
+
+            DataTable dtSubLocation = cDBConnection.SearchData("tbl_SubLocation", strWhere);
+
+            if (dtSubLocation.Rows.Count > 0)
+            {
+                oSubLocation.LocationCode = dtSubLocation.Rows[0][1].ToString();
+                oSubLocation.SubLocationCode = dtSubLocation.Rows[0][2].ToString();
+                oSubLocation.SubLocationName = dtSubLocation.Rows[0][3].ToString();
+                oSubLocation.ShowInFrontEnd = Convert.ToBoolean(dtSubLocation.Rows[0][4]);
+                oSubLocation.IsOrderLocation = Convert.ToBoolean(dtSubLocation.Rows[0][5]);
+
+                oSubLocation.IsExists = true;
+            }
+            else
+            {
+                oSubLocation.IsExists = false;
+            }
+
+            return oSubLocation;
+        }
+        #endregion
+
     }
 }

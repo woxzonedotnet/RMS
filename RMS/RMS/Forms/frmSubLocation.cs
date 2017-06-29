@@ -7,11 +7,24 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BusinessObject;
+using BusinessLogic;
 
 namespace RMS.Forms
 {
     public partial class frmSubLocation : Form
     {
+        #region Objects
+        clsSubLocation cSubLocation = new clsSubLocation();
+        objSubLocation oSubLocation = new objSubLocation();
+        clsGlobleVariable cGlobleVariable = new clsGlobleVariable();
+        #endregion
+
+
+        #region Variables
+        int result;
+        #endregion
+
         public frmSubLocation()
         {
             InitializeComponent();
@@ -21,11 +34,28 @@ namespace RMS.Forms
         {
             if (ValidateData())
             {
-                
+                oSubLocation = cSubLocation.GetSubLocationData(cGlobleVariable.LocationCode,txtSubLocationCode.Text);
+
+                if (oSubLocation.IsExists == false)
+                {
+                    result = InsertUpdateData();
+                    if (result != -1)
+                    {
+                        MessageBox.Show("Successfully Saved...!", "Sub Location", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Data not Saved...!", "Sub Location", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Record already exist...!", "Sub Location", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
             }
         }
 
-        #region Validate Catagory Master Data
+        #region Validate Sub Location Data
         private bool ValidateData()
         {
             bool isValidate = true;
@@ -52,6 +82,19 @@ namespace RMS.Forms
 
             }
             return isValidate;
+        }
+        #endregion
+
+        #region InsertUpdate SubLocation Data
+        private int InsertUpdateData()
+        {
+            oSubLocation.LocationCode = cGlobleVariable.LocationCode.ToString();
+            oSubLocation.SubLocationCode = txtSubLocationCode.Text.ToString();
+            oSubLocation.SubLocationName = txtSubLocationName.Text.ToString();
+            oSubLocation.ShowInFrontEnd = Convert.ToBoolean(chkShowInFrontEnd.Checked.ToString());
+            oSubLocation.IsOrderLocation = Convert.ToBoolean(chkIsOrderLocation.Checked.ToString());
+
+            return cSubLocation.InsertUpdateData(oSubLocation);
         }
         #endregion
     }
