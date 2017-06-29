@@ -158,6 +158,7 @@
             this.locationDetailsToolStripMenuItem.Name = "locationDetailsToolStripMenuItem";
             this.locationDetailsToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
             this.locationDetailsToolStripMenuItem.Text = "Location Details";
+            this.locationDetailsToolStripMenuItem.Click += new System.EventHandler(this.locationDetailsToolStripMenuItem_Click);
             // 
             // itemDetailsToolStripMenuItem
             // 
@@ -231,7 +232,7 @@
             this.aaToolStripMenuItem});
             this.transactionToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(146)))), ((int)(((byte)(150)))), ((int)(((byte)(153)))));
             this.transactionToolStripMenuItem.Name = "transactionToolStripMenuItem";
-            this.transactionToolStripMenuItem.Size = new System.Drawing.Size(81, 31);
+            this.transactionToolStripMenuItem.Size = new System.Drawing.Size(80, 31);
             this.transactionToolStripMenuItem.Text = "Transaction";
             // 
             // aaToolStripMenuItem
