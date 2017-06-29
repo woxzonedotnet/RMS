@@ -38,13 +38,13 @@
             this.btnLogin = new System.Windows.Forms.Button();
             this.lblLocation = new System.Windows.Forms.Label();
             this.lblUserType = new System.Windows.Forms.Label();
+            this.cmbLocation = new RMS.ColumnComboBox();
+            this.cmbUserType = new RMS.ColumnComboBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnCloseX = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.cmbLocation = new RMS.ColumnComboBox();
-            this.cmbUserType = new RMS.ColumnComboBox();
             this.gboxLogin.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -163,6 +163,29 @@
             this.lblUserType.TabIndex = 7;
             this.lblUserType.Text = "User Type";
             // 
+            // cmbLocation
+            // 
+            this.cmbLocation.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.cmbLocation.DropDownWidth = 17;
+            this.cmbLocation.FormattingEnabled = true;
+            this.cmbLocation.Location = new System.Drawing.Point(124, 110);
+            this.cmbLocation.Name = "cmbLocation";
+            this.cmbLocation.Size = new System.Drawing.Size(204, 25);
+            this.cmbLocation.TabIndex = 3;
+            this.cmbLocation.ViewColumn = 0;
+            // 
+            // cmbUserType
+            // 
+            this.cmbUserType.BackColor = System.Drawing.SystemColors.Window;
+            this.cmbUserType.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.cmbUserType.DropDownWidth = 17;
+            this.cmbUserType.FormattingEnabled = true;
+            this.cmbUserType.Location = new System.Drawing.Point(124, 24);
+            this.cmbUserType.Name = "cmbUserType";
+            this.cmbUserType.Size = new System.Drawing.Size(204, 25);
+            this.cmbUserType.TabIndex = 2;
+            this.cmbUserType.ViewColumn = 0;
+            // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(41)))), ((int)(((byte)(46)))));
@@ -215,28 +238,6 @@
             this.pictureBox1.Size = new System.Drawing.Size(236, 26);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
-            // 
-            // cmbLocation
-            // 
-            this.cmbLocation.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
-            this.cmbLocation.DropDownWidth = 17;
-            this.cmbLocation.FormattingEnabled = true;
-            this.cmbLocation.Location = new System.Drawing.Point(124, 110);
-            this.cmbLocation.Name = "cmbLocation";
-            this.cmbLocation.Size = new System.Drawing.Size(204, 25);
-            this.cmbLocation.TabIndex = 3;
-            this.cmbLocation.ViewColumn = 0;
-            // 
-            // cmbUserType
-            // 
-            this.cmbUserType.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
-            this.cmbUserType.DropDownWidth = 17;
-            this.cmbUserType.FormattingEnabled = true;
-            this.cmbUserType.Location = new System.Drawing.Point(124, 24);
-            this.cmbUserType.Name = "cmbUserType";
-            this.cmbUserType.Size = new System.Drawing.Size(204, 25);
-            this.cmbUserType.TabIndex = 2;
-            this.cmbUserType.ViewColumn = 0;
             // 
             // frmLogin
             // 
