@@ -50,6 +50,7 @@
             this.columnComboBox2 = new RMS.ColumnComboBox();
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.textBox6 = new System.Windows.Forms.TextBox();
+            this.columnComboBox3 = new RMS.ColumnComboBox();
             this.SuspendLayout();
             // 
             // label1
@@ -147,7 +148,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
-            this.label10.Location = new System.Drawing.Point(139, 302);
+            this.label10.Location = new System.Drawing.Point(546, 124);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(67, 16);
             this.label10.TabIndex = 9;
@@ -195,14 +196,14 @@
             // 
             this.textBox2.Location = new System.Drawing.Point(180, 36);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(464, 20);
+            this.textBox2.Size = new System.Drawing.Size(433, 20);
             this.textBox2.TabIndex = 14;
             // 
             // textBox3
             // 
             this.textBox3.Location = new System.Drawing.Point(180, 64);
             this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(464, 20);
+            this.textBox3.Size = new System.Drawing.Size(433, 20);
             this.textBox3.TabIndex = 15;
             // 
             // textBox4
@@ -243,16 +244,28 @@
             // 
             // textBox6
             // 
-            this.textBox6.Location = new System.Drawing.Point(413, 273);
+            this.textBox6.Location = new System.Drawing.Point(460, 123);
             this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(153, 20);
+            this.textBox6.Size = new System.Drawing.Size(81, 20);
             this.textBox6.TabIndex = 20;
+            // 
+            // columnComboBox3
+            // 
+            this.columnComboBox3.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.columnComboBox3.DropDownWidth = 17;
+            this.columnComboBox3.FormattingEnabled = true;
+            this.columnComboBox3.Location = new System.Drawing.Point(460, 153);
+            this.columnComboBox3.Name = "columnComboBox3";
+            this.columnComboBox3.Size = new System.Drawing.Size(153, 21);
+            this.columnComboBox3.TabIndex = 21;
+            this.columnComboBox3.ViewColumn = 0;
             // 
             // frmMenuDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(799, 402);
+            this.ClientSize = new System.Drawing.Size(1003, 402);
+            this.Controls.Add(this.columnComboBox3);
             this.Controls.Add(this.textBox6);
             this.Controls.Add(this.textBox5);
             this.Controls.Add(this.columnComboBox2);
@@ -304,5 +317,6 @@
         private ColumnComboBox columnComboBox2;
         private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.TextBox textBox6;
+        private ColumnComboBox columnComboBox3;
     }
 }
