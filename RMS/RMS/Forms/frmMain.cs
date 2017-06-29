@@ -12,9 +12,14 @@ namespace RMS.Forms
 {
     public partial class frmMain : Form
     {
+        #region Object
+
+        #endregion
+
         #region Variables
         MdiClient ctlMDI;
         #endregion
+
 
 
         public frmMain()

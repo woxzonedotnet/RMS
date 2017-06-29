@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.lblLocationCode = new System.Windows.Forms.Label();
             this.lblLocationName = new System.Windows.Forms.Label();
             this.txtSubLocationCode = new System.Windows.Forms.TextBox();
@@ -38,6 +39,8 @@
             this.btnEdit = new System.Windows.Forms.Button();
             this.btnClear = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
+            this.errSubLocation = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.errSubLocation)).BeginInit();
             this.SuspendLayout();
             // 
             // lblLocationCode
@@ -107,6 +110,7 @@
             this.btnSave.TabIndex = 6;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // btnEdit
             // 
@@ -138,6 +142,10 @@
             this.btnClose.Text = "Close";
             this.btnClose.UseVisualStyleBackColor = true;
             // 
+            // errSubLocation
+            // 
+            this.errSubLocation.ContainerControl = this;
+            // 
             // frmSubLocation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -158,6 +166,7 @@
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Sub Location";
+            ((System.ComponentModel.ISupportInitialize)(this.errSubLocation)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -175,5 +184,6 @@
         private System.Windows.Forms.Button btnEdit;
         private System.Windows.Forms.Button btnClear;
         private System.Windows.Forms.Button btnClose;
+        private System.Windows.Forms.ErrorProvider errSubLocation;
     }
 }

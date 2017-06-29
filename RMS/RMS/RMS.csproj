@@ -78,6 +78,12 @@
     <Compile Include="Forms\frmMain.Designer.cs">
       <DependentUpon>frmMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\frmSteward.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmSteward.Designer.cs">
+      <DependentUpon>frmSteward.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\frmSubLocation.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -107,6 +113,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmSteward.resx">
+      <DependentUpon>frmSteward.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmSubLocation.resx">
       <DependentUpon>frmSubLocation.cs</DependentUpon>
@@ -152,6 +161,23 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\1498666014_basics-19.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ServerConfig.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BusinessLogic\BusinessLogic.csproj">
+      <Project>{682f0b67-7475-4bd1-bde7-9184ff78ef34}</Project>
+      <Name>BusinessLogic</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BusinessObject\BusinessObject.csproj">
+      <Project>{e1110383-8047-487a-a08c-d6353fe9a343}</Project>
+      <Name>BusinessObject</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DataAccess\DataAccess.csproj">
+      <Project>{9b700e62-6c4f-424a-9377-c480b5e8e682}</Project>
+      <Name>DataAccess</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
