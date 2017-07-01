@@ -58,6 +58,24 @@
     <Compile Include="Forms\frmBankCards.Designer.cs">
       <DependentUpon>frmBankCards.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\frmCategoryMasterDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmCategoryMasterDetails.Designer.cs">
+      <DependentUpon>frmCategoryMasterDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmDepartmentDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmDepartmentDetails.Designer.cs">
+      <DependentUpon>frmDepartmentDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmItemDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmItemDetails.Designer.cs">
+      <DependentUpon>frmItemDetails.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\frmLocationMaster.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -81,6 +99,12 @@
     </Compile>
     <Compile Include="Forms\frmMenuDetails.Designer.cs">
       <DependentUpon>frmMenuDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmRecipeDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmRecipeDetails.Designer.cs">
+      <DependentUpon>frmRecipeDetails.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\frmSteward.cs">
       <SubType>Form</SubType>
@@ -118,6 +142,15 @@
     <EmbeddedResource Include="Forms\frmBankCards.resx">
       <DependentUpon>frmBankCards.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmCategoryMasterDetails.resx">
+      <DependentUpon>frmCategoryMasterDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmDepartmentDetails.resx">
+      <DependentUpon>frmDepartmentDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmItemDetails.resx">
+      <DependentUpon>frmItemDetails.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmLocationMaster.resx">
       <DependentUpon>frmLocationMaster.cs</DependentUpon>
     </EmbeddedResource>
@@ -129,6 +162,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmMenuDetails.resx">
       <DependentUpon>frmMenuDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmRecipeDetails.resx">
+      <DependentUpon>frmRecipeDetails.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmSteward.resx">
       <DependentUpon>frmSteward.cs</DependentUpon>
