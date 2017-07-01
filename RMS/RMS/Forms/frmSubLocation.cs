@@ -91,11 +91,16 @@ namespace RMS.Forms
             oSubLocation.LocationCode = cGlobleVariable.LocationCode.ToString();
             oSubLocation.SubLocationCode = txtSubLocationCode.Text.ToString();
             oSubLocation.SubLocationName = txtSubLocationName.Text.ToString();
-            oSubLocation.ShowInFrontEnd = Convert.ToBoolean(chkShowInFrontEnd.Checked.ToString());
-            oSubLocation.IsOrderLocation = Convert.ToBoolean(chkIsOrderLocation.Checked.ToString());
+            oSubLocation.ShowInFrontEnd = chkShowInFrontEnd.Checked;
+            oSubLocation.IsOrderLocation = chkIsOrderLocation.Checked;
 
             return cSubLocation.InsertUpdateData(oSubLocation);
         }
         #endregion
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
+        }
     }
 }

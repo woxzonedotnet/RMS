@@ -80,8 +80,10 @@ namespace DataAccess
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.StackTrace);
+                System.Windows.Forms.MessageBox.Show(ex.ToString());
+                dbConn.Close();
             }
+            
         }
         #endregion
 
