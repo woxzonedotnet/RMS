@@ -40,13 +40,14 @@
             this.cmbDepartmentName = new RMS.ColumnComboBox();
             this.txtCategoryCode = new System.Windows.Forms.TextBox();
             this.lblDepartmentName = new System.Windows.Forms.Label();
+            this.btnRemove = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // btnAdd
             // 
             this.btnAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAdd.Location = new System.Drawing.Point(259, 112);
+            this.btnAdd.Location = new System.Drawing.Point(165, 112);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(75, 25);
             this.btnAdd.TabIndex = 39;
@@ -148,11 +149,22 @@
             this.lblDepartmentName.TabIndex = 29;
             this.lblDepartmentName.Text = "Department Name";
             // 
-            // Form1
+            // btnRemove
+            // 
+            this.btnRemove.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRemove.Location = new System.Drawing.Point(259, 112);
+            this.btnRemove.Name = "btnRemove";
+            this.btnRemove.Size = new System.Drawing.Size(75, 25);
+            this.btnRemove.TabIndex = 40;
+            this.btnRemove.Text = "Remove";
+            this.btnRemove.UseVisualStyleBackColor = true;
+            // 
+            // frmCategoryMasterDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(347, 339);
+            this.Controls.Add(this.btnRemove);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.btnClear);
@@ -164,7 +176,7 @@
             this.Controls.Add(this.cmbDepartmentName);
             this.Controls.Add(this.txtCategoryCode);
             this.Controls.Add(this.lblDepartmentName);
-            this.Name = "Form1";
+            this.Name = "frmCategoryMasterDetails";
             this.Text = "Category Master Details";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
@@ -185,6 +197,7 @@
         private ColumnComboBox cmbDepartmentName;
         private System.Windows.Forms.TextBox txtCategoryCode;
         private System.Windows.Forms.Label lblDepartmentName;
+        private System.Windows.Forms.Button btnRemove;
 
     }
 }
