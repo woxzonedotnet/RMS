@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace RMS.Forms
+namespace ThemeTest
 {
-    public partial class frmDepartmentDetaild : Form
+    public partial class Form1 : Form
     {
-        public frmDepartmentDetaild()
+        public Form1()
         {
             InitializeComponent();
         }
