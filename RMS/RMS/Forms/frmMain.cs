@@ -172,5 +172,324 @@ namespace RMS.Forms
                 MessageBox.Show(ex.Message);
             }
         }
+
+        private void tableCategoryDetailsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                frmTableCategoryDetails open = Application.OpenForms["frmTableCategoryDetails"] as frmTableCategoryDetails;
+                if (open == null)
+                {
+                    frmTableCategoryDetails childTableCategoryDetails = new frmTableCategoryDetails();
+                    childTableCategoryDetails.MdiParent = this;
+                    childTableCategoryDetails.Show();
+                }
+                else
+                {
+                    if (open.WindowState == FormWindowState.Minimized)
+                    {
+                        open.WindowState = FormWindowState.Normal;
+                    }
+                    else
+                    {
+                        open.Activate();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void itemDetailsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                frmItemDetails open = Application.OpenForms["frmItemDetails"] as frmItemDetails;
+                if (open == null)
+                {
+                    frmItemDetails childItemDetails = new frmItemDetails();
+                    childItemDetails.MdiParent = this;
+                    childItemDetails.Show();
+                }
+                else
+                {
+                    if (open.WindowState == FormWindowState.Minimized)
+                    {
+                        open.WindowState = FormWindowState.Normal;
+                    }
+                    else
+                    {
+                        open.Activate();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void departmentDetailsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                frmDepartmentDetails open = Application.OpenForms["frmDepartmentDetails"] as frmDepartmentDetails;
+                if (open == null)
+                {
+                    frmDepartmentDetails childDepartmentDetails = new frmDepartmentDetails();
+                    childDepartmentDetails.MdiParent = this;
+                    childDepartmentDetails.Show();
+                }
+                else
+                {
+                    if (open.WindowState == FormWindowState.Minimized)
+                    {
+                        open.WindowState = FormWindowState.Normal;
+                    }
+                    else
+                    {
+                        open.Activate();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void categoryDetailsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                frmCategoryMasterDetails open = Application.OpenForms["frmCategoryMasterDetails"] as frmCategoryMasterDetails;
+                if (open == null)
+                {
+                    frmCategoryMasterDetails childCategoryMasterDetails = new frmCategoryMasterDetails();
+                    childCategoryMasterDetails.MdiParent = this;
+                    childCategoryMasterDetails.Show();
+                }
+                else
+                {
+                    if (open.WindowState == FormWindowState.Minimized)
+                    {
+                        open.WindowState = FormWindowState.Normal;
+                    }
+                    else
+                    {
+                        open.Activate();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void subCategoryDetailsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                frmSubCategoryMasterDetails open = Application.OpenForms["frmSubCategoryMasterDetails"] as frmSubCategoryMasterDetails;
+                if (open == null)
+                {
+                    frmSubCategoryMasterDetails childSubCategoryMasterDetails = new frmSubCategoryMasterDetails();
+                    childSubCategoryMasterDetails.MdiParent = this;
+                    childSubCategoryMasterDetails.Show();
+                }
+                else
+                {
+                    if (open.WindowState == FormWindowState.Minimized)
+                    {
+                        open.WindowState = FormWindowState.Normal;
+                    }
+                    else
+                    {
+                        open.Activate();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void addStewardToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                frmSteward open = Application.OpenForms["frmSteward"] as frmSteward;
+                if (open == null)
+                {
+                    frmSteward childSteward = new frmSteward();
+                    childSteward.MdiParent = this;
+                    childSteward.Show();
+                }
+                else
+                {
+                    if (open.WindowState == FormWindowState.Minimized)
+                    {
+                        open.WindowState = FormWindowState.Normal;
+                    }
+                    else
+                    {
+                        open.Activate();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void customerDetailsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                frmCustomerDetails open = Application.OpenForms["frmCustomerDetails"] as frmCustomerDetails;
+                if (open == null)
+                {
+                    frmCustomerDetails childCustomerDetails = new frmCustomerDetails();
+                    childCustomerDetails.MdiParent = this;
+                    childCustomerDetails.Show();
+                }
+                else
+                {
+                    if (open.WindowState == FormWindowState.Minimized)
+                    {
+                        open.WindowState = FormWindowState.Normal;
+                    }
+                    else
+                    {
+                        open.Activate();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void menuDepartmentToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                frmMenuDepartment open = Application.OpenForms["frmMenuDepartment"] as frmMenuDepartment;
+                if (open == null)
+                {
+                    frmMenuDepartment childMenuDepartment = new frmMenuDepartment();
+                    childMenuDepartment.MdiParent = this;
+                    childMenuDepartment.Show();
+                }
+                else
+                {
+                    if (open.WindowState == FormWindowState.Minimized)
+                    {
+                        open.WindowState = FormWindowState.Normal;
+                    }
+                    else
+                    {
+                        open.Activate();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void menuCategoryDetailsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                frmMenuCategoryDetails open = Application.OpenForms["frmMenuCategoryDetails"] as frmMenuCategoryDetails;
+                if (open == null)
+                {
+                    frmMenuCategoryDetails childMenuCategoryDetails = new frmMenuCategoryDetails();
+                    childMenuCategoryDetails.MdiParent = this;
+                    childMenuCategoryDetails.Show();
+                }
+                else
+                {
+                    if (open.WindowState == FormWindowState.Minimized)
+                    {
+                        open.WindowState = FormWindowState.Normal;
+                    }
+                    else
+                    {
+                        open.Activate();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void menuDetailsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                frmMenuDetails open = Application.OpenForms["frmMenuDetails"] as frmMenuDetails;
+                if (open == null)
+                {
+                    frmMenuDetails childMenuDetails = new frmMenuDetails();
+                    childMenuDetails.MdiParent = this;
+                    childMenuDetails.Show();
+                }
+                else
+                {
+                    if (open.WindowState == FormWindowState.Minimized)
+                    {
+                        open.WindowState = FormWindowState.Normal;
+                    }
+                    else
+                    {
+                        open.Activate();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void bankCardsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                frmBankCards open = Application.OpenForms["frmBankCards"] as frmBankCards;
+                if (open == null)
+                {
+                    frmBankCards childBankCards = new frmBankCards();
+                    childBankCards.MdiParent = this;
+                    childBankCards.Show();
+                }
+                else
+                {
+                    if (open.WindowState == FormWindowState.Minimized)
+                    {
+                        open.WindowState = FormWindowState.Normal;
+                    }
+                    else
+                    {
+                        open.Activate();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
     }
 }
