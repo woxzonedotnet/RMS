@@ -40,6 +40,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="clsBrowsData.cs" />
+    <Compile Include="clsCategoryMaster.cs" />
     <Compile Include="clsDepartment.cs" />
     <Compile Include="clsStatusMaster.cs" />
     <Compile Include="clsSubLocation.cs" />
