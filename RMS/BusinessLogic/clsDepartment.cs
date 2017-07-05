@@ -24,14 +24,16 @@ namespace BusinessLogic
         #region InsertUpdateData
         public int InsertUpdateData(objDepartment oDepartment)
         {
-            System.Object[,] arrParameter = new Object[3, 2];
+            System.Object[,] arrParameter = new Object[4, 2];
 
-            arrParameter[0, 0] = "@mfldMainLocation";
+            arrParameter[0, 0] = "@mfldLocationCode";
             arrParameter[0, 1] = oDepartment.LocationCode;
             arrParameter[1, 0] = "@mfldDepartmentCode";
             arrParameter[1, 1] = oDepartment.DepartmentCode;
             arrParameter[2, 0] = "@mfldDepartmentName";
             arrParameter[2, 1] = oDepartment.DepartmentName;
+            arrParameter[3, 0] = "@mfldDepartmentStatus";
+            arrParameter[3, 1] = oDepartment.Status;
 
             return cDBConnection.Insert("sp_insert_update_department", arrParameter);
         }
@@ -40,15 +42,16 @@ namespace BusinessLogic
         #region GetDepartment Data Using DepartmentCode
         public objDepartment GetDepartmentData(string strLocationCode,string strDepartmentCode)
         {
-            string strWhere = "fldMainLocation='" + strLocationCode + "' AND fldDepartmentCode='" + strDepartmentCode + "'";
+            string strWhere = "fldLocationCode='" + strLocationCode + "' AND fldDepartmentCode='" + strDepartmentCode + "'";
 
             DataTable dtDepartment = cDBConnection.SearchData("tbl_DepartmentMaster", strWhere);
 
             if (dtDepartment.Rows.Count > 0)
             {
-                oDepartment.LocationCode = dtDepartment.Rows[0][1].ToString();
-                oDepartment.DepartmentCode = dtDepartment.Rows[0][2].ToString();
-                oDepartment.DepartmentName = dtDepartment.Rows[0][3].ToString();
+                oDepartment.LocationCode = dtDepartment.Rows[0][0].ToString();
+                oDepartment.DepartmentCode = dtDepartment.Rows[0][1].ToString();
+                oDepartment.DepartmentName = dtDepartment.Rows[0][2].ToString();
+                oDepartment.Status=Convert.ToInt16(dtDepartment.Rows[0][3]);
 
                 oDepartment.IsExists = true;
             }
