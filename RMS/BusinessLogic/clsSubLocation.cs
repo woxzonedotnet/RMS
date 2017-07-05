@@ -48,11 +48,11 @@ namespace BusinessLogic
 
             if (dtSubLocation.Rows.Count > 0)
             {
-                oSubLocation.LocationCode = dtSubLocation.Rows[0][1].ToString();
-                oSubLocation.SubLocationCode = dtSubLocation.Rows[0][2].ToString();
-                oSubLocation.SubLocationName = dtSubLocation.Rows[0][3].ToString();
-                oSubLocation.ShowInFrontEnd = Convert.ToBoolean(dtSubLocation.Rows[0][4]);
-                oSubLocation.IsOrderLocation = Convert.ToBoolean(dtSubLocation.Rows[0][5]);
+                oSubLocation.LocationCode = dtSubLocation.Rows[0][0].ToString();
+                oSubLocation.SubLocationCode = dtSubLocation.Rows[0][1].ToString();
+                oSubLocation.SubLocationName = dtSubLocation.Rows[0][2].ToString();
+                oSubLocation.ShowInFrontEnd = Convert.ToBoolean(dtSubLocation.Rows[0][3]);
+                oSubLocation.IsOrderLocation = Convert.ToBoolean(dtSubLocation.Rows[0][4]);
 
                 oSubLocation.IsExists = true;
             }
@@ -65,5 +65,13 @@ namespace BusinessLogic
         }
         #endregion
 
+
+        #region Delete Location details By Category Code
+        public int DeleteLocationData(string SearchValue)
+        {
+            string strWhereString = "fldSubLocationCode='" + SearchValue + "'";
+            return cDBConnection.DeleteData("tbl_SubLocation", strWhereString);
+        }
+        # endregion
     }
 }
