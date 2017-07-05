@@ -74,9 +74,13 @@ namespace DataAccess
         #region Connection State
         private void Connection()
         {
+
+            //Data Source=WOXZONE-THAMEES;Initial Catalog=RMS;Persist Security Info=True;User ID=SQLRemote
             strConnectionString = "Data Source=" + strServerName;
             strConnectionString += ";Initial Catalog=" + strDatabaseName;
-            strConnectionString += ";Integrated Security=" + strSecurity;
+            strConnectionString += ";Persist Security Info=" + strSecurity;
+            strConnectionString += ";User ID=" + strUsername;
+            strConnectionString += ";Password=" + strPassword;
             strConnectionString += ";";
 
             try
