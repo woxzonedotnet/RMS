@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmDepartmentDetails));
             this.txtDepartmentName = new System.Windows.Forms.TextBox();
             this.txtDepartmentCode = new System.Windows.Forms.TextBox();
             this.lblDepartmentName = new System.Windows.Forms.Label();
@@ -38,6 +39,9 @@
             this.btnEdit = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.errDepartment = new System.Windows.Forms.ErrorProvider(this.components);
+            this.btnSearch = new System.Windows.Forms.Button();
+            this.columnComboBox1 = new RMS.ColumnComboBox();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.errDepartment)).BeginInit();
             this.SuspendLayout();
             // 
@@ -79,7 +83,8 @@
             // 
             // btnClose
             // 
-            this.btnClose.Location = new System.Drawing.Point(257, 96);
+            this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
+            this.btnClose.Location = new System.Drawing.Point(272, 125);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(75, 36);
             this.btnClose.TabIndex = 37;
@@ -89,7 +94,8 @@
             // 
             // btnClear
             // 
-            this.btnClear.Location = new System.Drawing.Point(176, 96);
+            this.btnClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
+            this.btnClear.Location = new System.Drawing.Point(191, 125);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(75, 36);
             this.btnClear.TabIndex = 36;
@@ -98,16 +104,18 @@
             // 
             // btnEdit
             // 
-            this.btnEdit.Location = new System.Drawing.Point(95, 96);
+            this.btnEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
+            this.btnEdit.Location = new System.Drawing.Point(110, 125);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(75, 36);
             this.btnEdit.TabIndex = 35;
-            this.btnEdit.Text = "Edit";
+            this.btnEdit.Text = "Update";
             this.btnEdit.UseVisualStyleBackColor = true;
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(14, 96);
+            this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
+            this.btnSave.Location = new System.Drawing.Point(29, 125);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 36);
             this.btnSave.TabIndex = 34;
@@ -119,11 +127,45 @@
             // 
             this.errDepartment.ContainerControl = this;
             // 
+            // btnSearch
+            // 
+            this.btnSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSearch.Image = global::RMS.Properties.Resources._1498666014_basics_19;
+            this.btnSearch.Location = new System.Drawing.Point(329, 11);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(35, 31);
+            this.btnSearch.TabIndex = 38;
+            this.btnSearch.UseVisualStyleBackColor = true;
+            // 
+            // columnComboBox1
+            // 
+            this.columnComboBox1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.columnComboBox1.DropDownWidth = 17;
+            this.columnComboBox1.FormattingEnabled = true;
+            this.columnComboBox1.Location = new System.Drawing.Point(136, 88);
+            this.columnComboBox1.Name = "columnComboBox1";
+            this.columnComboBox1.Size = new System.Drawing.Size(120, 21);
+            this.columnComboBox1.TabIndex = 39;
+            this.columnComboBox1.ViewColumn = 0;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(12, 89);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(85, 16);
+            this.label1.TabIndex = 40;
+            this.label1.Text = "Active Status";
+            // 
             // frmDepartmentDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(345, 142);
+            this.ClientSize = new System.Drawing.Size(379, 174);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.columnComboBox1);
+            this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.btnClear);
             this.Controls.Add(this.btnEdit);
@@ -152,5 +194,8 @@
         private System.Windows.Forms.Button btnEdit;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.ErrorProvider errDepartment;
+        private System.Windows.Forms.Button btnSearch;
+        private System.Windows.Forms.Label label1;
+        private ColumnComboBox columnComboBox1;
     }
 }
