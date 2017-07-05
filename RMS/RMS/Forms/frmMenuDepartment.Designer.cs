@@ -30,8 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMenuDepartment));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.txtSupplierCode = new System.Windows.Forms.TextBox();
             this.lblSupplierCode = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -60,18 +60,6 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Select Category";
             // 
-            // radioButton1
-            // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
-            this.radioButton1.Location = new System.Drawing.Point(28, 28);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(132, 20);
-            this.radioButton1.TabIndex = 0;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Menu Department";
-            this.radioButton1.UseVisualStyleBackColor = true;
-            // 
             // radioButton2
             // 
             this.radioButton2.AutoSize = true;
@@ -83,6 +71,18 @@
             this.radioButton2.TabStop = true;
             this.radioButton2.Text = "Charge";
             this.radioButton2.UseVisualStyleBackColor = true;
+            // 
+            // radioButton1
+            // 
+            this.radioButton1.AutoSize = true;
+            this.radioButton1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
+            this.radioButton1.Location = new System.Drawing.Point(28, 28);
+            this.radioButton1.Name = "radioButton1";
+            this.radioButton1.Size = new System.Drawing.Size(132, 20);
+            this.radioButton1.TabIndex = 0;
+            this.radioButton1.TabStop = true;
+            this.radioButton1.Text = "Menu Department";
+            this.radioButton1.UseVisualStyleBackColor = true;
             // 
             // txtSupplierCode
             // 
@@ -230,6 +230,7 @@
             this.Controls.Add(this.lblSupplierCode);
             this.Controls.Add(this.groupBox1);
             this.Name = "frmMenuDepartment";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Menu Department";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

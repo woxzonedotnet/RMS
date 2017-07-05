@@ -365,6 +365,7 @@
             this.Controls.Add(this.lblName);
             this.Controls.Add(this.lblCustomerID);
             this.Name = "frmCustomerDetails";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Customer Details";
             this.ResumeLayout(false);
             this.PerformLayout();

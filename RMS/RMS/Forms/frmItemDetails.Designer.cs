@@ -649,7 +649,7 @@
             this.lblItemCode.TabIndex = 49;
             this.lblItemCode.Text = "Item Code";
             // 
-            // Form2
+            // frmItemDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -698,7 +698,8 @@
             this.Controls.Add(this.lblDescription);
             this.Controls.Add(this.lblBarCode);
             this.Controls.Add(this.lblItemCode);
-            this.Name = "Form2";
+            this.Name = "frmItemDetails";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Item Details";
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();

@@ -203,6 +203,7 @@
             this.recipeDetailsToolStripMenuItem.Name = "recipeDetailsToolStripMenuItem";
             this.recipeDetailsToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
             this.recipeDetailsToolStripMenuItem.Text = "Recipe Details";
+            this.recipeDetailsToolStripMenuItem.Click += new System.EventHandler(this.recipeDetailsToolStripMenuItem_Click);
             // 
             // menuDetailsToolStripMenuItem
             // 
@@ -223,6 +224,7 @@
             this.tableDetailsToolStripMenuItem.Name = "tableDetailsToolStripMenuItem";
             this.tableDetailsToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
             this.tableDetailsToolStripMenuItem.Text = "Table Details";
+            this.tableDetailsToolStripMenuItem.Click += new System.EventHandler(this.tableDetailsToolStripMenuItem_Click);
             // 
             // bankCardsToolStripMenuItem
             // 
@@ -236,6 +238,7 @@
             this.setupSettingsToolStripMenuItem.Name = "setupSettingsToolStripMenuItem";
             this.setupSettingsToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
             this.setupSettingsToolStripMenuItem.Text = "Setup Settings";
+            this.setupSettingsToolStripMenuItem.Click += new System.EventHandler(this.setupSettingsToolStripMenuItem_Click);
             // 
             // transactionToolStripMenuItem
             // 
@@ -243,7 +246,7 @@
             this.aaToolStripMenuItem});
             this.transactionToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(146)))), ((int)(((byte)(150)))), ((int)(((byte)(153)))));
             this.transactionToolStripMenuItem.Name = "transactionToolStripMenuItem";
-            this.transactionToolStripMenuItem.Size = new System.Drawing.Size(80, 31);
+            this.transactionToolStripMenuItem.Size = new System.Drawing.Size(81, 31);
             this.transactionToolStripMenuItem.Text = "Transaction";
             // 
             // aaToolStripMenuItem

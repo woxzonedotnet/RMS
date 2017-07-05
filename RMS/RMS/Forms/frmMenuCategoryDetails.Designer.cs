@@ -207,6 +207,7 @@
             this.Controls.Add(this.lblDepartment);
             this.Controls.Add(this.lblMenu);
             this.Name = "frmMenuCategoryDetails";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Menu Category Details";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);

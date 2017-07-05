@@ -206,6 +206,7 @@
             this.Controls.Add(this.lblCardName);
             this.Controls.Add(this.lblCardCode);
             this.Name = "frmBankCards";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Bank Cards";
             this.ResumeLayout(false);
             this.PerformLayout();
