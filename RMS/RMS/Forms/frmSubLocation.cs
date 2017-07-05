@@ -19,6 +19,7 @@ namespace RMS.Forms
         objSubLocation oSubLocation = new objSubLocation();
         clsGlobleVariable cGlobleVariable = new clsGlobleVariable();
         clsCommonMethods cCommonMethods = new clsCommonMethods();
+        clsStatusMaster cStatusMaster = new clsStatusMaster();
         #endregion
 
         #region Variables
@@ -82,6 +83,16 @@ namespace RMS.Forms
                 errSubLocation.SetError(txtSubLocationName, "");
 
             }
+
+            if (cmbStatus.SelectedIndex == -1)
+            {
+                errSubLocation.SetError(cmbStatus, "Please Select Status");
+                isValidate = false;
+            }
+            else
+            {
+                errSubLocation.SetError(cmbStatus, "");
+            }
             return isValidate;
         }
         #endregion
@@ -94,6 +105,7 @@ namespace RMS.Forms
             oSubLocation.SubLocationName = txtSubLocationName.Text.ToString();
             oSubLocation.ShowInFrontEnd = chkShowInFrontEnd.Checked;
             oSubLocation.IsOrderLocation = chkIsOrderLocation.Checked;
+            oSubLocation.Status = Convert.ToInt16(cmbStatus["fldStatusCode"]);
 
             return cSubLocation.InsertUpdateData(oSubLocation);
         }
@@ -160,6 +172,9 @@ namespace RMS.Forms
             {
                 chkShowInFrontEnd.Checked = false;
             }
+
+            cmbStatus.SetText(cStatusMaster.GetStatusByCode(oSubLocation.Status));
+
             this.txtSubLocationName.Select();
             this.txtSubLocationCode.Enabled = false;
             this.btnSave.Enabled = false;
@@ -175,20 +190,20 @@ namespace RMS.Forms
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Do you want to delete this record...?", "Sub Location Details", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-            {
-                result = cSubLocation.DeleteLocationData(this.txtSubLocationCode.Text);
-                if (result != -1)
-                {
-                    MessageBox.Show("Record Deleted...!", "Sub Location Details", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    this.txtSubLocationCode.Select();
-                    clear();
-                }
-                else
-                {
-                    MessageBox.Show("Record Not Deleted...!", "Sub Location Details", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
+            //if (MessageBox.Show("Do you want to delete this record...?", "Sub Location Details", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            //{
+            //    result = cSubLocation.DeleteLocationData(this.txtSubLocationCode.Text);
+            //    if (result != -1)
+            //    {
+            //        MessageBox.Show("Record Deleted...!", "Sub Location Details", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //        this.txtSubLocationCode.Select();
+            //        clear();
+            //    }
+            //    else
+            //    {
+            //        MessageBox.Show("Record Not Deleted...!", "Sub Location Details", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //    }
+            //}
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
@@ -215,6 +230,7 @@ namespace RMS.Forms
 
         private void frmSubLocation_Load(object sender, EventArgs e)
         {
+            cCommonMethods.loadComboRMS(cStatusMaster.GetStatusDetails(), cmbStatus, 1);
             clear();
         }
     }

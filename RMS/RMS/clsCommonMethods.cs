@@ -3,6 +3,7 @@ using DataAccess;
 using RMS.Forms;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -69,6 +70,18 @@ namespace RMS
                     ClearForm(ctrControl);
                 }
             }
+        }
+
+        public void loadComboRMS(DataTable dtFillData, RMS.ColumnComboBox objFillComb, int ViewColumn)
+        {
+            objFillComb.Data = dtFillData;
+            objFillComb.ViewColumn = ViewColumn;
+
+            for (int i = 0; i < dtFillData.Columns.Count; i++)
+            {
+                objFillComb.Columns[i].Display = false;
+            }
+            objFillComb.Columns[ViewColumn].Display = true;
         }
     }
 }

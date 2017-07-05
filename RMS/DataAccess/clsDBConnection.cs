@@ -24,15 +24,12 @@ namespace DataAccess
         private string strSecurity;
         public string m_strFileName;
         int rows=-1;
-        string db_loc;
         #endregion
 
 
         #region Server Connection
         public clsDBConnection() 
         {
-            db_loc = @"Data Source=THARINDU\SQLEXPRESS;Initial Catalog=RMS;Integrated Security=True";
-
             m_strFileName = System.AppDomain.CurrentDomain.BaseDirectory + "serverConfig.xml";
             XmlTextReader bankReader = null;
 
@@ -74,8 +71,6 @@ namespace DataAccess
         #region Connection State
         private void Connection()
         {
-
-            //Data Source=WOXZONE-THAMEES;Initial Catalog=RMS;Persist Security Info=True;User ID=SQLRemote
             strConnectionString = "Data Source=" + strServerName;
             strConnectionString += ";Initial Catalog=" + strDatabaseName;
             strConnectionString += ";Persist Security Info=" + strSecurity;
@@ -166,25 +161,64 @@ namespace DataAccess
         }
         #endregion
 
+        #region SearchData_SP Table Name
+        public DataTable SearchData(string strTableName)
+        {
+            try
+            {
+                SqlCommand command = new SqlCommand("sp_SelectTable");
+                Connection();
+                command.Connection = dbConn;
+                command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.AddWithValue("@TableName", strTableName);
+
+                SqlDataAdapter dataadapter = new SqlDataAdapter(command);
+                DataTable datatable = new DataTable();
+                dataadapter.Fill(datatable);
+                return datatable;
+            }
+            catch (Exception ex)
+            {
+                System.Windows.Forms.MessageBox.Show(ex.Message);
+                return null;
+            }
+            finally
+            {
+                dbConn.Close();
+            }
+
+        }
+        #endregion
 
         #region Execute
         public DataTable Execute(string SpName, System.Object[,] arrParameter)
         {
-            SqlCommand command = new SqlCommand(SpName);
-            Connection();
-            command.Connection = dbConn;
-            command.CommandType = CommandType.StoredProcedure;
-
-            for (int i = 0; i <= arrParameter.GetLength(0) - 1; i++)
+            try
             {
-                command.Parameters.AddWithValue(arrParameter[i, 0].ToString(), arrParameter[i, 1]);
-            }
+                SqlCommand command = new SqlCommand(SpName);
+                Connection();
+                command.Connection = dbConn;
+                command.CommandType = CommandType.StoredProcedure;
 
-            SqlDataAdapter dataadapter = new SqlDataAdapter(command);
-            DataTable datatable = new DataTable();
-            dataadapter.Fill(datatable);
-            dbConn.Close();
-            return datatable;
+                for (int i = 0; i <= arrParameter.GetLength(0) - 1; i++)
+                {
+                    command.Parameters.AddWithValue(arrParameter[i, 0].ToString(), arrParameter[i, 1]);
+                }
+
+                SqlDataAdapter dataadapter = new SqlDataAdapter(command);
+                DataTable datatable = new DataTable();
+                dataadapter.Fill(datatable);
+                return datatable;
+            }
+            catch (Exception ex)
+            {
+                System.Windows.Forms.MessageBox.Show(ex.Message);
+                return null;
+            }
+            finally
+            {
+                dbConn.Close();
+            }
         }
         #endregion
 

@@ -23,7 +23,7 @@ namespace BusinessLogic
 
         public int InsertUpdateData(objSubLocation oSubLocation)
         {
-            System.Object[,] arrParameter = new Object[5, 2];
+            System.Object[,] arrParameter = new Object[6, 2];
 
             arrParameter[0, 0] = "@mfldLocationCode";
             arrParameter[0, 1] = oSubLocation.LocationCode;
@@ -35,6 +35,8 @@ namespace BusinessLogic
             arrParameter[3, 1] = oSubLocation.ShowInFrontEnd;
             arrParameter[4, 0] = "@mfldIsOrderLocation";
             arrParameter[4, 1] = oSubLocation.IsOrderLocation;
+            arrParameter[5, 0] = "@mfldStatus";
+            arrParameter[5, 1] = oSubLocation.Status;
 
             return cDBConnection.Insert("sp_insert_update_sublocation", arrParameter);
         }
@@ -53,6 +55,7 @@ namespace BusinessLogic
                 oSubLocation.SubLocationName = dtSubLocation.Rows[0][2].ToString();
                 oSubLocation.ShowInFrontEnd = Convert.ToBoolean(dtSubLocation.Rows[0][3]);
                 oSubLocation.IsOrderLocation = Convert.ToBoolean(dtSubLocation.Rows[0][4]);
+                oSubLocation.Status=Convert.ToInt16(dtSubLocation.Rows[0][5]);
 
                 oSubLocation.IsExists = true;
             }
