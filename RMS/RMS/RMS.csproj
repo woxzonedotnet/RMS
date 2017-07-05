@@ -60,10 +60,6 @@
     <Compile Include="Forms\frmBankCards.Designer.cs">
       <DependentUpon>frmBankCards.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\frmBrowsData.cs" />
-    <Compile Include="Forms\frmBrowsData.Designer.cs">
-      <DependentUpon>frmBrowsData.cs</DependentUpon>
-    </Compile>
     <Compile Include="Forms\frmCategoryMasterDetails.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -183,9 +179,6 @@
     <Compile Include="StringList.cs" />
     <EmbeddedResource Include="Forms\frmBankCards.resx">
       <DependentUpon>frmBankCards.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\frmBrowsData.resx">
-      <DependentUpon>frmBrowsData.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmCategoryMasterDetails.resx">
       <DependentUpon>frmCategoryMasterDetails.cs</DependentUpon>
