@@ -19,6 +19,8 @@ namespace DataAccess
         string strConnectionString;
         private string strServerName;
         private string strDatabaseName;
+        private string strUsername;
+        private string strPassword;
         private string strSecurity;
         public string m_strFileName;
         int rows=-1;
@@ -48,6 +50,16 @@ namespace DataAccess
                     if (bankReader.LocalName.Equals("DatabaseName"))
                     {
                         strDatabaseName = bankReader.ReadString();
+                    }
+
+                    if (bankReader.LocalName.Equals("username"))
+                    {
+                        strUsername = bankReader.ReadString();
+                    }
+
+                    if (bankReader.LocalName.Equals("password"))
+                    {
+                        strPassword = bankReader.ReadString();
                     }
 
                     if (bankReader.LocalName.Equals("security"))
