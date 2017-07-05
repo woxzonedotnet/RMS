@@ -149,5 +149,53 @@ namespace DataAccess
             } 
         }
         #endregion
+
+
+        #region Execute
+        public DataTable Execute(string SpName, System.Object[,] arrParameter)
+        {
+            SqlCommand command = new SqlCommand(SpName);
+            Connection();
+            command.Connection = dbConn;
+            command.CommandType = CommandType.StoredProcedure;
+
+            for (int i = 0; i <= arrParameter.GetLength(0) - 1; i++)
+            {
+                command.Parameters.AddWithValue(arrParameter[i, 0].ToString(), arrParameter[i, 1]);
+            }
+
+            SqlDataAdapter dataadapter = new SqlDataAdapter(command);
+            DataTable datatable = new DataTable();
+            dataadapter.Fill(datatable);
+            dbConn.Close();
+            return datatable;
+        }
+        #endregion
+
+        #region DeleteData_SP
+        public int DeleteData(string strTableName, string strWhereClause)
+        {
+            try
+            {
+                SqlCommand command = new SqlCommand("sp_DeleteData");
+                command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.AddWithValue("@varTableName", strTableName);
+                command.Parameters.AddWithValue("@varSearchString", strWhereClause);
+                Connection();
+                command.Connection = dbConn;
+                rows = command.ExecuteNonQuery();
+                return rows;
+            }
+            catch (Exception ex)
+            {
+                System.Windows.Forms.MessageBox.Show(ex.Message);
+                return -1;
+            }
+            finally 
+            {
+                dbConn.Close();
+            }
+        }
+        #endregion
     }
 }

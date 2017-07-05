@@ -18,8 +18,8 @@ namespace RMS.Forms
         clsSubLocation cSubLocation = new clsSubLocation();
         objSubLocation oSubLocation = new objSubLocation();
         clsGlobleVariable cGlobleVariable = new clsGlobleVariable();
+        clsCommonMethods cCommonMethods = new clsCommonMethods();
         #endregion
-
 
         #region Variables
         int result;
@@ -42,6 +42,7 @@ namespace RMS.Forms
                     if (result != -1)
                     {
                         MessageBox.Show("Successfully Saved...!", "Sub Location", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        clear();
                     }
                     else
                     {
@@ -101,16 +102,6 @@ namespace RMS.Forms
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Dispose();
-        }
-
-        private void btnEdit_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnClear_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }
