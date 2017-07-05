@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.txtDepartmentName = new System.Windows.Forms.TextBox();
             this.txtDepartmentCode = new System.Windows.Forms.TextBox();
             this.lblDepartmentName = new System.Windows.Forms.Label();
@@ -36,6 +37,8 @@
             this.btnClear = new System.Windows.Forms.Button();
             this.btnEdit = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
+            this.errDepartment = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.errDepartment)).BeginInit();
             this.SuspendLayout();
             // 
             // txtDepartmentName
@@ -82,6 +85,7 @@
             this.btnClose.TabIndex = 37;
             this.btnClose.Text = "Close";
             this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // btnClear
             // 
@@ -109,6 +113,11 @@
             this.btnSave.TabIndex = 34;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            // 
+            // errDepartment
+            // 
+            this.errDepartment.ContainerControl = this;
             // 
             // frmDepartmentDetails
             // 
@@ -126,6 +135,7 @@
             this.Name = "frmDepartmentDetails";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Department Details";
+            ((System.ComponentModel.ISupportInitialize)(this.errDepartment)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -141,5 +151,6 @@
         private System.Windows.Forms.Button btnClear;
         private System.Windows.Forms.Button btnEdit;
         private System.Windows.Forms.Button btnSave;
+        private System.Windows.Forms.ErrorProvider errDepartment;
     }
 }

@@ -102,5 +102,15 @@ namespace RMS.Forms
         {
             this.Dispose();
         }
+
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
