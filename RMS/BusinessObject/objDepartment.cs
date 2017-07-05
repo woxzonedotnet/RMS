@@ -11,6 +11,7 @@ namespace BusinessObject
         public string LocationCode { get; set; }
         public string DepartmentCode { get; set; }
         public string DepartmentName { get; set; }
+        public int Status { get; set; }
         public bool IsExists { get; set; }
     }
 }
