@@ -124,6 +124,7 @@
             this.Controls.Add(this.lblDepartmentName);
             this.Controls.Add(this.lblDepartmentCode);
             this.Name = "frmDepartmentDetails";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Department Details";
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -192,7 +192,7 @@
             this.btnSearch.TabIndex = 28;
             this.btnSearch.UseVisualStyleBackColor = true;
             // 
-            // Form3
+            // frmRecipeDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -212,7 +212,8 @@
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.txtRecipeCode);
             this.Controls.Add(this.lblRecipeCode);
-            this.Name = "Form3";
+            this.Name = "frmRecipeDetails";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Recipe Details";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);

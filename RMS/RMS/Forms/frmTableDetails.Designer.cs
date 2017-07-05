@@ -179,6 +179,7 @@
             this.Controls.Add(this.txtTableNo);
             this.Controls.Add(this.lblTableNo);
             this.Name = "frmTableDetails";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Table Details";
             this.ResumeLayout(false);
             this.PerformLayout();

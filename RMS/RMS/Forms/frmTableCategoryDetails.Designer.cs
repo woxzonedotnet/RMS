@@ -128,6 +128,7 @@
             this.Controls.Add(this.lblDescription);
             this.Controls.Add(this.lblTableCategoryCode);
             this.Name = "frmTableCategoryDetails";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Table Category Details";
             this.ResumeLayout(false);
             this.PerformLayout();

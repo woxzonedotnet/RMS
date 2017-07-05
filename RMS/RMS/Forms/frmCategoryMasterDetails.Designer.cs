@@ -177,6 +177,7 @@
             this.Controls.Add(this.txtCategoryCode);
             this.Controls.Add(this.lblDepartmentName);
             this.Name = "frmCategoryMasterDetails";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Category Master Details";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);

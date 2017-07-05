@@ -188,6 +188,7 @@
             this.Controls.Add(this.txtServiceCharge);
             this.Controls.Add(this.lblServiceCharge);
             this.Name = "frmSetupSetting";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Setup Setting";
             this.ResumeLayout(false);
             this.PerformLayout();
