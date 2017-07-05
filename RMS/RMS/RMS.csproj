@@ -46,7 +46,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="clsCommonMethods.cs" />
-    <Compile Include="clsDBConection.cs" />
     <Compile Include="clsGlobleVariable.cs" />
     <Compile Include="ColumnComboBox.cs">
       <SubType>Component</SubType>

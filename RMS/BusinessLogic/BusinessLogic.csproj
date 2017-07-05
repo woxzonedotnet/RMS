@@ -41,6 +41,7 @@
   <ItemGroup>
     <Compile Include="clsBrowsData.cs" />
     <Compile Include="clsDepartment.cs" />
+    <Compile Include="clsStatusMaster.cs" />
     <Compile Include="clsSubLocation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
