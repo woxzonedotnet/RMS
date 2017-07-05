@@ -36,27 +36,27 @@
             this.lblDepartmentCode = new System.Windows.Forms.Label();
             this.btnClose = new System.Windows.Forms.Button();
             this.btnClear = new System.Windows.Forms.Button();
-            this.btnEdit = new System.Windows.Forms.Button();
+            this.btnUpdate = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.errDepartment = new System.Windows.Forms.ErrorProvider(this.components);
             this.btnSearch = new System.Windows.Forms.Button();
-            this.columnComboBox1 = new RMS.ColumnComboBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.cmbStatus = new RMS.ColumnComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.errDepartment)).BeginInit();
             this.SuspendLayout();
             // 
             // txtDepartmentName
             // 
             this.txtDepartmentName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDepartmentName.Location = new System.Drawing.Point(136, 52);
+            this.txtDepartmentName.Location = new System.Drawing.Point(137, 52);
             this.txtDepartmentName.Name = "txtDepartmentName";
-            this.txtDepartmentName.Size = new System.Drawing.Size(185, 21);
+            this.txtDepartmentName.Size = new System.Drawing.Size(228, 21);
             this.txtDepartmentName.TabIndex = 8;
             // 
             // txtDepartmentCode
             // 
             this.txtDepartmentCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDepartmentCode.Location = new System.Drawing.Point(136, 16);
+            this.txtDepartmentCode.Location = new System.Drawing.Point(137, 16);
             this.txtDepartmentCode.Name = "txtDepartmentCode";
             this.txtDepartmentCode.Size = new System.Drawing.Size(185, 21);
             this.txtDepartmentCode.TabIndex = 7;
@@ -65,7 +65,7 @@
             // 
             this.lblDepartmentName.AutoSize = true;
             this.lblDepartmentName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDepartmentName.Location = new System.Drawing.Point(12, 55);
+            this.lblDepartmentName.Location = new System.Drawing.Point(13, 55);
             this.lblDepartmentName.Name = "lblDepartmentName";
             this.lblDepartmentName.Size = new System.Drawing.Size(118, 16);
             this.lblDepartmentName.TabIndex = 6;
@@ -75,7 +75,7 @@
             // 
             this.lblDepartmentCode.AutoSize = true;
             this.lblDepartmentCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDepartmentCode.Location = new System.Drawing.Point(12, 19);
+            this.lblDepartmentCode.Location = new System.Drawing.Point(13, 19);
             this.lblDepartmentCode.Name = "lblDepartmentCode";
             this.lblDepartmentCode.Size = new System.Drawing.Size(114, 16);
             this.lblDepartmentCode.TabIndex = 5;
@@ -84,7 +84,7 @@
             // btnClose
             // 
             this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
-            this.btnClose.Location = new System.Drawing.Point(272, 125);
+            this.btnClose.Location = new System.Drawing.Point(273, 125);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(75, 36);
             this.btnClose.TabIndex = 37;
@@ -95,27 +95,29 @@
             // btnClear
             // 
             this.btnClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
-            this.btnClear.Location = new System.Drawing.Point(191, 125);
+            this.btnClear.Location = new System.Drawing.Point(192, 125);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(75, 36);
             this.btnClear.TabIndex = 36;
             this.btnClear.Text = "Clear";
             this.btnClear.UseVisualStyleBackColor = true;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
-            // btnEdit
+            // btnUpdate
             // 
-            this.btnEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
-            this.btnEdit.Location = new System.Drawing.Point(110, 125);
-            this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(75, 36);
-            this.btnEdit.TabIndex = 35;
-            this.btnEdit.Text = "Update";
-            this.btnEdit.UseVisualStyleBackColor = true;
+            this.btnUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
+            this.btnUpdate.Location = new System.Drawing.Point(111, 125);
+            this.btnUpdate.Name = "btnUpdate";
+            this.btnUpdate.Size = new System.Drawing.Size(75, 36);
+            this.btnUpdate.TabIndex = 35;
+            this.btnUpdate.Text = "Update";
+            this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // btnSave
             // 
             this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
-            this.btnSave.Location = new System.Drawing.Point(29, 125);
+            this.btnSave.Location = new System.Drawing.Point(30, 125);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 36);
             this.btnSave.TabIndex = 34;
@@ -131,32 +133,33 @@
             // 
             this.btnSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSearch.Image = global::RMS.Properties.Resources._1498666014_basics_19;
-            this.btnSearch.Location = new System.Drawing.Point(329, 11);
+            this.btnSearch.Location = new System.Drawing.Point(330, 11);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(35, 31);
             this.btnSearch.TabIndex = 38;
             this.btnSearch.UseVisualStyleBackColor = true;
-            // 
-            // columnComboBox1
-            // 
-            this.columnComboBox1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
-            this.columnComboBox1.DropDownWidth = 17;
-            this.columnComboBox1.FormattingEnabled = true;
-            this.columnComboBox1.Location = new System.Drawing.Point(136, 88);
-            this.columnComboBox1.Name = "columnComboBox1";
-            this.columnComboBox1.Size = new System.Drawing.Size(120, 21);
-            this.columnComboBox1.TabIndex = 39;
-            this.columnComboBox1.ViewColumn = 0;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(12, 89);
+            this.label1.Location = new System.Drawing.Point(13, 89);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(85, 16);
             this.label1.TabIndex = 40;
             this.label1.Text = "Active Status";
+            // 
+            // cmbStatus
+            // 
+            this.cmbStatus.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.cmbStatus.DropDownWidth = 17;
+            this.cmbStatus.FormattingEnabled = true;
+            this.cmbStatus.Location = new System.Drawing.Point(137, 88);
+            this.cmbStatus.Name = "cmbStatus";
+            this.cmbStatus.Size = new System.Drawing.Size(120, 21);
+            this.cmbStatus.TabIndex = 39;
+            this.cmbStatus.ViewColumn = 0;
             // 
             // frmDepartmentDetails
             // 
@@ -164,11 +167,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(379, 174);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.columnComboBox1);
+            this.Controls.Add(this.cmbStatus);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.btnClear);
-            this.Controls.Add(this.btnEdit);
+            this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.txtDepartmentName);
             this.Controls.Add(this.txtDepartmentCode);
@@ -177,6 +180,7 @@
             this.Name = "frmDepartmentDetails";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Department Details";
+            this.Load += new System.EventHandler(this.frmDepartmentDetails_Load);
             ((System.ComponentModel.ISupportInitialize)(this.errDepartment)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -191,11 +195,11 @@
         private System.Windows.Forms.Label lblDepartmentCode;
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Button btnClear;
-        private System.Windows.Forms.Button btnEdit;
+        private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.ErrorProvider errDepartment;
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.Label label1;
-        private ColumnComboBox columnComboBox1;
+        private ColumnComboBox cmbStatus;
     }
 }
