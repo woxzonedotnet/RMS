@@ -491,5 +491,92 @@ namespace RMS.Forms
                 MessageBox.Show(ex.Message);
             }
         }
+
+        private void setupSettingsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                frmSetupSetting open = Application.OpenForms["frmSetupSetting"] as frmSetupSetting;
+                if (open == null)
+                {
+                    frmSetupSetting childSetupSetting = new frmSetupSetting();
+                    childSetupSetting.MdiParent = this;
+                    childSetupSetting.Show();
+                }
+                else
+                {
+                    if (open.WindowState == FormWindowState.Minimized)
+                    {
+                        open.WindowState = FormWindowState.Normal;
+                    }
+                    else
+                    {
+                        open.Activate();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void recipeDetailsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                frmRecipeDetails open = Application.OpenForms["frmRecipeDetails"] as frmRecipeDetails;
+                if (open == null)
+                {
+                    frmRecipeDetails childRecipeDetails = new frmRecipeDetails();
+                    childRecipeDetails.MdiParent = this;
+                    childRecipeDetails.Show();
+                }
+                else
+                {
+                    if (open.WindowState == FormWindowState.Minimized)
+                    {
+                        open.WindowState = FormWindowState.Normal;
+                    }
+                    else
+                    {
+                        open.Activate();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void tableDetailsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                frmTableDetails open = Application.OpenForms["frmTableDetails"] as frmTableDetails;
+                if (open == null)
+                {
+                    frmTableDetails childTableDetails = new frmTableDetails();
+                    childTableDetails.MdiParent = this;
+                    childTableDetails.Show();
+                }
+                else
+                {
+                    if (open.WindowState == FormWindowState.Minimized)
+                    {
+                        open.WindowState = FormWindowState.Normal;
+                    }
+                    else
+                    {
+                        open.Activate();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
     }
 }
