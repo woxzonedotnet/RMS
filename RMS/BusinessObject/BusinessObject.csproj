@@ -40,6 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="clsTableCategory.cs" />
     <Compile Include="objBankDetails.cs" />
     <Compile Include="objCategoryMaster.cs" />
     <Compile Include="objDepartment.cs" />
