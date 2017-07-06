@@ -97,7 +97,7 @@ namespace RMS.Forms
 
         private void frmMain_Load(object sender, EventArgs e)
         {
-
+            this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
             foreach (Control ctl in this.Controls)
             {
                 try
