@@ -43,6 +43,7 @@
     <Compile Include="clsCategoryMaster.cs" />
     <Compile Include="clsDepartment.cs" />
     <Compile Include="clsStatusMaster.cs" />
+    <Compile Include="clsSteward.cs" />
     <Compile Include="clsSubLocation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
