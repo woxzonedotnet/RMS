@@ -39,6 +39,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="clsBankDetails.cs" />
     <Compile Include="clsBrowsData.cs" />
     <Compile Include="clsCategoryMaster.cs" />
     <Compile Include="clsDepartment.cs" />
