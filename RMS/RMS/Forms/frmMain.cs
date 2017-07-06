@@ -578,5 +578,34 @@ namespace RMS.Forms
                 MessageBox.Show(ex.Message);
             }
         }
+
+        private void bankToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                frmBankDetails open = Application.OpenForms["frmBankDetails"] as frmBankDetails;
+                if (open == null)
+                {
+                    frmBankDetails childBankDetails = new frmBankDetails();
+                    childBankDetails.MdiParent = this;
+                    childBankDetails.Show();
+                }
+                else
+                {
+                    if (open.WindowState == FormWindowState.Minimized)
+                    {
+                        open.WindowState = FormWindowState.Normal;
+                    }
+                    else
+                    {
+                        open.Activate();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
     }
 }

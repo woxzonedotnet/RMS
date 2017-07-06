@@ -60,6 +60,7 @@
             this.button1 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.button3 = new System.Windows.Forms.Button();
+            this.bankToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStripMain.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -114,6 +115,7 @@
             this.menuDetailsToolStripMenuItem,
             this.tableCategoryDetailsToolStripMenuItem,
             this.tableDetailsToolStripMenuItem,
+            this.bankToolStripMenuItem,
             this.bankCardsToolStripMenuItem,
             this.setupSettingsToolStripMenuItem});
             this.masterDataToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(146)))), ((int)(((byte)(150)))), ((int)(((byte)(153)))));
@@ -344,6 +346,13 @@
             this.button3.Text = "_";
             this.button3.UseVisualStyleBackColor = false;
             // 
+            // bankToolStripMenuItem
+            // 
+            this.bankToolStripMenuItem.Name = "bankToolStripMenuItem";
+            this.bankToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
+            this.bankToolStripMenuItem.Text = "Bank Details";
+            this.bankToolStripMenuItem.Click += new System.EventHandler(this.bankToolStripMenuItem_Click);
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -399,5 +408,6 @@
         private System.Windows.Forms.ToolStripMenuItem ssToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ddToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ffToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem bankToolStripMenuItem;
     }
 }
