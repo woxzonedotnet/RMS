@@ -47,6 +47,7 @@
             this.menuDetailsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tableCategoryDetailsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tableDetailsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.bankToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bankCardsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.setupSettingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.transactionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -60,7 +61,6 @@
             this.button1 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.button3 = new System.Windows.Forms.Button();
-            this.bankToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStripMain.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -228,6 +228,13 @@
             this.tableDetailsToolStripMenuItem.Text = "Table Details";
             this.tableDetailsToolStripMenuItem.Click += new System.EventHandler(this.tableDetailsToolStripMenuItem_Click);
             // 
+            // bankToolStripMenuItem
+            // 
+            this.bankToolStripMenuItem.Name = "bankToolStripMenuItem";
+            this.bankToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
+            this.bankToolStripMenuItem.Text = "Bank Details";
+            this.bankToolStripMenuItem.Click += new System.EventHandler(this.bankToolStripMenuItem_Click);
+            // 
             // bankCardsToolStripMenuItem
             // 
             this.bankCardsToolStripMenuItem.Name = "bankCardsToolStripMenuItem";
@@ -248,7 +255,7 @@
             this.aaToolStripMenuItem});
             this.transactionToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(146)))), ((int)(((byte)(150)))), ((int)(((byte)(153)))));
             this.transactionToolStripMenuItem.Name = "transactionToolStripMenuItem";
-            this.transactionToolStripMenuItem.Size = new System.Drawing.Size(80, 31);
+            this.transactionToolStripMenuItem.Size = new System.Drawing.Size(81, 31);
             this.transactionToolStripMenuItem.Text = "Transaction";
             // 
             // aaToolStripMenuItem
@@ -345,14 +352,6 @@
             this.button3.TabIndex = 4;
             this.button3.Text = "_";
             this.button3.UseVisualStyleBackColor = false;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
-            // bankToolStripMenuItem
-            // 
-            this.bankToolStripMenuItem.Name = "bankToolStripMenuItem";
-            this.bankToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
-            this.bankToolStripMenuItem.Text = "Bank Details";
-            this.bankToolStripMenuItem.Click += new System.EventHandler(this.bankToolStripMenuItem_Click);
             // 
             // frmMain
             // 
