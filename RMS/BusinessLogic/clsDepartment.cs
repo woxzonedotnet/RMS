@@ -67,10 +67,8 @@ namespace BusinessLogic
         #region GetDepartment Data
         public DataTable GetDepartmentData(string strLocationCode)
         {
-            string strWhere = "fldLocationCode='" + strLocationCode + "'";
-
+            string strWhere = "fldLocationCode='" + strLocationCode + "' and fldStatus=1";
             DataTable dtDepartment = cDBConnection.SearchData("tbl_DepartmentMaster", strWhere);
-
             return dtDepartment;
         }
         #endregion

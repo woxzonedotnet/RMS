@@ -41,5 +41,25 @@ namespace BusinessLogic
             return oCategoryMaster;
         }
         #endregion
+
+        #region InsertUpdateData
+        public int InsertUpdateData(objCategoryMaster oCategoryMaster)
+        {
+            System.Object[,] arrParameter = new Object[5, 2];
+
+            arrParameter[0, 0] = "@mfldLocationCode";
+            arrParameter[0, 1] = oCategoryMaster.LocationCode;
+            arrParameter[1, 0] = "@mfldDepartmentCode";
+            arrParameter[1, 1] = oCategoryMaster.DepartmentCode;
+            arrParameter[2, 0] = "@mfldCategoryCode";
+            arrParameter[2, 1] = oCategoryMaster.CategoryCode;
+            arrParameter[3, 0] = "@mfldCategoryName";
+            arrParameter[3, 1] = oCategoryMaster.CategoryName;
+            arrParameter[4, 0] = "@mfldStatus";
+            arrParameter[4, 1] = oCategoryMaster.Status;
+
+            return cDBConnection.Insert("SP_INSERT_UPDATE_CATEGORY", arrParameter);
+        }
+        #endregion
     }
 }

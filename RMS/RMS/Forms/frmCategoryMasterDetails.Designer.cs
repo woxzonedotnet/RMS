@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCategoryMasterDetails));
             this.btnUpdate = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
@@ -40,8 +41,10 @@
             this.lblDepartmentName = new System.Windows.Forms.Label();
             this.btnSearch = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
+            this.errCategory = new System.Windows.Forms.ErrorProvider(this.components);
             this.cmbStatus = new RMS.ColumnComboBox();
             this.cmbDepartmentName = new RMS.ColumnComboBox();
+            ((System.ComponentModel.ISupportInitialize)(this.errCategory)).BeginInit();
             this.SuspendLayout();
             // 
             // btnUpdate
@@ -53,6 +56,7 @@
             this.btnUpdate.TabIndex = 39;
             this.btnUpdate.Text = "Update";
             this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // btnClose
             // 
@@ -63,6 +67,7 @@
             this.btnClose.TabIndex = 38;
             this.btnClose.Text = "Close";
             this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // btnClear
             // 
@@ -73,6 +78,7 @@
             this.btnClear.TabIndex = 37;
             this.btnClear.Text = "Clear";
             this.btnClear.UseVisualStyleBackColor = true;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
             // btnSave
             // 
@@ -140,6 +146,7 @@
             this.btnSearch.Size = new System.Drawing.Size(35, 31);
             this.btnSearch.TabIndex = 40;
             this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // label3
             // 
@@ -150,6 +157,10 @@
             this.label3.Size = new System.Drawing.Size(85, 16);
             this.label3.TabIndex = 41;
             this.label3.Text = "Active Status";
+            // 
+            // errCategory
+            // 
+            this.errCategory.ContainerControl = this;
             // 
             // cmbStatus
             // 
@@ -195,6 +206,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Category Master Details";
             this.Load += new System.EventHandler(this.frmCategoryMasterDetails_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.errCategory)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -215,6 +227,7 @@
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.Label label3;
         private ColumnComboBox cmbStatus;
+        private System.Windows.Forms.ErrorProvider errCategory;
 
     }
 }
