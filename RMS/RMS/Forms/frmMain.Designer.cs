@@ -255,7 +255,7 @@
             this.aaToolStripMenuItem});
             this.transactionToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(146)))), ((int)(((byte)(150)))), ((int)(((byte)(153)))));
             this.transactionToolStripMenuItem.Name = "transactionToolStripMenuItem";
-            this.transactionToolStripMenuItem.Size = new System.Drawing.Size(81, 31);
+            this.transactionToolStripMenuItem.Size = new System.Drawing.Size(80, 31);
             this.transactionToolStripMenuItem.Text = "Transaction";
             // 
             // aaToolStripMenuItem
@@ -352,6 +352,7 @@
             this.button3.TabIndex = 4;
             this.button3.Text = "_";
             this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // frmMain
             // 
