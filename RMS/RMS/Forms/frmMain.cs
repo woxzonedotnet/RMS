@@ -102,15 +102,12 @@ namespace RMS.Forms
             {
                 try
                 {
-                    // Attempt to cast the control to type MdiClient.
                     ctlMDI = (MdiClient)ctl;
-
-                    // Set the BackColor of the MdiClient control.
                     ctlMDI.BackColor = this.BackColor;
                 }
                 catch (InvalidCastException exc)
                 {
-                    // Catch and ignore the error if casting failed.
+                    MessageBox.Show(exc.Message);
                 }
             }
         }
