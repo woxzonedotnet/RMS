@@ -24,11 +24,13 @@ namespace RMS.Forms
 
         #region Variables
         int result = -1;
+        Point lastClick;
         #endregion
 
         public frmSteward()
         {
             InitializeComponent();
+            this.lblStewardTitle.Text = this.Text;
         }
 
         private void frmSteward_Load(object sender, EventArgs e)
@@ -200,6 +202,20 @@ namespace RMS.Forms
                         MessageBox.Show("Steward Data Not Update...!", "Steward", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
+            }
+        }
+
+        private void panel1_MouseDown(object sender, MouseEventArgs e)
+        {
+            lastClick = e.Location;
+        }
+
+        private void panel1_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                this.Left += e.X - lastClick.X;
+                this.Top += e.Y - lastClick.Y;
             }
         }
     }
