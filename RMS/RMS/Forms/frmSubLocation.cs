@@ -24,11 +24,13 @@ namespace RMS.Forms
 
         #region Variables
         int result;
+        Point lastClick;
         #endregion
 
         public frmSubLocation()
         {
             InitializeComponent();
+            this.lblFormTitle.Text = this.Text;
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -232,6 +234,20 @@ namespace RMS.Forms
         {
             cCommonMethods.loadComboRMS(cStatusMaster.GetStatusDetails(), cmbStatus, 1);
             clear();
+        }
+
+        private void panel1_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                this.Left += e.X - lastClick.X;
+                this.Top += e.Y - lastClick.Y;
+            }
+        }
+
+        private void panel1_MouseDown(object sender, MouseEventArgs e)
+        {
+            lastClick = e.Location;
         }
     }
 }

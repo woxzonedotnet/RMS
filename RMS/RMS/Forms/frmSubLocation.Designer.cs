@@ -44,15 +44,22 @@
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.lblTitle = new System.Windows.Forms.Label();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.panel4 = new System.Windows.Forms.Panel();
             this.cmbStatus = new RMS.ColumnComboBox();
+            this.lblFormTitle = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.errSubLocation)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblLocationCode
             // 
             this.lblLocationCode.AutoSize = true;
             this.lblLocationCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLocationCode.Location = new System.Drawing.Point(14, 36);
+            this.lblLocationCode.Location = new System.Drawing.Point(14, 60);
             this.lblLocationCode.Name = "lblLocationCode";
             this.lblLocationCode.Size = new System.Drawing.Size(95, 16);
             this.lblLocationCode.TabIndex = 0;
@@ -62,7 +69,7 @@
             // 
             this.lblLocationName.AutoSize = true;
             this.lblLocationName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLocationName.Location = new System.Drawing.Point(14, 72);
+            this.lblLocationName.Location = new System.Drawing.Point(14, 96);
             this.lblLocationName.Name = "lblLocationName";
             this.lblLocationName.Size = new System.Drawing.Size(99, 16);
             this.lblLocationName.TabIndex = 1;
@@ -71,7 +78,7 @@
             // txtSubLocationCode
             // 
             this.txtSubLocationCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSubLocationCode.Location = new System.Drawing.Point(115, 33);
+            this.txtSubLocationCode.Location = new System.Drawing.Point(115, 57);
             this.txtSubLocationCode.Name = "txtSubLocationCode";
             this.txtSubLocationCode.Size = new System.Drawing.Size(166, 21);
             this.txtSubLocationCode.TabIndex = 2;
@@ -79,7 +86,7 @@
             // txtSubLocationName
             // 
             this.txtSubLocationName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSubLocationName.Location = new System.Drawing.Point(115, 69);
+            this.txtSubLocationName.Location = new System.Drawing.Point(115, 93);
             this.txtSubLocationName.Name = "txtSubLocationName";
             this.txtSubLocationName.Size = new System.Drawing.Size(207, 21);
             this.txtSubLocationName.TabIndex = 3;
@@ -88,7 +95,7 @@
             // 
             this.chkShowInFrontEnd.AutoSize = true;
             this.chkShowInFrontEnd.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkShowInFrontEnd.Location = new System.Drawing.Point(115, 99);
+            this.chkShowInFrontEnd.Location = new System.Drawing.Point(115, 123);
             this.chkShowInFrontEnd.Name = "chkShowInFrontEnd";
             this.chkShowInFrontEnd.Size = new System.Drawing.Size(133, 20);
             this.chkShowInFrontEnd.TabIndex = 4;
@@ -99,7 +106,7 @@
             // 
             this.chkIsOrderLocation.AutoSize = true;
             this.chkIsOrderLocation.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkIsOrderLocation.Location = new System.Drawing.Point(115, 122);
+            this.chkIsOrderLocation.Location = new System.Drawing.Point(115, 146);
             this.chkIsOrderLocation.Name = "chkIsOrderLocation";
             this.chkIsOrderLocation.Size = new System.Drawing.Size(128, 20);
             this.chkIsOrderLocation.TabIndex = 5;
@@ -109,7 +116,7 @@
             // btnSave
             // 
             this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSave.Location = new System.Drawing.Point(12, 201);
+            this.btnSave.Location = new System.Drawing.Point(12, 225);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 37);
             this.btnSave.TabIndex = 6;
@@ -120,7 +127,7 @@
             // btnClear
             // 
             this.btnClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClear.Location = new System.Drawing.Point(174, 201);
+            this.btnClear.Location = new System.Drawing.Point(174, 225);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(75, 37);
             this.btnClear.TabIndex = 8;
@@ -131,7 +138,7 @@
             // btnClose
             // 
             this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClose.Location = new System.Drawing.Point(255, 201);
+            this.btnClose.Location = new System.Drawing.Point(255, 225);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(75, 37);
             this.btnClose.TabIndex = 9;
@@ -147,7 +154,7 @@
             // 
             this.btnSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSearch.Image = global::RMS.Properties.Resources._1498666014_basics_19;
-            this.btnSearch.Location = new System.Drawing.Point(287, 28);
+            this.btnSearch.Location = new System.Drawing.Point(287, 52);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(35, 31);
             this.btnSearch.TabIndex = 10;
@@ -168,7 +175,7 @@
             // btnUpdate
             // 
             this.btnUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUpdate.Location = new System.Drawing.Point(93, 201);
+            this.btnUpdate.Location = new System.Drawing.Point(93, 225);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(75, 37);
             this.btnUpdate.TabIndex = 12;
@@ -180,28 +187,89 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(14, 156);
+            this.label1.Location = new System.Drawing.Point(14, 180);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(45, 16);
             this.label1.TabIndex = 13;
             this.label1.Text = "Status";
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(41)))), ((int)(((byte)(46)))));
+            this.panel1.Controls.Add(this.lblFormTitle);
+            this.panel1.Controls.Add(this.lblTitle);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(337, 31);
+            this.panel1.TabIndex = 35;
+            this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
+            this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseMove);
+            // 
+            // lblTitle
+            // 
+            this.lblTitle.AutoSize = true;
+            this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitle.ForeColor = System.Drawing.SystemColors.Control;
+            this.lblTitle.Location = new System.Drawing.Point(12, 7);
+            this.lblTitle.Name = "lblTitle";
+            this.lblTitle.Size = new System.Drawing.Size(0, 16);
+            this.lblTitle.TabIndex = 0;
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(41)))), ((int)(((byte)(46)))));
+            this.panel3.Location = new System.Drawing.Point(-9, 28);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(10, 246);
+            this.panel3.TabIndex = 36;
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(41)))), ((int)(((byte)(46)))));
+            this.panel2.Location = new System.Drawing.Point(336, 31);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(10, 246);
+            this.panel2.TabIndex = 37;
+            // 
+            // panel4
+            // 
+            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(41)))), ((int)(((byte)(46)))));
+            this.panel4.Location = new System.Drawing.Point(0, 268);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(337, 10);
+            this.panel4.TabIndex = 37;
             // 
             // cmbStatus
             // 
             this.cmbStatus.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
             this.cmbStatus.DropDownWidth = 17;
             this.cmbStatus.FormattingEnabled = true;
-            this.cmbStatus.Location = new System.Drawing.Point(115, 155);
+            this.cmbStatus.Location = new System.Drawing.Point(115, 179);
             this.cmbStatus.Name = "cmbStatus";
             this.cmbStatus.Size = new System.Drawing.Size(128, 21);
             this.cmbStatus.TabIndex = 14;
             this.cmbStatus.ViewColumn = 0;
             // 
+            // lblFormTitle
+            // 
+            this.lblFormTitle.AutoSize = true;
+            this.lblFormTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFormTitle.ForeColor = System.Drawing.SystemColors.Control;
+            this.lblFormTitle.Location = new System.Drawing.Point(13, 9);
+            this.lblFormTitle.Name = "lblFormTitle";
+            this.lblFormTitle.Size = new System.Drawing.Size(0, 16);
+            this.lblFormTitle.TabIndex = 1;
+            // 
             // frmSubLocation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(337, 250);
+            this.ClientSize = new System.Drawing.Size(337, 269);
+            this.Controls.Add(this.panel4);
+            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.panel3);
             this.Controls.Add(this.cmbStatus);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnUpdate);
@@ -216,6 +284,7 @@
             this.Controls.Add(this.txtSubLocationCode);
             this.Controls.Add(this.lblLocationName);
             this.Controls.Add(this.lblLocationCode);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximizeBox = false;
             this.Name = "frmSubLocation";
             this.ShowInTaskbar = false;
@@ -223,6 +292,8 @@
             this.Text = "Sub Location";
             this.Load += new System.EventHandler(this.frmSubLocation_Load);
             ((System.ComponentModel.ISupportInitialize)(this.errSubLocation)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -245,5 +316,11 @@
         private System.Windows.Forms.Button btnUpdate;
         private ColumnComboBox cmbStatus;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label lblTitle;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Label lblFormTitle;
     }
 }
