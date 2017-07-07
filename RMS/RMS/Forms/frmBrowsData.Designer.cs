@@ -32,12 +32,18 @@
             this.btnExit = new System.Windows.Forms.Button();
             this.dgvDataView = new System.Windows.Forms.DataGridView();
             this.txtSearchBox = new System.Windows.Forms.TextBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.lblTitle = new System.Windows.Forms.Label();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDataView)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnSelect
             // 
-            this.btnSelect.Location = new System.Drawing.Point(378, 448);
+            this.btnSelect.Location = new System.Drawing.Point(377, 448);
             this.btnSelect.Name = "btnSelect";
             this.btnSelect.Size = new System.Drawing.Size(71, 23);
             this.btnSelect.TabIndex = 26;
@@ -49,7 +55,7 @@
             // 
             this.btnExit.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btnExit.FlatAppearance.BorderSize = 5;
-            this.btnExit.Location = new System.Drawing.Point(452, 448);
+            this.btnExit.Location = new System.Drawing.Point(451, 448);
             this.btnExit.Margin = new System.Windows.Forms.Padding(0);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(83, 23);
@@ -63,7 +69,7 @@
             this.dgvDataView.AllowUserToAddRows = false;
             this.dgvDataView.AllowUserToDeleteRows = false;
             this.dgvDataView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvDataView.Location = new System.Drawing.Point(10, 108);
+            this.dgvDataView.Location = new System.Drawing.Point(9, 108);
             this.dgvDataView.Name = "dgvDataView";
             this.dgvDataView.ReadOnly = true;
             this.dgvDataView.Size = new System.Drawing.Size(525, 334);
@@ -74,25 +80,78 @@
             // 
             // txtSearchBox
             // 
-            this.txtSearchBox.Location = new System.Drawing.Point(10, 82);
+            this.txtSearchBox.Location = new System.Drawing.Point(9, 82);
             this.txtSearchBox.Name = "txtSearchBox";
             this.txtSearchBox.Size = new System.Drawing.Size(525, 20);
             this.txtSearchBox.TabIndex = 24;
             this.txtSearchBox.TextChanged += new System.EventHandler(this.txtSearchBox_TextChanged);
             this.txtSearchBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtSearchBox_KeyDown);
             // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(41)))), ((int)(((byte)(46)))));
+            this.panel1.Controls.Add(this.lblTitle);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(542, 31);
+            this.panel1.TabIndex = 31;
+            this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
+            this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseMove);
+            // 
+            // lblTitle
+            // 
+            this.lblTitle.AutoSize = true;
+            this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitle.ForeColor = System.Drawing.SystemColors.Control;
+            this.lblTitle.Location = new System.Drawing.Point(12, 7);
+            this.lblTitle.Name = "lblTitle";
+            this.lblTitle.Size = new System.Drawing.Size(0, 16);
+            this.lblTitle.TabIndex = 0;
+            // 
+            // panel4
+            // 
+            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(41)))), ((int)(((byte)(46)))));
+            this.panel4.Location = new System.Drawing.Point(-2, 474);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(552, 10);
+            this.panel4.TabIndex = 33;
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(41)))), ((int)(((byte)(46)))));
+            this.panel3.Location = new System.Drawing.Point(-9, 24);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(10, 453);
+            this.panel3.TabIndex = 34;
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(41)))), ((int)(((byte)(46)))));
+            this.panel2.Location = new System.Drawing.Point(541, 24);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(10, 450);
+            this.panel2.TabIndex = 32;
+            // 
             // frmBrowsData
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(547, 475);
+            this.ClientSize = new System.Drawing.Size(542, 475);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.panel4);
+            this.Controls.Add(this.panel3);
+            this.Controls.Add(this.panel2);
             this.Controls.Add(this.btnSelect);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.dgvDataView);
             this.Controls.Add(this.txtSearchBox);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmBrowsData";
             this.Text = "frmBrowsData";
             ((System.ComponentModel.ISupportInitialize)(this.dgvDataView)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -104,5 +163,10 @@
         public System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.DataGridView dgvDataView;
         private System.Windows.Forms.TextBox txtSearchBox;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label lblTitle;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Panel panel2;
     }
 }

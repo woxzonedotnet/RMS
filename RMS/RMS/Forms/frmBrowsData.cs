@@ -41,7 +41,7 @@ namespace RMS.Forms
             iHeaderFieldWidth = iHeaderWidth;
             strReturnFieldName = strReturnField;
             dtBroesDataTable = dtBroesData;
-            this.Text = header;
+            this.lblTitle.Text = header;
             SetGridSettings();
         }
 
@@ -56,7 +56,7 @@ namespace RMS.Forms
             strReturnFieldName = strReturnField;
             dtBroesDataTable = dtBroesData;
             strWhere_Clause = Where_Clause;
-            this.Text = header;
+            this.lblTitle.Text = header;
             SetGridSettings();
         }
         #endregion
@@ -220,6 +220,20 @@ namespace RMS.Forms
                     dgvDataView.Focus();
                 }
             }
+        }
+
+        private void panel1_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                this.Left += e.X - lastClick.X;
+                this.Top += e.Y - lastClick.Y;
+            }
+        }
+
+        private void panel1_MouseDown(object sender, MouseEventArgs e)
+        {
+            lastClick = e.Location;
         }
 
 
