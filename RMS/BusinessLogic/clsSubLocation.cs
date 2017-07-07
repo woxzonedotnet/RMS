@@ -68,6 +68,14 @@ namespace BusinessLogic
         }
         #endregion
 
+        #region GetSubLocation Data using LocationCode
+        public DataTable GetSubLocationData(string strLocationCode)
+        {
+            string strWhere = "fldLocationCode='" + strLocationCode + "' and fldActiveStatus=1";
+            DataTable dtSubLocation = cDBConnection.SearchData("tbl_SubLocation", strWhere);
+            return dtSubLocation;
+        }
+        #endregion
 
         #region Delete Location details By Category Code
         public int DeleteLocationData(string SearchValue)
