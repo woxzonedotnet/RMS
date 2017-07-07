@@ -24,11 +24,13 @@ namespace RMS.Forms
 
         #region Variables
         int result;
+        Point lastClick;
         #endregion
 
         public frmDepartmentDetails()
         {
             InitializeComponent();
+            this.lblDepartmentTitle.Text = this.Text;
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -194,6 +196,20 @@ namespace RMS.Forms
         private void btnClear_Click(object sender, EventArgs e)
         {
             clear();
+        }
+
+        private void panel1_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                this.Left += e.X - lastClick.X;
+                this.Top += e.Y - lastClick.Y;
+            }
+        }
+
+        private void panel1_MouseDown(object sender, MouseEventArgs e)
+        {
+            lastClick = e.Location;
         }
     }
 }

@@ -41,31 +41,39 @@
             this.errDepartment = new System.Windows.Forms.ErrorProvider(this.components);
             this.btnSearch = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.lblTableCategoryTitle = new System.Windows.Forms.Label();
+            this.lblFormTitle = new System.Windows.Forms.Label();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.lblDepartmentTitle = new System.Windows.Forms.Label();
             this.cmbStatus = new RMS.ColumnComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.errDepartment)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // txtDepartmentName
             // 
             this.txtDepartmentName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDepartmentName.Location = new System.Drawing.Point(137, 52);
+            this.txtDepartmentName.Location = new System.Drawing.Point(139, 84);
             this.txtDepartmentName.Name = "txtDepartmentName";
-            this.txtDepartmentName.Size = new System.Drawing.Size(228, 21);
+            this.txtDepartmentName.Size = new System.Drawing.Size(197, 21);
             this.txtDepartmentName.TabIndex = 8;
             // 
             // txtDepartmentCode
             // 
             this.txtDepartmentCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDepartmentCode.Location = new System.Drawing.Point(137, 16);
+            this.txtDepartmentCode.Location = new System.Drawing.Point(139, 48);
             this.txtDepartmentCode.Name = "txtDepartmentCode";
-            this.txtDepartmentCode.Size = new System.Drawing.Size(185, 21);
+            this.txtDepartmentCode.Size = new System.Drawing.Size(154, 21);
             this.txtDepartmentCode.TabIndex = 7;
             // 
             // lblDepartmentName
             // 
             this.lblDepartmentName.AutoSize = true;
             this.lblDepartmentName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDepartmentName.Location = new System.Drawing.Point(13, 55);
+            this.lblDepartmentName.Location = new System.Drawing.Point(15, 87);
             this.lblDepartmentName.Name = "lblDepartmentName";
             this.lblDepartmentName.Size = new System.Drawing.Size(118, 16);
             this.lblDepartmentName.TabIndex = 6;
@@ -75,7 +83,7 @@
             // 
             this.lblDepartmentCode.AutoSize = true;
             this.lblDepartmentCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDepartmentCode.Location = new System.Drawing.Point(13, 19);
+            this.lblDepartmentCode.Location = new System.Drawing.Point(15, 51);
             this.lblDepartmentCode.Name = "lblDepartmentCode";
             this.lblDepartmentCode.Size = new System.Drawing.Size(114, 16);
             this.lblDepartmentCode.TabIndex = 5;
@@ -84,7 +92,7 @@
             // btnClose
             // 
             this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
-            this.btnClose.Location = new System.Drawing.Point(273, 125);
+            this.btnClose.Location = new System.Drawing.Point(261, 154);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(75, 36);
             this.btnClose.TabIndex = 37;
@@ -95,7 +103,7 @@
             // btnClear
             // 
             this.btnClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
-            this.btnClear.Location = new System.Drawing.Point(192, 125);
+            this.btnClear.Location = new System.Drawing.Point(180, 154);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(75, 36);
             this.btnClear.TabIndex = 36;
@@ -106,7 +114,7 @@
             // btnUpdate
             // 
             this.btnUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
-            this.btnUpdate.Location = new System.Drawing.Point(111, 125);
+            this.btnUpdate.Location = new System.Drawing.Point(99, 154);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(75, 36);
             this.btnUpdate.TabIndex = 35;
@@ -117,7 +125,7 @@
             // btnSave
             // 
             this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
-            this.btnSave.Location = new System.Drawing.Point(30, 125);
+            this.btnSave.Location = new System.Drawing.Point(18, 154);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 36);
             this.btnSave.TabIndex = 34;
@@ -133,7 +141,7 @@
             // 
             this.btnSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSearch.Image = global::RMS.Properties.Resources._1498666014_basics_19;
-            this.btnSearch.Location = new System.Drawing.Point(330, 11);
+            this.btnSearch.Location = new System.Drawing.Point(301, 43);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(35, 31);
             this.btnSearch.TabIndex = 38;
@@ -144,18 +152,86 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(13, 89);
+            this.label1.Location = new System.Drawing.Point(15, 121);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(85, 16);
             this.label1.TabIndex = 40;
             this.label1.Text = "Active Status";
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(41)))), ((int)(((byte)(46)))));
+            this.panel1.Controls.Add(this.lblDepartmentTitle);
+            this.panel1.Controls.Add(this.lblTableCategoryTitle);
+            this.panel1.Controls.Add(this.lblFormTitle);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(350, 31);
+            this.panel1.TabIndex = 41;
+            this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
+            this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseMove);
+            // 
+            // lblTableCategoryTitle
+            // 
+            this.lblTableCategoryTitle.AutoSize = true;
+            this.lblTableCategoryTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTableCategoryTitle.ForeColor = System.Drawing.SystemColors.Control;
+            this.lblTableCategoryTitle.Location = new System.Drawing.Point(13, 9);
+            this.lblTableCategoryTitle.Name = "lblTableCategoryTitle";
+            this.lblTableCategoryTitle.Size = new System.Drawing.Size(0, 16);
+            this.lblTableCategoryTitle.TabIndex = 1;
+            // 
+            // lblFormTitle
+            // 
+            this.lblFormTitle.AutoSize = true;
+            this.lblFormTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFormTitle.ForeColor = System.Drawing.SystemColors.Control;
+            this.lblFormTitle.Location = new System.Drawing.Point(13, 9);
+            this.lblFormTitle.Name = "lblFormTitle";
+            this.lblFormTitle.Size = new System.Drawing.Size(0, 16);
+            this.lblFormTitle.TabIndex = 0;
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(41)))), ((int)(((byte)(46)))));
+            this.panel3.Location = new System.Drawing.Point(-9, 31);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(10, 173);
+            this.panel3.TabIndex = 42;
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(41)))), ((int)(((byte)(46)))));
+            this.panel2.Location = new System.Drawing.Point(349, 31);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(10, 173);
+            this.panel2.TabIndex = 43;
+            // 
+            // panel4
+            // 
+            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(41)))), ((int)(((byte)(46)))));
+            this.panel4.Location = new System.Drawing.Point(0, 201);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(379, 10);
+            this.panel4.TabIndex = 44;
+            // 
+            // lblDepartmentTitle
+            // 
+            this.lblDepartmentTitle.AutoSize = true;
+            this.lblDepartmentTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDepartmentTitle.ForeColor = System.Drawing.SystemColors.Control;
+            this.lblDepartmentTitle.Location = new System.Drawing.Point(12, 9);
+            this.lblDepartmentTitle.Name = "lblDepartmentTitle";
+            this.lblDepartmentTitle.Size = new System.Drawing.Size(0, 16);
+            this.lblDepartmentTitle.TabIndex = 2;
             // 
             // cmbStatus
             // 
             this.cmbStatus.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
             this.cmbStatus.DropDownWidth = 17;
             this.cmbStatus.FormattingEnabled = true;
-            this.cmbStatus.Location = new System.Drawing.Point(137, 88);
+            this.cmbStatus.Location = new System.Drawing.Point(139, 120);
             this.cmbStatus.Name = "cmbStatus";
             this.cmbStatus.Size = new System.Drawing.Size(120, 21);
             this.cmbStatus.TabIndex = 39;
@@ -165,7 +241,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(379, 174);
+            this.ClientSize = new System.Drawing.Size(350, 202);
+            this.Controls.Add(this.panel4);
+            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.panel3);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.cmbStatus);
             this.Controls.Add(this.btnSearch);
@@ -177,11 +257,14 @@
             this.Controls.Add(this.txtDepartmentCode);
             this.Controls.Add(this.lblDepartmentName);
             this.Controls.Add(this.lblDepartmentCode);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmDepartmentDetails";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Department Details";
             this.Load += new System.EventHandler(this.frmDepartmentDetails_Load);
             ((System.ComponentModel.ISupportInitialize)(this.errDepartment)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -201,5 +284,12 @@
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.Label label1;
         private ColumnComboBox cmbStatus;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label lblTableCategoryTitle;
+        private System.Windows.Forms.Label lblFormTitle;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Label lblDepartmentTitle;
     }
 }
