@@ -28,18 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmTableCategoryDetails));
             this.btnClose = new System.Windows.Forms.Button();
             this.btnClear = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
-            this.txtDescription = new System.Windows.Forms.TextBox();
+            this.txtTableCategoryName = new System.Windows.Forms.TextBox();
             this.txtTableCategoryCode = new System.Windows.Forms.TextBox();
             this.lblDescription = new System.Windows.Forms.Label();
             this.lblTableCategoryCode = new System.Windows.Forms.Label();
             this.btnSearch = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnUpdate = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.columnComboBox1 = new RMS.ColumnComboBox();
+            this.errTableCategory = new System.Windows.Forms.ErrorProvider(this.components);
+            this.cmbStatus = new RMS.ColumnComboBox();
+            ((System.ComponentModel.ISupportInitialize)(this.errTableCategory)).BeginInit();
             this.SuspendLayout();
             // 
             // btnClose
@@ -62,6 +65,7 @@
             this.btnClear.TabIndex = 15;
             this.btnClear.Text = "Clear";
             this.btnClear.UseVisualStyleBackColor = true;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
             // btnSave
             // 
@@ -72,14 +76,15 @@
             this.btnSave.TabIndex = 14;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
-            // txtDescription
+            // txtTableCategoryName
             // 
-            this.txtDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDescription.Location = new System.Drawing.Point(134, 59);
-            this.txtDescription.Name = "txtDescription";
-            this.txtDescription.Size = new System.Drawing.Size(191, 21);
-            this.txtDescription.TabIndex = 13;
+            this.txtTableCategoryName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTableCategoryName.Location = new System.Drawing.Point(134, 59);
+            this.txtTableCategoryName.Name = "txtTableCategoryName";
+            this.txtTableCategoryName.Size = new System.Drawing.Size(191, 21);
+            this.txtTableCategoryName.TabIndex = 13;
             // 
             // txtTableCategoryCode
             // 
@@ -118,16 +123,18 @@
             this.btnSearch.Size = new System.Drawing.Size(35, 31);
             this.btnSearch.TabIndex = 17;
             this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
-            // button1
+            // btnUpdate
             // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(97, 130);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 36);
-            this.button1.TabIndex = 18;
-            this.button1.Text = "Save";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUpdate.Location = new System.Drawing.Point(97, 130);
+            this.btnUpdate.Name = "btnUpdate";
+            this.btnUpdate.Size = new System.Drawing.Size(75, 36);
+            this.btnUpdate.TabIndex = 18;
+            this.btnUpdate.Text = "Update";
+            this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // label1
             // 
@@ -139,35 +146,42 @@
             this.label1.TabIndex = 19;
             this.label1.Text = "Status";
             // 
-            // columnComboBox1
+            // errTableCategory
             // 
-            this.columnComboBox1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
-            this.columnComboBox1.FormattingEnabled = true;
-            this.columnComboBox1.Location = new System.Drawing.Point(134, 96);
-            this.columnComboBox1.Name = "columnComboBox1";
-            this.columnComboBox1.Size = new System.Drawing.Size(150, 21);
-            this.columnComboBox1.TabIndex = 20;
-            this.columnComboBox1.ViewColumn = 0;
+            this.errTableCategory.ContainerControl = this;
+            // 
+            // cmbStatus
+            // 
+            this.cmbStatus.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.cmbStatus.DropDownWidth = 17;
+            this.cmbStatus.FormattingEnabled = true;
+            this.cmbStatus.Location = new System.Drawing.Point(134, 96);
+            this.cmbStatus.Name = "cmbStatus";
+            this.cmbStatus.Size = new System.Drawing.Size(150, 21);
+            this.cmbStatus.TabIndex = 20;
+            this.cmbStatus.ViewColumn = 0;
             // 
             // frmTableCategoryDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(349, 178);
-            this.Controls.Add(this.columnComboBox1);
+            this.Controls.Add(this.cmbStatus);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.btnClear);
             this.Controls.Add(this.btnSave);
-            this.Controls.Add(this.txtDescription);
+            this.Controls.Add(this.txtTableCategoryName);
             this.Controls.Add(this.txtTableCategoryCode);
             this.Controls.Add(this.lblDescription);
             this.Controls.Add(this.lblTableCategoryCode);
             this.Name = "frmTableCategoryDetails";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Table Category Details";
+            this.Load += new System.EventHandler(this.frmTableCategoryDetails_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.errTableCategory)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -179,12 +193,13 @@
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Button btnClear;
         private System.Windows.Forms.Button btnSave;
-        private System.Windows.Forms.TextBox txtDescription;
+        private System.Windows.Forms.TextBox txtTableCategoryName;
         private System.Windows.Forms.TextBox txtTableCategoryCode;
         private System.Windows.Forms.Label lblDescription;
         private System.Windows.Forms.Label lblTableCategoryCode;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.Label label1;
-        private ColumnComboBox columnComboBox1;
+        private ColumnComboBox cmbStatus;
+        private System.Windows.Forms.ErrorProvider errTableCategory;
     }
 }
