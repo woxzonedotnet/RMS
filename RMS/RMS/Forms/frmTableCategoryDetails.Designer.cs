@@ -41,14 +41,21 @@
             this.btnUpdate = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.errTableCategory = new System.Windows.Forms.ErrorProvider(this.components);
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.lblFormTitle = new System.Windows.Forms.Label();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.panel4 = new System.Windows.Forms.Panel();
             this.cmbStatus = new RMS.ColumnComboBox();
+            this.lblTableCategoryTitle = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.errTableCategory)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnClose
             // 
             this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClose.Location = new System.Drawing.Point(259, 130);
+            this.btnClose.Location = new System.Drawing.Point(259, 165);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(75, 36);
             this.btnClose.TabIndex = 16;
@@ -59,7 +66,7 @@
             // btnClear
             // 
             this.btnClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClear.Location = new System.Drawing.Point(178, 130);
+            this.btnClear.Location = new System.Drawing.Point(178, 165);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(75, 36);
             this.btnClear.TabIndex = 15;
@@ -70,7 +77,7 @@
             // btnSave
             // 
             this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSave.Location = new System.Drawing.Point(16, 130);
+            this.btnSave.Location = new System.Drawing.Point(16, 165);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 36);
             this.btnSave.TabIndex = 14;
@@ -81,7 +88,7 @@
             // txtTableCategoryName
             // 
             this.txtTableCategoryName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTableCategoryName.Location = new System.Drawing.Point(134, 59);
+            this.txtTableCategoryName.Location = new System.Drawing.Point(134, 94);
             this.txtTableCategoryName.Name = "txtTableCategoryName";
             this.txtTableCategoryName.Size = new System.Drawing.Size(191, 21);
             this.txtTableCategoryName.TabIndex = 13;
@@ -89,7 +96,7 @@
             // txtTableCategoryCode
             // 
             this.txtTableCategoryCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTableCategoryCode.Location = new System.Drawing.Point(134, 22);
+            this.txtTableCategoryCode.Location = new System.Drawing.Point(134, 57);
             this.txtTableCategoryCode.Name = "txtTableCategoryCode";
             this.txtTableCategoryCode.Size = new System.Drawing.Size(150, 21);
             this.txtTableCategoryCode.TabIndex = 12;
@@ -98,7 +105,7 @@
             // 
             this.lblDescription.AutoSize = true;
             this.lblDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDescription.Location = new System.Drawing.Point(24, 62);
+            this.lblDescription.Location = new System.Drawing.Point(24, 97);
             this.lblDescription.Name = "lblDescription";
             this.lblDescription.Size = new System.Drawing.Size(76, 16);
             this.lblDescription.TabIndex = 11;
@@ -108,7 +115,7 @@
             // 
             this.lblTableCategoryCode.AutoSize = true;
             this.lblTableCategoryCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTableCategoryCode.Location = new System.Drawing.Point(24, 25);
+            this.lblTableCategoryCode.Location = new System.Drawing.Point(24, 60);
             this.lblTableCategoryCode.Name = "lblTableCategoryCode";
             this.lblTableCategoryCode.Size = new System.Drawing.Size(103, 16);
             this.lblTableCategoryCode.TabIndex = 10;
@@ -118,7 +125,7 @@
             // 
             this.btnSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSearch.Image = global::RMS.Properties.Resources._1498666014_basics_19;
-            this.btnSearch.Location = new System.Drawing.Point(290, 17);
+            this.btnSearch.Location = new System.Drawing.Point(290, 52);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(35, 31);
             this.btnSearch.TabIndex = 17;
@@ -128,7 +135,7 @@
             // btnUpdate
             // 
             this.btnUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUpdate.Location = new System.Drawing.Point(97, 130);
+            this.btnUpdate.Location = new System.Drawing.Point(97, 165);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(75, 36);
             this.btnUpdate.TabIndex = 18;
@@ -140,7 +147,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(24, 97);
+            this.label1.Location = new System.Drawing.Point(24, 132);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(45, 16);
             this.label1.TabIndex = 19;
@@ -150,22 +157,83 @@
             // 
             this.errTableCategory.ContainerControl = this;
             // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(41)))), ((int)(((byte)(46)))));
+            this.panel1.Controls.Add(this.lblTableCategoryTitle);
+            this.panel1.Controls.Add(this.lblFormTitle);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(349, 31);
+            this.panel1.TabIndex = 38;
+            this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
+            this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseMove);
+            // 
+            // lblFormTitle
+            // 
+            this.lblFormTitle.AutoSize = true;
+            this.lblFormTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFormTitle.ForeColor = System.Drawing.SystemColors.Control;
+            this.lblFormTitle.Location = new System.Drawing.Point(13, 9);
+            this.lblFormTitle.Name = "lblFormTitle";
+            this.lblFormTitle.Size = new System.Drawing.Size(0, 16);
+            this.lblFormTitle.TabIndex = 0;
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(41)))), ((int)(((byte)(46)))));
+            this.panel3.Location = new System.Drawing.Point(-9, 28);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(10, 188);
+            this.panel3.TabIndex = 39;
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(41)))), ((int)(((byte)(46)))));
+            this.panel2.Location = new System.Drawing.Point(348, 28);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(10, 188);
+            this.panel2.TabIndex = 40;
+            // 
+            // panel4
+            // 
+            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(41)))), ((int)(((byte)(46)))));
+            this.panel4.Location = new System.Drawing.Point(0, 211);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(349, 10);
+            this.panel4.TabIndex = 41;
+            // 
             // cmbStatus
             // 
             this.cmbStatus.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
             this.cmbStatus.DropDownWidth = 17;
             this.cmbStatus.FormattingEnabled = true;
-            this.cmbStatus.Location = new System.Drawing.Point(134, 96);
+            this.cmbStatus.Location = new System.Drawing.Point(134, 131);
             this.cmbStatus.Name = "cmbStatus";
             this.cmbStatus.Size = new System.Drawing.Size(150, 21);
             this.cmbStatus.TabIndex = 20;
             this.cmbStatus.ViewColumn = 0;
             // 
+            // lblTableCategoryTitle
+            // 
+            this.lblTableCategoryTitle.AutoSize = true;
+            this.lblTableCategoryTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTableCategoryTitle.ForeColor = System.Drawing.SystemColors.Control;
+            this.lblTableCategoryTitle.Location = new System.Drawing.Point(13, 9);
+            this.lblTableCategoryTitle.Name = "lblTableCategoryTitle";
+            this.lblTableCategoryTitle.Size = new System.Drawing.Size(0, 16);
+            this.lblTableCategoryTitle.TabIndex = 1;
+            // 
             // frmTableCategoryDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(349, 178);
+            this.ClientSize = new System.Drawing.Size(349, 212);
+            this.Controls.Add(this.panel4);
+            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.panel3);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.cmbStatus);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnUpdate);
@@ -177,11 +245,14 @@
             this.Controls.Add(this.txtTableCategoryCode);
             this.Controls.Add(this.lblDescription);
             this.Controls.Add(this.lblTableCategoryCode);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmTableCategoryDetails";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Table Category Details";
             this.Load += new System.EventHandler(this.frmTableCategoryDetails_Load);
             ((System.ComponentModel.ISupportInitialize)(this.errTableCategory)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -201,5 +272,11 @@
         private System.Windows.Forms.Label label1;
         private ColumnComboBox cmbStatus;
         private System.Windows.Forms.ErrorProvider errTableCategory;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label lblFormTitle;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Label lblTableCategoryTitle;
     }
 }

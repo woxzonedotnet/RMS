@@ -24,11 +24,13 @@ namespace RMS.Forms
 
         #region Variable
         int result = -1;
+        Point lastClick;
         #endregion
 
         public frmTableCategoryDetails()
         {
             InitializeComponent();
+            this.lblTableCategoryTitle.Text = this.Text;
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -188,6 +190,20 @@ namespace RMS.Forms
                         MessageBox.Show("Table Category Data Not Update...!", "Table Category", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
+            }
+        }
+
+        private void panel1_MouseDown(object sender, MouseEventArgs e)
+        {
+            lastClick = e.Location;
+        }
+
+        private void panel1_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                this.Left += e.X - lastClick.X;
+                this.Top += e.Y - lastClick.Y;
             }
         }
     }
