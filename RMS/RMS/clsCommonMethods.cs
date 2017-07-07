@@ -64,6 +64,10 @@ namespace RMS
                 {
                     ((System.Windows.Forms.DateTimePicker)ctrControl).Value = DateTime.Now;
                 }
+                else if (object.ReferenceEquals(ctrControl.GetType(), typeof(System.Windows.Forms.NumericUpDown))) 
+                {
+                    ((System.Windows.Forms.NumericUpDown)ctrControl).Value = 1;
+                }
 
                 if (ctrControl.Controls.Count > 0)
                 {
