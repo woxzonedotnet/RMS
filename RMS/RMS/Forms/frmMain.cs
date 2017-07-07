@@ -107,7 +107,7 @@ namespace RMS.Forms
                 }
                 catch (InvalidCastException exc)
                 {
-                    MessageBox.Show(exc.Message);
+                    //MessageBox.Show(exc.Message);
                 }
             }
         }
