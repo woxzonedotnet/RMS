@@ -54,35 +54,50 @@
             // 
             // btnClose
             // 
+            this.btnClose.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(41)))), ((int)(((byte)(46)))));
+            this.btnClose.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Maroon;
+            this.btnClose.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Maroon;
+            this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
-            this.btnClose.Location = new System.Drawing.Point(284, 201);
+            this.btnClose.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnClose.Location = new System.Drawing.Point(280, 201);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(75, 36);
             this.btnClose.TabIndex = 48;
             this.btnClose.Text = "Close";
-            this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.UseVisualStyleBackColor = false;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // btnClear
             // 
+            this.btnClear.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(41)))), ((int)(((byte)(46)))));
+            this.btnClear.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Maroon;
+            this.btnClear.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Maroon;
+            this.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
-            this.btnClear.Location = new System.Drawing.Point(203, 201);
+            this.btnClear.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnClear.Location = new System.Drawing.Point(199, 201);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(75, 36);
             this.btnClear.TabIndex = 47;
             this.btnClear.Text = "Clear";
-            this.btnClear.UseVisualStyleBackColor = true;
+            this.btnClear.UseVisualStyleBackColor = false;
             this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
             // btnUpdate
             // 
+            this.btnUpdate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(41)))), ((int)(((byte)(46)))));
+            this.btnUpdate.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Maroon;
+            this.btnUpdate.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Maroon;
+            this.btnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
-            this.btnUpdate.Location = new System.Drawing.Point(122, 201);
+            this.btnUpdate.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnUpdate.Location = new System.Drawing.Point(118, 201);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(75, 36);
             this.btnUpdate.TabIndex = 46;
             this.btnUpdate.Text = "Update";
-            this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.UseVisualStyleBackColor = false;
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // btnSave
@@ -93,7 +108,7 @@
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
             this.btnSave.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnSave.Location = new System.Drawing.Point(41, 201);
+            this.btnSave.Location = new System.Drawing.Point(37, 201);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 36);
             this.btnSave.TabIndex = 45;
@@ -104,7 +119,7 @@
             // txtBankName
             // 
             this.txtBankName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBankName.Location = new System.Drawing.Point(147, 94);
+            this.txtBankName.Location = new System.Drawing.Point(154, 94);
             this.txtBankName.Multiline = true;
             this.txtBankName.Name = "txtBankName";
             this.txtBankName.Size = new System.Drawing.Size(218, 51);
@@ -113,18 +128,17 @@
             // txtBankCode
             // 
             this.txtBankCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBankCode.Location = new System.Drawing.Point(147, 58);
+            this.txtBankCode.Location = new System.Drawing.Point(154, 58);
             this.txtBankCode.Name = "txtBankCode";
-            this.txtBankCode.Size = new System.Drawing.Size(175, 21);
+            this.txtBankCode.Size = new System.Drawing.Size(177, 21);
             this.txtBankCode.TabIndex = 43;
-            this.txtBankCode.UseSystemPasswordChar = true;
             this.txtBankCode.TextChanged += new System.EventHandler(this.txtDepartmentCode_TextChanged);
             // 
             // lblBankName
             // 
             this.lblBankName.AutoSize = true;
             this.lblBankName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblBankName.Location = new System.Drawing.Point(13, 97);
+            this.lblBankName.Location = new System.Drawing.Point(20, 97);
             this.lblBankName.Name = "lblBankName";
             this.lblBankName.Size = new System.Drawing.Size(79, 16);
             this.lblBankName.TabIndex = 42;
@@ -135,7 +149,7 @@
             // 
             this.lblBankCode.AutoSize = true;
             this.lblBankCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblBankCode.Location = new System.Drawing.Point(13, 61);
+            this.lblBankCode.Location = new System.Drawing.Point(20, 61);
             this.lblBankCode.Name = "lblBankCode";
             this.lblBankCode.Size = new System.Drawing.Size(128, 16);
             this.lblBankCode.TabIndex = 41;
@@ -149,7 +163,7 @@
             // 
             this.lblActiveStatus.AutoSize = true;
             this.lblActiveStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblActiveStatus.Location = new System.Drawing.Point(13, 165);
+            this.lblActiveStatus.Location = new System.Drawing.Point(20, 165);
             this.lblActiveStatus.Name = "lblActiveStatus";
             this.lblActiveStatus.Size = new System.Drawing.Size(85, 16);
             this.lblActiveStatus.TabIndex = 51;
@@ -159,7 +173,7 @@
             // 
             this.btnSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSearch.Image = global::RMS.Properties.Resources._1498666014_basics_19;
-            this.btnSearch.Location = new System.Drawing.Point(345, 53);
+            this.btnSearch.Location = new System.Drawing.Point(337, 53);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(35, 31);
             this.btnSearch.TabIndex = 49;
@@ -236,7 +250,7 @@
             this.cmbStatus.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
             this.cmbStatus.DropDownWidth = 17;
             this.cmbStatus.FormattingEnabled = true;
-            this.cmbStatus.Location = new System.Drawing.Point(147, 164);
+            this.cmbStatus.Location = new System.Drawing.Point(154, 164);
             this.cmbStatus.Name = "cmbStatus";
             this.cmbStatus.Size = new System.Drawing.Size(131, 21);
             this.cmbStatus.TabIndex = 50;

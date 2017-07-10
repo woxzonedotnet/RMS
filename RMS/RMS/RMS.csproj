@@ -278,18 +278,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Search.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\minimize-128.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\1498665878_basics-19.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\1498666014_basics-19.ico" />
-  </ItemGroup>
-  <ItemGroup>
+    <None Include="Resources\search25.png" />
     <Content Include="ServerConfig.xml" />
   </ItemGroup>
   <ItemGroup>
