@@ -40,6 +40,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="objBankCards.cs" />
+    <Compile Include="objBankCardType.cs" />
+    <Compile Include="objCurrencyMaster.cs" />
+    <Compile Include="objSupplierCategory.cs" />
     <Compile Include="objTableMaster.cs" />
     <Compile Include="objTableCategory.cs" />
     <Compile Include="objBankDetails.cs" />
