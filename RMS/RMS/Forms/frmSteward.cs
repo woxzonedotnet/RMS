@@ -147,6 +147,12 @@ namespace RMS.Forms
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
+            LoadSearch();
+        }
+
+
+        public void LoadSearch() 
+        {
             string[] strFieldList = new string[2];
             strFieldList[0] = "fldStewardCode";
             strFieldList[1] = "fldStewardName";
@@ -216,6 +222,15 @@ namespace RMS.Forms
             {
                 this.Left += e.X - lastClick.X;
                 this.Top += e.Y - lastClick.Y;
+            }
+        }
+
+        private void txtStewardCode_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((sender as TextBox).SelectionStart == 0)
+            {
+                e.Handled = (e.KeyChar == (char)Keys.Space);
+                LoadSearch();
             }
         }
     }
