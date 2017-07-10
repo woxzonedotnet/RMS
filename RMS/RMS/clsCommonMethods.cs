@@ -7,6 +7,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace RMS
 {
@@ -86,6 +87,14 @@ namespace RMS
                 objFillComb.Columns[i].Display = false;
             }
             objFillComb.Columns[ViewColumn].Display = true;
+        }
+
+        public void MoveNextControl(KeyPressEventArgs KeyAschii)
+        {
+            if (KeyAschii.KeyChar == 13)
+            {
+                SendKeys.Send("{TAB}");
+            }
         }
     }
 }
