@@ -170,7 +170,13 @@ namespace RMS.Forms
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            string[] strFieldList = new string[2];
+            LoadSearch();
+        }
+
+
+        public void LoadSearch() 
+        {
+             string[] strFieldList = new string[2];
             strFieldList[0] = "fldBankCode";
             strFieldList[1] = "fldBankName";
 
@@ -219,6 +225,15 @@ namespace RMS.Forms
         private void panel1_MouseDown(object sender, MouseEventArgs e)
         {
             lastClick = e.Location;
+        }
+
+        private void txtBankCode_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((sender as TextBox).SelectionStart == 0)
+            {
+                e.Handled = (e.KeyChar == (char)Keys.Space);
+                LoadSearch();
+            }
         }
     }
 }

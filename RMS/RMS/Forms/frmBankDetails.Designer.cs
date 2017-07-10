@@ -133,6 +133,7 @@
             this.txtBankCode.Size = new System.Drawing.Size(177, 21);
             this.txtBankCode.TabIndex = 43;
             this.txtBankCode.TextChanged += new System.EventHandler(this.txtDepartmentCode_TextChanged);
+            this.txtBankCode.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBankCode_KeyPress);
             // 
             // lblBankName
             // 
