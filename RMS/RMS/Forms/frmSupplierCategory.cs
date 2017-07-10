@@ -100,9 +100,11 @@ namespace RMS.Forms
         public void clear()
         {
             cCommonMethods.ClearForm(this);
+           
             this.txtSupplierCategoryCode.Enabled = true;
             this.btnSave.Enabled = true;
-            this.btnUpdate.Enabled = false;
+            this.btnUpdate.Enabled = false; 
+            this.txtSupplierCategoryCode.Focus();
         }
 
         #region Validate Supplier Category Data
