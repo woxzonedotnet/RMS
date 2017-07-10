@@ -45,6 +45,7 @@
             this.cmbStatus = new RMS.ColumnComboBox();
             this.cmbDepartmentName = new RMS.ColumnComboBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnExit = new System.Windows.Forms.Button();
             this.lblCategoryTitle = new System.Windows.Forms.Label();
             this.lblDepartmentTitle = new System.Windows.Forms.Label();
             this.lblTableCategoryTitle = new System.Windows.Forms.Label();
@@ -52,7 +53,6 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.btnExit = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.errCategory)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -210,6 +210,24 @@
             this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
             this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseMove);
             // 
+            // btnExit
+            // 
+            this.btnExit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(41)))), ((int)(((byte)(46)))));
+            this.btnExit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnExit.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnExit.FlatAppearance.BorderSize = 0;
+            this.btnExit.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(41)))), ((int)(((byte)(46)))));
+            this.btnExit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Maroon;
+            this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnExit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(146)))), ((int)(((byte)(150)))), ((int)(((byte)(153)))));
+            this.btnExit.Location = new System.Drawing.Point(314, 0);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(37, 31);
+            this.btnExit.TabIndex = 4;
+            this.btnExit.Text = "X";
+            this.btnExit.UseVisualStyleBackColor = false;
+            this.btnExit.Click += new System.EventHandler(this.btnClose_Click);
+            // 
             // lblCategoryTitle
             // 
             this.lblCategoryTitle.AutoSize = true;
@@ -273,24 +291,6 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(351, 10);
             this.panel4.TabIndex = 45;
-            // 
-            // btnExit
-            // 
-            this.btnExit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(41)))), ((int)(((byte)(46)))));
-            this.btnExit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.btnExit.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnExit.FlatAppearance.BorderSize = 0;
-            this.btnExit.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Silver;
-            this.btnExit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Maroon;
-            this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnExit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(146)))), ((int)(((byte)(150)))), ((int)(((byte)(153)))));
-            this.btnExit.Location = new System.Drawing.Point(314, 0);
-            this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(37, 31);
-            this.btnExit.TabIndex = 4;
-            this.btnExit.Text = "X";
-            this.btnExit.UseVisualStyleBackColor = false;
-            this.btnExit.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // frmCategoryMasterDetails
             // 

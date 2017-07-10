@@ -127,6 +127,7 @@
             // supplierCategoryToolStripMenuItem
             // 
             this.supplierCategoryToolStripMenuItem.Name = "supplierCategoryToolStripMenuItem";
+            this.supplierCategoryToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F1;
             this.supplierCategoryToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
             this.supplierCategoryToolStripMenuItem.Text = "Supplier Category";
             this.supplierCategoryToolStripMenuItem.Click += new System.EventHandler(this.supplierCategoryToolStripMenuItem_Click);
@@ -315,9 +316,10 @@
             // 
             this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(41)))), ((int)(((byte)(46)))));
             this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.button1.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.button1.Dock = System.Windows.Forms.DockStyle.Right;
             this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Silver;
+            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(41)))), ((int)(((byte)(46)))));
             this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Maroon;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(146)))), ((int)(((byte)(150)))), ((int)(((byte)(153)))));

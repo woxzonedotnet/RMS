@@ -180,7 +180,7 @@
             this.btnExit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.btnExit.Dock = System.Windows.Forms.DockStyle.Right;
             this.btnExit.FlatAppearance.BorderSize = 0;
-            this.btnExit.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Silver;
+            this.btnExit.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(41)))), ((int)(((byte)(46)))));
             this.btnExit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Maroon;
             this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnExit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(146)))), ((int)(((byte)(150)))), ((int)(((byte)(153)))));
