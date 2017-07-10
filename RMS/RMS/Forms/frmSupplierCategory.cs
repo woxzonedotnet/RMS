@@ -146,6 +146,12 @@ namespace RMS.Forms
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
+            LoadSearch();
+        }
+
+
+        public void LoadSearch() 
+        {
             string[] strFieldList = new string[2];
             strFieldList[0] = "fldSupplierCategoryCode";
             strFieldList[1] = "fldDescription";
@@ -208,6 +214,15 @@ namespace RMS.Forms
                         MessageBox.Show("Supplier Category Data Not Update...!", "Supplier Category", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
+            }
+        }
+
+        private void txtSupplierCategoryCode_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((sender as TextBox).SelectionStart == 0)
+            {
+                e.Handled = (e.KeyChar == (char)Keys.Space);
+                LoadSearch();
             }
         }
     }

@@ -79,6 +79,7 @@
             this.txtSupplierCategoryCode.Name = "txtSupplierCategoryCode";
             this.txtSupplierCategoryCode.Size = new System.Drawing.Size(150, 21);
             this.txtSupplierCategoryCode.TabIndex = 3;
+            this.txtSupplierCategoryCode.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSupplierCategoryCode_KeyPress);
             // 
             // txtDescription
             // 
