@@ -40,7 +40,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="objSupplierCategory.cs" />
     <Compile Include="objTableMaster.cs" />
     <Compile Include="objTableCategory.cs" />
     <Compile Include="objBankDetails.cs" />

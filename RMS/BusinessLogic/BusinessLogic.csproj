@@ -39,9 +39,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="clsBankCards.cs" />
+    <Compile Include="clsBankCardType.cs" />
     <Compile Include="clsBankDetails.cs" />
     <Compile Include="clsBrowsData.cs" />
     <Compile Include="clsCategoryMaster.cs" />
+    <Compile Include="clsCurrencyMaster.cs" />
     <Compile Include="clsDepartment.cs" />
     <Compile Include="clsStatusMaster.cs" />
     <Compile Include="clsSteward.cs" />

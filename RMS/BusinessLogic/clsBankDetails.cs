@@ -38,6 +38,14 @@ namespace BusinessLogic
         }
         #endregion
 
+        #region GetBankDetails
+        public DataTable GetBankData()
+        {
+            DataTable dtBankMaster = cDBConnection.SearchData("tbl_BankMaster");
+            return dtBankMaster;
+        }
+        #endregion
+
         #region Get Bank Data using Bank Code
         public objBankDetails GetBankData(string strBankCode)
         {
@@ -59,6 +67,30 @@ namespace BusinessLogic
             }
 
             return oBankDetails;
+        }
+        #endregion
+
+        #region Get Bank Name using Bank Code
+        public string GetBankName(string strBankCode)
+        {
+            string strWhere = "fldBankCode='" + strBankCode + "'";
+
+            DataTable dtBank = cDBConnection.SearchData("tbl_BankMaster", strWhere);
+
+            if (dtBank.Rows.Count > 0)
+            {
+                oBankDetails.BankCode = dtBank.Rows[0][0].ToString();
+                oBankDetails.BankName = dtBank.Rows[0][1].ToString();
+                oBankDetails.Status = Convert.ToInt16(dtBank.Rows[0][2]);
+
+                oBankDetails.IsExists = true;
+            }
+            else
+            {
+                oBankDetails.IsExists = false;
+            }
+
+            return oBankDetails.BankName;
         }
         #endregion
 
