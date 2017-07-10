@@ -82,6 +82,7 @@
             this.txtTableCode.Name = "txtTableCode";
             this.txtTableCode.Size = new System.Drawing.Size(150, 21);
             this.txtTableCode.TabIndex = 19;
+            this.txtTableCode.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTableCode_KeyPress);
             // 
             // lblTableCode
             // 

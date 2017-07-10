@@ -151,6 +151,12 @@ namespace RMS.Forms
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
+            LoadSearch();
+        }
+
+
+        public void LoadSearch() 
+        {
             if (cmbTableCategory.SelectedIndex != -1)
             {
                 string[] strFieldList = new string[2];
@@ -173,7 +179,7 @@ namespace RMS.Forms
                     LoadTableMaster();
                 }
             }
-            else 
+            else
             {
                 MessageBox.Show("Please Select Table Category");
             }
@@ -226,6 +232,15 @@ namespace RMS.Forms
             {
                 this.Left += e.X - lastClick.X;
                 this.Top += e.Y - lastClick.Y;
+            }
+        }
+
+        private void txtTableCode_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((sender as TextBox).SelectionStart == 0)
+            {
+                e.Handled = (e.KeyChar == (char)Keys.Space);
+                LoadSearch();
             }
         }
     }
