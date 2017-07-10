@@ -196,8 +196,9 @@ namespace RMS.Forms
 
         private void txtDepartmentCode_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar == 32)
+            if ((sender as TextBox).SelectionStart == 0)
             {
+                e.Handled = (e.KeyChar == (char)Keys.Space);
                 LoadSearch();
             }
         }
