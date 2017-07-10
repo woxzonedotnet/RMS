@@ -52,6 +52,7 @@
             this.cmbStatus = new RMS.ColumnComboBox();
             this.cmbTableLocation = new RMS.ColumnComboBox();
             this.cmbTableCategory = new RMS.ColumnComboBox();
+            this.btnExit = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.nudNoOfSeats)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errTable)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errSubLocation)).BeginInit();
@@ -212,6 +213,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(41)))), ((int)(((byte)(46)))));
+            this.panel1.Controls.Add(this.btnExit);
             this.panel1.Controls.Add(this.lblFormTitle);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
@@ -280,6 +282,24 @@
             this.cmbTableCategory.TabIndex = 21;
             this.cmbTableCategory.ViewColumn = 0;
             // 
+            // btnExit
+            // 
+            this.btnExit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(41)))), ((int)(((byte)(46)))));
+            this.btnExit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnExit.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnExit.FlatAppearance.BorderSize = 0;
+            this.btnExit.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Silver;
+            this.btnExit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Maroon;
+            this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnExit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(146)))), ((int)(((byte)(150)))), ((int)(((byte)(153)))));
+            this.btnExit.Location = new System.Drawing.Point(309, 0);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(37, 31);
+            this.btnExit.TabIndex = 4;
+            this.btnExit.Text = "X";
+            this.btnExit.UseVisualStyleBackColor = false;
+            this.btnExit.Click += new System.EventHandler(this.btnClose_Click);
+            // 
             // frmTableDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -343,5 +363,6 @@
         private System.Windows.Forms.ErrorProvider errSubLocation;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Button btnExit;
     }
 }

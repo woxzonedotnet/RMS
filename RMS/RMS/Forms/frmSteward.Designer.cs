@@ -44,15 +44,16 @@
             this.btnUpdate = new System.Windows.Forms.Button();
             this.errSteward = new System.Windows.Forms.ErrorProvider(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lblStewardTitle = new System.Windows.Forms.Label();
             this.lblCategoryTitle = new System.Windows.Forms.Label();
             this.lblDepartmentTitle = new System.Windows.Forms.Label();
             this.lblTableCategoryTitle = new System.Windows.Forms.Label();
             this.lblFormTitle = new System.Windows.Forms.Label();
-            this.lblStewardTitle = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.cmbStatus = new RMS.ColumnComboBox();
+            this.btnExit = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.errSteward)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -184,6 +185,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(41)))), ((int)(((byte)(46)))));
+            this.panel1.Controls.Add(this.btnExit);
             this.panel1.Controls.Add(this.lblStewardTitle);
             this.panel1.Controls.Add(this.lblCategoryTitle);
             this.panel1.Controls.Add(this.lblDepartmentTitle);
@@ -196,6 +198,16 @@
             this.panel1.TabIndex = 44;
             this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
             this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseMove);
+            // 
+            // lblStewardTitle
+            // 
+            this.lblStewardTitle.AutoSize = true;
+            this.lblStewardTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblStewardTitle.ForeColor = System.Drawing.SystemColors.Control;
+            this.lblStewardTitle.Location = new System.Drawing.Point(15, 7);
+            this.lblStewardTitle.Name = "lblStewardTitle";
+            this.lblStewardTitle.Size = new System.Drawing.Size(0, 16);
+            this.lblStewardTitle.TabIndex = 4;
             // 
             // lblCategoryTitle
             // 
@@ -237,16 +249,6 @@
             this.lblFormTitle.Size = new System.Drawing.Size(0, 16);
             this.lblFormTitle.TabIndex = 0;
             // 
-            // lblStewardTitle
-            // 
-            this.lblStewardTitle.AutoSize = true;
-            this.lblStewardTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblStewardTitle.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblStewardTitle.Location = new System.Drawing.Point(15, 7);
-            this.lblStewardTitle.Name = "lblStewardTitle";
-            this.lblStewardTitle.Size = new System.Drawing.Size(0, 16);
-            this.lblStewardTitle.TabIndex = 4;
-            // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(41)))), ((int)(((byte)(46)))));
@@ -281,6 +283,24 @@
             this.cmbStatus.Size = new System.Drawing.Size(191, 21);
             this.cmbStatus.TabIndex = 20;
             this.cmbStatus.ViewColumn = 0;
+            // 
+            // btnExit
+            // 
+            this.btnExit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(41)))), ((int)(((byte)(46)))));
+            this.btnExit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnExit.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnExit.FlatAppearance.BorderSize = 0;
+            this.btnExit.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Silver;
+            this.btnExit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Maroon;
+            this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnExit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(146)))), ((int)(((byte)(150)))), ((int)(((byte)(153)))));
+            this.btnExit.Location = new System.Drawing.Point(308, 0);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(37, 31);
+            this.btnExit.TabIndex = 5;
+            this.btnExit.Text = "X";
+            this.btnExit.UseVisualStyleBackColor = false;
+            this.btnExit.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // frmSteward
             // 
@@ -344,5 +364,6 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Button btnExit;
     }
 }

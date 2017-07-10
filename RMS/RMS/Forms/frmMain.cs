@@ -26,6 +26,7 @@ namespace RMS.Forms
         {
             InitializeComponent();
             menuStripMain.Renderer = new MyRenderer();
+            this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
         }
 
         class MyRenderer : ToolStripProfessionalRenderer // MenuStrip Render Function
@@ -97,7 +98,6 @@ namespace RMS.Forms
 
         private void frmMain_Load(object sender, EventArgs e)
         {
-            this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
             foreach (Control ctl in this.Controls)
             {
                 try
