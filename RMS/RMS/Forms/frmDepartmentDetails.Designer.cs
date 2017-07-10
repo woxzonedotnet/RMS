@@ -42,12 +42,13 @@
             this.btnSearch = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnExit = new System.Windows.Forms.Button();
+            this.lblDepartmentTitle = new System.Windows.Forms.Label();
             this.lblTableCategoryTitle = new System.Windows.Forms.Label();
             this.lblFormTitle = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.lblDepartmentTitle = new System.Windows.Forms.Label();
             this.cmbStatus = new RMS.ColumnComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.errDepartment)).BeginInit();
             this.panel1.SuspendLayout();
@@ -161,6 +162,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(41)))), ((int)(((byte)(46)))));
+            this.panel1.Controls.Add(this.btnExit);
             this.panel1.Controls.Add(this.lblDepartmentTitle);
             this.panel1.Controls.Add(this.lblTableCategoryTitle);
             this.panel1.Controls.Add(this.lblFormTitle);
@@ -171,6 +173,34 @@
             this.panel1.TabIndex = 41;
             this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
             this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseMove);
+            // 
+            // btnExit
+            // 
+            this.btnExit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(41)))), ((int)(((byte)(46)))));
+            this.btnExit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnExit.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnExit.FlatAppearance.BorderSize = 0;
+            this.btnExit.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Silver;
+            this.btnExit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Maroon;
+            this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnExit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(146)))), ((int)(((byte)(150)))), ((int)(((byte)(153)))));
+            this.btnExit.Location = new System.Drawing.Point(313, 0);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(37, 31);
+            this.btnExit.TabIndex = 3;
+            this.btnExit.Text = "X";
+            this.btnExit.UseVisualStyleBackColor = false;
+            this.btnExit.Click += new System.EventHandler(this.btnClose_Click);
+            // 
+            // lblDepartmentTitle
+            // 
+            this.lblDepartmentTitle.AutoSize = true;
+            this.lblDepartmentTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDepartmentTitle.ForeColor = System.Drawing.SystemColors.Control;
+            this.lblDepartmentTitle.Location = new System.Drawing.Point(12, 9);
+            this.lblDepartmentTitle.Name = "lblDepartmentTitle";
+            this.lblDepartmentTitle.Size = new System.Drawing.Size(0, 16);
+            this.lblDepartmentTitle.TabIndex = 2;
             // 
             // lblTableCategoryTitle
             // 
@@ -216,18 +246,10 @@
             this.panel4.Size = new System.Drawing.Size(379, 10);
             this.panel4.TabIndex = 44;
             // 
-            // lblDepartmentTitle
-            // 
-            this.lblDepartmentTitle.AutoSize = true;
-            this.lblDepartmentTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDepartmentTitle.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblDepartmentTitle.Location = new System.Drawing.Point(12, 9);
-            this.lblDepartmentTitle.Name = "lblDepartmentTitle";
-            this.lblDepartmentTitle.Size = new System.Drawing.Size(0, 16);
-            this.lblDepartmentTitle.TabIndex = 2;
-            // 
             // cmbStatus
             // 
+            this.cmbStatus.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.cmbStatus.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cmbStatus.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
             this.cmbStatus.DropDownWidth = 17;
             this.cmbStatus.FormattingEnabled = true;
@@ -291,5 +313,6 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Label lblDepartmentTitle;
+        private System.Windows.Forms.Button btnExit;
     }
 }

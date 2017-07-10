@@ -46,6 +46,7 @@
     <Compile Include="clsStatusMaster.cs" />
     <Compile Include="clsSteward.cs" />
     <Compile Include="clsSubLocation.cs" />
+    <Compile Include="clsSupplierCategory.cs" />
     <Compile Include="clsTableCategory.cs" />
     <Compile Include="clsTableMaster.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
