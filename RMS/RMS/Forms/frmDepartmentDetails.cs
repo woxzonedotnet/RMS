@@ -133,25 +133,7 @@ namespace RMS.Forms
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            string[] strFieldList = new string[2];
-            strFieldList[0] = "fldDepartmentCode";
-            strFieldList[1] = "fldDepartmentName";
-
-            string[] strHeaderList = new string[2];
-            strHeaderList[0] = "Department Code";
-            strHeaderList[1] = "Department Name";
-
-            int[] iHeaderWidth = new int[2];
-            iHeaderWidth[0] = 150;
-            iHeaderWidth[1] = 320;
-
-            string strReturnString = "Department Code";
-            string strWhere = "fldLocationCode= '" + cGlobleVariable.LocationCode + "'";
-            txtDepartmentCode.Text = cCommonMethods.BrowsData("tbl_DepartmentMaster", strFieldList, strHeaderList, iHeaderWidth, strReturnString, strWhere, "Department");
-            if (txtDepartmentCode.Text != "")
-            {
-                LoadDepartmentDetails();
-            }
+            LoadSearch();
         }
 
         #region Load SubLocation Details
@@ -210,6 +192,37 @@ namespace RMS.Forms
         private void panel1_MouseDown(object sender, MouseEventArgs e)
         {
             lastClick = e.Location;
+        }
+
+        private void txtDepartmentCode_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 32)
+            {
+                LoadSearch();
+            }
+        }
+
+        public void LoadSearch() 
+        {
+            string[] strFieldList = new string[2];
+            strFieldList[0] = "fldDepartmentCode";
+            strFieldList[1] = "fldDepartmentName";
+
+            string[] strHeaderList = new string[2];
+            strHeaderList[0] = "Department Code";
+            strHeaderList[1] = "Department Name";
+
+            int[] iHeaderWidth = new int[2];
+            iHeaderWidth[0] = 150;
+            iHeaderWidth[1] = 320;
+
+            string strReturnString = "Department Code";
+            string strWhere = "fldLocationCode= '" + cGlobleVariable.LocationCode + "'";
+            txtDepartmentCode.Text = cCommonMethods.BrowsData("tbl_DepartmentMaster", strFieldList, strHeaderList, iHeaderWidth, strReturnString, strWhere, "Department");
+            if (txtDepartmentCode.Text != "")
+            {
+                LoadDepartmentDetails();
+            }
         }
     }
 }
