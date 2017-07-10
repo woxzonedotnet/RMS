@@ -116,6 +116,7 @@
             this.txtTableCategoryCode.Name = "txtTableCategoryCode";
             this.txtTableCategoryCode.Size = new System.Drawing.Size(150, 21);
             this.txtTableCategoryCode.TabIndex = 12;
+            this.txtTableCategoryCode.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTableCategoryCode_KeyPress);
             // 
             // lblDescription
             // 
