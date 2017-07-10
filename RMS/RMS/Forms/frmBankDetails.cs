@@ -29,6 +29,7 @@ namespace RMS.Forms
         public frmBankDetails()
         {
             InitializeComponent();
+            this.lblTitle.Text = this.Text;
         }
 
 
