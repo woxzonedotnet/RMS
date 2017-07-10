@@ -87,18 +87,15 @@
             // 
             // btnSave
             // 
-            this.btnSave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(41)))), ((int)(((byte)(46)))));
             this.btnSave.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Maroon;
             this.btnSave.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Maroon;
-            this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
-            this.btnSave.ForeColor = System.Drawing.SystemColors.Control;
             this.btnSave.Location = new System.Drawing.Point(41, 201);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 36);
             this.btnSave.TabIndex = 45;
             this.btnSave.Text = "Save";
-            this.btnSave.UseVisualStyleBackColor = false;
+            this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // txtBankName
@@ -117,7 +114,6 @@
             this.txtBankCode.Name = "txtBankCode";
             this.txtBankCode.Size = new System.Drawing.Size(175, 21);
             this.txtBankCode.TabIndex = 43;
-            this.txtBankCode.UseSystemPasswordChar = true;
             this.txtBankCode.TextChanged += new System.EventHandler(this.txtDepartmentCode_TextChanged);
             // 
             // lblBankName
