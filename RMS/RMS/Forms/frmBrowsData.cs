@@ -236,6 +236,28 @@ namespace RMS.Forms
             lastClick = e.Location;
         }
 
+        private void frmBrowsData_KeyDown(object sender, KeyEventArgs e)
+        {
+            foreach (System.Windows.Forms.Control ctrControl in this.Controls)
+            {
+                if (object.ReferenceEquals(ctrControl.GetType(), typeof(System.Windows.Forms.RadioButton)))
+                {
+                    int iFKeyStartID = ((System.Windows.Forms.RadioButton)ctrControl).Text.IndexOf("(") + 1;
+                    int iLengthOfRadioTest = ((System.Windows.Forms.RadioButton)ctrControl).Text.Length - 1;
+                    int fKeyLwngth = iLengthOfRadioTest - iFKeyStartID;
+                    string strFKey = ((System.Windows.Forms.RadioButton)ctrControl).Text.Substring(iFKeyStartID, fKeyLwngth);
+
+                    if (strFKey == e.KeyCode.ToString())
+                    {
+                        ((System.Windows.Forms.RadioButton)ctrControl).Checked = true;
+                        strSearchFiled = ((System.Windows.Forms.RadioButton)ctrControl).Name.ToString();
+                        txtSearchBox.Focus();
+                    }
+                }
+
+            }
+        }
+
 
     }
 }

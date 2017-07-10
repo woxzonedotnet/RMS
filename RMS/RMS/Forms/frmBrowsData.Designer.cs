@@ -44,25 +44,31 @@
             // 
             // btnSelect
             // 
-            this.btnSelect.Location = new System.Drawing.Point(377, 448);
+            this.btnSelect.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(41)))), ((int)(((byte)(46)))));
+            this.btnSelect.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Maroon;
+            this.btnSelect.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSelect.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnSelect.Location = new System.Drawing.Point(388, 445);
             this.btnSelect.Name = "btnSelect";
             this.btnSelect.Size = new System.Drawing.Size(71, 23);
             this.btnSelect.TabIndex = 26;
             this.btnSelect.Text = "&Select";
-            this.btnSelect.UseVisualStyleBackColor = true;
+            this.btnSelect.UseVisualStyleBackColor = false;
             this.btnSelect.Click += new System.EventHandler(this.btnSelect_Click);
             // 
             // btnExit
             // 
-            this.btnExit.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.btnExit.FlatAppearance.BorderSize = 5;
-            this.btnExit.Location = new System.Drawing.Point(451, 448);
+            this.btnExit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(41)))), ((int)(((byte)(46)))));
+            this.btnExit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Maroon;
+            this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnExit.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnExit.Location = new System.Drawing.Point(462, 445);
             this.btnExit.Margin = new System.Windows.Forms.Padding(0);
             this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(83, 23);
+            this.btnExit.Size = new System.Drawing.Size(71, 23);
             this.btnExit.TabIndex = 27;
             this.btnExit.Text = "E&xit";
-            this.btnExit.UseVisualStyleBackColor = true;
+            this.btnExit.UseVisualStyleBackColor = false;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // dgvDataView
@@ -170,6 +176,7 @@
             this.Name = "frmBrowsData";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmBrowsData";
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmBrowsData_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.dgvDataView)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
