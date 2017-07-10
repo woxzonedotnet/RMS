@@ -23,6 +23,7 @@ namespace RMS.Forms
 
         #region Variables
         int result;
+        Point lastClick;
         #endregion
 
         public frmBankDetails()
@@ -204,5 +205,19 @@ namespace RMS.Forms
             this.btnUpdate.Enabled = true;
         }
         #endregion
+
+        private void panel1_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                this.Left += e.X - lastClick.X;
+                this.Top += e.Y - lastClick.Y;
+            }
+        }
+
+        private void panel1_MouseDown(object sender, MouseEventArgs e)
+        {
+            lastClick = e.Location;
+        }
     }
 }
