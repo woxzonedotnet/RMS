@@ -163,6 +163,11 @@ namespace RMS.Forms
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
+            LoadSearch();
+        }
+
+        public void LoadSearch() 
+        {
             if (cmbDepartmentName.SelectedIndex != -1)
             {
                 string[] strFieldList = new string[2];
@@ -190,6 +195,7 @@ namespace RMS.Forms
                 MessageBox.Show("Please Select Department Name First");
             }
         }
+
 
         #region Load Category Details
         private void LoadDepartmentDetails()
@@ -231,6 +237,15 @@ namespace RMS.Forms
         private void panel1_MouseDown(object sender, MouseEventArgs e)
         {
             lastClick = e.Location;
+        }
+
+        private void txtCategoryCode_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((sender as TextBox).SelectionStart == 0)
+            {
+                e.Handled = (e.KeyChar == (char)Keys.Space);
+                LoadSearch();
+            }
         }
     }
 }

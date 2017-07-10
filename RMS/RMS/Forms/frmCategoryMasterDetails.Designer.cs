@@ -156,6 +156,7 @@
             this.txtCategoryCode.Name = "txtCategoryCode";
             this.txtCategoryCode.Size = new System.Drawing.Size(157, 21);
             this.txtCategoryCode.TabIndex = 30;
+            this.txtCategoryCode.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCategoryCode_KeyPress);
             // 
             // lblDepartmentName
             // 
