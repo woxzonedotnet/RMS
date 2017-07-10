@@ -55,6 +55,7 @@ namespace RMS.Forms
         private void frmSupplierCategory_Load(object sender, EventArgs e)
         {
             cCommonMethods.loadComboRMS(cStatusMaster.GetStatusDetails(), cmbStatus, 1);
+            this.btnUpdate.Enabled = false;
         }
 
         private void btnSave_Click(object sender, EventArgs e)
