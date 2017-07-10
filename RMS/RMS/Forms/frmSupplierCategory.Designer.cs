@@ -28,10 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmSupplierCategory));
             this.lblSupplierCode = new System.Windows.Forms.Label();
             this.lblDescription = new System.Windows.Forms.Label();
-            this.txtSupplierCode = new System.Windows.Forms.TextBox();
+            this.txtSupplierCategoryCode = new System.Windows.Forms.TextBox();
             this.txtDescription = new System.Windows.Forms.TextBox();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnClear = new System.Windows.Forms.Button();
@@ -45,8 +46,10 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.lblTitle = new System.Windows.Forms.Label();
+            this.errSupplierCategory = new System.Windows.Forms.ErrorProvider(this.components);
             this.cmbStatus = new RMS.ColumnComboBox();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errSupplierCategory)).BeginInit();
             this.SuspendLayout();
             // 
             // lblSupplierCode
@@ -69,13 +72,13 @@
             this.lblDescription.TabIndex = 1;
             this.lblDescription.Text = "Description";
             // 
-            // txtSupplierCode
+            // txtSupplierCategoryCode
             // 
-            this.txtSupplierCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSupplierCode.Location = new System.Drawing.Point(127, 55);
-            this.txtSupplierCode.Name = "txtSupplierCode";
-            this.txtSupplierCode.Size = new System.Drawing.Size(150, 21);
-            this.txtSupplierCode.TabIndex = 3;
+            this.txtSupplierCategoryCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSupplierCategoryCode.Location = new System.Drawing.Point(127, 55);
+            this.txtSupplierCategoryCode.Name = "txtSupplierCategoryCode";
+            this.txtSupplierCategoryCode.Size = new System.Drawing.Size(150, 21);
+            this.txtSupplierCategoryCode.TabIndex = 3;
             // 
             // txtDescription
             // 
@@ -105,6 +108,7 @@
             this.btnClear.TabIndex = 7;
             this.btnClear.Text = "Clear";
             this.btnClear.UseVisualStyleBackColor = true;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
             // btnClose
             // 
@@ -126,6 +130,7 @@
             this.btnSearch.Size = new System.Drawing.Size(35, 31);
             this.btnSearch.TabIndex = 9;
             this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // btnUpdate
             // 
@@ -136,6 +141,7 @@
             this.btnUpdate.TabIndex = 10;
             this.btnUpdate.Text = "Update";
             this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // label1
             // 
@@ -212,6 +218,10 @@
             this.lblTitle.Size = new System.Drawing.Size(0, 16);
             this.lblTitle.TabIndex = 4;
             // 
+            // errSupplierCategory
+            // 
+            this.errSupplierCategory.ContainerControl = this;
+            // 
             // cmbStatus
             // 
             this.cmbStatus.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
@@ -242,7 +252,7 @@
             this.Controls.Add(this.btnClear);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.txtDescription);
-            this.Controls.Add(this.txtSupplierCode);
+            this.Controls.Add(this.txtSupplierCategoryCode);
             this.Controls.Add(this.lblDescription);
             this.Controls.Add(this.lblSupplierCode);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -252,6 +262,7 @@
             this.Load += new System.EventHandler(this.frmSupplierCategory_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errSupplierCategory)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -261,7 +272,7 @@
 
         private System.Windows.Forms.Label lblSupplierCode;
         private System.Windows.Forms.Label lblDescription;
-        private System.Windows.Forms.TextBox txtSupplierCode;
+        private System.Windows.Forms.TextBox txtSupplierCategoryCode;
         private System.Windows.Forms.TextBox txtDescription;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnClear;
@@ -276,5 +287,6 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Label lblTitle;
+        private System.Windows.Forms.ErrorProvider errSupplierCategory;
     }
 }
