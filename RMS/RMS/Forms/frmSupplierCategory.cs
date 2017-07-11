@@ -221,7 +221,7 @@ namespace RMS.Forms
 
         private void txtSupplierCategoryCode_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if ((sender as TextBox).SelectionStart == 0)
+            if (e.KeyChar==32)
             {
                 e.Handled = (e.KeyChar == (char)Keys.Space);
                 LoadSearch();
