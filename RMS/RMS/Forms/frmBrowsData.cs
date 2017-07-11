@@ -69,7 +69,7 @@ namespace RMS.Forms
             int fKey = 0;
             for (int i = 0; i < strHeading.Length; i++)
             {
-                counter += 150;
+                counter += 165;
                 fKey++;
 
 
