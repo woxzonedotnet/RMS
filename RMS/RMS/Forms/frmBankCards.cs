@@ -26,11 +26,14 @@ namespace RMS.Forms
 
         #region Variables
         int result;
+        Point lastClick;
         #endregion
 
         public frmBankCards()
         {
             InitializeComponent();
+            this.lblTitle.Text = this.Text;
+            this.txtCardCode.Focus();
         }
 
         #region Validate Bank Data
@@ -110,6 +113,7 @@ namespace RMS.Forms
             this.txtCardCode.Enabled = true;
             this.btnSave.Enabled = true;
             this.btnUpdate.Enabled = false;
+            this.txtCardCode.Focus();
         }
         #endregion
 
@@ -155,6 +159,11 @@ namespace RMS.Forms
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
+            LoadSearch();
+        }
+
+        public void LoadSearch() 
+        {
             string[] strFieldList = new string[3];
             strFieldList[0] = "fldCardCode";
             strFieldList[1] = "fldBankCode";
@@ -178,6 +187,7 @@ namespace RMS.Forms
                 LoadBankCards();
             }
         }
+
         private void btnSave_Click(object sender, EventArgs e)
         {
             if (ValidateData())
@@ -236,8 +246,27 @@ namespace RMS.Forms
             this.Dispose();
         }
 
-        
+        private void txtCardCode_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 32)
+            {
+                e.Handled = (e.KeyChar == (char)Keys.Space);
+                LoadSearch();
+            }
+        }
 
+        private void panel1_MouseDown(object sender, MouseEventArgs e)
+        {
+            lastClick = e.Location;
+        }
 
+        private void panel1_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                this.Left += e.X - lastClick.X;
+                this.Top += e.Y - lastClick.Y;
+            }
+        }
     }
 }
