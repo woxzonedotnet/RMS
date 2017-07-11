@@ -130,6 +130,11 @@ namespace RMS.Forms
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
+            LoadSearch();
+        }
+
+        public void LoadSearch() 
+        {
             string[] strFieldList = new string[2];
             strFieldList[0] = "fldSubLocationCode";
             strFieldList[1] = "fldSubLocationName";
@@ -248,6 +253,15 @@ namespace RMS.Forms
         private void panel1_MouseDown(object sender, MouseEventArgs e)
         {
             lastClick = e.Location;
+        }
+
+        private void txtSubLocationCode_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 32)
+            {
+                e.Handled = (e.KeyChar == (char)Keys.Space);
+                LoadSearch();
+            }
         }
     }
 }
