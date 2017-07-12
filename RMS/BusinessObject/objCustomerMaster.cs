@@ -20,5 +20,11 @@ namespace BusinessObject
         public bool IsServiceCharge { get; set; }
         public bool IsCreditCustomer { get; set; }
         public bool IsComplementary { get; set; }
+        public DateTime RegisterdDate { get; set; }
+        public int CreditPeriod { get; set; }
+        public bool IsMember { get; set; }
+        public double CreditBalance { get; set; }
+        public bool IsTaxable { get; set; }
+        public bool IsExists { get; set; }
     }
 }
