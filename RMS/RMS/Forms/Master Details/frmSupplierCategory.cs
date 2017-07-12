@@ -175,7 +175,7 @@ namespace RMS.Forms
             }
         }
 
-        #region Load SubLocation Details
+        #region Load Supplier Category Details
         private void LoadSupplierCategoryDetails()
         {
             oSupplierCategory = cSupplierCategory.GetSupplierCategoryData(cGlobleVariable.LocationCode, this.txtSupplierCategoryCode.Text);
