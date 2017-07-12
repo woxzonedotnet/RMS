@@ -249,5 +249,10 @@ namespace RMS.Forms
         {
             LoadSearch();
         }
+
+        private void frmCustomerDetails_Load(object sender, EventArgs e)
+        {
+            clear();
+        }
     }
 }
