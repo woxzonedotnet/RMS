@@ -30,28 +30,28 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPurchaseOrder));
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btnClose = new System.Windows.Forms.Button();
-            this.btnClear = new System.Windows.Forms.Button();
-            this.btnUpdate = new System.Windows.Forms.Button();
-            this.btnSave = new System.Windows.Forms.Button();
+            this.dtpDate = new System.Windows.Forms.DateTimePicker();
+            this.lblDate = new System.Windows.Forms.Label();
+            this.cmbSupplier = new RMS.ColumnComboBox();
+            this.lblSupplier = new System.Windows.Forms.Label();
             this.cmbLocation = new RMS.ColumnComboBox();
             this.txtPONumber = new System.Windows.Forms.TextBox();
             this.btnSearch = new System.Windows.Forms.Button();
             this.lblLocation = new System.Windows.Forms.Label();
             this.lblPONumber = new System.Windows.Forms.Label();
-            this.cmbSupplier = new RMS.ColumnComboBox();
-            this.lblSupplier = new System.Windows.Forms.Label();
-            this.lblDate = new System.Windows.Forms.Label();
-            this.dtpDate = new System.Windows.Forms.DateTimePicker();
+            this.btnClose = new System.Windows.Forms.Button();
+            this.btnClear = new System.Windows.Forms.Button();
+            this.btnPrint = new System.Windows.Forms.Button();
+            this.btnSave = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.txtPurchase = new System.Windows.Forms.TextBox();
-            this.lblPurchase = new System.Windows.Forms.Label();
-            this.txtVat = new System.Windows.Forms.TextBox();
-            this.txtNetAmount = new System.Windows.Forms.TextBox();
-            this.lblNetAmount = new System.Windows.Forms.Label();
+            this.chkVat = new System.Windows.Forms.CheckBox();
             this.txtRemark = new System.Windows.Forms.TextBox();
             this.lblRemark = new System.Windows.Forms.Label();
-            this.chkVat = new System.Windows.Forms.CheckBox();
+            this.txtNetAmount = new System.Windows.Forms.TextBox();
+            this.lblNetAmount = new System.Windows.Forms.Label();
+            this.txtVat = new System.Windows.Forms.TextBox();
+            this.txtPurchase = new System.Windows.Forms.TextBox();
+            this.lblPurchase = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
@@ -78,65 +78,47 @@
             this.panel1.Size = new System.Drawing.Size(282, 165);
             this.panel1.TabIndex = 0;
             // 
-            // btnClose
+            // dtpDate
             // 
-            this.btnClose.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(41)))), ((int)(((byte)(46)))));
-            this.btnClose.FlatAppearance.BorderSize = 0;
-            this.btnClose.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Maroon;
-            this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
-            this.btnClose.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnClose.Location = new System.Drawing.Point(637, 360);
-            this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(75, 36);
-            this.btnClose.TabIndex = 66;
-            this.btnClose.Text = "Close";
-            this.btnClose.UseVisualStyleBackColor = false;
+            this.dtpDate.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
+            this.dtpDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpDate.Location = new System.Drawing.Point(101, 129);
+            this.dtpDate.Name = "dtpDate";
+            this.dtpDate.Size = new System.Drawing.Size(120, 20);
+            this.dtpDate.TabIndex = 66;
             // 
-            // btnClear
+            // lblDate
             // 
-            this.btnClear.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(41)))), ((int)(((byte)(46)))));
-            this.btnClear.FlatAppearance.BorderSize = 0;
-            this.btnClear.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Maroon;
-            this.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
-            this.btnClear.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnClear.Location = new System.Drawing.Point(556, 360);
-            this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(75, 36);
-            this.btnClear.TabIndex = 65;
-            this.btnClear.Text = "Clear";
-            this.btnClear.UseVisualStyleBackColor = false;
+            this.lblDate.AutoSize = true;
+            this.lblDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
+            this.lblDate.Location = new System.Drawing.Point(15, 133);
+            this.lblDate.Name = "lblDate";
+            this.lblDate.Size = new System.Drawing.Size(37, 16);
+            this.lblDate.TabIndex = 65;
+            this.lblDate.Text = "Date";
             // 
-            // btnUpdate
+            // cmbSupplier
             // 
-            this.btnUpdate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(41)))), ((int)(((byte)(46)))));
-            this.btnUpdate.FlatAppearance.BorderSize = 0;
-            this.btnUpdate.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Maroon;
-            this.btnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
-            this.btnUpdate.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnUpdate.Location = new System.Drawing.Point(475, 360);
-            this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(75, 36);
-            this.btnUpdate.TabIndex = 64;
-            this.btnUpdate.Text = "Update";
-            this.btnUpdate.UseVisualStyleBackColor = false;
+            this.cmbSupplier.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.cmbSupplier.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cmbSupplier.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.cmbSupplier.DropDownWidth = 17;
+            this.cmbSupplier.FormattingEnabled = true;
+            this.cmbSupplier.Location = new System.Drawing.Point(101, 93);
+            this.cmbSupplier.Name = "cmbSupplier";
+            this.cmbSupplier.Size = new System.Drawing.Size(165, 21);
+            this.cmbSupplier.TabIndex = 64;
+            this.cmbSupplier.ViewColumn = 0;
             // 
-            // btnSave
+            // lblSupplier
             // 
-            this.btnSave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(41)))), ((int)(((byte)(46)))));
-            this.btnSave.FlatAppearance.BorderSize = 0;
-            this.btnSave.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Maroon;
-            this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
-            this.btnSave.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnSave.Location = new System.Drawing.Point(394, 360);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(75, 36);
-            this.btnSave.TabIndex = 63;
-            this.btnSave.Text = "Save";
-            this.btnSave.UseVisualStyleBackColor = false;
+            this.lblSupplier.AutoSize = true;
+            this.lblSupplier.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
+            this.lblSupplier.Location = new System.Drawing.Point(15, 94);
+            this.lblSupplier.Name = "lblSupplier";
+            this.lblSupplier.Size = new System.Drawing.Size(58, 16);
+            this.lblSupplier.TabIndex = 63;
+            this.lblSupplier.Text = "Supplier";
             // 
             // cmbLocation
             // 
@@ -193,47 +175,65 @@
             this.lblPONumber.TabIndex = 58;
             this.lblPONumber.Text = "PO Number";
             // 
-            // cmbSupplier
+            // btnClose
             // 
-            this.cmbSupplier.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.cmbSupplier.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.cmbSupplier.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
-            this.cmbSupplier.DropDownWidth = 17;
-            this.cmbSupplier.FormattingEnabled = true;
-            this.cmbSupplier.Location = new System.Drawing.Point(101, 93);
-            this.cmbSupplier.Name = "cmbSupplier";
-            this.cmbSupplier.Size = new System.Drawing.Size(165, 21);
-            this.cmbSupplier.TabIndex = 64;
-            this.cmbSupplier.ViewColumn = 0;
+            this.btnClose.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(41)))), ((int)(((byte)(46)))));
+            this.btnClose.FlatAppearance.BorderSize = 0;
+            this.btnClose.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Maroon;
+            this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
+            this.btnClose.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnClose.Location = new System.Drawing.Point(637, 360);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(75, 36);
+            this.btnClose.TabIndex = 66;
+            this.btnClose.Text = "Close";
+            this.btnClose.UseVisualStyleBackColor = false;
             // 
-            // lblSupplier
+            // btnClear
             // 
-            this.lblSupplier.AutoSize = true;
-            this.lblSupplier.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
-            this.lblSupplier.Location = new System.Drawing.Point(15, 94);
-            this.lblSupplier.Name = "lblSupplier";
-            this.lblSupplier.Size = new System.Drawing.Size(58, 16);
-            this.lblSupplier.TabIndex = 63;
-            this.lblSupplier.Text = "Supplier";
+            this.btnClear.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(41)))), ((int)(((byte)(46)))));
+            this.btnClear.FlatAppearance.BorderSize = 0;
+            this.btnClear.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Maroon;
+            this.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
+            this.btnClear.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnClear.Location = new System.Drawing.Point(556, 360);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(75, 36);
+            this.btnClear.TabIndex = 65;
+            this.btnClear.Text = "Clear";
+            this.btnClear.UseVisualStyleBackColor = false;
             // 
-            // lblDate
+            // btnPrint
             // 
-            this.lblDate.AutoSize = true;
-            this.lblDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
-            this.lblDate.Location = new System.Drawing.Point(15, 133);
-            this.lblDate.Name = "lblDate";
-            this.lblDate.Size = new System.Drawing.Size(37, 16);
-            this.lblDate.TabIndex = 65;
-            this.lblDate.Text = "Date";
+            this.btnPrint.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(41)))), ((int)(((byte)(46)))));
+            this.btnPrint.FlatAppearance.BorderSize = 0;
+            this.btnPrint.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Maroon;
+            this.btnPrint.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPrint.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
+            this.btnPrint.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnPrint.Location = new System.Drawing.Point(475, 360);
+            this.btnPrint.Name = "btnPrint";
+            this.btnPrint.Size = new System.Drawing.Size(75, 36);
+            this.btnPrint.TabIndex = 64;
+            this.btnPrint.Text = "Print";
+            this.btnPrint.UseVisualStyleBackColor = false;
             // 
-            // dtpDate
+            // btnSave
             // 
-            this.dtpDate.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
-            this.dtpDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpDate.Location = new System.Drawing.Point(101, 129);
-            this.dtpDate.Name = "dtpDate";
-            this.dtpDate.Size = new System.Drawing.Size(120, 20);
-            this.dtpDate.TabIndex = 66;
+            this.btnSave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(41)))), ((int)(((byte)(46)))));
+            this.btnSave.FlatAppearance.BorderSize = 0;
+            this.btnSave.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Maroon;
+            this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
+            this.btnSave.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnSave.Location = new System.Drawing.Point(394, 360);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(75, 36);
+            this.btnSave.TabIndex = 63;
+            this.btnSave.Text = "Save";
+            this.btnSave.UseVisualStyleBackColor = false;
             // 
             // panel2
             // 
@@ -251,46 +251,16 @@
             this.panel2.Size = new System.Drawing.Size(282, 154);
             this.panel2.TabIndex = 67;
             // 
-            // txtPurchase
+            // chkVat
             // 
-            this.txtPurchase.Location = new System.Drawing.Point(109, 12);
-            this.txtPurchase.Name = "txtPurchase";
-            this.txtPurchase.Size = new System.Drawing.Size(157, 20);
-            this.txtPurchase.TabIndex = 63;
-            // 
-            // lblPurchase
-            // 
-            this.lblPurchase.AutoSize = true;
-            this.lblPurchase.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
-            this.lblPurchase.Location = new System.Drawing.Point(17, 13);
-            this.lblPurchase.Name = "lblPurchase";
-            this.lblPurchase.Size = new System.Drawing.Size(65, 16);
-            this.lblPurchase.TabIndex = 62;
-            this.lblPurchase.Text = "Purchase";
-            // 
-            // txtVat
-            // 
-            this.txtVat.Location = new System.Drawing.Point(109, 47);
-            this.txtVat.Name = "txtVat";
-            this.txtVat.Size = new System.Drawing.Size(157, 20);
-            this.txtVat.TabIndex = 65;
-            // 
-            // txtNetAmount
-            // 
-            this.txtNetAmount.Location = new System.Drawing.Point(109, 83);
-            this.txtNetAmount.Name = "txtNetAmount";
-            this.txtNetAmount.Size = new System.Drawing.Size(157, 20);
-            this.txtNetAmount.TabIndex = 67;
-            // 
-            // lblNetAmount
-            // 
-            this.lblNetAmount.AutoSize = true;
-            this.lblNetAmount.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold);
-            this.lblNetAmount.Location = new System.Drawing.Point(17, 84);
-            this.lblNetAmount.Name = "lblNetAmount";
-            this.lblNetAmount.Size = new System.Drawing.Size(87, 16);
-            this.lblNetAmount.TabIndex = 66;
-            this.lblNetAmount.Text = "Net Amount";
+            this.chkVat.AutoSize = true;
+            this.chkVat.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
+            this.chkVat.Location = new System.Drawing.Point(20, 47);
+            this.chkVat.Name = "chkVat";
+            this.chkVat.Size = new System.Drawing.Size(54, 20);
+            this.chkVat.TabIndex = 70;
+            this.chkVat.Text = "VAT";
+            this.chkVat.UseVisualStyleBackColor = true;
             // 
             // txtRemark
             // 
@@ -309,16 +279,46 @@
             this.lblRemark.TabIndex = 68;
             this.lblRemark.Text = "Remarks";
             // 
-            // chkVat
+            // txtNetAmount
             // 
-            this.chkVat.AutoSize = true;
-            this.chkVat.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
-            this.chkVat.Location = new System.Drawing.Point(20, 47);
-            this.chkVat.Name = "chkVat";
-            this.chkVat.Size = new System.Drawing.Size(54, 20);
-            this.chkVat.TabIndex = 70;
-            this.chkVat.Text = "VAT";
-            this.chkVat.UseVisualStyleBackColor = true;
+            this.txtNetAmount.Location = new System.Drawing.Point(109, 83);
+            this.txtNetAmount.Name = "txtNetAmount";
+            this.txtNetAmount.Size = new System.Drawing.Size(157, 20);
+            this.txtNetAmount.TabIndex = 67;
+            // 
+            // lblNetAmount
+            // 
+            this.lblNetAmount.AutoSize = true;
+            this.lblNetAmount.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold);
+            this.lblNetAmount.Location = new System.Drawing.Point(17, 84);
+            this.lblNetAmount.Name = "lblNetAmount";
+            this.lblNetAmount.Size = new System.Drawing.Size(87, 16);
+            this.lblNetAmount.TabIndex = 66;
+            this.lblNetAmount.Text = "Net Amount";
+            // 
+            // txtVat
+            // 
+            this.txtVat.Location = new System.Drawing.Point(109, 47);
+            this.txtVat.Name = "txtVat";
+            this.txtVat.Size = new System.Drawing.Size(157, 20);
+            this.txtVat.TabIndex = 65;
+            // 
+            // txtPurchase
+            // 
+            this.txtPurchase.Location = new System.Drawing.Point(109, 12);
+            this.txtPurchase.Name = "txtPurchase";
+            this.txtPurchase.Size = new System.Drawing.Size(157, 20);
+            this.txtPurchase.TabIndex = 63;
+            // 
+            // lblPurchase
+            // 
+            this.lblPurchase.AutoSize = true;
+            this.lblPurchase.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
+            this.lblPurchase.Location = new System.Drawing.Point(17, 13);
+            this.lblPurchase.Name = "lblPurchase";
+            this.lblPurchase.Size = new System.Drawing.Size(65, 16);
+            this.lblPurchase.TabIndex = 62;
+            this.lblPurchase.Text = "Purchase";
             // 
             // panel3
             // 
@@ -349,7 +349,7 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnClear);
             this.Controls.Add(this.btnSave);
-            this.Controls.Add(this.btnUpdate);
+            this.Controls.Add(this.btnPrint);
             this.ForeColor = System.Drawing.Color.Black;
             this.Name = "frmPurchaseOrder";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -378,7 +378,7 @@
         private System.Windows.Forms.Label lblPONumber;
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Button btnClear;
-        private System.Windows.Forms.Button btnUpdate;
+        private System.Windows.Forms.Button btnPrint;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.CheckBox chkVat;
