@@ -38,7 +38,7 @@
             this.lblLocation = new System.Windows.Forms.Label();
             this.lblGRNNumber = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.txtGRNValue = new System.Windows.Forms.TextBox();
+            this.txtSRNValue = new System.Windows.Forms.TextBox();
             this.lblSRNValue = new System.Windows.Forms.Label();
             this.btnClose = new System.Windows.Forms.Button();
             this.btnClear = new System.Windows.Forms.Button();
@@ -48,7 +48,7 @@
             this.cmbLocation = new RMS.ColumnComboBox();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnSearch = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtSRNNumber = new System.Windows.Forms.TextBox();
             this.lblSRNNumber = new System.Windows.Forms.Label();
             this.rdTotal = new System.Windows.Forms.RadioButton();
             this.rdEdit = new System.Windows.Forms.RadioButton();
@@ -134,19 +134,19 @@
             // panel2
             // 
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel2.Controls.Add(this.txtGRNValue);
+            this.panel2.Controls.Add(this.txtSRNValue);
             this.panel2.Controls.Add(this.lblSRNValue);
             this.panel2.Location = new System.Drawing.Point(430, 281);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(294, 48);
             this.panel2.TabIndex = 81;
             // 
-            // txtGRNValue
+            // txtSRNValue
             // 
-            this.txtGRNValue.Location = new System.Drawing.Point(116, 12);
-            this.txtGRNValue.Name = "txtGRNValue";
-            this.txtGRNValue.Size = new System.Drawing.Size(157, 20);
-            this.txtGRNValue.TabIndex = 63;
+            this.txtSRNValue.Location = new System.Drawing.Point(116, 12);
+            this.txtSRNValue.Name = "txtSRNValue";
+            this.txtSRNValue.Size = new System.Drawing.Size(157, 20);
+            this.txtSRNValue.TabIndex = 63;
             // 
             // lblSRNValue
             // 
@@ -222,7 +222,7 @@
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel1.Controls.Add(this.rdEdit);
             this.panel1.Controls.Add(this.rdTotal);
-            this.panel1.Controls.Add(this.textBox1);
+            this.panel1.Controls.Add(this.txtSRNNumber);
             this.panel1.Controls.Add(this.lblSRNNumber);
             this.panel1.Controls.Add(this.dtpDate);
             this.panel1.Controls.Add(this.lblDate);
@@ -281,12 +281,12 @@
             this.btnSearch.TabIndex = 60;
             this.btnSearch.UseVisualStyleBackColor = false;
             // 
-            // textBox1
+            // txtSRNNumber
             // 
-            this.textBox1.Location = new System.Drawing.Point(108, 13);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(165, 20);
-            this.textBox1.TabIndex = 70;
+            this.txtSRNNumber.Location = new System.Drawing.Point(108, 13);
+            this.txtSRNNumber.Name = "txtSRNNumber";
+            this.txtSRNNumber.Size = new System.Drawing.Size(165, 20);
+            this.txtSRNNumber.TabIndex = 70;
             // 
             // lblSRNNumber
             // 
@@ -358,7 +358,7 @@
         private System.Windows.Forms.Label lblLocation;
         private System.Windows.Forms.Label lblGRNNumber;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.TextBox txtGRNValue;
+        private System.Windows.Forms.TextBox txtSRNValue;
         private System.Windows.Forms.Label lblSRNValue;
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Button btnClear;
@@ -369,7 +369,7 @@
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.RadioButton rdEdit;
         private System.Windows.Forms.RadioButton rdTotal;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtSRNNumber;
         private System.Windows.Forms.Label lblSRNNumber;
     }
 }
