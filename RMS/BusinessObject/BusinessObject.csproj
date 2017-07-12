@@ -45,6 +45,7 @@
     <Compile Include="objCurrencyMaster.cs" />
     <Compile Include="objCustomerMaster.cs" />
     <Compile Include="objSupplierCategory.cs" />
+    <Compile Include="objSupplierMaster.cs" />
     <Compile Include="objTableMaster.cs" />
     <Compile Include="objTableCategory.cs" />
     <Compile Include="objBankDetails.cs" />
