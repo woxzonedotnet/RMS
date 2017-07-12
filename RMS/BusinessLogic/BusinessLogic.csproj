@@ -45,6 +45,7 @@
     <Compile Include="clsBrowsData.cs" />
     <Compile Include="clsCategoryMaster.cs" />
     <Compile Include="clsCurrencyMaster.cs" />
+    <Compile Include="clsCustomerMaster.cs" />
     <Compile Include="clsDepartment.cs" />
     <Compile Include="clsStatusMaster.cs" />
     <Compile Include="clsSteward.cs" />
