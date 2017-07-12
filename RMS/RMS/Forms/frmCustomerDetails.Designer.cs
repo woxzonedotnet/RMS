@@ -28,7 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.txtName = new System.Windows.Forms.TextBox();
+            this.components = new System.ComponentModel.Container();
+            this.txtCustomerName = new System.Windows.Forms.TextBox();
             this.txtCustomerID = new System.Windows.Forms.TextBox();
             this.lblName = new System.Windows.Forms.Label();
             this.lblCustomerID = new System.Windows.Forms.Label();
@@ -58,16 +59,18 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.errCustomer = new System.Windows.Forms.ErrorProvider(this.components);
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errCustomer)).BeginInit();
             this.SuspendLayout();
             // 
-            // txtName
+            // txtCustomerName
             // 
-            this.txtName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtName.Location = new System.Drawing.Point(118, 87);
-            this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(344, 21);
-            this.txtName.TabIndex = 17;
+            this.txtCustomerName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCustomerName.Location = new System.Drawing.Point(118, 87);
+            this.txtCustomerName.Name = "txtCustomerName";
+            this.txtCustomerName.Size = new System.Drawing.Size(344, 21);
+            this.txtCustomerName.TabIndex = 17;
             // 
             // txtCustomerID
             // 
@@ -159,6 +162,7 @@
             this.btnSave.TabIndex = 18;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = false;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // txtAddressL1
             // 
@@ -399,6 +403,10 @@
             this.panel4.Size = new System.Drawing.Size(482, 10);
             this.panel4.TabIndex = 47;
             // 
+            // errCustomer
+            // 
+            this.errCustomer.ContainerControl = this;
+            // 
             // frmCustomerDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -428,7 +436,7 @@
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.btnClear);
             this.Controls.Add(this.btnSave);
-            this.Controls.Add(this.txtName);
+            this.Controls.Add(this.txtCustomerName);
             this.Controls.Add(this.txtCustomerID);
             this.Controls.Add(this.lblName);
             this.Controls.Add(this.lblCustomerID);
@@ -439,6 +447,7 @@
             this.Text = "Customer Details";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errCustomer)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -446,7 +455,7 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox txtName;
+        private System.Windows.Forms.TextBox txtCustomerName;
         private System.Windows.Forms.TextBox txtCustomerID;
         private System.Windows.Forms.Label lblName;
         private System.Windows.Forms.Label lblCustomerID;
@@ -476,5 +485,6 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.ErrorProvider errCustomer;
     }
 }

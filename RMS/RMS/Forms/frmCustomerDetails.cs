@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BusinessLogic;
+using BusinessObject;
 
 namespace RMS.Forms
 {
@@ -14,6 +16,7 @@ namespace RMS.Forms
     {
         #region Objects
         clsCommonMethods cCommonMethods = new clsCommonMethods();
+        objCustomerMaster oCustomerMaster = new objCustomerMaster();
         #endregion
 
         #region Variables
@@ -49,5 +52,70 @@ namespace RMS.Forms
         {
             cCommonMethods.ClearForm(this);
         }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            if (ValidateData())
+            {
+                oDepartment = cDepartment.GetDepartmentData(cGlobleVariable.LocationCode, this.txtDepartmentCode.Text);
+
+                if (oDepartment.IsExists == false)
+                {
+                    result = InsertUpdateData();
+                    if (result != -1)
+                    {
+                        MessageBox.Show("Successfully Saved...!", "Department", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        clear();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Department Data Not Saved...!", "Department", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Record already exist...!", "Department", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+        }
+
+        #region Validate Customer Master Data
+        private bool ValidateData()
+        {
+            bool isValidate = true;
+
+            if (txtCustomerID.Text == "")
+            {
+                errCustomer.SetError(txtCustomerID, "Please Enter Customer Code");
+                isValidate = false;
+            }
+            else
+            {
+                errCustomer.SetError(txtCustomerID, "");
+
+            }
+
+            if (txtCustomerName.Text == "")
+            {
+                errCustomer.SetError(txtCustomerName, "Please Enter Customer Name");
+                isValidate = false;
+            }
+            else
+            {
+                errCustomer.SetError(txtCustomerName, "");
+            }
+
+            if (txtContactNo.Text == "")
+            {
+                errCustomer.SetError(txtContactNo, "Please Enter Customer Contact no");
+                isValidate = false;
+            }
+            else
+            {
+                errCustomer.SetError(txtContactNo, "");
+            }
+            return isValidate;
+        }
+        #endregion
     }
 }
