@@ -72,11 +72,11 @@
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
             this.btnSave.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnSave.Location = new System.Drawing.Point(416, 436);
+            this.btnSave.Location = new System.Drawing.Point(398, 436);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(75, 36);
+            this.btnSave.Size = new System.Drawing.Size(93, 36);
             this.btnSave.TabIndex = 77;
-            this.btnSave.Text = "Save";
+            this.btnSave.Text = "GRN Cancel";
             this.btnSave.UseVisualStyleBackColor = false;
             // 
             // txtInvoiceNo

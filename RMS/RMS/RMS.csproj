@@ -185,6 +185,54 @@
     <Compile Include="Forms\Master Details\frmTableDetails.Designer.cs">
       <DependentUpon>frmTableDetails.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Transaction\frmGoodsReceiveNote.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Transaction\frmGoodsReceiveNote.Designer.cs">
+      <DependentUpon>frmGoodsReceiveNote.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Transaction\frmGRNCancel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Transaction\frmGRNCancel.Designer.cs">
+      <DependentUpon>frmGRNCancel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Transaction\frmIssuesNote.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Transaction\frmIssuesNote.Designer.cs">
+      <DependentUpon>frmIssuesNote.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Transaction\frmPurchaseOrder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Transaction\frmPurchaseOrder.Designer.cs">
+      <DependentUpon>frmPurchaseOrder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Transaction\frmStockAdjustmentNote.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Transaction\frmStockAdjustmentNote.Designer.cs">
+      <DependentUpon>frmStockAdjustmentNote.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Transaction\frmStockInitialize.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Transaction\frmStockInitialize.Designer.cs">
+      <DependentUpon>frmStockInitialize.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Transaction\frmSupplierReturnNote.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Transaction\frmSupplierReturnNote.Designer.cs">
+      <DependentUpon>frmSupplierReturnNote.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Transaction\frmTransferNote.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Transaction\frmTransferNote.Designer.cs">
+      <DependentUpon>frmTransferNote.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
@@ -259,6 +307,30 @@
     <EmbeddedResource Include="Forms\Master Details\frmTableDetails.resx">
       <DependentUpon>frmTableDetails.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Transaction\frmGoodsReceiveNote.resx">
+      <DependentUpon>frmGoodsReceiveNote.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Transaction\frmGRNCancel.resx">
+      <DependentUpon>frmGRNCancel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Transaction\frmIssuesNote.resx">
+      <DependentUpon>frmIssuesNote.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Transaction\frmPurchaseOrder.resx">
+      <DependentUpon>frmPurchaseOrder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Transaction\frmStockAdjustmentNote.resx">
+      <DependentUpon>frmStockAdjustmentNote.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Transaction\frmStockInitialize.resx">
+      <DependentUpon>frmStockInitialize.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Transaction\frmSupplierReturnNote.resx">
+      <DependentUpon>frmSupplierReturnNote.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Transaction\frmTransferNote.resx">
+      <DependentUpon>frmTransferNote.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
@@ -295,9 +367,7 @@
       <Name>DataAccess</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Forms\Transaction\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
