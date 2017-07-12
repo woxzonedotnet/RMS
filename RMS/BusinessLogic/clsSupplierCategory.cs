@@ -57,5 +57,14 @@ namespace BusinessLogic
             return cDBConnection.Insert("SP_INSERT_UPDATE_SUPPLIER_CATEGORY", arrParameter);
         }
         #endregion
+
+        #region GetSupplierCategory Data using LocationCode
+        public DataTable GetSupplierCategoryData(string strLocationCode)
+        {
+            string strWhere = "fldLocationCode='" + strLocationCode + "' and fldStatus=1";
+            DataTable dtSupplierCategory = cDBConnection.SearchData("tbl_SupplierCategory", strWhere);
+            return dtSupplierCategory;
+        }
+        #endregion
     }
 }
