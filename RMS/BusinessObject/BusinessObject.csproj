@@ -43,6 +43,7 @@
     <Compile Include="objBankCards.cs" />
     <Compile Include="objBankCardType.cs" />
     <Compile Include="objCurrencyMaster.cs" />
+    <Compile Include="objCustomerMaster.cs" />
     <Compile Include="objSupplierCategory.cs" />
     <Compile Include="objTableMaster.cs" />
     <Compile Include="objTableCategory.cs" />

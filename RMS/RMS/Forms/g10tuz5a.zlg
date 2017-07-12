@@ -53,11 +53,8 @@
             this.chkComplementry = new System.Windows.Forms.CheckBox();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.lblTitle = new System.Windows.Forms.Label();
             this.btnExit = new System.Windows.Forms.Button();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.panel4 = new System.Windows.Forms.Panel();
+            this.lblTitle = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -127,7 +124,6 @@
             this.btnClose.TabIndex = 20;
             this.btnClose.Text = "Close";
             this.btnClose.UseVisualStyleBackColor = false;
-            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // btnClear
             // 
@@ -143,7 +139,6 @@
             this.btnClear.TabIndex = 19;
             this.btnClear.Text = "Clear";
             this.btnClear.UseVisualStyleBackColor = false;
-            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
             // btnSave
             // 
@@ -231,7 +226,7 @@
             this.lblCreditLimit.AutoSize = true;
             this.lblCreditLimit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.lblCreditLimit.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCreditLimit.Location = new System.Drawing.Point(18, 289);
+            this.lblCreditLimit.Location = new System.Drawing.Point(18, 288);
             this.lblCreditLimit.Name = "lblCreditLimit";
             this.lblCreditLimit.Size = new System.Drawing.Size(73, 16);
             this.lblCreditLimit.TabIndex = 34;
@@ -342,20 +337,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(481, 31);
             this.panel1.TabIndex = 44;
-            this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
-            this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseMove);
-            // 
-            // lblTitle
-            // 
-            this.lblTitle.AutoSize = true;
-            this.lblTitle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitle.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblTitle.Location = new System.Drawing.Point(13, 9);
-            this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(110, 16);
-            this.lblTitle.TabIndex = 4;
-            this.lblTitle.Text = "Customer Details";
             // 
             // btnExit
             // 
@@ -375,40 +356,25 @@
             this.btnExit.UseVisualStyleBackColor = false;
             this.btnExit.Click += new System.EventHandler(this.btnClose_Click);
             // 
-            // panel2
+            // lblTitle
             // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(41)))), ((int)(((byte)(46)))));
-            this.panel2.Location = new System.Drawing.Point(480, 31);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(10, 424);
-            this.panel2.TabIndex = 45;
-            // 
-            // panel3
-            // 
-            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(41)))), ((int)(((byte)(46)))));
-            this.panel3.Location = new System.Drawing.Point(-9, 31);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(10, 424);
-            this.panel3.TabIndex = 46;
-            // 
-            // panel4
-            // 
-            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(41)))), ((int)(((byte)(46)))));
-            this.panel4.Location = new System.Drawing.Point(0, 448);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(482, 10);
-            this.panel4.TabIndex = 47;
+            this.lblTitle.AutoSize = true;
+            this.lblTitle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitle.ForeColor = System.Drawing.SystemColors.Control;
+            this.lblTitle.Location = new System.Drawing.Point(13, 9);
+            this.lblTitle.Name = "lblTitle";
+            this.lblTitle.Size = new System.Drawing.Size(110, 16);
+            this.lblTitle.TabIndex = 4;
+            this.lblTitle.Text = "Customer Details";
             // 
             // frmCustomerDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(481, 449);
-            this.Controls.Add(this.panel4);
-            this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnUpdate);
-            this.Controls.Add(this.panel2);
             this.Controls.Add(this.chkComplementry);
             this.Controls.Add(this.chkCreditCustomer);
             this.Controls.Add(this.chkServiceCharge);
@@ -473,8 +439,5 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.Label lblTitle;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Panel panel4;
     }
 }
