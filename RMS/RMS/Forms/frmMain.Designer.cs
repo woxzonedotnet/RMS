@@ -137,6 +137,7 @@
             // 
             // supplierDetailsToolStripMenuItem
             // 
+            this.supplierDetailsToolStripMenuItem.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.supplierDetailsToolStripMenuItem.Name = "supplierDetailsToolStripMenuItem";
             this.supplierDetailsToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
             this.supplierDetailsToolStripMenuItem.Text = "Supplier Details";
