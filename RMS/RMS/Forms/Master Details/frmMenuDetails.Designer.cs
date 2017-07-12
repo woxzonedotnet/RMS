@@ -164,17 +164,17 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
-            this.label10.Location = new System.Drawing.Point(501, 124);
+            this.label10.Location = new System.Drawing.Point(488, 117);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(67, 16);
+            this.label10.Size = new System.Drawing.Size(54, 32);
             this.label10.TabIndex = 9;
-            this.label10.Text = "In Minutes";
+            this.label10.Text = "     In \r\nMinutes";
             // 
             // label11
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
-            this.label11.Location = new System.Drawing.Point(616, 9);
+            this.label11.Location = new System.Drawing.Point(566, 8);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(74, 16);
             this.label11.TabIndex = 10;
@@ -185,7 +185,7 @@
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
-            this.label12.Location = new System.Drawing.Point(616, 37);
+            this.label12.Location = new System.Drawing.Point(566, 36);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(69, 16);
             this.label12.TabIndex = 11;
@@ -195,7 +195,7 @@
             // 
             this.lblTotalMenuCost.AutoSize = true;
             this.lblTotalMenuCost.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
-            this.lblTotalMenuCost.Location = new System.Drawing.Point(592, 404);
+            this.lblTotalMenuCost.Location = new System.Drawing.Point(545, 404);
             this.lblTotalMenuCost.Name = "lblTotalMenuCost";
             this.lblTotalMenuCost.Size = new System.Drawing.Size(105, 16);
             this.lblTotalMenuCost.TabIndex = 12;
@@ -262,7 +262,7 @@
             // 
             this.textBox6.Location = new System.Drawing.Point(417, 123);
             this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(81, 20);
+            this.textBox6.Size = new System.Drawing.Size(66, 20);
             this.textBox6.TabIndex = 20;
             // 
             // columnComboBox3
@@ -278,7 +278,7 @@
             // 
             // btBackColor
             // 
-            this.btBackColor.Location = new System.Drawing.Point(697, 4);
+            this.btBackColor.Location = new System.Drawing.Point(647, 3);
             this.btBackColor.Name = "btBackColor";
             this.btBackColor.Size = new System.Drawing.Size(33, 23);
             this.btBackColor.TabIndex = 22;
@@ -287,7 +287,7 @@
             // 
             // btnTextColor
             // 
-            this.btnTextColor.Location = new System.Drawing.Point(697, 33);
+            this.btnTextColor.Location = new System.Drawing.Point(647, 32);
             this.btnTextColor.Name = "btnTextColor";
             this.btnTextColor.Size = new System.Drawing.Size(33, 23);
             this.btnTextColor.TabIndex = 23;
@@ -297,7 +297,7 @@
             // pnlBackColor
             // 
             this.pnlBackColor.BackColor = System.Drawing.Color.Aqua;
-            this.pnlBackColor.Location = new System.Drawing.Point(598, 9);
+            this.pnlBackColor.Location = new System.Drawing.Point(548, 8);
             this.pnlBackColor.Name = "pnlBackColor";
             this.pnlBackColor.Size = new System.Drawing.Size(17, 16);
             this.pnlBackColor.TabIndex = 24;
@@ -305,7 +305,7 @@
             // pnlTextColor
             // 
             this.pnlTextColor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.pnlTextColor.Location = new System.Drawing.Point(598, 37);
+            this.pnlTextColor.Location = new System.Drawing.Point(548, 36);
             this.pnlTextColor.Name = "pnlTextColor";
             this.pnlTextColor.Size = new System.Drawing.Size(17, 16);
             this.pnlTextColor.TabIndex = 25;
@@ -314,7 +314,7 @@
             // 
             this.cmbServiceCharge.AutoSize = true;
             this.cmbServiceCharge.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
-            this.cmbServiceCharge.Location = new System.Drawing.Point(598, 66);
+            this.cmbServiceCharge.Location = new System.Drawing.Point(548, 65);
             this.cmbServiceCharge.Name = "cmbServiceCharge";
             this.cmbServiceCharge.Size = new System.Drawing.Size(120, 20);
             this.cmbServiceCharge.TabIndex = 26;
@@ -325,7 +325,7 @@
             // 
             this.cmbCancel.AutoSize = true;
             this.cmbCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
-            this.cmbCancel.Location = new System.Drawing.Point(598, 95);
+            this.cmbCancel.Location = new System.Drawing.Point(548, 94);
             this.cmbCancel.Name = "cmbCancel";
             this.cmbCancel.Size = new System.Drawing.Size(69, 20);
             this.cmbCancel.TabIndex = 27;
@@ -334,7 +334,7 @@
             // 
             // btnSample
             // 
-            this.btnSample.Location = new System.Drawing.Point(736, 5);
+            this.btnSample.Location = new System.Drawing.Point(686, 4);
             this.btnSample.Name = "btnSample";
             this.btnSample.Size = new System.Drawing.Size(50, 51);
             this.btnSample.TabIndex = 28;
@@ -344,17 +344,17 @@
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 190);
+            this.dataGridView1.Location = new System.Drawing.Point(15, 190);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(512, 285);
+            this.dataGridView1.Size = new System.Drawing.Size(509, 285);
             this.dataGridView1.TabIndex = 29;
             // 
             // dataGridView2
             // 
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(572, 123);
+            this.dataGridView2.Location = new System.Drawing.Point(548, 123);
             this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(294, 264);
+            this.dataGridView2.Size = new System.Drawing.Size(318, 264);
             this.dataGridView2.TabIndex = 30;
             // 
             // txtTotalMenuCost
@@ -366,7 +366,7 @@
             // 
             // btnClose
             // 
-            this.btnClose.Location = new System.Drawing.Point(791, 440);
+            this.btnClose.Location = new System.Drawing.Point(791, 439);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(75, 36);
             this.btnClose.TabIndex = 37;
@@ -375,7 +375,7 @@
             // 
             // btnClear
             // 
-            this.btnClear.Location = new System.Drawing.Point(710, 440);
+            this.btnClear.Location = new System.Drawing.Point(710, 439);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(75, 36);
             this.btnClear.TabIndex = 36;
@@ -384,7 +384,7 @@
             // 
             // btnEdit
             // 
-            this.btnEdit.Location = new System.Drawing.Point(629, 440);
+            this.btnEdit.Location = new System.Drawing.Point(629, 439);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(75, 36);
             this.btnEdit.TabIndex = 35;
@@ -393,7 +393,7 @@
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(548, 440);
+            this.btnSave.Location = new System.Drawing.Point(548, 439);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 36);
             this.btnSave.TabIndex = 34;
