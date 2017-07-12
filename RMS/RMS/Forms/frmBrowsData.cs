@@ -82,7 +82,7 @@ namespace RMS.Forms
 
                 if (i > 2)
                 {
-                    counter1 += 150;
+                    counter1 += 165;
                     ctrlRadioButton.Location = new Point(counter1, 70);
                 }
                 else
@@ -204,7 +204,7 @@ namespace RMS.Forms
                     {
                         ((System.Windows.Forms.RadioButton)ctrControl).Checked = true;
                         strSearchFiled = ((System.Windows.Forms.RadioButton)ctrControl).Name.ToString();
-                        txtSearchBox.Focus();
+                        this.txtSearchBox.Focus();
                     }
                 }
 
@@ -251,13 +251,10 @@ namespace RMS.Forms
                     {
                         ((System.Windows.Forms.RadioButton)ctrControl).Checked = true;
                         strSearchFiled = ((System.Windows.Forms.RadioButton)ctrControl).Name.ToString();
-                        txtSearchBox.Focus();
+                        this.txtSearchBox.Focus();
                     }
                 }
-
             }
         }
-
-
     }
 }

@@ -48,7 +48,7 @@
             this.btnSelect.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Maroon;
             this.btnSelect.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSelect.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnSelect.Location = new System.Drawing.Point(388, 445);
+            this.btnSelect.Location = new System.Drawing.Point(388, 457);
             this.btnSelect.Name = "btnSelect";
             this.btnSelect.Size = new System.Drawing.Size(71, 23);
             this.btnSelect.TabIndex = 26;
@@ -62,7 +62,7 @@
             this.btnExit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Maroon;
             this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnExit.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnExit.Location = new System.Drawing.Point(462, 445);
+            this.btnExit.Location = new System.Drawing.Point(462, 457);
             this.btnExit.Margin = new System.Windows.Forms.Padding(0);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(71, 23);
@@ -76,7 +76,7 @@
             this.dgvDataView.AllowUserToAddRows = false;
             this.dgvDataView.AllowUserToDeleteRows = false;
             this.dgvDataView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvDataView.Location = new System.Drawing.Point(9, 108);
+            this.dgvDataView.Location = new System.Drawing.Point(9, 120);
             this.dgvDataView.Name = "dgvDataView";
             this.dgvDataView.ReadOnly = true;
             this.dgvDataView.Size = new System.Drawing.Size(525, 334);
@@ -87,7 +87,7 @@
             // 
             // txtSearchBox
             // 
-            this.txtSearchBox.Location = new System.Drawing.Point(9, 82);
+            this.txtSearchBox.Location = new System.Drawing.Point(9, 94);
             this.txtSearchBox.Name = "txtSearchBox";
             this.txtSearchBox.Size = new System.Drawing.Size(525, 20);
             this.txtSearchBox.TabIndex = 24;
@@ -138,7 +138,7 @@
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(41)))), ((int)(((byte)(46)))));
-            this.panel4.Location = new System.Drawing.Point(-2, 474);
+            this.panel4.Location = new System.Drawing.Point(-2, 486);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(552, 10);
             this.panel4.TabIndex = 33;
@@ -148,7 +148,7 @@
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(41)))), ((int)(((byte)(46)))));
             this.panel3.Location = new System.Drawing.Point(-9, 24);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(10, 453);
+            this.panel3.Size = new System.Drawing.Size(10, 466);
             this.panel3.TabIndex = 34;
             // 
             // panel2
@@ -156,14 +156,14 @@
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(41)))), ((int)(((byte)(46)))));
             this.panel2.Location = new System.Drawing.Point(541, 24);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(10, 450);
+            this.panel2.Size = new System.Drawing.Size(10, 467);
             this.panel2.TabIndex = 32;
             // 
             // frmBrowsData
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(542, 475);
+            this.ClientSize = new System.Drawing.Size(542, 487);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel3);
