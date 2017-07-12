@@ -17,9 +17,12 @@ namespace RMS.Forms
         #region Objects
         clsCommonMethods cCommonMethods = new clsCommonMethods();
         objCustomerMaster oCustomerMaster = new objCustomerMaster();
+        clsCustomerMaster cCustomerMaster = new clsCustomerMaster();
+        clsGlobleVariable cGlobleVariable = new clsGlobleVariable();
         #endregion
 
         #region Variables
+        int result=-1;
         Point lastClick;
         #endregion
 
@@ -50,33 +53,62 @@ namespace RMS.Forms
 
         private void btnClear_Click(object sender, EventArgs e)
         {
-            cCommonMethods.ClearForm(this);
+            clear();
         }
 
         private void btnSave_Click(object sender, EventArgs e)
         {
             if (ValidateData())
             {
-                oDepartment = cDepartment.GetDepartmentData(cGlobleVariable.LocationCode, this.txtDepartmentCode.Text);
+                oCustomerMaster = cCustomerMaster.GetCustomerData(cGlobleVariable.LocationCode, this.txtCustomerCode.Text);
 
-                if (oDepartment.IsExists == false)
+                if (oCustomerMaster.IsExists == false)
                 {
                     result = InsertUpdateData();
                     if (result != -1)
                     {
-                        MessageBox.Show("Successfully Saved...!", "Department", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("Successfully Saved...!", "Customer Details", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         clear();
                     }
                     else
                     {
-                        MessageBox.Show("Department Data Not Saved...!", "Department", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Customer Data Not Saved...!", "Customer Details", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
                 else
                 {
-                    MessageBox.Show("Record already exist...!", "Department", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Record already exist...!", "Customer Details", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
+        }
+
+        #region InsertUpdate Department Data
+        private int InsertUpdateData()
+        {
+            oCustomerMaster.LocationCode = cGlobleVariable.LocationCode.ToString();
+            oCustomerMaster.CustomerCode=this.txtCustomerCode.Text;
+            oCustomerMaster.CustomerName=this.txtCustomerName.Text;
+            oCustomerMaster.CustomerAddress=this.txtCustomerAddress.Text;
+            oCustomerMaster.ContactNo=this.txtContactNo.Text;
+            oCustomerMaster.Email=this.txtEmail.Text;
+            oCustomerMaster.CreditLimit=Convert.ToDouble(this.txtCreditLimit.Text);
+            oCustomerMaster.Discount = Convert.ToDouble(this.txtDiscount.Text);
+            oCustomerMaster.VatNo = this.txtVatNo.Text;
+            oCustomerMaster.IsServiceCharge = this.chkServiceCharge.Checked;
+            oCustomerMaster.IsCreditCustomer = this.chkCreditCustomer.Checked;
+            oCustomerMaster.IsComplementary = this.chkComplementry.Checked;
+
+            return cCustomerMaster.InsertUpdateData(oCustomerMaster);
+        }
+        #endregion
+
+
+        public void clear()
+        {
+            cCommonMethods.ClearForm(this);
+            this.txtCustomerCode.Enabled = true;
+            this.btnSave.Enabled = true;
+            this.btnUpdate.Enabled = false;
         }
 
         #region Validate Customer Master Data
@@ -84,14 +116,14 @@ namespace RMS.Forms
         {
             bool isValidate = true;
 
-            if (txtCustomerID.Text == "")
+            if (txtCustomerCode.Text == "")
             {
-                errCustomer.SetError(txtCustomerID, "Please Enter Customer Code");
+                errCustomer.SetError(txtCustomerCode, "Please Enter Customer Code");
                 isValidate = false;
             }
             else
             {
-                errCustomer.SetError(txtCustomerID, "");
+                errCustomer.SetError(txtCustomerCode, "");
 
             }
 
@@ -117,5 +149,105 @@ namespace RMS.Forms
             return isValidate;
         }
         #endregion
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            if (ValidateData())
+            {
+                oCustomerMaster = cCustomerMaster.GetCustomerData(cGlobleVariable.LocationCode, this.txtCustomerCode.Text);
+
+                if (oCustomerMaster.IsExists == true)
+                {
+                    result = InsertUpdateData();
+                    if (result != -1)
+                    {
+                        MessageBox.Show("Successfully Updated...!", "Customer Details", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        clear();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Customer Data Not Update...!", "Customer Details", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+        }
+
+        public void LoadSearch()
+        {
+            string[] strFieldList = new string[4];
+            strFieldList[0] = "fldCustomerCode";
+            strFieldList[1] = "fldCustomerName";
+            strFieldList[2] = "fldContactNo";
+            strFieldList[3] = "fldEmail";
+
+            string[] strHeaderList = new string[4];
+            strHeaderList[0] = "Customer Code";
+            strHeaderList[1] = "Customer Name";
+            strHeaderList[2] = "Contact No";
+            strHeaderList[3] = "Email";
+
+            int[] iHeaderWidth = new int[4];
+            iHeaderWidth[0] = 150;
+            iHeaderWidth[1] = 320;
+            iHeaderWidth[2] = 150;
+            iHeaderWidth[3] = 150;
+
+            string strReturnString = "Customer Code";
+            string strWhere = "fldLocationCode= '" + cGlobleVariable.LocationCode + "'";
+            txtCustomerCode.Text = cCommonMethods.BrowsData("tbl_CustomerMaster", strFieldList, strHeaderList, iHeaderWidth, strReturnString, strWhere, "Customer Details");
+            if (txtCustomerCode.Text != "")
+            {
+                LoadDepartmentDetails();
+            }
+        }
+
+        #region Load Department Details
+        private void LoadDepartmentDetails()
+        {
+            oCustomerMaster = cCustomerMaster.GetCustomerData(cGlobleVariable.LocationCode, this.txtCustomerCode.Text);
+
+            txtCustomerName.Text = oCustomerMaster.CustomerName;
+            txtCustomerAddress.Text = oCustomerMaster.CustomerAddress;
+            txtContactNo.Text = oCustomerMaster.ContactNo;
+            txtEmail.Text = oCustomerMaster.Email;
+            txtCreditLimit.Text = oCustomerMaster.CreditLimit.ToString();
+            txtDiscount.Text = oCustomerMaster.Discount.ToString();
+            txtVatNo.Text = oCustomerMaster.VatNo;
+
+            if (oCustomerMaster.IsServiceCharge) 
+            {
+                chkServiceCharge.Checked = true;
+            }
+
+            if (oCustomerMaster.IsCreditCustomer)
+            {
+                chkCreditCustomer.Checked = true;
+            }
+
+            if (oCustomerMaster.IsComplementary)
+            {
+                chkComplementry.Checked = true;
+            }
+
+            this.txtCustomerName.Select();
+            this.txtCustomerCode.Enabled = false;
+            this.btnSave.Enabled = false;
+            this.btnUpdate.Enabled = true;
+        }
+        #endregion
+
+        private void txtCustomerCode_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 32)
+            {
+                e.Handled = (e.KeyChar == (char)Keys.Space);
+                LoadSearch();
+            }
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            LoadSearch();
+        }
     }
 }

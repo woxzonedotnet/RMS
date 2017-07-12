@@ -30,14 +30,14 @@
         {
             this.components = new System.ComponentModel.Container();
             this.txtCustomerName = new System.Windows.Forms.TextBox();
-            this.txtCustomerID = new System.Windows.Forms.TextBox();
+            this.txtCustomerCode = new System.Windows.Forms.TextBox();
             this.lblName = new System.Windows.Forms.Label();
             this.lblCustomerID = new System.Windows.Forms.Label();
             this.btnSearch = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
             this.btnClear = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
-            this.txtAddressL1 = new System.Windows.Forms.TextBox();
+            this.txtCustomerAddress = new System.Windows.Forms.TextBox();
             this.lblAddressL1 = new System.Windows.Forms.Label();
             this.txtContactNo = new System.Windows.Forms.TextBox();
             this.lblContactNo = new System.Windows.Forms.Label();
@@ -72,13 +72,14 @@
             this.txtCustomerName.Size = new System.Drawing.Size(344, 21);
             this.txtCustomerName.TabIndex = 17;
             // 
-            // txtCustomerID
+            // txtCustomerCode
             // 
-            this.txtCustomerID.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCustomerID.Location = new System.Drawing.Point(118, 51);
-            this.txtCustomerID.Name = "txtCustomerID";
-            this.txtCustomerID.Size = new System.Drawing.Size(150, 21);
-            this.txtCustomerID.TabIndex = 16;
+            this.txtCustomerCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCustomerCode.Location = new System.Drawing.Point(118, 51);
+            this.txtCustomerCode.Name = "txtCustomerCode";
+            this.txtCustomerCode.Size = new System.Drawing.Size(150, 21);
+            this.txtCustomerCode.TabIndex = 16;
+            this.txtCustomerCode.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCustomerCode_KeyPress);
             // 
             // lblName
             // 
@@ -115,6 +116,7 @@
             this.btnSearch.Size = new System.Drawing.Size(35, 31);
             this.btnSearch.TabIndex = 21;
             this.btnSearch.UseVisualStyleBackColor = false;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // btnClose
             // 
@@ -164,14 +166,14 @@
             this.btnSave.UseVisualStyleBackColor = false;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
-            // txtAddressL1
+            // txtCustomerAddress
             // 
-            this.txtAddressL1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAddressL1.Location = new System.Drawing.Point(118, 123);
-            this.txtAddressL1.Multiline = true;
-            this.txtAddressL1.Name = "txtAddressL1";
-            this.txtAddressL1.Size = new System.Drawing.Size(344, 75);
-            this.txtAddressL1.TabIndex = 23;
+            this.txtCustomerAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCustomerAddress.Location = new System.Drawing.Point(118, 123);
+            this.txtCustomerAddress.Multiline = true;
+            this.txtCustomerAddress.Name = "txtCustomerAddress";
+            this.txtCustomerAddress.Size = new System.Drawing.Size(344, 75);
+            this.txtCustomerAddress.TabIndex = 23;
             // 
             // lblAddressL1
             // 
@@ -335,6 +337,7 @@
             this.btnUpdate.TabIndex = 43;
             this.btnUpdate.Text = "Update";
             this.btnUpdate.UseVisualStyleBackColor = false;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // panel1
             // 
@@ -430,14 +433,14 @@
             this.Controls.Add(this.lblEmail);
             this.Controls.Add(this.txtContactNo);
             this.Controls.Add(this.lblContactNo);
-            this.Controls.Add(this.txtAddressL1);
+            this.Controls.Add(this.txtCustomerAddress);
             this.Controls.Add(this.lblAddressL1);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.btnClear);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.txtCustomerName);
-            this.Controls.Add(this.txtCustomerID);
+            this.Controls.Add(this.txtCustomerCode);
             this.Controls.Add(this.lblName);
             this.Controls.Add(this.lblCustomerID);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -456,14 +459,14 @@
         #endregion
 
         private System.Windows.Forms.TextBox txtCustomerName;
-        private System.Windows.Forms.TextBox txtCustomerID;
+        private System.Windows.Forms.TextBox txtCustomerCode;
         private System.Windows.Forms.Label lblName;
         private System.Windows.Forms.Label lblCustomerID;
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Button btnClear;
         private System.Windows.Forms.Button btnSave;
-        private System.Windows.Forms.TextBox txtAddressL1;
+        private System.Windows.Forms.TextBox txtCustomerAddress;
         private System.Windows.Forms.Label lblAddressL1;
         private System.Windows.Forms.TextBox txtContactNo;
         private System.Windows.Forms.Label lblContactNo;
