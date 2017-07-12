@@ -136,7 +136,7 @@ namespace RMS.Forms
             LoadSearch();
         }
 
-        #region Load SubLocation Details
+        #region Load Department Details
         private void LoadDepartmentDetails()
         {
             oDepartment = cDepartment.GetDepartmentData(cGlobleVariable.LocationCode, this.txtDepartmentCode.Text);
