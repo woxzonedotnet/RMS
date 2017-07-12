@@ -53,16 +53,16 @@
     <Compile Include="ColumnComboBox.Designer.cs">
       <DependentUpon>ColumnComboBox.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\frmBankCards.cs">
+    <Compile Include="Forms\Master Details\frmBankCards.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\frmBankCards.Designer.cs">
+    <Compile Include="Forms\Master Details\frmBankCards.Designer.cs">
       <DependentUpon>frmBankCards.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\frmBankDetails.cs">
+    <Compile Include="Forms\Master Details\frmBankDetails.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\frmBankDetails.Designer.cs">
+    <Compile Include="Forms\Master Details\frmBankDetails.Designer.cs">
       <DependentUpon>frmBankDetails.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\frmBrowsData.cs">
@@ -71,34 +71,34 @@
     <Compile Include="Forms\frmBrowsData.Designer.cs">
       <DependentUpon>frmBrowsData.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\frmCategoryMasterDetails.cs">
+    <Compile Include="Forms\Master Details\frmCategoryMasterDetails.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\frmCategoryMasterDetails.Designer.cs">
+    <Compile Include="Forms\Master Details\frmCategoryMasterDetails.Designer.cs">
       <DependentUpon>frmCategoryMasterDetails.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\frmCustomerDetails.cs">
+    <Compile Include="Forms\Master Details\frmCustomerDetails.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\frmCustomerDetails.Designer.cs">
+    <Compile Include="Forms\Master Details\frmCustomerDetails.Designer.cs">
       <DependentUpon>frmCustomerDetails.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\frmDepartmentDetails.cs">
+    <Compile Include="Forms\Master Details\frmDepartmentDetails.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\frmDepartmentDetails.Designer.cs">
+    <Compile Include="Forms\Master Details\frmDepartmentDetails.Designer.cs">
       <DependentUpon>frmDepartmentDetails.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\frmItemDetails.cs">
+    <Compile Include="Forms\Master Details\frmItemDetails.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\frmItemDetails.Designer.cs">
+    <Compile Include="Forms\Master Details\frmItemDetails.Designer.cs">
       <DependentUpon>frmItemDetails.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\frmLocationMaster.cs">
+    <Compile Include="Forms\Master Details\frmLocationMaster.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\frmLocationMaster.Designer.cs">
+    <Compile Include="Forms\Master Details\frmLocationMaster.Designer.cs">
       <DependentUpon>frmLocationMaster.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\frmLogin.cs">
@@ -113,76 +113,76 @@
     <Compile Include="Forms\frmMain.Designer.cs">
       <DependentUpon>frmMain.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\frmMenuCategoryDetails.cs">
+    <Compile Include="Forms\Master Details\frmMenuCategoryDetails.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\frmMenuCategoryDetails.Designer.cs">
+    <Compile Include="Forms\Master Details\frmMenuCategoryDetails.Designer.cs">
       <DependentUpon>frmMenuCategoryDetails.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\frmMenuDepartment.cs">
+    <Compile Include="Forms\Master Details\frmMenuDepartment.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\frmMenuDepartment.Designer.cs">
+    <Compile Include="Forms\Master Details\frmMenuDepartment.Designer.cs">
       <DependentUpon>frmMenuDepartment.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\frmMenuDetails.cs">
+    <Compile Include="Forms\Master Details\frmMenuDetails.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\frmMenuDetails.Designer.cs">
+    <Compile Include="Forms\Master Details\frmMenuDetails.Designer.cs">
       <DependentUpon>frmMenuDetails.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\frmRecipeDetails.cs">
+    <Compile Include="Forms\Master Details\frmRecipeDetails.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\frmRecipeDetails.Designer.cs">
+    <Compile Include="Forms\Master Details\frmRecipeDetails.Designer.cs">
       <DependentUpon>frmRecipeDetails.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\frmSetupSetting.cs">
+    <Compile Include="Forms\Master Details\frmSetupSetting.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\frmSetupSetting.Designer.cs">
+    <Compile Include="Forms\Master Details\frmSetupSetting.Designer.cs">
       <DependentUpon>frmSetupSetting.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\frmSteward.cs">
+    <Compile Include="Forms\Master Details\frmSteward.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\frmSteward.Designer.cs">
+    <Compile Include="Forms\Master Details\frmSteward.Designer.cs">
       <DependentUpon>frmSteward.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\frmSubCategoryMasterDetails.cs">
+    <Compile Include="Forms\Master Details\frmSubCategoryMasterDetails.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\frmSubCategoryMasterDetails.Designer.cs">
+    <Compile Include="Forms\Master Details\frmSubCategoryMasterDetails.Designer.cs">
       <DependentUpon>frmSubCategoryMasterDetails.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\frmSubLocation.cs">
+    <Compile Include="Forms\Master Details\frmSubLocation.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\frmSubLocation.Designer.cs">
+    <Compile Include="Forms\Master Details\frmSubLocation.Designer.cs">
       <DependentUpon>frmSubLocation.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\frmSupplierCategory.cs">
+    <Compile Include="Forms\Master Details\frmSupplierCategory.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\frmSupplierCategory.Designer.cs">
+    <Compile Include="Forms\Master Details\frmSupplierCategory.Designer.cs">
       <DependentUpon>frmSupplierCategory.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\frmSupplierDetails.cs">
+    <Compile Include="Forms\Master Details\frmSupplierDetails.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\frmSupplierDetails.Designer.cs">
+    <Compile Include="Forms\Master Details\frmSupplierDetails.Designer.cs">
       <DependentUpon>frmSupplierDetails.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\frmTableCategoryDetails.cs">
+    <Compile Include="Forms\Master Details\frmTableCategoryDetails.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\frmTableCategoryDetails.Designer.cs">
+    <Compile Include="Forms\Master Details\frmTableCategoryDetails.Designer.cs">
       <DependentUpon>frmTableCategoryDetails.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\frmTableDetails.cs">
+    <Compile Include="Forms\Master Details\frmTableDetails.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\frmTableDetails.Designer.cs">
+    <Compile Include="Forms\Master Details\frmTableDetails.Designer.cs">
       <DependentUpon>frmTableDetails.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
@@ -193,28 +193,28 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="StringList.cs" />
-    <EmbeddedResource Include="Forms\frmBankCards.resx">
+    <EmbeddedResource Include="Forms\Master Details\frmBankCards.resx">
       <DependentUpon>frmBankCards.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\frmBankDetails.resx">
+    <EmbeddedResource Include="Forms\Master Details\frmBankDetails.resx">
       <DependentUpon>frmBankDetails.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmBrowsData.resx">
       <DependentUpon>frmBrowsData.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\frmCategoryMasterDetails.resx">
+    <EmbeddedResource Include="Forms\Master Details\frmCategoryMasterDetails.resx">
       <DependentUpon>frmCategoryMasterDetails.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\frmCustomerDetails.resx">
+    <EmbeddedResource Include="Forms\Master Details\frmCustomerDetails.resx">
       <DependentUpon>frmCustomerDetails.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\frmDepartmentDetails.resx">
+    <EmbeddedResource Include="Forms\Master Details\frmDepartmentDetails.resx">
       <DependentUpon>frmDepartmentDetails.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\frmItemDetails.resx">
+    <EmbeddedResource Include="Forms\Master Details\frmItemDetails.resx">
       <DependentUpon>frmItemDetails.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\frmLocationMaster.resx">
+    <EmbeddedResource Include="Forms\Master Details\frmLocationMaster.resx">
       <DependentUpon>frmLocationMaster.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmLogin.resx">
@@ -223,40 +223,40 @@
     <EmbeddedResource Include="Forms\frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\frmMenuCategoryDetails.resx">
+    <EmbeddedResource Include="Forms\Master Details\frmMenuCategoryDetails.resx">
       <DependentUpon>frmMenuCategoryDetails.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\frmMenuDepartment.resx">
+    <EmbeddedResource Include="Forms\Master Details\frmMenuDepartment.resx">
       <DependentUpon>frmMenuDepartment.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\frmMenuDetails.resx">
+    <EmbeddedResource Include="Forms\Master Details\frmMenuDetails.resx">
       <DependentUpon>frmMenuDetails.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\frmRecipeDetails.resx">
+    <EmbeddedResource Include="Forms\Master Details\frmRecipeDetails.resx">
       <DependentUpon>frmRecipeDetails.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\frmSetupSetting.resx">
+    <EmbeddedResource Include="Forms\Master Details\frmSetupSetting.resx">
       <DependentUpon>frmSetupSetting.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\frmSteward.resx">
+    <EmbeddedResource Include="Forms\Master Details\frmSteward.resx">
       <DependentUpon>frmSteward.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\frmSubCategoryMasterDetails.resx">
+    <EmbeddedResource Include="Forms\Master Details\frmSubCategoryMasterDetails.resx">
       <DependentUpon>frmSubCategoryMasterDetails.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\frmSubLocation.resx">
+    <EmbeddedResource Include="Forms\Master Details\frmSubLocation.resx">
       <DependentUpon>frmSubLocation.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\frmSupplierCategory.resx">
+    <EmbeddedResource Include="Forms\Master Details\frmSupplierCategory.resx">
       <DependentUpon>frmSupplierCategory.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\frmSupplierDetails.resx">
+    <EmbeddedResource Include="Forms\Master Details\frmSupplierDetails.resx">
       <DependentUpon>frmSupplierDetails.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\frmTableCategoryDetails.resx">
+    <EmbeddedResource Include="Forms\Master Details\frmTableCategoryDetails.resx">
       <DependentUpon>frmTableCategoryDetails.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\frmTableDetails.resx">
+    <EmbeddedResource Include="Forms\Master Details\frmTableDetails.resx">
       <DependentUpon>frmTableDetails.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -296,7 +296,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Forms\Master Details\" />
     <Folder Include="Forms\Transaction\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
