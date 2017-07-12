@@ -12,6 +12,10 @@ namespace RMS.Forms
 {
     public partial class frmCustomerDetails : Form
     {
+        #region Objects
+        clsCommonMethods cCommonMethods = new clsCommonMethods();
+        #endregion
+
         #region Variables
         Point lastClick;
         #endregion
@@ -39,6 +43,11 @@ namespace RMS.Forms
         private void panel1_MouseDown(object sender, MouseEventArgs e)
         {
             lastClick = e.Location;
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            cCommonMethods.ClearForm(this);
         }
     }
 }
