@@ -128,7 +128,6 @@ namespace RMS.Forms
         {
             cCommonMethods.loadComboRMS(cStatusMaster.GetStatusDetails(), cmbStatus, 1);
             clear();
-            this.btnUpdate.Enabled = false;
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
