@@ -72,7 +72,7 @@ namespace BusinessLogic
             arrParameter[3, 0] = "@mfldStatus";
             arrParameter[3, 1] = oSteward.Status;
 
-            return cDBConnection.Insert("SP_INSERT_UPDATE_STEWARD", arrParameter);
+            return cDBConnection.Insert("SP_INSERT_UPDATE_STEWARD_MASTER", arrParameter);
         }
         #endregion
     }

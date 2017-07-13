@@ -35,7 +35,7 @@ namespace BusinessLogic
             arrParameter[3, 0] = "@mfldDepartmentStatus";
             arrParameter[3, 1] = oDepartment.Status;
 
-            return cDBConnection.Insert("sp_insert_update_department", arrParameter);
+            return cDBConnection.Insert("SP_INSERT_UPDATE_DEPARTMENT_MASTER", arrParameter);
         }
         #endregion
 

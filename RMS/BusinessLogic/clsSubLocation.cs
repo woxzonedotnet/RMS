@@ -38,7 +38,7 @@ namespace BusinessLogic
             arrParameter[5, 0] = "@mfldStatus";
             arrParameter[5, 1] = oSubLocation.Status;
 
-            return cDBConnection.Insert("sp_insert_update_sublocation", arrParameter);
+            return cDBConnection.Insert("SP_INSERT_UPDATE_SUBLOCATION_MASTER", arrParameter);
         }
 
         #region GetSubLocation Data Using LocationCode and SubLocationCode

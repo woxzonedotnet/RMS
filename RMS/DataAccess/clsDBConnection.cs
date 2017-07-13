@@ -135,7 +135,7 @@ namespace DataAccess
         {
             try
             {
-                SqlCommand command = new SqlCommand("sp_SearchData");
+                SqlCommand command = new SqlCommand("SP_SEARCH_DATA");
 
                 Connection();
 
@@ -166,7 +166,7 @@ namespace DataAccess
         {
             try
             {
-                SqlCommand command = new SqlCommand("sp_SelectTable");
+                SqlCommand command = new SqlCommand("SP_SELECT_TABLE");
                 Connection();
                 command.Connection = dbConn;
                 command.CommandType = CommandType.StoredProcedure;

@@ -42,6 +42,9 @@
             this.lblGRNValue = new System.Windows.Forms.Label();
             this.cmbSupplier = new RMS.ColumnComboBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtVatPrecentage = new System.Windows.Forms.TextBox();
+            this.lblVATAmount = new System.Windows.Forms.Label();
             this.btnClose = new System.Windows.Forms.Button();
             this.btnClear = new System.Windows.Forms.Button();
             this.btnPrint = new System.Windows.Forms.Button();
@@ -52,13 +55,10 @@
             this.lblLocation = new System.Windows.Forms.Label();
             this.lblGRNNumber = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btnSave = new System.Windows.Forms.Button();
-            this.btnSearch = new System.Windows.Forms.Button();
             this.txtInvoiceNo = new System.Windows.Forms.TextBox();
             this.lblInvoiceNo = new System.Windows.Forms.Label();
-            this.lblVATAmount = new System.Windows.Forms.Label();
-            this.txtVatPrecentage = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
+            this.btnSearch = new System.Windows.Forms.Button();
+            this.btnSave = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -196,6 +196,33 @@
             this.panel2.Size = new System.Drawing.Size(294, 190);
             this.panel2.TabIndex = 74;
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
+            this.label3.Location = new System.Drawing.Point(257, 157);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(20, 16);
+            this.label3.TabIndex = 72;
+            this.label3.Text = "%";
+            // 
+            // txtVatPrecentage
+            // 
+            this.txtVatPrecentage.Location = new System.Drawing.Point(116, 155);
+            this.txtVatPrecentage.Name = "txtVatPrecentage";
+            this.txtVatPrecentage.Size = new System.Drawing.Size(139, 20);
+            this.txtVatPrecentage.TabIndex = 71;
+            // 
+            // lblVATAmount
+            // 
+            this.lblVATAmount.AutoSize = true;
+            this.lblVATAmount.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
+            this.lblVATAmount.Location = new System.Drawing.Point(17, 48);
+            this.lblVATAmount.Name = "lblVATAmount";
+            this.lblVATAmount.Size = new System.Drawing.Size(83, 16);
+            this.lblVATAmount.TabIndex = 70;
+            this.lblVATAmount.Text = "VAT Amount";
+            // 
             // btnClose
             // 
             this.btnClose.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(41)))), ((int)(((byte)(46)))));
@@ -204,7 +231,7 @@
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
             this.btnClose.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnClose.Location = new System.Drawing.Point(629, 436);
+            this.btnClose.Location = new System.Drawing.Point(649, 437);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(75, 36);
             this.btnClose.TabIndex = 73;
@@ -219,7 +246,7 @@
             this.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
             this.btnClear.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnClear.Location = new System.Drawing.Point(548, 436);
+            this.btnClear.Location = new System.Drawing.Point(568, 437);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(75, 36);
             this.btnClear.TabIndex = 72;
@@ -234,7 +261,7 @@
             this.btnPrint.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPrint.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
             this.btnPrint.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnPrint.Location = new System.Drawing.Point(467, 436);
+            this.btnPrint.Location = new System.Drawing.Point(487, 437);
             this.btnPrint.Name = "btnPrint";
             this.btnPrint.Size = new System.Drawing.Size(75, 36);
             this.btnPrint.TabIndex = 71;
@@ -317,36 +344,6 @@
             this.panel1.Size = new System.Drawing.Size(294, 198);
             this.panel1.TabIndex = 69;
             // 
-            // btnSave
-            // 
-            this.btnSave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(41)))), ((int)(((byte)(46)))));
-            this.btnSave.FlatAppearance.BorderSize = 0;
-            this.btnSave.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Maroon;
-            this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
-            this.btnSave.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnSave.Location = new System.Drawing.Point(386, 436);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(75, 36);
-            this.btnSave.TabIndex = 70;
-            this.btnSave.Text = "Save";
-            this.btnSave.UseVisualStyleBackColor = false;
-            // 
-            // btnSearch
-            // 
-            this.btnSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(41)))), ((int)(((byte)(46)))));
-            this.btnSearch.FlatAppearance.BorderSize = 0;
-            this.btnSearch.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Maroon;
-            this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSearch.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnSearch.Image = global::RMS.Properties.Resources.search25;
-            this.btnSearch.Location = new System.Drawing.Point(238, 12);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(35, 31);
-            this.btnSearch.TabIndex = 60;
-            this.btnSearch.UseVisualStyleBackColor = false;
-            // 
             // txtInvoiceNo
             // 
             this.txtInvoiceNo.Location = new System.Drawing.Point(108, 165);
@@ -364,32 +361,35 @@
             this.lblInvoiceNo.TabIndex = 67;
             this.lblInvoiceNo.Text = "Invoice No";
             // 
-            // lblVATAmount
+            // btnSearch
             // 
-            this.lblVATAmount.AutoSize = true;
-            this.lblVATAmount.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
-            this.lblVATAmount.Location = new System.Drawing.Point(17, 48);
-            this.lblVATAmount.Name = "lblVATAmount";
-            this.lblVATAmount.Size = new System.Drawing.Size(83, 16);
-            this.lblVATAmount.TabIndex = 70;
-            this.lblVATAmount.Text = "VAT Amount";
+            this.btnSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(41)))), ((int)(((byte)(46)))));
+            this.btnSearch.FlatAppearance.BorderSize = 0;
+            this.btnSearch.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Maroon;
+            this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSearch.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnSearch.Image = global::RMS.Properties.Resources.search25;
+            this.btnSearch.Location = new System.Drawing.Point(238, 12);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(35, 31);
+            this.btnSearch.TabIndex = 60;
+            this.btnSearch.UseVisualStyleBackColor = false;
             // 
-            // txtVatPrecentage
+            // btnSave
             // 
-            this.txtVatPrecentage.Location = new System.Drawing.Point(116, 155);
-            this.txtVatPrecentage.Name = "txtVatPrecentage";
-            this.txtVatPrecentage.Size = new System.Drawing.Size(139, 20);
-            this.txtVatPrecentage.TabIndex = 71;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
-            this.label3.Location = new System.Drawing.Point(253, 156);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(20, 16);
-            this.label3.TabIndex = 72;
-            this.label3.Text = "%";
+            this.btnSave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(41)))), ((int)(((byte)(46)))));
+            this.btnSave.FlatAppearance.BorderSize = 0;
+            this.btnSave.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Maroon;
+            this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
+            this.btnSave.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnSave.Location = new System.Drawing.Point(406, 437);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(75, 36);
+            this.btnSave.TabIndex = 70;
+            this.btnSave.Text = "Save";
+            this.btnSave.UseVisualStyleBackColor = false;
             // 
             // frmGoodsReceiveNote
             // 

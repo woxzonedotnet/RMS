@@ -54,7 +54,7 @@ namespace BusinessLogic
             arrParameter[3, 0] = "@mfldStatus";
             arrParameter[3, 1] = oSupplierCategory.Status;
 
-            return cDBConnection.Insert("SP_INSERT_UPDATE_SUPPLIER_CATEGORY", arrParameter);
+            return cDBConnection.Insert("SP_INSERT_UPDATE_SUPPLIER_CATEGORY_MASTER", arrParameter);
         }
         #endregion
 

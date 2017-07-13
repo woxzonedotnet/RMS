@@ -37,7 +37,7 @@ namespace BusinessLogic
             arrParameter[1, 0] = "FieldList";
             arrParameter[1, 1] = strSQL;
 
-            return dtBrowsData = DbConn.Execute("sp_BrowsData", arrParameter);
+            return dtBrowsData = DbConn.Execute("SP_BROWS_DATA", arrParameter);
         }
         #endregion
 
@@ -67,7 +67,7 @@ namespace BusinessLogic
             arrParameter[2, 1] = where_clause;
 
 
-            return dtBrowsData = DbConn.Execute("sp_BrowsDataUsingWhere", arrParameter);
+            return dtBrowsData = DbConn.Execute("SP_BROWS_DATA_USING_WHERE", arrParameter);
         }
         #endregion
     }
