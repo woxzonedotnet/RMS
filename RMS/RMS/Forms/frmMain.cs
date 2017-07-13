@@ -20,15 +20,26 @@ namespace RMS.Forms
         MdiClient ctlMDI;
         #endregion
 
-
-
         public frmMain()
         {
             InitializeComponent();
             menuStripMain.Renderer = new MyRenderer();
             this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
+            foreach (Control ctl in this.Controls)
+            {
+                try
+                {
+                    ctlMDI = (MdiClient)ctl;
+                    ctlMDI.BackColor = this.BackColor;
+                }
+                catch (InvalidCastException exc)
+                {
+                    //MessageBox.Show(exc.Message);
+                }
+            }
         }
 
+        #region MenuStrip Design
         class MyRenderer : ToolStripProfessionalRenderer // MenuStrip Render Function
         {
             public MyRenderer() : base(new MyColors()) { }
@@ -55,18 +66,9 @@ namespace RMS.Forms
             }
             
         }
+        #endregion
 
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            
-        }
-
+        #region Master File ToolStripMenuItem
         private void supplierCategoryToolStripMenuItem_Click(object sender, EventArgs e)
         {
             try
@@ -93,22 +95,6 @@ namespace RMS.Forms
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
-            }
-        }
-
-        private void frmMain_Load(object sender, EventArgs e)
-        {
-            foreach (Control ctl in this.Controls)
-            {
-                try
-                {
-                    ctlMDI = (MdiClient)ctl;
-                    ctlMDI.BackColor = this.BackColor;
-                }
-                catch (InvalidCastException exc)
-                {
-                    //MessageBox.Show(exc.Message);
-                }
             }
         }
 
@@ -605,7 +591,13 @@ namespace RMS.Forms
             }
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        #endregion
+        
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+        private void btnMinimize_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
         }
