@@ -137,7 +137,7 @@
             this.txtStewardCode.Name = "txtStewardCode";
             this.txtStewardCode.Size = new System.Drawing.Size(150, 21);
             this.txtStewardCode.TabIndex = 12;
-            this.txtStewardCode.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtStewardCode_KeyPress);
+            this.txtStewardCode.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtStewardCode_KeyDown);
             // 
             // lblStewardName
             // 
