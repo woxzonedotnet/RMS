@@ -31,6 +31,7 @@ namespace RMS.Forms
             InitializeComponent();
             this.lblTitle.Text = this.Text;
             cCommonMethods.loadComboRMS(cStatusMaster.GetStatusDetails(), cmbStatus, 1);
+            clear();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -54,7 +55,7 @@ namespace RMS.Forms
 
         private void frmMenuDepartment_Load(object sender, EventArgs e)
         {
-
+            clear();
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -65,7 +66,6 @@ namespace RMS.Forms
 
                 if (oMenuDepartment.IsExists == false)
                 {
-                    //result = InsertUpdateData();
                     if (InsertUpdateData() != -1)
                     {
                         MessageBox.Show("Successfully Saved...!", "Menu Department", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -89,6 +89,7 @@ namespace RMS.Forms
             this.txtMenuDepartmentCode.Enabled = true;
             this.btnSave.Enabled = true;
             this.btnUpdate.Enabled = false;
+            this.txtMenuDepartmentCode.Focus();
         }
 
         #region Validate Menu Department Data
@@ -212,10 +213,6 @@ namespace RMS.Forms
                     {
                         MessageBox.Show("Menu Department Data Not Update...!", "Menu Department", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
-                }
-                else
-                {
-                    MessageBox.Show("Record already exist...!", "Menu Department", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
         }
