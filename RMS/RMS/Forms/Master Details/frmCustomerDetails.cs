@@ -236,14 +236,6 @@ namespace RMS.Forms
         }
         #endregion
 
-        private void txtCustomerCode_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (e.KeyChar == 32)
-            {
-                e.Handled = (e.KeyChar == (char)Keys.Space);
-                LoadSearch();
-            }
-        }
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
@@ -253,6 +245,14 @@ namespace RMS.Forms
         private void frmCustomerDetails_Load(object sender, EventArgs e)
         {
             clear();
+        }
+
+        private void txtCustomerCode_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Space)
+            {
+                LoadSearch();
+            }
         }
     }
 }
