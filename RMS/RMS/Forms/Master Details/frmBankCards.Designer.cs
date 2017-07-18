@@ -141,7 +141,7 @@
             this.txtCardCode.Name = "txtCardCode";
             this.txtCardCode.Size = new System.Drawing.Size(182, 20);
             this.txtCardCode.TabIndex = 11;
-            this.txtCardCode.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCardCode_KeyPress);
+            this.txtCardCode.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtCardCode_KeyDown);
             // 
             // txtCommision
             // 

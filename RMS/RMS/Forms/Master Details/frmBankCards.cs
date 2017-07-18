@@ -246,15 +246,6 @@ namespace RMS.Forms
             this.Dispose();
         }
 
-        private void txtCardCode_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (e.KeyChar == 32)
-            {
-                e.Handled = (e.KeyChar == (char)Keys.Space);
-                LoadSearch();
-            }
-        }
-
         private void panel1_MouseDown(object sender, MouseEventArgs e)
         {
             lastClick = e.Location;
@@ -266,6 +257,14 @@ namespace RMS.Forms
             {
                 this.Left += e.X - lastClick.X;
                 this.Top += e.Y - lastClick.Y;
+            }
+        }
+
+        private void txtCardCode_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Space) 
+            {
+                LoadSearch();
             }
         }
     }
