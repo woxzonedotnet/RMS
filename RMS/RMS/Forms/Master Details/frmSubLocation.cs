@@ -255,11 +255,10 @@ namespace RMS.Forms
             lastClick = e.Location;
         }
 
-        private void txtSubLocationCode_KeyPress(object sender, KeyPressEventArgs e)
+        private void txtSubLocationCode_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyChar == 32)
+            if (e.KeyCode == Keys.Space)
             {
-                e.Handled = (e.KeyChar == (char)Keys.Space);
                 LoadSearch();
             }
         }

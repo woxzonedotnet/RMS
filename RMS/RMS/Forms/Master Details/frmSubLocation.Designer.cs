@@ -83,7 +83,7 @@
             this.txtSubLocationCode.Name = "txtSubLocationCode";
             this.txtSubLocationCode.Size = new System.Drawing.Size(166, 21);
             this.txtSubLocationCode.TabIndex = 2;
-            this.txtSubLocationCode.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSubLocationCode_KeyPress);
+            this.txtSubLocationCode.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtSubLocationCode_KeyDown);
             // 
             // txtSubLocationName
             // 
