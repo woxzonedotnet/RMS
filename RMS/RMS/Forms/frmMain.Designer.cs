@@ -190,6 +190,7 @@
             // 
             // menuDepartmentToolStripMenuItem
             // 
+            this.menuDepartmentToolStripMenuItem.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.menuDepartmentToolStripMenuItem.Name = "menuDepartmentToolStripMenuItem";
             this.menuDepartmentToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
             this.menuDepartmentToolStripMenuItem.Text = "Menu Department";
@@ -197,6 +198,7 @@
             // 
             // menuCategoryDetailsToolStripMenuItem
             // 
+            this.menuCategoryDetailsToolStripMenuItem.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.menuCategoryDetailsToolStripMenuItem.Name = "menuCategoryDetailsToolStripMenuItem";
             this.menuCategoryDetailsToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
             this.menuCategoryDetailsToolStripMenuItem.Text = "Menu Category Details";
