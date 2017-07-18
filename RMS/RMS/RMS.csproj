@@ -149,12 +149,6 @@
     <Compile Include="Forms\Master Details\frmSteward.Designer.cs">
       <DependentUpon>frmSteward.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Master Details\frmSubCategoryMasterDetails.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\Master Details\frmSubCategoryMasterDetails.Designer.cs">
-      <DependentUpon>frmSubCategoryMasterDetails.cs</DependentUpon>
-    </Compile>
     <Compile Include="Forms\Master Details\frmSubLocation.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -288,9 +282,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Master Details\frmSteward.resx">
       <DependentUpon>frmSteward.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Master Details\frmSubCategoryMasterDetails.resx">
-      <DependentUpon>frmSubCategoryMasterDetails.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Master Details\frmSubLocation.resx">
       <DependentUpon>frmSubLocation.cs</DependentUpon>
