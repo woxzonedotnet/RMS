@@ -193,14 +193,6 @@ namespace RMS.Forms
             lastClick = e.Location;
         }
 
-        private void txtDepartmentCode_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (e.KeyChar == 32)
-            {
-                e.Handled = (e.KeyChar == (char)Keys.Space);
-                LoadSearch();
-            }
-        }
 
         public void LoadSearch() 
         {
@@ -222,6 +214,14 @@ namespace RMS.Forms
             if (txtDepartmentCode.Text != "")
             {
                 LoadDepartmentDetails();
+            }
+        }
+
+        private void txtDepartmentCode_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Space)
+            {
+                LoadSearch();
             }
         }
     }

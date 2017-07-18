@@ -69,7 +69,7 @@
             this.txtDepartmentCode.Name = "txtDepartmentCode";
             this.txtDepartmentCode.Size = new System.Drawing.Size(154, 21);
             this.txtDepartmentCode.TabIndex = 7;
-            this.txtDepartmentCode.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDepartmentCode_KeyPress);
+            this.txtDepartmentCode.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtDepartmentCode_KeyDown);
             // 
             // lblDepartmentName
             // 
