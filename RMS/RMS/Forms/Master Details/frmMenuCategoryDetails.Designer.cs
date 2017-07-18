@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMenuCategoryDetails));
             this.txtMenuCategoryCode = new System.Windows.Forms.TextBox();
             this.lblDepartment = new System.Windows.Forms.Label();
@@ -41,14 +42,16 @@
             this.btnSave = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lblTitle = new System.Windows.Forms.Label();
             this.btnExit = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.lblTitle = new System.Windows.Forms.Label();
+            this.errMenuCategory = new System.Windows.Forms.ErrorProvider(this.components);
             this.cmbStatus = new RMS.ColumnComboBox();
             this.cmbMenuDepartment = new RMS.ColumnComboBox();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errMenuCategory)).BeginInit();
             this.SuspendLayout();
             // 
             // txtMenuCategoryCode
@@ -58,6 +61,7 @@
             this.txtMenuCategoryCode.Name = "txtMenuCategoryCode";
             this.txtMenuCategoryCode.Size = new System.Drawing.Size(135, 21);
             this.txtMenuCategoryCode.TabIndex = 13;
+            this.txtMenuCategoryCode.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtMenuCategoryCode_KeyDown);
             // 
             // lblDepartment
             // 
@@ -110,6 +114,7 @@
             this.btnSearch.Size = new System.Drawing.Size(35, 31);
             this.btnSearch.TabIndex = 43;
             this.btnSearch.UseVisualStyleBackColor = false;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // btnClose
             // 
@@ -139,6 +144,7 @@
             this.btnClear.TabIndex = 41;
             this.btnClear.Text = "Clear";
             this.btnClear.UseVisualStyleBackColor = false;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
             // btnUpdate
             // 
@@ -153,6 +159,7 @@
             this.btnUpdate.TabIndex = 40;
             this.btnUpdate.Text = "Update";
             this.btnUpdate.UseVisualStyleBackColor = false;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // btnSave
             // 
@@ -167,6 +174,7 @@
             this.btnSave.TabIndex = 39;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = false;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // label1
             // 
@@ -190,6 +198,18 @@
             this.panel1.TabIndex = 47;
             this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
             this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseMove);
+            // 
+            // lblTitle
+            // 
+            this.lblTitle.AutoSize = true;
+            this.lblTitle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitle.ForeColor = System.Drawing.SystemColors.Control;
+            this.lblTitle.Location = new System.Drawing.Point(17, 9);
+            this.lblTitle.Name = "lblTitle";
+            this.lblTitle.Size = new System.Drawing.Size(144, 16);
+            this.lblTitle.TabIndex = 4;
+            this.lblTitle.Text = "Menu Category Details";
             // 
             // btnExit
             // 
@@ -233,17 +253,9 @@
             this.panel4.Size = new System.Drawing.Size(344, 10);
             this.panel4.TabIndex = 50;
             // 
-            // lblTitle
+            // errMenuCategory
             // 
-            this.lblTitle.AutoSize = true;
-            this.lblTitle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitle.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblTitle.Location = new System.Drawing.Point(17, 9);
-            this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(144, 16);
-            this.lblTitle.TabIndex = 4;
-            this.lblTitle.Text = "Menu Category Details";
+            this.errMenuCategory.ContainerControl = this;
             // 
             // cmbStatus
             // 
@@ -295,6 +307,7 @@
             this.Text = "Menu Category Details";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errMenuCategory)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -321,5 +334,6 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Label lblTitle;
+        private System.Windows.Forms.ErrorProvider errMenuCategory;
     }
 }
