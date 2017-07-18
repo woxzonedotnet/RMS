@@ -213,11 +213,10 @@ namespace RMS.Forms
             }
         }
 
-        private void txtTableCategoryCode_KeyPress(object sender, KeyPressEventArgs e)
+        private void txtTableCategoryCode_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyChar == 32)
+            if (e.KeyCode == Keys.Space)
             {
-                e.Handled = (e.KeyChar == (char)Keys.Space);
                 LoadSearch();
             }
         }
