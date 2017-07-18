@@ -209,7 +209,7 @@
             this.txtSupplierCode.Name = "txtSupplierCode";
             this.txtSupplierCode.Size = new System.Drawing.Size(189, 21);
             this.txtSupplierCode.TabIndex = 14;
-            this.txtSupplierCode.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSupplierCode_KeyPress);
+            this.txtSupplierCode.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtSupplierCode_KeyDown);
             // 
             // txtSupplierName
             // 

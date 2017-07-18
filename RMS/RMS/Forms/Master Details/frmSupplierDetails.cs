@@ -263,15 +263,6 @@ namespace RMS.Forms
             LoadSearch();
         }
 
-        private void txtSupplierCode_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (e.KeyChar == 32)
-            {
-                e.Handled = (e.KeyChar == (char)Keys.Space);
-                LoadSearch();
-            }
-        }
-
         private void btnUpdate_Click(object sender, EventArgs e)
         {
             if (ValidateData())
@@ -297,6 +288,14 @@ namespace RMS.Forms
         private void cmbSupplierCategory_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.Handled = true;
+        }
+
+        private void txtSupplierCode_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Space)
+            {
+                LoadSearch();
+            }
         }
     }
 }
