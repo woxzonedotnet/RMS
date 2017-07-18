@@ -36,7 +36,6 @@
             this.supplierDetailsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.departmentDetailsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.categoryDetailsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.subCategoryDetailsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.locationDetailsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.itemDetailsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addStewardToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -107,7 +106,6 @@
             this.supplierDetailsToolStripMenuItem,
             this.departmentDetailsToolStripMenuItem,
             this.categoryDetailsToolStripMenuItem,
-            this.subCategoryDetailsToolStripMenuItem,
             this.locationDetailsToolStripMenuItem,
             this.itemDetailsToolStripMenuItem,
             this.addStewardToolStripMenuItem,
@@ -158,13 +156,6 @@
             this.categoryDetailsToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
             this.categoryDetailsToolStripMenuItem.Text = "Category Details";
             this.categoryDetailsToolStripMenuItem.Click += new System.EventHandler(this.categoryDetailsToolStripMenuItem_Click);
-            // 
-            // subCategoryDetailsToolStripMenuItem
-            // 
-            this.subCategoryDetailsToolStripMenuItem.Name = "subCategoryDetailsToolStripMenuItem";
-            this.subCategoryDetailsToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
-            this.subCategoryDetailsToolStripMenuItem.Text = "Sub Category Details";
-            this.subCategoryDetailsToolStripMenuItem.Click += new System.EventHandler(this.subCategoryDetailsToolStripMenuItem_Click);
             // 
             // locationDetailsToolStripMenuItem
             // 
@@ -402,7 +393,6 @@
         private System.Windows.Forms.ToolStripMenuItem supplierDetailsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem departmentDetailsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem categoryDetailsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem subCategoryDetailsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem locationDetailsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem itemDetailsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem addStewardToolStripMenuItem;

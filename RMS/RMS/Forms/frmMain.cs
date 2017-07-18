@@ -272,35 +272,6 @@ namespace RMS.Forms
             }
         }
 
-        private void subCategoryDetailsToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                frmSubCategoryMasterDetails open = Application.OpenForms["frmSubCategoryMasterDetails"] as frmSubCategoryMasterDetails;
-                if (open == null)
-                {
-                    frmSubCategoryMasterDetails childSubCategoryMasterDetails = new frmSubCategoryMasterDetails();
-                    childSubCategoryMasterDetails.MdiParent = this;
-                    childSubCategoryMasterDetails.Show();
-                }
-                else
-                {
-                    if (open.WindowState == FormWindowState.Minimized)
-                    {
-                        open.WindowState = FormWindowState.Normal;
-                    }
-                    else
-                    {
-                        open.Activate();
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
-
         private void addStewardToolStripMenuItem_Click(object sender, EventArgs e)
         {
             try
