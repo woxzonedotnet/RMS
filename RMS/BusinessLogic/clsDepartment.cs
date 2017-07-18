@@ -16,11 +16,6 @@ namespace BusinessLogic
         clsDBConnection cDBConnection = new clsDBConnection();
         #endregion
 
-        #region Variable
-
-
-        #endregion
-
         #region InsertUpdateData
         public int InsertUpdateData(objDepartment oDepartment)
         {
