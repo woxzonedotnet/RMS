@@ -28,188 +28,273 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMenuCategoryDetails));
+            this.txtMenuCategoryCode = new System.Windows.Forms.TextBox();
+            this.lblDepartment = new System.Windows.Forms.Label();
+            this.lblMenu = new System.Windows.Forms.Label();
+            this.txtMenuCategoryName = new System.Windows.Forms.TextBox();
+            this.lblMenuCatName = new System.Windows.Forms.Label();
             this.btnSearch = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
             this.btnClear = new System.Windows.Forms.Button();
+            this.btnUpdate = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
-            this.txtDepartment = new System.Windows.Forms.TextBox();
-            this.txtMenu = new System.Windows.Forms.TextBox();
-            this.lblDepartment = new System.Windows.Forms.Label();
-            this.lblMenu = new System.Windows.Forms.Label();
-            this.txtMenuCatName = new System.Windows.Forms.TextBox();
-            this.txtMenuCatCode = new System.Windows.Forms.TextBox();
-            this.lblMenuCatName = new System.Windows.Forms.Label();
-            this.lblMenuCatCode = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.btnRemove = new System.Windows.Forms.Button();
-            this.btnAdd = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.label1 = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.btnExit = new System.Windows.Forms.Button();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.lblTitle = new System.Windows.Forms.Label();
+            this.cmbStatus = new RMS.ColumnComboBox();
+            this.cmbMenuDepartment = new RMS.ColumnComboBox();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // btnSearch
+            // txtMenuCategoryCode
             // 
-            this.btnSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSearch.Image = global::RMS.Properties.Resources.search25;
-            this.btnSearch.Location = new System.Drawing.Point(279, 7);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(35, 31);
-            this.btnSearch.TabIndex = 17;
-            this.btnSearch.UseVisualStyleBackColor = true;
-            // 
-            // btnClose
-            // 
-            this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClose.Location = new System.Drawing.Point(239, 333);
-            this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(75, 36);
-            this.btnClose.TabIndex = 16;
-            this.btnClose.Text = "Close";
-            this.btnClose.UseVisualStyleBackColor = true;
-            // 
-            // btnClear
-            // 
-            this.btnClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClear.Location = new System.Drawing.Point(158, 333);
-            this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(75, 36);
-            this.btnClear.TabIndex = 15;
-            this.btnClear.Text = "Clear";
-            this.btnClear.UseVisualStyleBackColor = true;
-            // 
-            // btnSave
-            // 
-            this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSave.Location = new System.Drawing.Point(77, 333);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(75, 36);
-            this.btnSave.TabIndex = 14;
-            this.btnSave.Text = "Save";
-            this.btnSave.UseVisualStyleBackColor = true;
-            // 
-            // txtDepartment
-            // 
-            this.txtDepartment.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDepartment.Location = new System.Drawing.Point(123, 48);
-            this.txtDepartment.Name = "txtDepartment";
-            this.txtDepartment.Size = new System.Drawing.Size(150, 21);
-            this.txtDepartment.TabIndex = 13;
-            // 
-            // txtMenu
-            // 
-            this.txtMenu.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMenu.Location = new System.Drawing.Point(123, 12);
-            this.txtMenu.Name = "txtMenu";
-            this.txtMenu.Size = new System.Drawing.Size(150, 21);
-            this.txtMenu.TabIndex = 12;
+            this.txtMenuCategoryCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMenuCategoryCode.Location = new System.Drawing.Point(153, 83);
+            this.txtMenuCategoryCode.Name = "txtMenuCategoryCode";
+            this.txtMenuCategoryCode.Size = new System.Drawing.Size(135, 21);
+            this.txtMenuCategoryCode.TabIndex = 13;
             // 
             // lblDepartment
             // 
             this.lblDepartment.AutoSize = true;
             this.lblDepartment.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDepartment.Location = new System.Drawing.Point(13, 51);
+            this.lblDepartment.Location = new System.Drawing.Point(14, 86);
             this.lblDepartment.Name = "lblDepartment";
-            this.lblDepartment.Size = new System.Drawing.Size(78, 16);
+            this.lblDepartment.Size = new System.Drawing.Size(135, 16);
             this.lblDepartment.TabIndex = 11;
-            this.lblDepartment.Text = "Department";
+            this.lblDepartment.Text = "Menu Category Code";
             // 
             // lblMenu
             // 
             this.lblMenu.AutoSize = true;
             this.lblMenu.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMenu.Location = new System.Drawing.Point(13, 15);
+            this.lblMenu.Location = new System.Drawing.Point(14, 45);
             this.lblMenu.Name = "lblMenu";
-            this.lblMenu.Size = new System.Drawing.Size(41, 16);
+            this.lblMenu.Size = new System.Drawing.Size(114, 16);
             this.lblMenu.TabIndex = 10;
-            this.lblMenu.Text = "Menu";
+            this.lblMenu.Text = "Menu Department";
             // 
-            // txtMenuCatName
+            // txtMenuCategoryName
             // 
-            this.txtMenuCatName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMenuCatName.Location = new System.Drawing.Point(123, 119);
-            this.txtMenuCatName.Name = "txtMenuCatName";
-            this.txtMenuCatName.Size = new System.Drawing.Size(150, 21);
-            this.txtMenuCatName.TabIndex = 21;
-            // 
-            // txtMenuCatCode
-            // 
-            this.txtMenuCatCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMenuCatCode.Location = new System.Drawing.Point(123, 83);
-            this.txtMenuCatCode.Name = "txtMenuCatCode";
-            this.txtMenuCatCode.Size = new System.Drawing.Size(150, 21);
-            this.txtMenuCatCode.TabIndex = 20;
+            this.txtMenuCategoryName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMenuCategoryName.Location = new System.Drawing.Point(153, 122);
+            this.txtMenuCategoryName.Name = "txtMenuCategoryName";
+            this.txtMenuCategoryName.Size = new System.Drawing.Size(176, 21);
+            this.txtMenuCategoryName.TabIndex = 21;
             // 
             // lblMenuCatName
             // 
             this.lblMenuCatName.AutoSize = true;
             this.lblMenuCatName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMenuCatName.Location = new System.Drawing.Point(13, 122);
+            this.lblMenuCatName.Location = new System.Drawing.Point(14, 125);
             this.lblMenuCatName.Name = "lblMenuCatName";
-            this.lblMenuCatName.Size = new System.Drawing.Size(104, 16);
+            this.lblMenuCatName.Size = new System.Drawing.Size(139, 16);
             this.lblMenuCatName.TabIndex = 19;
-            this.lblMenuCatName.Text = "Menu Cat Name";
+            this.lblMenuCatName.Text = "Menu Category Name";
             // 
-            // lblMenuCatCode
+            // btnSearch
             // 
-            this.lblMenuCatCode.AutoSize = true;
-            this.lblMenuCatCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMenuCatCode.Location = new System.Drawing.Point(13, 86);
-            this.lblMenuCatCode.Name = "lblMenuCatCode";
-            this.lblMenuCatCode.Size = new System.Drawing.Size(100, 16);
-            this.lblMenuCatCode.TabIndex = 18;
-            this.lblMenuCatCode.Text = "Menu Cat Code";
+            this.btnSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(41)))), ((int)(((byte)(46)))));
+            this.btnSearch.FlatAppearance.BorderSize = 0;
+            this.btnSearch.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Maroon;
+            this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSearch.Image = global::RMS.Properties.Resources.search25;
+            this.btnSearch.Location = new System.Drawing.Point(292, 77);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(35, 31);
+            this.btnSearch.TabIndex = 43;
+            this.btnSearch.UseVisualStyleBackColor = false;
             // 
-            // dataGridView1
+            // btnClose
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(16, 191);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(298, 127);
-            this.dataGridView1.TabIndex = 22;
+            this.btnClose.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(41)))), ((int)(((byte)(46)))));
+            this.btnClose.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Maroon;
+            this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
+            this.btnClose.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnClose.Location = new System.Drawing.Point(254, 197);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(75, 36);
+            this.btnClose.TabIndex = 42;
+            this.btnClose.Text = "Close";
+            this.btnClose.UseVisualStyleBackColor = false;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
-            // btnRemove
+            // btnClear
             // 
-            this.btnRemove.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRemove.Location = new System.Drawing.Point(239, 152);
-            this.btnRemove.Name = "btnRemove";
-            this.btnRemove.Size = new System.Drawing.Size(75, 25);
-            this.btnRemove.TabIndex = 42;
-            this.btnRemove.Text = "Remove";
-            this.btnRemove.UseVisualStyleBackColor = true;
+            this.btnClear.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(41)))), ((int)(((byte)(46)))));
+            this.btnClear.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Maroon;
+            this.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
+            this.btnClear.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnClear.Location = new System.Drawing.Point(173, 197);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(75, 36);
+            this.btnClear.TabIndex = 41;
+            this.btnClear.Text = "Clear";
+            this.btnClear.UseVisualStyleBackColor = false;
             // 
-            // btnAdd
+            // btnUpdate
             // 
-            this.btnAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAdd.Location = new System.Drawing.Point(145, 152);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(75, 25);
-            this.btnAdd.TabIndex = 41;
-            this.btnAdd.Text = "Add";
-            this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnUpdate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(41)))), ((int)(((byte)(46)))));
+            this.btnUpdate.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Maroon;
+            this.btnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
+            this.btnUpdate.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnUpdate.Location = new System.Drawing.Point(92, 197);
+            this.btnUpdate.Name = "btnUpdate";
+            this.btnUpdate.Size = new System.Drawing.Size(75, 36);
+            this.btnUpdate.TabIndex = 40;
+            this.btnUpdate.Text = "Update";
+            this.btnUpdate.UseVisualStyleBackColor = false;
+            // 
+            // btnSave
+            // 
+            this.btnSave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(41)))), ((int)(((byte)(46)))));
+            this.btnSave.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Maroon;
+            this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
+            this.btnSave.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnSave.Location = new System.Drawing.Point(11, 197);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(75, 36);
+            this.btnSave.TabIndex = 39;
+            this.btnSave.Text = "Save";
+            this.btnSave.UseVisualStyleBackColor = false;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(14, 162);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(45, 16);
+            this.label1.TabIndex = 45;
+            this.label1.Text = "Status";
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(41)))), ((int)(((byte)(46)))));
+            this.panel1.Controls.Add(this.lblTitle);
+            this.panel1.Controls.Add(this.btnExit);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(340, 31);
+            this.panel1.TabIndex = 47;
+            this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
+            this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseMove);
+            // 
+            // btnExit
+            // 
+            this.btnExit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(41)))), ((int)(((byte)(46)))));
+            this.btnExit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnExit.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnExit.FlatAppearance.BorderSize = 0;
+            this.btnExit.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(41)))), ((int)(((byte)(46)))));
+            this.btnExit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Maroon;
+            this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnExit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(146)))), ((int)(((byte)(150)))), ((int)(((byte)(153)))));
+            this.btnExit.Location = new System.Drawing.Point(303, 0);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(37, 31);
+            this.btnExit.TabIndex = 3;
+            this.btnExit.Text = "X";
+            this.btnExit.UseVisualStyleBackColor = false;
+            this.btnExit.Click += new System.EventHandler(this.btnClose_Click);
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(41)))), ((int)(((byte)(46)))));
+            this.panel2.Location = new System.Drawing.Point(339, 29);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(10, 221);
+            this.panel2.TabIndex = 48;
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(41)))), ((int)(((byte)(46)))));
+            this.panel3.Location = new System.Drawing.Point(-9, 29);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(10, 221);
+            this.panel3.TabIndex = 49;
+            // 
+            // panel4
+            // 
+            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(41)))), ((int)(((byte)(46)))));
+            this.panel4.Location = new System.Drawing.Point(-2, 244);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(344, 10);
+            this.panel4.TabIndex = 50;
+            // 
+            // lblTitle
+            // 
+            this.lblTitle.AutoSize = true;
+            this.lblTitle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitle.ForeColor = System.Drawing.SystemColors.Control;
+            this.lblTitle.Location = new System.Drawing.Point(17, 9);
+            this.lblTitle.Name = "lblTitle";
+            this.lblTitle.Size = new System.Drawing.Size(144, 16);
+            this.lblTitle.TabIndex = 4;
+            this.lblTitle.Text = "Menu Category Details";
+            // 
+            // cmbStatus
+            // 
+            this.cmbStatus.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.cmbStatus.DropDownWidth = 17;
+            this.cmbStatus.FormattingEnabled = true;
+            this.cmbStatus.Location = new System.Drawing.Point(153, 161);
+            this.cmbStatus.Name = "cmbStatus";
+            this.cmbStatus.Size = new System.Drawing.Size(176, 21);
+            this.cmbStatus.TabIndex = 46;
+            this.cmbStatus.ViewColumn = 0;
+            // 
+            // cmbMenuDepartment
+            // 
+            this.cmbMenuDepartment.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.cmbMenuDepartment.DropDownWidth = 17;
+            this.cmbMenuDepartment.FormattingEnabled = true;
+            this.cmbMenuDepartment.Location = new System.Drawing.Point(153, 44);
+            this.cmbMenuDepartment.Name = "cmbMenuDepartment";
+            this.cmbMenuDepartment.Size = new System.Drawing.Size(176, 21);
+            this.cmbMenuDepartment.TabIndex = 44;
+            this.cmbMenuDepartment.ViewColumn = 0;
             // 
             // frmMenuCategoryDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(329, 382);
-            this.Controls.Add(this.btnRemove);
-            this.Controls.Add(this.btnAdd);
-            this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.txtMenuCatName);
-            this.Controls.Add(this.txtMenuCatCode);
-            this.Controls.Add(this.lblMenuCatName);
-            this.Controls.Add(this.lblMenuCatCode);
+            this.ClientSize = new System.Drawing.Size(340, 245);
+            this.Controls.Add(this.panel4);
+            this.Controls.Add(this.panel3);
+            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.cmbStatus);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.cmbMenuDepartment);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.btnClear);
+            this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.btnSave);
-            this.Controls.Add(this.txtDepartment);
-            this.Controls.Add(this.txtMenu);
+            this.Controls.Add(this.txtMenuCategoryName);
+            this.Controls.Add(this.lblMenuCatName);
+            this.Controls.Add(this.txtMenuCategoryCode);
             this.Controls.Add(this.lblDepartment);
             this.Controls.Add(this.lblMenu);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmMenuCategoryDetails";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Menu Category Details";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -217,20 +302,24 @@
 
         #endregion
 
+        private System.Windows.Forms.TextBox txtMenuCategoryCode;
+        private System.Windows.Forms.Label lblDepartment;
+        private System.Windows.Forms.Label lblMenu;
+        private System.Windows.Forms.TextBox txtMenuCategoryName;
+        private System.Windows.Forms.Label lblMenuCatName;
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Button btnClear;
+        private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.Button btnSave;
-        private System.Windows.Forms.TextBox txtDepartment;
-        private System.Windows.Forms.TextBox txtMenu;
-        private System.Windows.Forms.Label lblDepartment;
-        private System.Windows.Forms.Label lblMenu;
-        private System.Windows.Forms.TextBox txtMenuCatName;
-        private System.Windows.Forms.TextBox txtMenuCatCode;
-        private System.Windows.Forms.Label lblMenuCatName;
-        private System.Windows.Forms.Label lblMenuCatCode;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Button btnRemove;
-        private System.Windows.Forms.Button btnAdd;
+        private ColumnComboBox cmbMenuDepartment;
+        private System.Windows.Forms.Label label1;
+        private ColumnComboBox cmbStatus;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button btnExit;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Label lblTitle;
     }
 }
