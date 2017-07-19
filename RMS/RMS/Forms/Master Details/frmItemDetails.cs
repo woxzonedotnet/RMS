@@ -16,5 +16,15 @@ namespace RMS.Forms
         {
             InitializeComponent();
         }
+
+        private void lblActiveStatus_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cmbStatus_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
