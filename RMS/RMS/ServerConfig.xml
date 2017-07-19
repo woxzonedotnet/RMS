@@ -1,8 +1,10 @@
-﻿<?xml version="1.0" encoding="utf-8" ?> 
+﻿<?xml version="1.0" encoding="utf-8" ?>
 <scpd xmlns="urn:schemas-upnp-org:service-1-0">
   <ServerConfig>
-    <ServerName>THARINDU\SQLEXPRESS</ServerName>
+    <ServerName>WOXZONE-THAMEES</ServerName>
     <DatabaseName>RMS</DatabaseName>
+    <username>SQLRemote</username>
+    <password>12345</password>
     <security>True</security>
   </ServerConfig>
 </scpd>
