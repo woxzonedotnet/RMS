@@ -252,6 +252,7 @@
             // 
             // setupSettingsToolStripMenuItem
             // 
+            this.setupSettingsToolStripMenuItem.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.setupSettingsToolStripMenuItem.Name = "setupSettingsToolStripMenuItem";
             this.setupSettingsToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
             this.setupSettingsToolStripMenuItem.Text = "Setup Settings";
@@ -370,7 +371,6 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.CancelButton = this.btnExit;
             this.ClientSize = new System.Drawing.Size(843, 447);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;

@@ -47,9 +47,9 @@
     <Compile Include="clsCurrencyMaster.cs" />
     <Compile Include="clsCustomerMaster.cs" />
     <Compile Include="clsDepartment.cs" />
-    <Compile Include="clsItemMaster.cs" />
     <Compile Include="clsMenuCategory.cs" />
     <Compile Include="clsMenuDepartment.cs" />
+    <Compile Include="clsSetupSetting.cs" />
     <Compile Include="clsStatusMaster.cs" />
     <Compile Include="clsSteward.cs" />
     <Compile Include="clsSubLocation.cs" />

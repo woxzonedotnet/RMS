@@ -46,8 +46,7 @@ namespace RMS.Forms
 
                 if (oDepartment.IsExists == false)
                 {
-                    result = InsertUpdateData();
-                    if (result != -1)
+                    if (InsertUpdateData() != -1)
                     {
                         MessageBox.Show("Successfully Saved...!", "Department", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         clear();
