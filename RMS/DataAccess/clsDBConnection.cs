@@ -26,7 +26,6 @@ namespace DataAccess
         int rows=-1;
         #endregion
 
-
         #region Server Connection
         public clsDBConnection() 
         {
@@ -114,14 +113,12 @@ namespace DataAccess
                 Connection();
                 command.CommandTimeout = 1000;
                 command.Connection = dbConn;
-                rows = command.ExecuteNonQuery();
-                
-                return rows;
+                return command.ExecuteNonQuery();
             }
             catch (Exception ex)
             {
                 System.Windows.Forms.MessageBox.Show(ex.Message);
-                return rows;
+                return -1;
             }
             finally 
             {
@@ -233,8 +230,7 @@ namespace DataAccess
                 command.Parameters.AddWithValue("@varSearchString", strWhereClause);
                 Connection();
                 command.Connection = dbConn;
-                rows = command.ExecuteNonQuery();
-                return rows;
+                return command.ExecuteNonQuery();
             }
             catch (Exception ex)
             {
