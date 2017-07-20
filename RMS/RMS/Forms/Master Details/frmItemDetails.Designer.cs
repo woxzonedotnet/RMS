@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmItemDetails));
             this.btnClose = new System.Windows.Forms.Button();
             this.btnClear = new System.Windows.Forms.Button();
@@ -69,6 +70,9 @@
             this.lblDescription = new System.Windows.Forms.Label();
             this.lblBarCode = new System.Windows.Forms.Label();
             this.lblItemCode = new System.Windows.Forms.Label();
+            this.lblActiveStatus = new System.Windows.Forms.Label();
+            this.errItem = new System.Windows.Forms.ErrorProvider(this.components);
+            this.cmbStatus = new RMS.ColumnComboBox();
             this.cmbCapacityType = new RMS.ColumnComboBox();
             this.cmbSupplier = new RMS.ColumnComboBox();
             this.cmbMCategory = new RMS.ColumnComboBox();
@@ -77,11 +81,10 @@
             this.cmbDepartment = new RMS.ColumnComboBox();
             this.cmbWeighted = new RMS.ColumnComboBox();
             this.cmbConsignm = new RMS.ColumnComboBox();
-            this.lblActiveStatus = new System.Windows.Forms.Label();
-            this.cmbStatus = new RMS.ColumnComboBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errItem)).BeginInit();
             this.SuspendLayout();
             // 
             // btnClose
@@ -92,6 +95,7 @@
             this.btnClose.TabIndex = 92;
             this.btnClose.Text = "CLOSE";
             this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // btnClear
             // 
@@ -101,6 +105,7 @@
             this.btnClear.TabIndex = 91;
             this.btnClear.Text = "CLEAR";
             this.btnClear.UseVisualStyleBackColor = true;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
             // btnUpdate
             // 
@@ -119,6 +124,7 @@
             this.btnSave.TabIndex = 89;
             this.btnSave.Text = "SAVE";
             this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // txtMax
             // 
@@ -450,6 +456,33 @@
             this.lblItemCode.TabIndex = 49;
             this.lblItemCode.Text = "Item Code";
             // 
+            // lblActiveStatus
+            // 
+            this.lblActiveStatus.AutoSize = true;
+            this.lblActiveStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblActiveStatus.Location = new System.Drawing.Point(576, 238);
+            this.lblActiveStatus.Name = "lblActiveStatus";
+            this.lblActiveStatus.Size = new System.Drawing.Size(85, 16);
+            this.lblActiveStatus.TabIndex = 95;
+            this.lblActiveStatus.Text = "Active Status";
+            this.lblActiveStatus.Click += new System.EventHandler(this.lblActiveStatus_Click);
+            // 
+            // errItem
+            // 
+            this.errItem.ContainerControl = this;
+            // 
+            // cmbStatus
+            // 
+            this.cmbStatus.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.cmbStatus.DropDownWidth = 17;
+            this.cmbStatus.FormattingEnabled = true;
+            this.cmbStatus.Location = new System.Drawing.Point(673, 237);
+            this.cmbStatus.Name = "cmbStatus";
+            this.cmbStatus.Size = new System.Drawing.Size(157, 21);
+            this.cmbStatus.TabIndex = 94;
+            this.cmbStatus.ViewColumn = 0;
+            this.cmbStatus.SelectedIndexChanged += new System.EventHandler(this.cmbStatus_SelectedIndexChanged);
+            // 
             // cmbCapacityType
             // 
             this.cmbCapacityType.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
@@ -538,29 +571,6 @@
             this.cmbConsignm.TabIndex = 66;
             this.cmbConsignm.ViewColumn = 0;
             // 
-            // lblActiveStatus
-            // 
-            this.lblActiveStatus.AutoSize = true;
-            this.lblActiveStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblActiveStatus.Location = new System.Drawing.Point(576, 238);
-            this.lblActiveStatus.Name = "lblActiveStatus";
-            this.lblActiveStatus.Size = new System.Drawing.Size(85, 16);
-            this.lblActiveStatus.TabIndex = 95;
-            this.lblActiveStatus.Text = "Active Status";
-            this.lblActiveStatus.Click += new System.EventHandler(this.lblActiveStatus_Click);
-            // 
-            // cmbStatus
-            // 
-            this.cmbStatus.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
-            this.cmbStatus.DropDownWidth = 17;
-            this.cmbStatus.FormattingEnabled = true;
-            this.cmbStatus.Location = new System.Drawing.Point(673, 237);
-            this.cmbStatus.Name = "cmbStatus";
-            this.cmbStatus.Size = new System.Drawing.Size(157, 21);
-            this.cmbStatus.TabIndex = 94;
-            this.cmbStatus.ViewColumn = 0;
-            this.cmbStatus.SelectedIndexChanged += new System.EventHandler(this.cmbStatus_SelectedIndexChanged);
-            // 
             // frmItemDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -607,11 +617,13 @@
             this.Name = "frmItemDetails";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Item Details";
+            this.Load += new System.EventHandler(this.frmItemDetails_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errItem)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -669,5 +681,6 @@
         private ColumnComboBox cmbCapacityType;
         private System.Windows.Forms.Label lblActiveStatus;
         private ColumnComboBox cmbStatus;
+        private System.Windows.Forms.ErrorProvider errItem;
     }
 }
