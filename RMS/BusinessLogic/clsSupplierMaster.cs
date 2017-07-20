@@ -50,6 +50,15 @@ namespace BusinessLogic
         }
         #endregion
 
+        #region GetSupplier Data
+        public DataTable GetSupplierData(string strLocationCode)
+        {
+            string strWhere = "fldLocationCode='" + strLocationCode + "' and fldStatus=1";
+            DataTable dtSupplier = cDBConnection.SearchData("tbl_SupplierMaster", strWhere);
+            return dtSupplier;
+        }
+        #endregion
+
         #region InsertUpdateData
         public int InsertUpdateData(objSupplierMaster oSupplierMaster)
         {
