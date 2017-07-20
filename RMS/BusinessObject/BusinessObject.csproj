@@ -44,6 +44,7 @@
     <Compile Include="objBankCardType.cs" />
     <Compile Include="objCurrencyMaster.cs" />
     <Compile Include="objCustomerMaster.cs" />
+    <Compile Include="objItemMaster.cs" />
     <Compile Include="objMainLocation.cs" />
     <Compile Include="objMenuCategory.cs" />
     <Compile Include="objMenuDepartment.cs" />
