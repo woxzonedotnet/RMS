@@ -42,6 +42,15 @@ namespace BusinessLogic
         }
         #endregion
 
+        #region GetMenuCategory Data
+        public DataTable GetMenuCategoryData(string strLocationCode)
+        {
+            string strWhere = "fldLocationCode='" + strLocationCode + "' and fldStatus=1";
+            DataTable dtMenuCategory = cDBConnection.SearchData("tbl_MenuCategory", strWhere);
+            return dtMenuCategory;
+        }
+        #endregion
+
         #region InsertUpdateData
         public int InsertUpdateData(objMenuCategory oMenuCategory)
         {
