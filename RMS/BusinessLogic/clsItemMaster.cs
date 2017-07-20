@@ -45,30 +45,30 @@ namespace BusinessLogic
             arrParameter[10, 1] = oItemMaster.MenuCategory;
             arrParameter[11, 0] = "@mfldUnit";
             arrParameter[11, 1] = oItemMaster.Unit;
-            arrParameter[11, 0] = "@mfldMinimumGP";
-            arrParameter[11, 1] = oItemMaster.MinimumGP;
-            arrParameter[11, 0] = "@mfldPackageSize";
-            arrParameter[11, 1] = oItemMaster.PackageSize;
-            arrParameter[11, 0] = "@mfldCapacity";
-            arrParameter[11, 1] = oItemMaster.Capacity;
-            arrParameter[11, 0] = "@mfldCapacityCode";
-            arrParameter[11, 1] = oItemMaster.CapacityType;
-            arrParameter[11, 0] = "@mfldCostPrice";
-            arrParameter[11, 1] = oItemMaster.CostPrice;
-            arrParameter[11, 0] = "@mfldWholeSalePrice";
-            arrParameter[11, 1] = oItemMaster.WholeSalePrice;
-            arrParameter[11, 0] = "@mfldSellingPrice";
-            arrParameter[11, 1] = oItemMaster.SellingPrice;
-            arrParameter[11, 0] = "@mfldReOrderLevel";
-            arrParameter[11, 1] = oItemMaster.ReOrderLevel;
-            arrParameter[11, 0] = "@mfldReOrderQty";
-            arrParameter[11, 1] = oItemMaster.ReOrderQty;
-            arrParameter[11, 0] = "@mfldReOrderMax";
-            arrParameter[11, 1] = oItemMaster.ReOrderMax;
-            arrParameter[11, 0] = "@mfldStatus";
-            arrParameter[11, 1] = oItemMaster.Status;
+            arrParameter[12, 0] = "@mfldMinimumGP";
+            arrParameter[12, 1] = oItemMaster.MinimumGP;
+            arrParameter[13, 0] = "@mfldPackageSize";
+            arrParameter[13, 1] = oItemMaster.PackageSize;
+            arrParameter[14, 0] = "@mfldCapacity";
+            arrParameter[14, 1] = oItemMaster.Capacity;
+            arrParameter[15, 0] = "@mfldCapacityCode";
+            arrParameter[15, 1] = oItemMaster.CapacityType;
+            arrParameter[16, 0] = "@mfldCostPrice";
+            arrParameter[16, 1] = oItemMaster.CostPrice;
+            arrParameter[17, 0] = "@mfldWholeSalePrice";
+            arrParameter[17, 1] = oItemMaster.WholeSalePrice;
+            arrParameter[18, 0] = "@mfldSellingPrice";
+            arrParameter[18, 1] = oItemMaster.SellingPrice;
+            arrParameter[19, 0] = "@mfldReOrderLevel";
+            arrParameter[19, 1] = oItemMaster.ReOrderLevel;
+            arrParameter[20, 0] = "@mfldReOrderQty";
+            arrParameter[20, 1] = oItemMaster.ReOrderQty;
+            arrParameter[21, 0] = "@mfldReOrderMax";
+            arrParameter[21, 1] = oItemMaster.ReOrderMax;
+            arrParameter[22, 0] = "@mfldStatus";
+            arrParameter[22, 1] = oItemMaster.Status;
 
-            return cDBConnection.Insert("SP_INSERT_UPDATE_CUSTOMER_MASTER", arrParameter);
+            return cDBConnection.Insert("sp_insert_update_itemMaster", arrParameter);
         }
         #endregion
 
