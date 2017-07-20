@@ -61,7 +61,6 @@
             this.lblMinimumGP = new System.Windows.Forms.Label();
             this.lblSupplier = new System.Windows.Forms.Label();
             this.lblMCategory = new System.Windows.Forms.Label();
-            this.lblSubCategory = new System.Windows.Forms.Label();
             this.lblCategory = new System.Windows.Forms.Label();
             this.lblDepartment = new System.Windows.Forms.Label();
             this.lblUnit = new System.Windows.Forms.Label();
@@ -72,15 +71,17 @@
             this.lblItemCode = new System.Windows.Forms.Label();
             this.lblActiveStatus = new System.Windows.Forms.Label();
             this.errItem = new System.Windows.Forms.ErrorProvider(this.components);
+            this.fldBoolName = new System.Data.DataColumn();
+            this.fldBoolValue = new System.Data.DataColumn();
+            this.cmbConsignm = new System.Windows.Forms.ComboBox();
+            this.cmbWeighted = new System.Windows.Forms.ComboBox();
             this.cmbStatus = new RMS.ColumnComboBox();
             this.cmbCapacityType = new RMS.ColumnComboBox();
             this.cmbSupplier = new RMS.ColumnComboBox();
             this.cmbMCategory = new RMS.ColumnComboBox();
-            this.cmbSubCategory = new RMS.ColumnComboBox();
             this.cmbCategory = new RMS.ColumnComboBox();
             this.cmbDepartment = new RMS.ColumnComboBox();
-            this.cmbWeighted = new RMS.ColumnComboBox();
-            this.cmbConsignm = new RMS.ColumnComboBox();
+            this.btnSearch = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -299,7 +300,7 @@
             this.txtDescription.Location = new System.Drawing.Point(396, 43);
             this.txtDescription.Multiline = true;
             this.txtDescription.Name = "txtDescription";
-            this.txtDescription.Size = new System.Drawing.Size(157, 51);
+            this.txtDescription.Size = new System.Drawing.Size(157, 82);
             this.txtDescription.TabIndex = 65;
             // 
             // txtBarCode
@@ -366,16 +367,6 @@
             this.lblMCategory.TabIndex = 58;
             this.lblMCategory.Text = "M. Category";
             // 
-            // lblSubCategory
-            // 
-            this.lblSubCategory.AutoSize = true;
-            this.lblSubCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
-            this.lblSubCategory.Location = new System.Drawing.Point(298, 137);
-            this.lblSubCategory.Name = "lblSubCategory";
-            this.lblSubCategory.Size = new System.Drawing.Size(90, 16);
-            this.lblSubCategory.TabIndex = 57;
-            this.lblSubCategory.Text = "Sub Category";
-            // 
             // lblCategory
             // 
             this.lblCategory.AutoSize = true;
@@ -410,7 +401,7 @@
             // 
             this.lblWeighted.AutoSize = true;
             this.lblWeighted.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
-            this.lblWeighted.Location = new System.Drawing.Point(299, 105);
+            this.lblWeighted.Location = new System.Drawing.Point(299, 137);
             this.lblWeighted.Name = "lblWeighted";
             this.lblWeighted.Size = new System.Drawing.Size(66, 16);
             this.lblWeighted.TabIndex = 53;
@@ -471,6 +462,38 @@
             // 
             this.errItem.ContainerControl = this;
             // 
+            // fldBoolName
+            // 
+            this.fldBoolName.Caption = "Name";
+            this.fldBoolName.ColumnName = "fldBoolName";
+            // 
+            // fldBoolValue
+            // 
+            this.fldBoolValue.Caption = "BoolValue";
+            this.fldBoolValue.ColumnName = "fldBoolValue";
+            // 
+            // cmbConsignm
+            // 
+            this.cmbConsignm.FormattingEnabled = true;
+            this.cmbConsignm.Items.AddRange(new object[] {
+            "True",
+            "False"});
+            this.cmbConsignm.Location = new System.Drawing.Point(114, 72);
+            this.cmbConsignm.Name = "cmbConsignm";
+            this.cmbConsignm.Size = new System.Drawing.Size(157, 21);
+            this.cmbConsignm.TabIndex = 96;
+            // 
+            // cmbWeighted
+            // 
+            this.cmbWeighted.FormattingEnabled = true;
+            this.cmbWeighted.Items.AddRange(new object[] {
+            "True",
+            "False"});
+            this.cmbWeighted.Location = new System.Drawing.Point(396, 136);
+            this.cmbWeighted.Name = "cmbWeighted";
+            this.cmbWeighted.Size = new System.Drawing.Size(157, 21);
+            this.cmbWeighted.TabIndex = 96;
+            // 
             // cmbStatus
             // 
             this.cmbStatus.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
@@ -516,17 +539,6 @@
             this.cmbMCategory.TabIndex = 73;
             this.cmbMCategory.ViewColumn = 0;
             // 
-            // cmbSubCategory
-            // 
-            this.cmbSubCategory.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
-            this.cmbSubCategory.DropDownWidth = 17;
-            this.cmbSubCategory.FormattingEnabled = true;
-            this.cmbSubCategory.Location = new System.Drawing.Point(396, 136);
-            this.cmbSubCategory.Name = "cmbSubCategory";
-            this.cmbSubCategory.Size = new System.Drawing.Size(157, 21);
-            this.cmbSubCategory.TabIndex = 72;
-            this.cmbSubCategory.ViewColumn = 0;
-            // 
             // cmbCategory
             // 
             this.cmbCategory.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
@@ -548,34 +560,30 @@
             this.cmbDepartment.Size = new System.Drawing.Size(157, 21);
             this.cmbDepartment.TabIndex = 70;
             this.cmbDepartment.ViewColumn = 0;
+            this.cmbDepartment.SelectedIndexChanged += new System.EventHandler(this.cmbDepartment_SelectedIndexChanged);
             // 
-            // cmbWeighted
+            // btnSearch
             // 
-            this.cmbWeighted.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
-            this.cmbWeighted.DropDownWidth = 17;
-            this.cmbWeighted.FormattingEnabled = true;
-            this.cmbWeighted.Location = new System.Drawing.Point(396, 104);
-            this.cmbWeighted.Name = "cmbWeighted";
-            this.cmbWeighted.Size = new System.Drawing.Size(157, 21);
-            this.cmbWeighted.TabIndex = 67;
-            this.cmbWeighted.ViewColumn = 0;
-            // 
-            // cmbConsignm
-            // 
-            this.cmbConsignm.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
-            this.cmbConsignm.DropDownWidth = 17;
-            this.cmbConsignm.FormattingEnabled = true;
-            this.cmbConsignm.Location = new System.Drawing.Point(114, 72);
-            this.cmbConsignm.Name = "cmbConsignm";
-            this.cmbConsignm.Size = new System.Drawing.Size(157, 21);
-            this.cmbConsignm.TabIndex = 66;
-            this.cmbConsignm.ViewColumn = 0;
+            this.btnSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(41)))), ((int)(((byte)(46)))));
+            this.btnSearch.FlatAppearance.BorderSize = 0;
+            this.btnSearch.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Maroon;
+            this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSearch.Image = global::RMS.Properties.Resources.search25;
+            this.btnSearch.Location = new System.Drawing.Point(286, 5);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(35, 31);
+            this.btnSearch.TabIndex = 97;
+            this.btnSearch.UseVisualStyleBackColor = false;
             // 
             // frmItemDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(861, 489);
+            this.Controls.Add(this.btnSearch);
+            this.Controls.Add(this.cmbWeighted);
+            this.Controls.Add(this.cmbConsignm);
             this.Controls.Add(this.lblActiveStatus);
             this.Controls.Add(this.cmbStatus);
             this.Controls.Add(this.cmbCapacityType);
@@ -590,13 +598,10 @@
             this.Controls.Add(this.txtPackageSize);
             this.Controls.Add(this.txtMinimumGP);
             this.Controls.Add(this.cmbMCategory);
-            this.Controls.Add(this.cmbSubCategory);
             this.Controls.Add(this.cmbCategory);
             this.Controls.Add(this.cmbDepartment);
             this.Controls.Add(this.txtCapacity);
             this.Controls.Add(this.txtUnit);
-            this.Controls.Add(this.cmbWeighted);
-            this.Controls.Add(this.cmbConsignm);
             this.Controls.Add(this.txtDescription);
             this.Controls.Add(this.txtBarCode);
             this.Controls.Add(this.txtItemCode);
@@ -605,7 +610,6 @@
             this.Controls.Add(this.lblMinimumGP);
             this.Controls.Add(this.lblSupplier);
             this.Controls.Add(this.lblMCategory);
-            this.Controls.Add(this.lblSubCategory);
             this.Controls.Add(this.lblCategory);
             this.Controls.Add(this.lblDepartment);
             this.Controls.Add(this.lblUnit);
@@ -654,13 +658,10 @@
         private System.Windows.Forms.TextBox txtPackageSize;
         private System.Windows.Forms.TextBox txtMinimumGP;
         private ColumnComboBox cmbMCategory;
-        private ColumnComboBox cmbSubCategory;
         private ColumnComboBox cmbCategory;
         private ColumnComboBox cmbDepartment;
         private System.Windows.Forms.TextBox txtCapacity;
         private System.Windows.Forms.TextBox txtUnit;
-        private ColumnComboBox cmbWeighted;
-        private ColumnComboBox cmbConsignm;
         private System.Windows.Forms.TextBox txtDescription;
         private System.Windows.Forms.TextBox txtBarCode;
         private System.Windows.Forms.TextBox txtItemCode;
@@ -669,7 +670,6 @@
         private System.Windows.Forms.Label lblMinimumGP;
         private System.Windows.Forms.Label lblSupplier;
         private System.Windows.Forms.Label lblMCategory;
-        private System.Windows.Forms.Label lblSubCategory;
         private System.Windows.Forms.Label lblCategory;
         private System.Windows.Forms.Label lblDepartment;
         private System.Windows.Forms.Label lblUnit;
@@ -682,5 +682,10 @@
         private System.Windows.Forms.Label lblActiveStatus;
         private ColumnComboBox cmbStatus;
         private System.Windows.Forms.ErrorProvider errItem;
+        private System.Data.DataColumn fldBoolName;
+        private System.Data.DataColumn fldBoolValue;
+        private System.Windows.Forms.ComboBox cmbConsignm;
+        private System.Windows.Forms.ComboBox cmbWeighted;
+        private System.Windows.Forms.Button btnSearch;
     }
 }

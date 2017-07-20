@@ -25,7 +25,8 @@ namespace RMS.Forms
         clsSupplierMaster cSupplier = new clsSupplierMaster();
         //clsSubCategory cSubCategory = new clsSubCategory();
         clsMenuCategory cMenuCategory = new clsMenuCategory();
-        //clsCapacityType cCapacityType = new clsCapacityType();
+        clsCapacityType cCapacityType = new clsCapacityType();
+        
         #endregion
 
         #region Variables
@@ -63,7 +64,7 @@ namespace RMS.Forms
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            if (ValidateData())
+            if (true)//ValidateData())
             {
                 //oItemMaster = cItemMaster.GetItemData(cGlobleVariable.LocationCode, this.txtItemCode.Text);
 
@@ -115,16 +116,16 @@ namespace RMS.Forms
 
             }
 
-            if (txtBarCode.Text == "")
-            {
-                errItem.SetError(txtBarCode, "Please Enter Customer Code");
-                isValidate = false;
-            }
-            else
-            {
-                errItem.SetError(txtBarCode, "");
+            //if (txtBarCode.Text == "")
+            //{
+            //    errItem.SetError(txtBarCode, "Please Enter Customer Code");
+            //    isValidate = false;
+            //}
+            //else
+            //{
+            //    errItem.SetError(txtBarCode, "");
 
-            }
+            //}
 
             if (txtUnit.Text == "")
             {
@@ -289,16 +290,6 @@ namespace RMS.Forms
                 errItem.SetError(cmbWeighted, "");
             }
 
-            //if (cmbSubCategory.SelectedIndex == -1)
-            //{
-            //    errItem.SetError(cmbSubCategory, "Please Select Status");
-            //    isValidate = false;
-            //}
-            //else
-            //{
-            //    errItem.SetError(cmbSubCategory, "");
-            //}
-
             if (cmbMCategory.SelectedIndex == -1)
             {
                 errItem.SetError(cmbMCategory, "Please Select Status");
@@ -309,15 +300,15 @@ namespace RMS.Forms
                 errItem.SetError(cmbMCategory, "");
             }
 
-            //if (cmbCapacityType.SelectedIndex == -1)
-            //{
-            //    errItem.SetError(cmbCapacityType, "Please Select Status");
-            //    isValidate = false;
-            //}
-            //else
-            //{
-            //    errItem.SetError(cmbCapacityType, "");
-            //}
+            if (cmbCapacityType.SelectedIndex == -1)
+            {
+                errItem.SetError(cmbCapacityType, "Please Select Status");
+                isValidate = false;
+            }
+            else
+            {
+                errItem.SetError(cmbCapacityType, "");
+            }
 
             if (cmbStatus.SelectedIndex == -1)
             {
@@ -340,14 +331,14 @@ namespace RMS.Forms
             oItemMaster.ItemCode = this.txtItemCode.Text;
             oItemMaster.BarCode = this.txtBarCode.Text;
             oItemMaster.Description = this.txtDescription.Text;
-            oItemMaster.Consignm = Convert.ToBoolean(cmbConsignm["fldConsignm"].ToString());
-            oItemMaster.Weighted = Convert.ToBoolean(cmbWeighted["fldWeighted"].ToString());
+            oItemMaster.Consignm = Convert.ToBoolean(cmbConsignm.SelectedItem.ToString());
+            oItemMaster.Weighted = Convert.ToBoolean(cmbWeighted.SelectedItem.ToString());
             oItemMaster.Department = cmbDepartment["fldDepartmentCode"].ToString();
             oItemMaster.Category = cmbCategory["fldCategoryCode"].ToString();
-            oItemMaster.SubCategory = cmbSubCategory["fldSubCategoryCode"].ToString();
+            //oItemMaster.SubCategory = cmbSubCategory["fldSubCategoryCode"].ToString();
             oItemMaster.Supplier = cmbSupplier["fldSupplierCode"].ToString();
             oItemMaster.MenuCategory = cmbMCategory["fldMenuCategoryCode"].ToString();
-            oItemMaster.Unit = Convert.ToInt16(this.txtUnit.Text);
+            oItemMaster.Unit = Convert.ToInt32(this.txtUnit.Text);
             oItemMaster.MinimumGP = Convert.ToDouble(this.txtMinimumGP.Text);
             oItemMaster.PackageSize = Convert.ToDouble(this.txtPackageSize.Text);
             oItemMaster.Capacity = Convert.ToDouble(this.txtCapacity.Text);
@@ -367,10 +358,18 @@ namespace RMS.Forms
         {
             
             cCommonMethods.loadComboRMS(cStatusMaster.GetStatusDetails(), cmbStatus, 1);
-            cCommonMethods.loadComboRMS(cDepartment.GetDepartmentData(Location), cmbDepartment, 1);
-            cCommonMethods.loadComboRMS(cCategory.GetCategoryData(Location), cmbCategory, 1);
-            cCommonMethods.loadComboRMS(cSupplier.GetSupplierData(Location), cmbStatus, 1);
-            cCommonMethods.loadComboRMS(cMenuCategory.GetMenuCategoryData(Location), cmbStatus, 1);
+            cCommonMethods.loadComboRMS(cDepartment.GetDepartmentData(Location), cmbDepartment, 2);
+            cCommonMethods.loadComboRMS(cSupplier.GetSupplierData(Location), cmbSupplier, 2);
+            cCommonMethods.loadComboRMS(cMenuCategory.GetMenuCategoryData(Location), cmbMCategory, 3);
+            cCommonMethods.loadComboRMS(cCapacityType.GetCapacityData(), cmbCapacityType, 1);
+        }
+
+        private void cmbDepartment_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string DepartmentCode = cmbDepartment["fldDepartmentCode"].ToString();
+            cmbCategory.ClearItems();
+            cCommonMethods.loadComboRMS(cCategory.GetCategoryDataByDepartment(Location, DepartmentCode), cmbCategory, 3);
+            
         }
 
 
