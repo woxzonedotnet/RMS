@@ -43,6 +43,7 @@
     <Compile Include="clsBankCardType.cs" />
     <Compile Include="clsBankDetails.cs" />
     <Compile Include="clsBrowsData.cs" />
+    <Compile Include="clsCapacityType.cs" />
     <Compile Include="clsCategoryMaster.cs" />
     <Compile Include="clsCurrencyMaster.cs" />
     <Compile Include="clsCustomerMaster.cs" />
