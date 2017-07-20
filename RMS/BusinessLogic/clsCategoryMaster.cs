@@ -43,9 +43,9 @@ namespace BusinessLogic
         #endregion
 
         #region GetCategory Data
-        public DataTable GetCategoryData(string strLocationCode)
+        public DataTable GetCategoryDataByDepartment(string strLocationCode, string strDepartmentCode)
         {
-            string strWhere = "fldLocationCode='" + strLocationCode + "' and fldStatus=1";
+            string strWhere = "fldLocationCode='" + strLocationCode + "' and fldDepartmentCode='" + strDepartmentCode + "' and fldStatus=1";
             DataTable dtCategory = cDBConnection.SearchData("tbl_CategoryMaster", strWhere);
             return dtCategory;
         }
