@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="objBankCards.cs" />
     <Compile Include="objBankCardType.cs" />
+    <Compile Include="objCapacityType.cs" />
     <Compile Include="objCurrencyMaster.cs" />
     <Compile Include="objCustomerMaster.cs" />
     <Compile Include="objItemMaster.cs" />
