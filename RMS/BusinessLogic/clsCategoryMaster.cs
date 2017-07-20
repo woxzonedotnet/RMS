@@ -16,7 +16,7 @@ namespace BusinessLogic
         objCategoryMaster oCategoryMaster = new objCategoryMaster();
         #endregion
 
-        #region GetDepartment Data Using DepartmentCode
+        #region GetCategory Data Using CategoryCode
         public objCategoryMaster GetCategoryData(string strLocationCode, string strCategoryCode)
         {
             string strWhere = "fldLocationCode='" + strLocationCode + "' AND fldCategoryCode='" + strCategoryCode + "'";
@@ -39,6 +39,15 @@ namespace BusinessLogic
             }
 
             return oCategoryMaster;
+        }
+        #endregion
+
+        #region GetCategory Data
+        public DataTable GetCategoryData(string strLocationCode)
+        {
+            string strWhere = "fldLocationCode='" + strLocationCode + "' and fldStatus=1";
+            DataTable dtCategory = cDBConnection.SearchData("tbl_CategoryMaster", strWhere);
+            return dtCategory;
         }
         #endregion
 
