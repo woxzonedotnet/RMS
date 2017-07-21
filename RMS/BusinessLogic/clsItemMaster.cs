@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using DataAccess;
 using BusinessObject;
+using System.Data;
 
 namespace BusinessLogic
 {
@@ -72,6 +73,124 @@ namespace BusinessLogic
         }
         #endregion
 
+        #region GetItemDetails
+        public DataTable GetItemData()
+        {
+            DataTable dtItemAll=null;
+            DataTable dtItemMaster = cDBConnection.SearchData("tbl_ItemMaster");
+            DataTable dtItemPrice = cDBConnection.SearchData("tbl_ItemPrice");
+            DataTable dtItemReOrder = cDBConnection.SearchData("tbl_ItemReOrder");
+
+            dtItemAll.Merge(dtItemMaster);
+            dtItemAll.Merge(dtItemPrice);
+            dtItemAll.Merge(dtItemReOrder);
+
+            return dtItemAll;
+        }
+        #endregion
+
+        #region Get ItemData using ItemCode
+        public objItemMaster GetItemData(string strItemCode)
+        {
+            string strWhere = "fldItemCode='" + strItemCode + "'";
+
+            DataTable dtItemMaster = cDBConnection.SearchData("tbl_ItemMaster",strWhere);
+            DataTable dtItemPrice = cDBConnection.SearchData("tbl_ItemPrice", strWhere);
+            DataTable dtItemReOrder = cDBConnection.SearchData("tbl_ItemReOrder", strWhere);
+
+            if (dtItemMaster.Rows.Count > 0)
+            {
+                oItemMaster.LocationCode = dtItemMaster.Rows[0][0].ToString();
+                oItemMaster.ItemCode = dtItemMaster.Rows[0][1].ToString();
+                oItemMaster.BarCode = dtItemMaster.Rows[0][2].ToString();
+                oItemMaster.Description = dtItemMaster.Rows[0][3].ToString();
+                oItemMaster.Consignm = Convert.ToBoolean(dtItemMaster.Rows[0][4].ToString());
+                oItemMaster.Weighted = Convert.ToBoolean(dtItemMaster.Rows[0][5].ToString());
+                oItemMaster.Department = dtItemMaster.Rows[0][6].ToString();
+                oItemMaster.Category = dtItemMaster.Rows[0][7].ToString();
+                oItemMaster.Supplier = dtItemMaster.Rows[0][8].ToString();
+                oItemMaster.MenuCategory = dtItemMaster.Rows[0][9].ToString();
+                oItemMaster.Unit = Convert.ToInt32(dtItemMaster.Rows[0][10].ToString());
+                oItemMaster.MinimumGP = Convert.ToDouble(dtItemMaster.Rows[0][11].ToString());
+                oItemMaster.PackageSize = Convert.ToDouble(dtItemMaster.Rows[0][12].ToString());
+                oItemMaster.Capacity = Convert.ToDouble(dtItemMaster.Rows[0][13].ToString());
+                oItemMaster.CapacityType = dtItemMaster.Rows[0][14].ToString();
+                oItemMaster.Status = Convert.ToInt16(dtItemMaster.Rows[0][15]);
+
+                //Price Table
+                oItemMaster.CostPrice = Convert.ToDouble(dtItemPrice.Rows[0][1].ToString());
+                oItemMaster.WholeSalePrice = Convert.ToDouble(dtItemPrice.Rows[0][2].ToString());
+                oItemMaster.SellingPrice = Convert.ToDouble(dtItemPrice.Rows[0][3].ToString());
+
+                //ReOrder Table
+                oItemMaster.ReOrderLevel = Convert.ToDouble(dtItemReOrder.Rows[0][1].ToString());
+                oItemMaster.ReOrderQty = Convert.ToDouble(dtItemReOrder.Rows[0][2].ToString());
+                oItemMaster.ReOrderMax = Convert.ToDouble(dtItemReOrder.Rows[0][3].ToString());
+
+
+                oItemMaster.IsExists = true;
+            }
+            else
+            {
+                oItemMaster.IsExists = false;
+            }
+
+
+            return oItemMaster;
+        }
+        #endregion
+
+        #region Get ItemData using ItemCode
+        public objItemMaster GetItemData(string strLocationCode,string strItemCode)
+        {
+            string strWhere1 = "fldItemCode='" + strItemCode + "' AND fldLocationCode='"+strLocationCode+"'";
+            string strWhere2 = "fldItemCode='" + strItemCode + "'";
+
+            DataTable dtItemMaster = cDBConnection.SearchData("tbl_ItemMaster", strWhere1);
+            DataTable dtItemPrice = cDBConnection.SearchData("tbl_ItemPrice", strWhere2);
+            DataTable dtItemReOrder = cDBConnection.SearchData("tbl_ItemReOrder", strWhere2);
+
+            if (dtItemMaster.Rows.Count > 0)
+            {
+                oItemMaster.LocationCode = dtItemMaster.Rows[0][0].ToString();
+                oItemMaster.ItemCode = dtItemMaster.Rows[0][1].ToString();
+                oItemMaster.BarCode = dtItemMaster.Rows[0][2].ToString();
+                oItemMaster.Description = dtItemMaster.Rows[0][3].ToString();
+                oItemMaster.Consignm = Convert.ToBoolean(dtItemMaster.Rows[0][4].ToString());
+                oItemMaster.Weighted = Convert.ToBoolean(dtItemMaster.Rows[0][5].ToString());
+                oItemMaster.Department = dtItemMaster.Rows[0][6].ToString();
+                oItemMaster.Category = dtItemMaster.Rows[0][7].ToString();
+                oItemMaster.Supplier = dtItemMaster.Rows[0][8].ToString();
+                oItemMaster.MenuCategory = dtItemMaster.Rows[0][9].ToString();
+                oItemMaster.Unit = Convert.ToInt32(dtItemMaster.Rows[0][10].ToString());
+                oItemMaster.MinimumGP = Convert.ToDouble(dtItemMaster.Rows[0][11].ToString());
+                oItemMaster.PackageSize = Convert.ToDouble(dtItemMaster.Rows[0][12].ToString());
+                oItemMaster.Capacity = Convert.ToDouble(dtItemMaster.Rows[0][13].ToString());
+                oItemMaster.CapacityType = dtItemMaster.Rows[0][14].ToString();
+                oItemMaster.Status = Convert.ToInt16(dtItemMaster.Rows[0][15]);
+
+                //Price Table
+                oItemMaster.CostPrice = Convert.ToDouble(dtItemPrice.Rows[0][1].ToString());
+                oItemMaster.WholeSalePrice = Convert.ToDouble(dtItemPrice.Rows[0][2].ToString());
+                oItemMaster.SellingPrice = Convert.ToDouble(dtItemPrice.Rows[0][3].ToString());
+
+                //ReOrder Table
+                oItemMaster.ReOrderLevel = Convert.ToDouble(dtItemReOrder.Rows[0][1].ToString());
+                oItemMaster.ReOrderQty = Convert.ToDouble(dtItemReOrder.Rows[0][2].ToString());
+                oItemMaster.ReOrderMax = Convert.ToDouble(dtItemReOrder.Rows[0][3].ToString());
+
+
+                oItemMaster.IsExists = true;
+            }
+            else
+            {
+                oItemMaster.IsExists = false;
+            }
+
+
+            return oItemMaster;
+        }
+        #endregion
 
     }
 }
