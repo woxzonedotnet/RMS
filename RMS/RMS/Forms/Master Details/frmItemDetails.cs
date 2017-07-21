@@ -25,7 +25,8 @@ namespace RMS.Forms
         clsSupplierMaster cSupplier = new clsSupplierMaster();
         //clsSubCategory cSubCategory = new clsSubCategory();
         clsMenuCategory cMenuCategory = new clsMenuCategory();
-        //clsCapacityType cCapacityType = new clsCapacityType();
+        clsCapacityType cCapacityType = new clsCapacityType();
+        
         #endregion
 
         #region Variables
@@ -65,7 +66,7 @@ namespace RMS.Forms
         {
             if (ValidateData())
             {
-                //oItemMaster = cItemMaster.GetItemData(cGlobleVariable.LocationCode, this.txtItemCode.Text);
+                oItemMaster = cItemMaster.GetItemData(cGlobleVariable.LocationCode, this.txtItemCode.Text);
 
                 if (oItemMaster.IsExists == false)
                 {
@@ -87,6 +88,50 @@ namespace RMS.Forms
             }
         }
 
+        private void frmItemDetails_Load(object sender, EventArgs e)
+        {
+            
+            cCommonMethods.loadComboRMS(cStatusMaster.GetStatusDetails(), cmbStatus, 1);
+            cCommonMethods.loadComboRMS(cDepartment.GetDepartmentData(Location), cmbDepartment, 2);
+            cCommonMethods.loadComboRMS(cSupplier.GetSupplierData(Location), cmbSupplier, 2);
+            cCommonMethods.loadComboRMS(cMenuCategory.GetMenuCategoryData(Location), cmbMCategory, 3);
+            cCommonMethods.loadComboRMS(cCapacityType.GetCapacityData(), cmbCapacityType, 1);
+        }
+
+        private void cmbDepartment_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string DepartmentCode = cmbDepartment["fldDepartmentCode"].ToString();
+            cmbCategory.ClearItems();
+            cCommonMethods.loadComboRMS(cCategory.GetCategoryDataByDepartment(Location, DepartmentCode), cmbCategory, 3);
+            
+        }
+        
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            LoadSearch();
+        }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            if (ValidateData())
+            {
+                oItemMaster = cItemMaster.GetItemData(cGlobleVariable.LocationCode, this.txtItemCode.Text);
+
+                if (oItemMaster.IsExists == true)
+                {
+                    result = InsertUpdateData();
+                    if (result != -1)
+                    {
+                        MessageBox.Show("Successfully Updated...!", "Item", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        clear();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Data not Update...!", "Item", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+        }
 
 
         #region Clear
@@ -106,7 +151,7 @@ namespace RMS.Forms
 
             if (txtItemCode.Text == "")
             {
-                errItem.SetError(txtItemCode, "Please Enter Customer Code");
+                errItem.SetError(txtItemCode, "Please Enter Item Code");
                 isValidate = false;
             }
             else
@@ -117,7 +162,7 @@ namespace RMS.Forms
 
             if (txtBarCode.Text == "")
             {
-                errItem.SetError(txtBarCode, "Please Enter Customer Code");
+                errItem.SetError(txtBarCode, "Please BarCode");
                 isValidate = false;
             }
             else
@@ -128,7 +173,7 @@ namespace RMS.Forms
 
             if (txtUnit.Text == "")
             {
-                errItem.SetError(txtUnit, "Please Enter Customer Code");
+                errItem.SetError(txtUnit, "Please Enter No of Unit");
                 isValidate = false;
             }
             else
@@ -139,7 +184,7 @@ namespace RMS.Forms
 
             if (txtPackageSize.Text == "")
             {
-                errItem.SetError(txtPackageSize, "Please Enter Customer Code");
+                errItem.SetError(txtPackageSize, "Please Enter Package Size");
                 isValidate = false;
             }
             else
@@ -149,7 +194,7 @@ namespace RMS.Forms
 
             if (txtDescription.Text == "")
             {
-                errItem.SetError(txtDescription, "Please Enter Customer Code");
+                errItem.SetError(txtDescription, "Please Enter Description");
                 isValidate = false;
             }
             else
@@ -159,7 +204,7 @@ namespace RMS.Forms
 
             if (txtMinimumGP.Text == "")
             {
-                errItem.SetError(txtMinimumGP, "Please Enter Customer Code");
+                errItem.SetError(txtMinimumGP, "Please Enter Minimum GP");
                 isValidate = false;
             }
             else
@@ -169,7 +214,7 @@ namespace RMS.Forms
 
             if (txtCapacity.Text == "")
             {
-                errItem.SetError(txtCapacity, "Please Enter Customer Code");
+                errItem.SetError(txtCapacity, "Please Enter Capacity");
                 isValidate = false;
             }
             else
@@ -179,7 +224,7 @@ namespace RMS.Forms
 
             if (txtCost.Text == "")
             {
-                errItem.SetError(txtCost, "Please Enter Customer Code");
+                errItem.SetError(txtCost, "Please Enter Item Cost");
                 isValidate = false;
             }
             else
@@ -189,7 +234,7 @@ namespace RMS.Forms
 
             if (txtWholeSale.Text == "")
             {
-                errItem.SetError(txtWholeSale, "Please Enter Customer Code");
+                errItem.SetError(txtWholeSale, "Please Enter Whole Sale Price");
                 isValidate = false;
             }
             else
@@ -199,7 +244,7 @@ namespace RMS.Forms
 
             if (txtSelling.Text == "")
             {
-                errItem.SetError(txtSelling, "Please Enter Customer Code");
+                errItem.SetError(txtSelling, "Please Enter Selling Price");
                 isValidate = false;
             }
             else
@@ -209,7 +254,7 @@ namespace RMS.Forms
 
             if (txtROL.Text == "")
             {
-                errItem.SetError(txtROL, "Please Enter Customer Code");
+                errItem.SetError(txtROL, "Please Enter Re Order Level");
                 isValidate = false;
             }
             else
@@ -219,7 +264,7 @@ namespace RMS.Forms
 
             if (txtROQ.Text == "")
             {
-                errItem.SetError(txtROQ, "Please Enter Customer Code");
+                errItem.SetError(txtROQ, "Please Enter Re Order Quantity");
                 isValidate = false;
             }
             else
@@ -229,7 +274,7 @@ namespace RMS.Forms
 
             if (txtMax.Text == "")
             {
-                errItem.SetError(txtMax, "Please Enter Customer Code");
+                errItem.SetError(txtMax, "Please Enter Re Order Max");
                 isValidate = false;
             }
             else
@@ -241,7 +286,7 @@ namespace RMS.Forms
 
             if (cmbConsignm.SelectedIndex == -1)
             {
-                errItem.SetError(cmbConsignm, "Please Select Status");
+                errItem.SetError(cmbConsignm, "Please Select Consignm");
                 isValidate = false;
             }
             else
@@ -251,7 +296,7 @@ namespace RMS.Forms
 
             if (cmbDepartment.SelectedIndex == -1)
             {
-                errItem.SetError(cmbDepartment, "Please Select Status");
+                errItem.SetError(cmbDepartment, "Please Select Department");
                 isValidate = false;
             }
             else
@@ -261,7 +306,7 @@ namespace RMS.Forms
 
             if (cmbCategory.SelectedIndex == -1)
             {
-                errItem.SetError(cmbCategory, "Please Select Status");
+                errItem.SetError(cmbCategory, "Please Select Category");
                 isValidate = false;
             }
             else
@@ -271,7 +316,7 @@ namespace RMS.Forms
 
             if (cmbSupplier.SelectedIndex == -1)
             {
-                errItem.SetError(cmbSupplier, "Please Select Status");
+                errItem.SetError(cmbSupplier, "Please Select Supplier");
                 isValidate = false;
             }
             else
@@ -281,7 +326,7 @@ namespace RMS.Forms
 
             if (cmbWeighted.SelectedIndex == -1)
             {
-                errItem.SetError(cmbWeighted, "Please Select Status");
+                errItem.SetError(cmbWeighted, "Please Select Weighted");
                 isValidate = false;
             }
             else
@@ -289,19 +334,9 @@ namespace RMS.Forms
                 errItem.SetError(cmbWeighted, "");
             }
 
-            //if (cmbSubCategory.SelectedIndex == -1)
-            //{
-            //    errItem.SetError(cmbSubCategory, "Please Select Status");
-            //    isValidate = false;
-            //}
-            //else
-            //{
-            //    errItem.SetError(cmbSubCategory, "");
-            //}
-
             if (cmbMCategory.SelectedIndex == -1)
             {
-                errItem.SetError(cmbMCategory, "Please Select Status");
+                errItem.SetError(cmbMCategory, "Please Select Menu Category");
                 isValidate = false;
             }
             else
@@ -309,15 +344,15 @@ namespace RMS.Forms
                 errItem.SetError(cmbMCategory, "");
             }
 
-            //if (cmbCapacityType.SelectedIndex == -1)
-            //{
-            //    errItem.SetError(cmbCapacityType, "Please Select Status");
-            //    isValidate = false;
-            //}
-            //else
-            //{
-            //    errItem.SetError(cmbCapacityType, "");
-            //}
+            if (cmbCapacityType.SelectedIndex == -1)
+            {
+                errItem.SetError(cmbCapacityType, "Please Select Capacity Type");
+                isValidate = false;
+            }
+            else
+            {
+                errItem.SetError(cmbCapacityType, "");
+            }
 
             if (cmbStatus.SelectedIndex == -1)
             {
@@ -340,14 +375,14 @@ namespace RMS.Forms
             oItemMaster.ItemCode = this.txtItemCode.Text;
             oItemMaster.BarCode = this.txtBarCode.Text;
             oItemMaster.Description = this.txtDescription.Text;
-            oItemMaster.Consignm = Convert.ToBoolean(cmbConsignm["fldConsignm"].ToString());
-            oItemMaster.Weighted = Convert.ToBoolean(cmbWeighted["fldWeighted"].ToString());
+            oItemMaster.Consignm = Convert.ToBoolean(cmbConsignm.SelectedItem.ToString());
+            oItemMaster.Weighted = Convert.ToBoolean(cmbWeighted.SelectedItem.ToString());
             oItemMaster.Department = cmbDepartment["fldDepartmentCode"].ToString();
             oItemMaster.Category = cmbCategory["fldCategoryCode"].ToString();
-            oItemMaster.SubCategory = cmbSubCategory["fldSubCategoryCode"].ToString();
+            //oItemMaster.SubCategory = cmbSubCategory["fldSubCategoryCode"].ToString();
             oItemMaster.Supplier = cmbSupplier["fldSupplierCode"].ToString();
             oItemMaster.MenuCategory = cmbMCategory["fldMenuCategoryCode"].ToString();
-            oItemMaster.Unit = Convert.ToInt16(this.txtUnit.Text);
+            oItemMaster.Unit = Convert.ToInt32(this.txtUnit.Text);
             oItemMaster.MinimumGP = Convert.ToDouble(this.txtMinimumGP.Text);
             oItemMaster.PackageSize = Convert.ToDouble(this.txtPackageSize.Text);
             oItemMaster.Capacity = Convert.ToDouble(this.txtCapacity.Text);
@@ -363,16 +398,67 @@ namespace RMS.Forms
         }
         #endregion
 
-        private void frmItemDetails_Load(object sender, EventArgs e)
+        #region LoadSearch
+        public void LoadSearch()
         {
-            
-            cCommonMethods.loadComboRMS(cStatusMaster.GetStatusDetails(), cmbStatus, 1);
-            cCommonMethods.loadComboRMS(cDepartment.GetDepartmentData(Location), cmbDepartment, 1);
-            cCommonMethods.loadComboRMS(cCategory.GetCategoryData(Location), cmbCategory, 1);
-            cCommonMethods.loadComboRMS(cSupplier.GetSupplierData(Location), cmbStatus, 1);
-            cCommonMethods.loadComboRMS(cMenuCategory.GetMenuCategoryData(Location), cmbStatus, 1);
-        }
+            string[] strFieldList = new string[3];
+            strFieldList[0] = "fldItemCode";
+            strFieldList[1] = "fldBarCode";
+            strFieldList[2] = "fldDescription";
 
+            string[] strHeaderList = new string[3];
+            strHeaderList[0] = "Item Code";
+            strHeaderList[1] = "BarCode";
+            strHeaderList[2] = "Description";
+
+            int[] iHeaderWidth = new int[3];
+            iHeaderWidth[0] = 150;
+            iHeaderWidth[1] = 150;
+            iHeaderWidth[2] = 250;
+
+            string strReturnString = "Item Code";
+            string strWhere = "fldStatus LIKE '%'";
+            txtItemCode.Text = cCommonMethods.BrowsData("tbl_ItemMaster", strFieldList, strHeaderList, iHeaderWidth, strReturnString, strWhere, "Item Code");
+            if (txtItemCode.Text != "")
+            {
+                LoadItemDetails();
+            }
+        }
+        #endregion
+
+        #region Load Item Details
+        private void LoadItemDetails()
+        {
+            oItemMaster = cItemMaster.GetItemData(txtItemCode.Text);
+
+            txtBarCode.Text = oItemMaster.BarCode;
+            txtUnit.Text = oItemMaster.Unit.ToString();
+            txtPackageSize.Text = oItemMaster.PackageSize.ToString();
+            txtDescription.Text = oItemMaster.Description;
+            txtMinimumGP.Text = oItemMaster.MinimumGP.ToString();
+            txtCapacity.Text = oItemMaster.Capacity.ToString();
+            txtCost.Text = oItemMaster.CostPrice.ToString();
+            txtWholeSale.Text = oItemMaster.WholeSalePrice.ToString();
+            txtSelling.Text = oItemMaster.SellingPrice.ToString();
+            txtROL.Text = oItemMaster.ReOrderLevel.ToString();
+            txtROQ.Text = oItemMaster.ReOrderQty.ToString();
+            txtMax.Text = oItemMaster.ReOrderMax.ToString();
+
+            cmbConsignm.SelectedItem = oItemMaster.Consignm.ToString();
+            cmbDepartment.SetText(cDepartment.GetDepartmentDataByCode(oItemMaster.Department));
+            cmbCategory.SetText(cCategory.GetCategoryDataByDepartmentAndCategory(oItemMaster.Department, oItemMaster.Category));
+            cmbSupplier.SetText(cSupplier.GetSupplierDataBySupplierCode(oItemMaster.LocationCode, oItemMaster.Supplier));
+            cmbMCategory.SetText(cMenuCategory.GetMenuCategoryDataByCode(oItemMaster.LocationCode, oItemMaster.MenuCategory));
+            cmbCapacityType.SetText(cCapacityType.GetCapacityDataByCode(oItemMaster.CapacityType));
+            cmbWeighted.SelectedItem = oItemMaster.Weighted.ToString();
+            cmbStatus.SetText(cStatusMaster.GetStatusByCode(oItemMaster.Status));
+
+            this.txtBarCode.Select();
+            this.txtItemCode.Enabled = false;
+            this.btnSave.Enabled = false;
+            this.btnUpdate.Enabled = true;
+        }
+        #endregion
 
     }
 }

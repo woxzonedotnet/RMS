@@ -57,6 +57,29 @@ namespace BusinessLogic
 
             return oDepartment;
         }
+
+        public string GetDepartmentDataByCode(string strDepartmentCode)
+        {
+            string strWhere = "fldDepartmentCode='" + strDepartmentCode + "'";
+
+            DataTable dtDepartment = cDBConnection.SearchData("tbl_DepartmentMaster", strWhere);
+
+            if (dtDepartment.Rows.Count > 0)
+            {
+                oDepartment.LocationCode = dtDepartment.Rows[0][0].ToString();
+                oDepartment.DepartmentCode = dtDepartment.Rows[0][1].ToString();
+                oDepartment.DepartmentName = dtDepartment.Rows[0][2].ToString();
+                oDepartment.Status = Convert.ToInt16(dtDepartment.Rows[0][3]);
+
+                oDepartment.IsExists = true;
+            }
+            else
+            {
+                oDepartment.IsExists = false;
+            }
+
+            return oDepartment.DepartmentName;
+        }
         #endregion
 
         #region GetDepartment Data
