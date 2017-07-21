@@ -21,7 +21,7 @@ namespace BusinessLogic
         #endregion
 
         #region Function
-
+        
         #region InsertUpdate Bank Cards
         public int InsertUpdateData(objBankCards oBankCards)
         {

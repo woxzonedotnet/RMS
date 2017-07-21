@@ -51,6 +51,7 @@
     <Compile Include="clsMainLocation.cs" />
     <Compile Include="clsMenuCategory.cs" />
     <Compile Include="clsMenuDepartment.cs" />
+    <Compile Include="clsRecipeDetails.cs" />
     <Compile Include="clsSetupSetting.cs" />
     <Compile Include="clsStatusMaster.cs" />
     <Compile Include="clsSteward.cs" />
