@@ -51,6 +51,32 @@ namespace BusinessLogic
         }
         #endregion
 
+        #region GetMenuCategory Data Using MenuCategoryCode
+        public string GetMenuCategoryDataByCode(string strLocationCode, string strMenuCategoryCode)
+        {
+            string strWhere = "fldLocationCode='" + strLocationCode + "' and fldMenuCategoryCode='" + strMenuCategoryCode + "'";
+
+            DataTable dtMenuCategory = cDBConnection.SearchData("tbl_MenuCategory", strWhere);
+
+            if (dtMenuCategory.Rows.Count > 0)
+            {
+                oMenuCategory.LocationCode = dtMenuCategory.Rows[0][0].ToString();
+                oMenuCategory.MenuDepartmentCode = dtMenuCategory.Rows[0][1].ToString();
+                oMenuCategory.MenuCategoryCode = dtMenuCategory.Rows[0][2].ToString();
+                oMenuCategory.MenuCategoryName = dtMenuCategory.Rows[0][3].ToString();
+                oMenuCategory.Status = Convert.ToInt16(dtMenuCategory.Rows[0][4]);
+
+                oMenuCategory.IsExists = true;
+            }
+            else
+            {
+                oMenuCategory.IsExists = false;
+            }
+
+            return oMenuCategory.MenuCategoryName;
+        }
+        #endregion
+
         #region InsertUpdateData
         public int InsertUpdateData(objMenuCategory oMenuCategory)
         {
