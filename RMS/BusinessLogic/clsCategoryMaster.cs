@@ -51,6 +51,32 @@ namespace BusinessLogic
         }
         #endregion
 
+        #region GetCategory Data Using CategoryCode and DepartmentCode
+        public string GetCategoryDataByDepartmentAndCategory(string strDepartmentCode, string strCategoryCode)
+        {
+            string strWhere = "fldDepartmentCode='" + strDepartmentCode + "' AND fldCategoryCode='" + strCategoryCode + "'";
+
+            DataTable dtDepartment = cDBConnection.SearchData("tbl_CategoryMaster", strWhere);
+
+            if (dtDepartment.Rows.Count > 0)
+            {
+                oCategoryMaster.LocationCode = dtDepartment.Rows[0][0].ToString();
+                oCategoryMaster.DepartmentCode = dtDepartment.Rows[0][1].ToString();
+                oCategoryMaster.CategoryCode = dtDepartment.Rows[0][2].ToString();
+                oCategoryMaster.CategoryName = dtDepartment.Rows[0][3].ToString();
+                oCategoryMaster.Status = Convert.ToInt16(dtDepartment.Rows[0][4]);
+
+                oCategoryMaster.IsExistCategory = true;
+            }
+            else
+            {
+                oCategoryMaster.IsExistCategory = false;
+            }
+
+            return oCategoryMaster.CategoryName;
+        }
+        #endregion
+
         #region InsertUpdateData
         public int InsertUpdateData(objCategoryMaster oCategoryMaster)
         {
