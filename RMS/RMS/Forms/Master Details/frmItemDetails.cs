@@ -26,13 +26,16 @@ namespace RMS.Forms
         //clsSubCategory cSubCategory = new clsSubCategory();
         clsMenuCategory cMenuCategory = new clsMenuCategory();
         clsCapacityType cCapacityType = new clsCapacityType();
+        objSubLocation oSubLocation = new objSubLocation();
+        clsSubLocation cSubLocation = new clsSubLocation();
         
         #endregion
 
         #region Variables
         int result = -1;
         Point lastClick;
-        string Location;
+        string Location="";
+        string SubLocation = "";
         #endregion
 
 
@@ -133,6 +136,13 @@ namespace RMS.Forms
             }
         }
 
+        private void dataGridView1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if ((e.KeyCode == Keys.Space) && this.dgvLocationData.CurrentCell.OwningColumn.Name.Equals("clmLocationCode"))
+            {
+                LoadLocation();
+            }
+        }
 
         #region Clear
         public void clear()
@@ -417,7 +427,7 @@ namespace RMS.Forms
             iHeaderWidth[2] = 250;
 
             string strReturnString = "Item Code";
-            string strWhere = "fldStatus LIKE '%'";
+            string strWhere = "fldStatus LIKE '1'";
             txtItemCode.Text = cCommonMethods.BrowsData("tbl_ItemMaster", strFieldList, strHeaderList, iHeaderWidth, strReturnString, strWhere, "Item Code");
             if (txtItemCode.Text != "")
             {
@@ -457,6 +467,62 @@ namespace RMS.Forms
             this.txtItemCode.Enabled = false;
             this.btnSave.Enabled = false;
             this.btnUpdate.Enabled = true;
+        }
+        #endregion
+
+        #region LoadLocation
+        public void LoadLocation()
+        {
+            string[] strFieldList = new string[2];
+            strFieldList[0] = "fldSubLocationCode";
+            strFieldList[1] = "fldSubLocationName";
+
+            string[] strHeaderList = new string[2];
+            strHeaderList[0] = "Location Code";
+            strHeaderList[1] = "Location Name";
+
+            int[] iHeaderWidth = new int[2];
+            iHeaderWidth[0] = 150;
+            iHeaderWidth[1] = 150;
+
+            string strReturnString = "Location Code";
+            string strWhere = "fldActiveStatus LIKE '1'";
+            SubLocation = cCommonMethods.BrowsData("tbl_SubLocation", strFieldList, strHeaderList, iHeaderWidth, strReturnString, strWhere, "Location Code");
+            if (SubLocation != "")
+            {
+                LoadLocationDetails();
+            }
+        }
+        #endregion
+
+        #region Load Location Details
+        private void LoadLocationDetails()
+        {
+            oSubLocation = cSubLocation.GetSubLocationData(Location, SubLocation);
+
+            int isExist = 0;
+            for (int i = 0; i < dgvLocationData.Rows.Count; i++)
+            {
+                if (dgvLocationData.Rows[i].Cells[0].Value != null && SubLocation == dgvLocationData.Rows[i].Cells[0].Value.ToString())
+                {
+                    MessageBox.Show("The Selected Item already existed.");
+                    isExist = -1;
+                    break;
+                }
+                else
+                {
+                    isExist = 1;
+                }
+            }
+            if (isExist == 1)
+            {
+                this.dgvLocationData.Rows.Add();
+                this.dgvLocationData.Rows[this.dgvLocationData.CurrentCell.RowIndex - 1].Cells["clmLocationCode"].Value = oSubLocation.SubLocationCode;
+                this.dgvLocationData.Rows[this.dgvLocationData.CurrentCell.RowIndex - 1].Cells["clmLocationName"].Value = oSubLocation.SubLocationName;
+                this.dgvLocationData.Rows[this.dgvLocationData.CurrentCell.RowIndex - 1].Cells["clmShelfQty"].Value = "0.00";
+                this.dgvLocationData.Rows[this.dgvLocationData.CurrentCell.RowIndex - 1].Cells["clmDamageQty"].Value = "0.00";
+                this.dgvLocationData.Rows[this.dgvLocationData.CurrentCell.RowIndex - 1].Cells["clmMonthOpenQty"].Value = "0.00";
+            }
         }
         #endregion
 
