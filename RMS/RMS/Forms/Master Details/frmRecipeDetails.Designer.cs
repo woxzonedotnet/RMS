@@ -34,17 +34,23 @@
             this.btnSave = new System.Windows.Forms.Button();
             this.txtRecipeCost = new System.Windows.Forms.TextBox();
             this.lblRecipeCost = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.cmbLocation = new RMS.ColumnComboBox();
+            this.dgvItemDetails = new System.Windows.Forms.DataGridView();
             this.lblLocation = new System.Windows.Forms.Label();
-            this.cmbOrderType = new RMS.ColumnComboBox();
             this.lblOrderType = new System.Windows.Forms.Label();
             this.txtFullDescription = new System.Windows.Forms.TextBox();
             this.lblFullDescription = new System.Windows.Forms.Label();
             this.txtRecipeCode = new System.Windows.Forms.TextBox();
             this.lblRecipeCode = new System.Windows.Forms.Label();
             this.btnSearch = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.clmItemCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmUnit = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmUnitPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmTotalCost = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cmbLocation = new RMS.ColumnComboBox();
+            this.cmbOrderType = new RMS.ColumnComboBox();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvItemDetails)).BeginInit();
             this.SuspendLayout();
             // 
             // btnClose
@@ -56,6 +62,7 @@
             this.btnClose.TabIndex = 40;
             this.btnClose.Text = "Close";
             this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // btnClear
             // 
@@ -66,6 +73,7 @@
             this.btnClear.TabIndex = 39;
             this.btnClear.Text = "Clear";
             this.btnClear.UseVisualStyleBackColor = true;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
             // btnSave
             // 
@@ -76,6 +84,7 @@
             this.btnSave.TabIndex = 38;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // txtRecipeCost
             // 
@@ -95,24 +104,21 @@
             this.lblRecipeCost.TabIndex = 36;
             this.lblRecipeCost.Text = "Recipe Cost";
             // 
-            // dataGridView1
+            // dgvItemDetails
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(18, 119);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(591, 192);
-            this.dataGridView1.TabIndex = 35;
-            // 
-            // cmbLocation
-            // 
-            this.cmbLocation.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
-            this.cmbLocation.DropDownWidth = 17;
-            this.cmbLocation.FormattingEnabled = true;
-            this.cmbLocation.Location = new System.Drawing.Point(115, 83);
-            this.cmbLocation.Name = "cmbLocation";
-            this.cmbLocation.Size = new System.Drawing.Size(150, 21);
-            this.cmbLocation.TabIndex = 34;
-            this.cmbLocation.ViewColumn = 0;
+            this.dgvItemDetails.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvItemDetails.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.clmItemCode,
+            this.clmDescription,
+            this.clmUnit,
+            this.clmQuantity,
+            this.clmUnitPrice,
+            this.clmTotalCost});
+            this.dgvItemDetails.Location = new System.Drawing.Point(18, 119);
+            this.dgvItemDetails.Name = "dgvItemDetails";
+            this.dgvItemDetails.Size = new System.Drawing.Size(591, 192);
+            this.dgvItemDetails.TabIndex = 35;
+            this.dgvItemDetails.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dataGridView1_KeyDown);
             // 
             // lblLocation
             // 
@@ -123,17 +129,6 @@
             this.lblLocation.Size = new System.Drawing.Size(59, 16);
             this.lblLocation.TabIndex = 33;
             this.lblLocation.Text = "Location";
-            // 
-            // cmbOrderType
-            // 
-            this.cmbOrderType.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
-            this.cmbOrderType.DropDownWidth = 17;
-            this.cmbOrderType.FormattingEnabled = true;
-            this.cmbOrderType.Location = new System.Drawing.Point(115, 48);
-            this.cmbOrderType.Name = "cmbOrderType";
-            this.cmbOrderType.Size = new System.Drawing.Size(150, 21);
-            this.cmbOrderType.TabIndex = 32;
-            this.cmbOrderType.ViewColumn = 0;
             // 
             // lblOrderType
             // 
@@ -191,6 +186,63 @@
             this.btnSearch.Size = new System.Drawing.Size(35, 31);
             this.btnSearch.TabIndex = 28;
             this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
+            // 
+            // clmItemCode
+            // 
+            this.clmItemCode.HeaderText = "Item Code";
+            this.clmItemCode.Name = "clmItemCode";
+            // 
+            // clmDescription
+            // 
+            this.clmDescription.HeaderText = "Description";
+            this.clmDescription.Name = "clmDescription";
+            // 
+            // clmUnit
+            // 
+            this.clmUnit.HeaderText = "Unit";
+            this.clmUnit.Name = "clmUnit";
+            this.clmUnit.Width = 73;
+            // 
+            // clmQuantity
+            // 
+            this.clmQuantity.HeaderText = "Quantity";
+            this.clmQuantity.Name = "clmQuantity";
+            this.clmQuantity.Width = 74;
+            // 
+            // clmUnitPrice
+            // 
+            this.clmUnitPrice.HeaderText = "Unit Price";
+            this.clmUnitPrice.Name = "clmUnitPrice";
+            // 
+            // clmTotalCost
+            // 
+            this.clmTotalCost.HeaderText = "Total Cost";
+            this.clmTotalCost.Name = "clmTotalCost";
+            // 
+            // cmbLocation
+            // 
+            this.cmbLocation.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.cmbLocation.DropDownWidth = 17;
+            this.cmbLocation.FormattingEnabled = true;
+            this.cmbLocation.Location = new System.Drawing.Point(115, 83);
+            this.cmbLocation.Name = "cmbLocation";
+            this.cmbLocation.Size = new System.Drawing.Size(150, 21);
+            this.cmbLocation.TabIndex = 34;
+            this.cmbLocation.ViewColumn = 0;
+            this.cmbLocation.SelectedIndexChanged += new System.EventHandler(this.cmbLocation_SelectedIndexChanged);
+            // 
+            // cmbOrderType
+            // 
+            this.cmbOrderType.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.cmbOrderType.DropDownWidth = 17;
+            this.cmbOrderType.FormattingEnabled = true;
+            this.cmbOrderType.Location = new System.Drawing.Point(115, 48);
+            this.cmbOrderType.Name = "cmbOrderType";
+            this.cmbOrderType.Size = new System.Drawing.Size(150, 21);
+            this.cmbOrderType.TabIndex = 32;
+            this.cmbOrderType.ViewColumn = 0;
+            this.cmbOrderType.SelectedIndexChanged += new System.EventHandler(this.cmbOrderType_SelectedIndexChanged);
             // 
             // frmRecipeDetails
             // 
@@ -202,7 +254,7 @@
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.txtRecipeCost);
             this.Controls.Add(this.lblRecipeCost);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgvItemDetails);
             this.Controls.Add(this.cmbLocation);
             this.Controls.Add(this.lblLocation);
             this.Controls.Add(this.cmbOrderType);
@@ -215,7 +267,8 @@
             this.Name = "frmRecipeDetails";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Recipe Details";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.Load += new System.EventHandler(this.frmRecipeDetails_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvItemDetails)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -228,7 +281,7 @@
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.TextBox txtRecipeCost;
         private System.Windows.Forms.Label lblRecipeCost;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvItemDetails;
         private ColumnComboBox cmbLocation;
         private System.Windows.Forms.Label lblLocation;
         private ColumnComboBox cmbOrderType;
@@ -238,5 +291,11 @@
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.TextBox txtRecipeCode;
         private System.Windows.Forms.Label lblRecipeCode;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmItemCode;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmDescription;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmUnit;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmQuantity;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmUnitPrice;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmTotalCost;
     }
 }
