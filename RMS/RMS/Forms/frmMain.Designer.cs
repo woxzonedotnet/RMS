@@ -60,6 +60,13 @@
             this.btnExit = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnMinimize = new System.Windows.Forms.Button();
+            this.goodsReciveNoteGRNToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.supplierReturnNoteSRNToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.transferNoteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.stockAjestmentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.gRNCancelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.issuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.stockInitializeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStripMain.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -261,17 +268,25 @@
             // transactionToolStripMenuItem
             // 
             this.transactionToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.aaToolStripMenuItem});
+            this.aaToolStripMenuItem,
+            this.goodsReciveNoteGRNToolStripMenuItem,
+            this.supplierReturnNoteSRNToolStripMenuItem,
+            this.transferNoteToolStripMenuItem,
+            this.stockAjestmentToolStripMenuItem,
+            this.gRNCancelToolStripMenuItem,
+            this.issuToolStripMenuItem,
+            this.stockInitializeToolStripMenuItem});
             this.transactionToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(146)))), ((int)(((byte)(150)))), ((int)(((byte)(153)))));
             this.transactionToolStripMenuItem.Name = "transactionToolStripMenuItem";
-            this.transactionToolStripMenuItem.Size = new System.Drawing.Size(80, 31);
-            this.transactionToolStripMenuItem.Text = "Transaction";
+            this.transactionToolStripMenuItem.Size = new System.Drawing.Size(69, 31);
+            this.transactionToolStripMenuItem.Text = "Inventory";
             // 
             // aaToolStripMenuItem
             // 
             this.aaToolStripMenuItem.Name = "aaToolStripMenuItem";
-            this.aaToolStripMenuItem.Size = new System.Drawing.Size(86, 22);
-            this.aaToolStripMenuItem.Text = "aa";
+            this.aaToolStripMenuItem.Size = new System.Drawing.Size(217, 22);
+            this.aaToolStripMenuItem.Text = "Purchase Order (PO)";
+            this.aaToolStripMenuItem.Click += new System.EventHandler(this.aaToolStripMenuItem_Click);
             // 
             // processToolStripMenuItem
             // 
@@ -366,6 +381,48 @@
             this.btnMinimize.UseVisualStyleBackColor = false;
             this.btnMinimize.Click += new System.EventHandler(this.btnMinimize_Click);
             // 
+            // goodsReciveNoteGRNToolStripMenuItem
+            // 
+            this.goodsReciveNoteGRNToolStripMenuItem.Name = "goodsReciveNoteGRNToolStripMenuItem";
+            this.goodsReciveNoteGRNToolStripMenuItem.Size = new System.Drawing.Size(217, 22);
+            this.goodsReciveNoteGRNToolStripMenuItem.Text = "Goods Receive Note (GRN)";
+            // 
+            // supplierReturnNoteSRNToolStripMenuItem
+            // 
+            this.supplierReturnNoteSRNToolStripMenuItem.Name = "supplierReturnNoteSRNToolStripMenuItem";
+            this.supplierReturnNoteSRNToolStripMenuItem.Size = new System.Drawing.Size(217, 22);
+            this.supplierReturnNoteSRNToolStripMenuItem.Text = "Supplier Return Note (SRN)";
+            // 
+            // transferNoteToolStripMenuItem
+            // 
+            this.transferNoteToolStripMenuItem.Name = "transferNoteToolStripMenuItem";
+            this.transferNoteToolStripMenuItem.Size = new System.Drawing.Size(217, 22);
+            this.transferNoteToolStripMenuItem.Text = "Transfer Note";
+            // 
+            // stockAjestmentToolStripMenuItem
+            // 
+            this.stockAjestmentToolStripMenuItem.Name = "stockAjestmentToolStripMenuItem";
+            this.stockAjestmentToolStripMenuItem.Size = new System.Drawing.Size(217, 22);
+            this.stockAjestmentToolStripMenuItem.Text = "Stock Ajustment Note";
+            // 
+            // gRNCancelToolStripMenuItem
+            // 
+            this.gRNCancelToolStripMenuItem.Name = "gRNCancelToolStripMenuItem";
+            this.gRNCancelToolStripMenuItem.Size = new System.Drawing.Size(217, 22);
+            this.gRNCancelToolStripMenuItem.Text = "GRN Cancel";
+            // 
+            // issuToolStripMenuItem
+            // 
+            this.issuToolStripMenuItem.Name = "issuToolStripMenuItem";
+            this.issuToolStripMenuItem.Size = new System.Drawing.Size(217, 22);
+            this.issuToolStripMenuItem.Text = "Issue Note";
+            // 
+            // stockInitializeToolStripMenuItem
+            // 
+            this.stockInitializeToolStripMenuItem.Name = "stockInitializeToolStripMenuItem";
+            this.stockInitializeToolStripMenuItem.Size = new System.Drawing.Size(217, 22);
+            this.stockInitializeToolStripMenuItem.Text = "Stock Initialize";
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -420,5 +477,12 @@
         private System.Windows.Forms.ToolStripMenuItem ddToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ffToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem bankToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem goodsReciveNoteGRNToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem supplierReturnNoteSRNToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem transferNoteToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem stockAjestmentToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem gRNCancelToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem issuToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem stockInitializeToolStripMenuItem;
     }
 }
