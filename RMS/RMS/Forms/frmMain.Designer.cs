@@ -398,6 +398,7 @@
             this.transferNoteToolStripMenuItem.Name = "transferNoteToolStripMenuItem";
             this.transferNoteToolStripMenuItem.Size = new System.Drawing.Size(217, 22);
             this.transferNoteToolStripMenuItem.Text = "Transfer Note";
+            this.transferNoteToolStripMenuItem.Click += new System.EventHandler(this.transferNoteToolStripMenuItem_Click);
             // 
             // stockAjestmentToolStripMenuItem
             // 
