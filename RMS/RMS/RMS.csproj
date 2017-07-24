@@ -185,52 +185,52 @@
     <Compile Include="Forms\Master Details\frmTableDetails.Designer.cs">
       <DependentUpon>frmTableDetails.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Transaction\frmGoodsReceiveNote.cs">
+    <Compile Include="Forms\Inventory\frmGoodsReceiveNote.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Transaction\frmGoodsReceiveNote.Designer.cs">
+    <Compile Include="Forms\Inventory\frmGoodsReceiveNote.Designer.cs">
       <DependentUpon>frmGoodsReceiveNote.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Transaction\frmGRNCancel.cs">
+    <Compile Include="Forms\Inventory\frmGRNCancel.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Transaction\frmGRNCancel.Designer.cs">
+    <Compile Include="Forms\Inventory\frmGRNCancel.Designer.cs">
       <DependentUpon>frmGRNCancel.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Transaction\frmIssuesNote.cs">
+    <Compile Include="Forms\Inventory\frmIssuesNote.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Transaction\frmIssuesNote.Designer.cs">
+    <Compile Include="Forms\Inventory\frmIssuesNote.Designer.cs">
       <DependentUpon>frmIssuesNote.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Transaction\frmPurchaseOrder.cs">
+    <Compile Include="Forms\Inventory\frmPurchaseOrder.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Transaction\frmPurchaseOrder.Designer.cs">
+    <Compile Include="Forms\Inventory\frmPurchaseOrder.Designer.cs">
       <DependentUpon>frmPurchaseOrder.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Transaction\frmStockAdjustmentNote.cs">
+    <Compile Include="Forms\Inventory\frmStockAdjustmentNote.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Transaction\frmStockAdjustmentNote.Designer.cs">
+    <Compile Include="Forms\Inventory\frmStockAdjustmentNote.Designer.cs">
       <DependentUpon>frmStockAdjustmentNote.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Transaction\frmStockInitialize.cs">
+    <Compile Include="Forms\Inventory\frmStockInitialize.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Transaction\frmStockInitialize.Designer.cs">
+    <Compile Include="Forms\Inventory\frmStockInitialize.Designer.cs">
       <DependentUpon>frmStockInitialize.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Transaction\frmSupplierReturnNote.cs">
+    <Compile Include="Forms\Inventory\frmSupplierReturnNote.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Transaction\frmSupplierReturnNote.Designer.cs">
+    <Compile Include="Forms\Inventory\frmSupplierReturnNote.Designer.cs">
       <DependentUpon>frmSupplierReturnNote.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Transaction\frmTransferNote.cs">
+    <Compile Include="Forms\Inventory\frmTransferNote.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Transaction\frmTransferNote.Designer.cs">
+    <Compile Include="Forms\Inventory\frmTransferNote.Designer.cs">
       <DependentUpon>frmTransferNote.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
@@ -307,28 +307,28 @@
     <EmbeddedResource Include="Forms\Master Details\frmTableDetails.resx">
       <DependentUpon>frmTableDetails.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Transaction\frmGoodsReceiveNote.resx">
+    <EmbeddedResource Include="Forms\Inventory\frmGoodsReceiveNote.resx">
       <DependentUpon>frmGoodsReceiveNote.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Transaction\frmGRNCancel.resx">
+    <EmbeddedResource Include="Forms\Inventory\frmGRNCancel.resx">
       <DependentUpon>frmGRNCancel.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Transaction\frmIssuesNote.resx">
+    <EmbeddedResource Include="Forms\Inventory\frmIssuesNote.resx">
       <DependentUpon>frmIssuesNote.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Transaction\frmPurchaseOrder.resx">
+    <EmbeddedResource Include="Forms\Inventory\frmPurchaseOrder.resx">
       <DependentUpon>frmPurchaseOrder.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Transaction\frmStockAdjustmentNote.resx">
+    <EmbeddedResource Include="Forms\Inventory\frmStockAdjustmentNote.resx">
       <DependentUpon>frmStockAdjustmentNote.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Transaction\frmStockInitialize.resx">
+    <EmbeddedResource Include="Forms\Inventory\frmStockInitialize.resx">
       <DependentUpon>frmStockInitialize.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Transaction\frmSupplierReturnNote.resx">
+    <EmbeddedResource Include="Forms\Inventory\frmSupplierReturnNote.resx">
       <DependentUpon>frmSupplierReturnNote.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Transaction\frmTransferNote.resx">
+    <EmbeddedResource Include="Forms\Inventory\frmTransferNote.resx">
       <DependentUpon>frmTransferNote.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
