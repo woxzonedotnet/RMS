@@ -1,4 +1,4 @@
-﻿namespace RMS.Forms.Transaction
+﻿namespace RMS.Forms.Inventory
 {
     partial class frmSupplierReturnNote
     {
