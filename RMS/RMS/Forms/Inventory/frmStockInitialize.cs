@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace RMS.Forms.Transaction
+namespace RMS.Forms.Inventory
 {
-    public partial class frmPurchaseOrder : Form
+    public partial class frmStockInitialize : Form
     {
-        public frmPurchaseOrder()
+        public frmStockInitialize()
         {
             InitializeComponent();
         }

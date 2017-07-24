@@ -49,7 +49,6 @@
     <Compile Include="objMainLocation.cs" />
     <Compile Include="objMenuCategory.cs" />
     <Compile Include="objMenuDepartment.cs" />
-    <Compile Include="objRecipeDetails.cs" />
     <Compile Include="objSetupSetting.cs" />
     <Compile Include="objSupplierCategory.cs" />
     <Compile Include="objSupplierMaster.cs" />

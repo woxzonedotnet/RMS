@@ -48,7 +48,7 @@
             this.txtCost = new System.Windows.Forms.TextBox();
             this.lblCost = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvLocationData = new System.Windows.Forms.DataGridView();
             this.txtPackageSize = new System.Windows.Forms.TextBox();
             this.txtMinimumGP = new System.Windows.Forms.TextBox();
             this.txtCapacity = new System.Windows.Forms.TextBox();
@@ -82,9 +82,14 @@
             this.cmbMCategory = new RMS.ColumnComboBox();
             this.cmbCategory = new RMS.ColumnComboBox();
             this.cmbDepartment = new RMS.ColumnComboBox();
+            this.clmLocationCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmLocationName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmShelfQty = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmDamageQty = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmMonthOpenQty = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvLocationData)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errItem)).BeginInit();
             this.SuspendLayout();
             // 
@@ -260,13 +265,20 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Re Oder";
             // 
-            // dataGridView1
+            // dgvLocationData
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(19, 271);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(824, 150);
-            this.dataGridView1.TabIndex = 80;
+            this.dgvLocationData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvLocationData.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.clmLocationCode,
+            this.clmLocationName,
+            this.clmShelfQty,
+            this.clmDamageQty,
+            this.clmMonthOpenQty});
+            this.dgvLocationData.Location = new System.Drawing.Point(19, 271);
+            this.dgvLocationData.Name = "dgvLocationData";
+            this.dgvLocationData.Size = new System.Drawing.Size(824, 150);
+            this.dgvLocationData.TabIndex = 80;
+            this.dgvLocationData.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dataGridView1_KeyDown);
             // 
             // txtPackageSize
             // 
@@ -578,6 +590,37 @@
             this.cmbDepartment.ViewColumn = 0;
             this.cmbDepartment.SelectedIndexChanged += new System.EventHandler(this.cmbDepartment_SelectedIndexChanged);
             // 
+            // clmLocationCode
+            // 
+            this.clmLocationCode.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.clmLocationCode.HeaderText = "Location Code";
+            this.clmLocationCode.Name = "clmLocationCode";
+            this.clmLocationCode.ReadOnly = true;
+            // 
+            // clmLocationName
+            // 
+            this.clmLocationName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.clmLocationName.HeaderText = "Location Name";
+            this.clmLocationName.Name = "clmLocationName";
+            // 
+            // clmShelfQty
+            // 
+            this.clmShelfQty.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.clmShelfQty.HeaderText = "Shelf Quantity";
+            this.clmShelfQty.Name = "clmShelfQty";
+            // 
+            // clmDamageQty
+            // 
+            this.clmDamageQty.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.clmDamageQty.HeaderText = "Damage Quantity";
+            this.clmDamageQty.Name = "clmDamageQty";
+            // 
+            // clmMonthOpenQty
+            // 
+            this.clmMonthOpenQty.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.clmMonthOpenQty.HeaderText = "Month Open Quantity";
+            this.clmMonthOpenQty.Name = "clmMonthOpenQty";
+            // 
             // frmItemDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -595,7 +638,7 @@
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgvLocationData);
             this.Controls.Add(this.cmbSupplier);
             this.Controls.Add(this.txtPackageSize);
             this.Controls.Add(this.txtMinimumGP);
@@ -628,7 +671,7 @@
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvLocationData)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errItem)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -655,7 +698,7 @@
         private System.Windows.Forms.TextBox txtCost;
         private System.Windows.Forms.Label lblCost;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvLocationData;
         private ColumnComboBox cmbSupplier;
         private System.Windows.Forms.TextBox txtPackageSize;
         private System.Windows.Forms.TextBox txtMinimumGP;
@@ -689,5 +732,10 @@
         private System.Windows.Forms.ComboBox cmbConsignm;
         private System.Windows.Forms.ComboBox cmbWeighted;
         private System.Windows.Forms.Button btnSearch;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmLocationCode;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmLocationName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmShelfQty;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmDamageQty;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmMonthOpenQty;
     }
 }

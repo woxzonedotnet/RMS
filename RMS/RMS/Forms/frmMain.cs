@@ -572,5 +572,34 @@ namespace RMS.Forms
         {
             this.WindowState = FormWindowState.Minimized;
         }
+
+        private void aaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Inventory.frmPurchaseOrder open = Application.OpenForms["frmPurchaseOrder"] as Inventory.frmPurchaseOrder;
+                if (open == null)
+                {
+                    Inventory.frmPurchaseOrder childPurchaseOrder = new Inventory.frmPurchaseOrder();
+                    childPurchaseOrder.MdiParent = this;
+                    childPurchaseOrder.Show();
+                }
+                else
+                {
+                    if (open.WindowState == FormWindowState.Minimized)
+                    {
+                        open.WindowState = FormWindowState.Normal;
+                    }
+                    else
+                    {
+                        open.Activate();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
     }
 }

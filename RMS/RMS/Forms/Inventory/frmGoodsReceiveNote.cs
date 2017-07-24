@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace RMS.Forms.Transaction
+namespace RMS.Forms.Inventory
 {
-    public partial class frmGRNCancel : Form
+    public partial class frmGoodsReceiveNote : Form
     {
-        public frmGRNCancel()
+        public frmGoodsReceiveNote()
         {
             InitializeComponent();
         }
