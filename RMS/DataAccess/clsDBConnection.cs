@@ -23,7 +23,6 @@ namespace DataAccess
         private string strPassword;
         private string strSecurity;
         public string m_strFileName;
-        int rows=-1;
         #endregion
 
         #region Server Connection
