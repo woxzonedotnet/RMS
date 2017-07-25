@@ -26,7 +26,6 @@ namespace RMS.Forms.Inventory
         #region Variables
         Point lastClick;
         string DocumentCode = "TN";
-        string UniqID;
         #endregion
 
         public frmTransferNote()
@@ -35,7 +34,7 @@ namespace RMS.Forms.Inventory
             this.lblTitle.Text = this.Text;
             cCommonMethods.loadComboRMS(cSubLocation.GetSubLocationData(cGlobleVariable.LocationCode), cmbLocationFrom, 2);
             cCommonMethods.loadComboRMS(cSubLocation.GetSubLocationData(cGlobleVariable.LocationCode), cmbLocationTo, 2);
-            UniqID=cCommonMethods.UniqID();
+            
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -83,16 +82,21 @@ namespace RMS.Forms.Inventory
         
         private void frmTransferNote_Load(object sender, EventArgs e)
         {
-            cDocumentNumber.LoadDocNumber(cGlobleVariable.UniqID,DocumentCode,cGlobleVariable.LocationCode,"17");
-            oDocumentNumber=cDocumentNumber.GetDocumentNumberData(cGlobleVariable.UniqID, DocumentCode);
-            
+            LoadDocumentNumber();
+        }
+
+        public void LoadDocumentNumber() 
+        {
+            cDocumentNumber.LoadDocNumber(cGlobleVariable.UniqID, DocumentCode, cGlobleVariable.LocationCode, cCommonMethods.DateYear());
+            oDocumentNumber = cDocumentNumber.GetDocumentNumberData(cGlobleVariable.UniqID, DocumentCode);
+
             if (oDocumentNumber.IsExists)
             {
                 this.txtIssuesNumber.Text = oDocumentNumber.DocumentNo;
             }
-            else 
+            else
             {
-                cDocumentNumber.DocumentNo(DocumentCode, cGlobleVariable.LocationCode, "17");
+                cDocumentNumber.DocumentNo(DocumentCode, cGlobleVariable.LocationCode, cCommonMethods.DateYear());
             }
         }
 
