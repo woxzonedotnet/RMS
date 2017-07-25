@@ -83,11 +83,9 @@ namespace RMS.Forms.Inventory
         
         private void frmTransferNote_Load(object sender, EventArgs e)
         {
-            
-            oDocumentNumber=cDocumentNumber.GetDocumentNumberData(cGlobleVariable.UniqID, DocumentCode);
             cDocumentNumber.LoadDocNumber(cGlobleVariable.UniqID,DocumentCode,cGlobleVariable.LocationCode,"17");
-            MessageBox.Show(oDocumentNumber.DocumentNo);
-
+            oDocumentNumber=cDocumentNumber.GetDocumentNumberData(cGlobleVariable.UniqID, DocumentCode);
+            
             if (oDocumentNumber.IsExists)
             {
                 this.txtIssuesNumber.Text = oDocumentNumber.DocumentNo;
