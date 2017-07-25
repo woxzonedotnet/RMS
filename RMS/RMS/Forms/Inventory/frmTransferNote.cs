@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using BusinessLogic;
+using System.Management;
+using BusinessObject;
 
 namespace RMS.Forms.Inventory
 {
@@ -17,10 +19,14 @@ namespace RMS.Forms.Inventory
         clsCommonMethods cCommonMethods = new clsCommonMethods();
         clsGlobleVariable cGlobleVariable = new clsGlobleVariable();
         clsSubLocation cSubLocation = new clsSubLocation();
+        clsDocumentNumber cDocumentNumber = new clsDocumentNumber();
+        objDocumentNumber oDocumentNumber = new objDocumentNumber(); 
         #endregion
 
         #region Variables
         Point lastClick;
+        string DocumentCode = "TN";
+        string UniqID;
         #endregion
 
         public frmTransferNote()
@@ -29,6 +35,7 @@ namespace RMS.Forms.Inventory
             this.lblTitle.Text = this.Text;
             cCommonMethods.loadComboRMS(cSubLocation.GetSubLocationData(cGlobleVariable.LocationCode), cmbLocationFrom, 2);
             cCommonMethods.loadComboRMS(cSubLocation.GetSubLocationData(cGlobleVariable.LocationCode), cmbLocationTo, 2);
+            UniqID=cCommonMethods.UniqID();
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -68,10 +75,28 @@ namespace RMS.Forms.Inventory
 
             //cmbStatus.SetText(cStatusMaster.GetStatusByCode(oDepartment.Status));
 
-            this.dgvTransferNote.Select();
-            this.btnSave.Enabled = false;
-            this.btnPrint.Enabled = true;
+            //this.dgvTransferNote.Select();
+            //this.btnSave.Enabled = false;
+            //this.btnPrint.Enabled = true;
         }
         #endregion
+        
+        private void frmTransferNote_Load(object sender, EventArgs e)
+        {
+            
+            oDocumentNumber=cDocumentNumber.GetDocumentNumberData(cGlobleVariable.UniqID, DocumentCode);
+            cDocumentNumber.LoadDocNumber(cGlobleVariable.UniqID,DocumentCode,cGlobleVariable.LocationCode,"17");
+            MessageBox.Show(oDocumentNumber.DocumentNo);
+
+            if (oDocumentNumber.IsExists)
+            {
+                this.txtIssuesNumber.Text = oDocumentNumber.DocumentNo;
+            }
+            else 
+            {
+                cDocumentNumber.DocumentNo(DocumentCode, cGlobleVariable.LocationCode, "17");
+            }
+        }
+
     }
 }
