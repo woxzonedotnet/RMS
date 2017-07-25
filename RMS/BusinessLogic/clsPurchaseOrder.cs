@@ -26,7 +26,7 @@ namespace BusinessLogic
         #region InsertUpdateData
         public int InsertUpdateData(objPurchaseOrder oPurchaseOrder)
         {
-            System.Object[,] arrParameter = new Object[10, 2];
+            System.Object[,] arrParameter = new Object[9, 2];
 
             arrParameter[0, 0] = "@mfldLocationCode";
             arrParameter[0, 1] = oPurchaseOrder.LocationCode;
@@ -38,19 +38,17 @@ namespace BusinessLogic
             arrParameter[3, 1] = oPurchaseOrder.SupplierCode;
             arrParameter[4, 0] = "@mfldDate";
             arrParameter[4, 1] = oPurchaseOrder.Date;
-            arrParameter[5, 0] = "@mfldPurchase";
-            arrParameter[5, 1] = oPurchaseOrder.Purchase;
-            arrParameter[6, 0] = "@mfldVat";
-            arrParameter[6, 1] = oPurchaseOrder.VAT;
-            arrParameter[7, 0] = "@mfldNetAmount";
-            arrParameter[7, 1] = oPurchaseOrder.NetAmount;
-            arrParameter[8, 0] = "@mfldRemarks";
-            arrParameter[8, 1] = oPurchaseOrder.Remarks;
-            arrParameter[9, 0] = "@mflddtItemList";
-            arrParameter[9, 1] = oPurchaseOrder.dtItemList;
+            arrParameter[5, 0] = "@mfldVat";
+            arrParameter[5, 1] = oPurchaseOrder.VAT;
+            arrParameter[6, 0] = "@mfldNetAmount";
+            arrParameter[6, 1] = oPurchaseOrder.NetAmount;
+            arrParameter[7, 0] = "@mfldRemarks";
+            arrParameter[7, 1] = oPurchaseOrder.Remarks;
+            arrParameter[8, 0] = "@mflddtItemList";
+            arrParameter[8, 1] = oPurchaseOrder.dtItemList;
 
 
-            return cDBConnection.Insert("sp_insert_update_itemMaster", arrParameter);
+            return cDBConnection.Insert("sp_insert_update_PurchaseOrder", arrParameter);
         }
         #endregion
     }
