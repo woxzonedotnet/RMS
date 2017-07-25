@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Management;
 
 namespace RMS
 {
@@ -17,6 +18,10 @@ namespace RMS
         clsGlobleVariable cGlobleVariable = new clsGlobleVariable();
         clsBrowsData cBrowsData = new clsBrowsData();
         clsDBConnection DbConn = new clsDBConnection();
+        #endregion
+
+        #region Variables
+        string cpuInfo;
         #endregion
 
         public string BrowsData(string strTableName, string[] strFieldList, string[] strHeadingList, int[] iHeaderWidth, string strReturnField, string Where_Clause, string header)
@@ -96,5 +101,22 @@ namespace RMS
                 SendKeys.Send("{TAB}");
             }
         }
+
+        public string UniqID()
+        {
+            ManagementClass managClass = new ManagementClass("win32_processor");
+            ManagementObjectCollection managCollec = managClass.GetInstances();
+
+            foreach (ManagementObject managObj in managCollec)
+            {
+                cpuInfo = managObj.Properties["processorID"].Value.ToString();
+                break;
+            }
+            cpuInfo += "-" + System.Environment.MachineName + @"\" + System.Environment.UserName;
+
+            cGlobleVariable.UniqID = cpuInfo;
+            return cGlobleVariable.UniqID;
+        }
+
     }
 }

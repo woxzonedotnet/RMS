@@ -601,5 +601,34 @@ namespace RMS.Forms
                 MessageBox.Show(ex.Message);
             }
         }
+
+        private void transferNoteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Inventory.frmTransferNote open = Application.OpenForms["frmTransferNote"] as Inventory.frmTransferNote;
+                if (open == null)
+                {
+                    Inventory.frmTransferNote childTransferNote = new Inventory.frmTransferNote();
+                    childTransferNote.MdiParent = this;
+                    childTransferNote.Show();
+                }
+                else
+                {
+                    if (open.WindowState == FormWindowState.Minimized)
+                    {
+                        open.WindowState = FormWindowState.Normal;
+                    }
+                    else
+                    {
+                        open.Activate();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
     }
 }

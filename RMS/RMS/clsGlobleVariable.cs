@@ -10,6 +10,14 @@ namespace RMS
     {
         private static string _LocationCode = "LOC01";
         private static string _BrowsDataValue = "";
+        private static string _UniqID;
+
+        public string UniqID
+        {
+            get { return _UniqID; }
+            set { _UniqID = value; }
+        }
+
 
         public string BrowsDataValue
         {
