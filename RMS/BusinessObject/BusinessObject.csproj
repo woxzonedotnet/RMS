@@ -45,6 +45,7 @@
     <Compile Include="objCapacityType.cs" />
     <Compile Include="objCurrencyMaster.cs" />
     <Compile Include="objCustomerMaster.cs" />
+    <Compile Include="objDocumentNumber.cs" />
     <Compile Include="objItemMaster.cs" />
     <Compile Include="objMainLocation.cs" />
     <Compile Include="objMenuCategory.cs" />
