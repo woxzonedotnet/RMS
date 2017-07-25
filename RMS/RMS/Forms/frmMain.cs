@@ -13,7 +13,7 @@ namespace RMS.Forms
     public partial class frmMain : Form
     {
         #region Object
-
+        clsCommonMethods cCommonMethods = new clsCommonMethods();
         #endregion
 
         #region Variables
@@ -37,6 +37,7 @@ namespace RMS.Forms
                     //MessageBox.Show(exc.Message);
                 }
             }
+            cCommonMethods.UniqID();
         }
 
         #region MenuStrip Design
