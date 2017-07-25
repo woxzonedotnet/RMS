@@ -24,6 +24,8 @@ namespace RMS.Forms.Inventory
         clsSubLocation cSubLocation = new clsSubLocation();
         objPurchaseOrder oPurchaseOrder = new objPurchaseOrder();
         clsPurchaseOrder cPurchaseOrder = new clsPurchaseOrder();
+        clsDocumentNumber cDocumentNumber = new clsDocumentNumber();
+        objDocumentNumber oDocumentNumber = new objDocumentNumber();
         #endregion
 
         #region Variable
@@ -32,6 +34,7 @@ namespace RMS.Forms.Inventory
         double NetAmount = 0;
         double vat = 0;
         string Location = "";
+        string DocumentCode = "PO";
         #endregion
 
 
@@ -176,6 +179,7 @@ namespace RMS.Forms.Inventory
 
         private void frmPurchaseOrder_Load(object sender, EventArgs e)
         {
+            LoadDocumentNumber();
             cCommonMethods.loadComboRMS(cSupplier.GetSupplierData(Location), cmbSupplier, 2);
             cCommonMethods.loadComboRMS(cSubLocation.GetSubLocationData(Location), cmbLocation, 2);
         }
@@ -287,5 +291,21 @@ namespace RMS.Forms.Inventory
             return cItemMaster.InsertUpdateData(oItemMaster);
         }
         #endregion
+
+
+        public void LoadDocumentNumber()
+        {
+            cDocumentNumber.LoadDocNumber(cGlobleVariable.UniqID, DocumentCode, cGlobleVariable.LocationCode, cCommonMethods.DateYear());
+            oDocumentNumber = cDocumentNumber.GetDocumentNumberData(cGlobleVariable.UniqID, DocumentCode);
+
+            if (oDocumentNumber.IsExists)
+            {
+                this.txtPONumber.Text = oDocumentNumber.DocumentNo;
+            }
+            else
+            {
+                cDocumentNumber.DocumentNo(DocumentCode, cGlobleVariable.LocationCode, cCommonMethods.DateYear());
+            }
+        }
     }
 }
