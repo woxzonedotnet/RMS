@@ -505,7 +505,7 @@ namespace RMS.Forms
             {
                 if (dgvLocationData.Rows[i].Cells[0].Value != null && SubLocation == dgvLocationData.Rows[i].Cells[0].Value.ToString())
                 {
-                    MessageBox.Show("The Selected Item already existed.");
+                    MessageBox.Show("The Selected Location already existed.");
                     isExist = -1;
                     break;
                 }
