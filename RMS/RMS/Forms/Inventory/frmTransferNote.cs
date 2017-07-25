@@ -34,7 +34,6 @@ namespace RMS.Forms.Inventory
             this.lblTitle.Text = this.Text;
             cCommonMethods.loadComboRMS(cSubLocation.GetSubLocationData(cGlobleVariable.LocationCode), cmbLocationFrom, 2);
             cCommonMethods.loadComboRMS(cSubLocation.GetSubLocationData(cGlobleVariable.LocationCode), cmbLocationTo, 2);
-            
         }
 
         private void btnClose_Click(object sender, EventArgs e)
