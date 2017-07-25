@@ -118,5 +118,13 @@ namespace RMS
             return cGlobleVariable.UniqID;
         }
 
+        public string DateYear() 
+        {
+            DateTime strDateTime = System.DateTime.Now;
+            string strYear = strDateTime.Year.ToString();
+            strYear = strYear.Substring(2);
+            return strYear;
+        }
+
     }
 }
