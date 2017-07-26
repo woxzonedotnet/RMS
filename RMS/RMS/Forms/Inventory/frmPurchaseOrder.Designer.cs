@@ -30,10 +30,10 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPurchaseOrder));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.dtpDate = new System.Windows.Forms.DateTimePicker();
             this.lblDate = new System.Windows.Forms.Label();
@@ -57,15 +57,16 @@
             this.lblPurchase = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.dgvItemData = new System.Windows.Forms.DataGridView();
+            this.errPO = new System.Windows.Forms.ErrorProvider(this.components);
             this.cmbSupplier = new RMS.ColumnComboBox();
             this.cmbLocation = new RMS.ColumnComboBox();
             this.clmItemCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmItemDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmUnitPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmTax_chk = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.clmTaxAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmTotalAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.errPO = new System.Windows.Forms.ErrorProvider(this.components);
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -330,6 +331,7 @@
             this.clmItemDescription,
             this.clmUnitPrice,
             this.clmQuantity,
+            this.clmTax_chk,
             this.clmTaxAmount,
             this.clmTotalAmount});
             this.dgvItemData.Location = new System.Drawing.Point(3, 3);
@@ -337,8 +339,12 @@
             this.dgvItemData.Size = new System.Drawing.Size(656, 325);
             this.dgvItemData.TabIndex = 0;
             this.dgvItemData.CellValidated += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvItemData_CellValidated);
-            this.dgvItemData.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.dgvItemData_RowsAdded);
+            this.dgvItemData.CurrentCellDirtyStateChanged += new System.EventHandler(this.dgvItemData_CurrentCellDirtyStateChanged);
             this.dgvItemData.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dataGridView1_KeyDown);
+            // 
+            // errPO
+            // 
+            this.errPO.ContainerControl = this;
             // 
             // cmbSupplier
             // 
@@ -368,9 +374,10 @@
             // 
             // clmItemCode
             // 
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.clmItemCode.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.clmItemCode.DefaultCellStyle = dataGridViewCellStyle1;
             this.clmItemCode.FillWeight = 213.198F;
+            this.clmItemCode.Frozen = true;
             this.clmItemCode.HeaderText = "Item Code";
             this.clmItemCode.Name = "clmItemCode";
             this.clmItemCode.ReadOnly = true;
@@ -379,6 +386,7 @@
             // clmItemDescription
             // 
             this.clmItemDescription.FillWeight = 77.3604F;
+            this.clmItemDescription.Frozen = true;
             this.clmItemDescription.HeaderText = "Item Description";
             this.clmItemDescription.Name = "clmItemDescription";
             this.clmItemDescription.ReadOnly = true;
@@ -386,30 +394,45 @@
             // 
             // clmUnitPrice
             // 
-            this.clmUnitPrice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
-            this.clmUnitPrice.DefaultCellStyle = dataGridViewCellStyle6;
+            this.clmUnitPrice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            this.clmUnitPrice.DefaultCellStyle = dataGridViewCellStyle2;
             this.clmUnitPrice.FillWeight = 77.3604F;
+            this.clmUnitPrice.Frozen = true;
             this.clmUnitPrice.HeaderText = "Unit Price";
             this.clmUnitPrice.Name = "clmUnitPrice";
+            this.clmUnitPrice.Width = 93;
             // 
             // clmQuantity
             // 
-            this.clmQuantity.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.clmQuantity.DefaultCellStyle = dataGridViewCellStyle7;
+            this.clmQuantity.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.clmQuantity.DefaultCellStyle = dataGridViewCellStyle3;
             this.clmQuantity.FillWeight = 77.3604F;
+            this.clmQuantity.Frozen = true;
             this.clmQuantity.HeaderText = "Quantity";
             this.clmQuantity.Name = "clmQuantity";
+            this.clmQuantity.Width = 94;
+            // 
+            // clmTax_chk
+            // 
+            this.clmTax_chk.Frozen = true;
+            this.clmTax_chk.HeaderText = "TAX";
+            this.clmTax_chk.Name = "clmTax_chk";
+            this.clmTax_chk.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.clmTax_chk.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.clmTax_chk.Width = 40;
             // 
             // clmTaxAmount
             // 
             this.clmTaxAmount.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.clmTaxAmount.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle4.NullValue = "0.00";
+            this.clmTaxAmount.DefaultCellStyle = dataGridViewCellStyle4;
             this.clmTaxAmount.FillWeight = 77.3604F;
             this.clmTaxAmount.HeaderText = "Tax Amount";
             this.clmTaxAmount.Name = "clmTaxAmount";
+            this.clmTaxAmount.ReadOnly = true;
             // 
             // clmTotalAmount
             // 
@@ -418,10 +441,6 @@
             this.clmTotalAmount.HeaderText = "Total Amount";
             this.clmTotalAmount.Name = "clmTotalAmount";
             this.clmTotalAmount.ReadOnly = true;
-            // 
-            // errPO
-            // 
-            this.errPO.ContainerControl = this;
             // 
             // frmPurchaseOrder
             // 
@@ -479,12 +498,13 @@
         private System.Windows.Forms.Label lblPurchase;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.DataGridView dgvItemData;
+        private System.Windows.Forms.ErrorProvider errPO;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmItemCode;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmItemDescription;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmUnitPrice;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmQuantity;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn clmTax_chk;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmTaxAmount;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmTotalAmount;
-        private System.Windows.Forms.ErrorProvider errPO;
     }
 }

@@ -26,6 +26,8 @@ namespace RMS.Forms.Inventory
         clsPurchaseOrder cPurchaseOrder = new clsPurchaseOrder();
         clsDocumentNumber cDocumentNumber = new clsDocumentNumber();
         objDocumentNumber oDocumentNumber = new objDocumentNumber();
+        objSetupSetting oSetupSetting = new objSetupSetting();
+        clsSetupSetting cSetupSetting = new clsSetupSetting();
         #endregion
 
         #region Variable
@@ -35,6 +37,8 @@ namespace RMS.Forms.Inventory
         double vat = 0;
         string Location = "";
         string DocumentCode = "PO";
+        int result = 0;
+        double total = 0;
         #endregion
 
 
@@ -115,16 +119,25 @@ namespace RMS.Forms.Inventory
 
         private void dgvItemData_CellValidated(object sender, DataGridViewCellEventArgs e)
         {
+            calculatAmounts();
+        }
+        
+        public void calculatAmounts()
+        {
             double qty = Convert.ToDouble(this.dgvItemData.Rows[this.dgvItemData.CurrentCell.RowIndex].Cells["clmQuantity"].Value);
             double price = Convert.ToDouble(this.dgvItemData.Rows[this.dgvItemData.CurrentCell.RowIndex].Cells["clmUnitPrice"].Value);
             double tax = Convert.ToDouble(this.dgvItemData.Rows[this.dgvItemData.CurrentCell.RowIndex].Cells["clmTaxAmount"].Value);
-            double total = (qty * price) - tax;
-            this.dgvItemData.Rows[this.dgvItemData.CurrentCell.RowIndex].Cells["clmTotalAmount"].Value = total;
-            calculatNetAmount();
-        }
-        
-        public void calculatNetAmount()
-        {
+            total = (qty * price);
+            if ((this.dgvItemData.Rows[this.dgvItemData.CurrentCell.RowIndex].Cells["clmTax_chk"].Value != null) && this.dgvItemData.Rows[this.dgvItemData.CurrentCell.RowIndex].Cells["clmTax_chk"].Value.ToString().Equals("True"))
+            {
+                this.dgvItemData.Rows[this.dgvItemData.CurrentCell.RowIndex].Cells["clmTotalAmount"].Value = total + tax;
+            }
+            else
+            {
+                this.dgvItemData.Rows[this.dgvItemData.CurrentCell.RowIndex].Cells["clmTotalAmount"].Value = total;
+            }
+
+
             Total = 0;
             for (int i = 0; i < dgvItemData.Rows.Count; i++)
             {
@@ -155,11 +168,6 @@ namespace RMS.Forms.Inventory
             
         }
 
-        private void dgvItemData_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
-        {
-            
-        }
-
         private void chkVat_CheckedChanged(object sender, EventArgs e)
         {
             if (chkVat.Checked == true)
@@ -174,7 +182,7 @@ namespace RMS.Forms.Inventory
 
         private void txtVat_TextChanged(object sender, EventArgs e)
         {
-            calculatNetAmount();
+            calculatAmounts();
         }
 
         private void frmPurchaseOrder_Load(object sender, EventArgs e)
@@ -205,28 +213,29 @@ namespace RMS.Forms.Inventory
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            //if (ValidateData())
-            //{
-            //    oItemMaster = cItemMaster.GetItemData(cGlobleVariable.LocationCode, this.txtItemCode.Text);
+            if (ValidateData())
+            {
+                oPurchaseOrder = cPurchaseOrder.GetItemData(cGlobleVariable.LocationCode, this.txtPONumber.Text);
 
-            //    if (oItemMaster.IsExists == false)
-            //    {
-            //        result = InsertUpdateData();
-            //        if (result != -1)
-            //        {
-            //            MessageBox.Show("Successfully Saved...!", "Item Details", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            //            clear();
-            //        }
-            //        else
-            //        {
-            //            MessageBox.Show("Item Data Not Saved...!", "Item Details", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //        }
-            //    }
-            //    else
-            //    {
-            //        MessageBox.Show("Record already exist...!", "Item Details", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            //    }
-            //}
+                if (oPurchaseOrder.IsExists == false)
+                {
+                    result = InsertUpdateData();
+                    if (result != -1)
+                    {
+                        MessageBox.Show("Successfully Saved...!", "Purchase Order", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        
+                        clear();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Item Data Not Saved...!", "Purchase Order", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Record already exist...!", "Purchase Order", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
         }
 
         #region Validate Purchase Order Data
@@ -287,11 +296,43 @@ namespace RMS.Forms.Inventory
             oPurchaseOrder.NetAmount = Convert.ToDouble(this.txtNetAmount.Text);
             oPurchaseOrder.Remarks = this.txtRemark.Text;
 
-            oPurchaseOrder.dtItemList = (DataTable)dgvItemData.DataSource;
-            return cItemMaster.InsertUpdateData(oItemMaster);
+            oPurchaseOrder.dtItemList = DataGridToDataTable(dgvItemData,oPurchaseOrder.LocationCode,oPurchaseOrder.PurchaseOrderCode);
+            
+            return cPurchaseOrder.InsertUpdateData(oPurchaseOrder);
         }
         #endregion
+        public DataTable DataGridToDataTable(DataGridView dgv,string strLocationCode, string strPOCode)
+        {
+            DataTable dt = new DataTable();
 
+            dt.Columns.Add("fldLocationCode");
+            dt.Columns.Add("fldPOCode");
+            dt.Columns.Add("fldItemCode");
+            dt.Columns.Add("fldUnitPrice");
+            dt.Columns.Add("fldQuantity");
+            dt.Columns.Add("fldTaxAmount");
+
+
+            foreach (DataGridViewRow row in dgv.Rows)
+            {
+                DataRow dRow = dt.NewRow();
+                try
+                {
+                    dRow[0] = strLocationCode;
+                    dRow[1] = strPOCode;
+                    dRow[2] = row.Cells[0].Value.ToString();
+                    dRow[3] = row.Cells[2].Value.ToString();
+                    dRow[4] = row.Cells[3].Value.ToString();
+                    dRow[5] = row.Cells[5].Value.ToString();
+                    dt.Rows.Add(dRow);
+                }catch(Exception ex)
+                {
+
+                }
+                
+            }
+            return dt;
+        }
 
         public void LoadDocumentNumber()
         {
@@ -307,5 +348,29 @@ namespace RMS.Forms.Inventory
                 cDocumentNumber.DocumentNo(DocumentCode, cGlobleVariable.LocationCode, cCommonMethods.DateYear());
             }
         }
+
+        private void dgvItemData_CurrentCellDirtyStateChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (this.dgvItemData.CurrentCell.OwningColumn.Name.Equals("clmTax_chk"))
+                {
+                    dgvItemData.EndEdit();
+                    if ((this.dgvItemData.CurrentCell.Value != null) && this.dgvItemData.CurrentCell.Value.ToString().Equals("True"))
+                    {
+                        //tax calculate
+                       double taxPrecentage = Convert.ToDouble(cSetupSetting.GetSetupSettingData(cGlobleVariable.LocationCode).VAT);
+                       double totalTax = (total * taxPrecentage) / 100;
+                       this.dgvItemData.Rows[this.dgvItemData.CurrentCell.RowIndex].Cells["clmTaxAmount"].Value = totalTax; 
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
+        }
+
+       
     }
 }
