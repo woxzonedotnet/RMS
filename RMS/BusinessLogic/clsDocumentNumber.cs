@@ -103,5 +103,11 @@ namespace BusinessLogic
 
             return cDBConnection.Insert("SP_INSERT_TEMP_DOCUMENT_NUMBER", arrParameter);
         }
+
+        public int DeleteDocumentNumber(string strUniqID,string strDocumentCode,string strDocumentNumber) 
+        {
+            string strWhere = "fldPCID='" + strUniqID + "' and fldDocumentCode='" + strDocumentCode + "' and fldDocumentNo='"+strDocumentNumber+"'";
+            return cDBConnection.DeleteData("tbl_DocumentNumber_Temp",strWhere);
+        }
     }
 }
