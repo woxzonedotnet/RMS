@@ -99,5 +99,13 @@ namespace RMS.Forms.Inventory
             }
         }
 
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            //if()
+            //{
+            cDocumentNumber.DeleteDocumentNumber(cGlobleVariable.UniqID, DocumentCode, this.txtIssuesNumber.Text);
+            //}
+        }
+
     }
 }
