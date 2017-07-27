@@ -55,17 +55,14 @@ namespace RMS
                 {
                     ((System.Windows.Forms.RadioButton)ctrControl).Checked = false;
                 }
-
                 else if (object.ReferenceEquals(ctrControl.GetType(), typeof(System.Windows.Forms.ComboBox)))
                 {
                     ((System.Windows.Forms.ComboBox)ctrControl).SelectedIndex = -1;
                 }
-
                 else if (object.ReferenceEquals(ctrControl.GetType(), typeof(System.Windows.Forms.PictureBox)))
                 {
                     ((System.Windows.Forms.PictureBox)ctrControl).Image = null;
                 }
-
                 else if (object.ReferenceEquals(ctrControl.GetType(), typeof(System.Windows.Forms.DateTimePicker)))
                 {
                     ((System.Windows.Forms.DateTimePicker)ctrControl).Value = DateTime.Now;
@@ -73,6 +70,10 @@ namespace RMS
                 else if (object.ReferenceEquals(ctrControl.GetType(), typeof(System.Windows.Forms.NumericUpDown))) 
                 {
                     ((System.Windows.Forms.NumericUpDown)ctrControl).Value = 1;
+                }
+                else if (object.ReferenceEquals(ctrControl.GetType(), typeof(System.Windows.Forms.DataGridView)))
+                {
+                    ((System.Windows.Forms.DataGridView)ctrControl).Rows.Clear();
                 }
 
                 if (ctrControl.Controls.Count > 0)
