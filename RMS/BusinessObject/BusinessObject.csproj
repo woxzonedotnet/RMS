@@ -46,12 +46,14 @@
     <Compile Include="objCurrencyMaster.cs" />
     <Compile Include="objCustomerMaster.cs" />
     <Compile Include="objDocumentNumber.cs" />
+    <Compile Include="objIssuesNote.cs" />
     <Compile Include="objItemMaster.cs" />
     <Compile Include="objMainLocation.cs" />
     <Compile Include="objMenuCategory.cs" />
     <Compile Include="objMenuDepartment.cs" />
     <Compile Include="objPurchaseOrder.cs" />
     <Compile Include="objSetupSetting.cs" />
+    <Compile Include="objStockAdjustmentNote.cs" />
     <Compile Include="objSupplierCategory.cs" />
     <Compile Include="objSupplierMaster.cs" />
     <Compile Include="objTableMaster.cs" />
