@@ -45,16 +45,6 @@ namespace RMS.Forms
             Location = cGlobleVariable.LocationCode.ToString();
         }
 
-        private void lblActiveStatus_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void cmbStatus_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Dispose();
@@ -427,8 +417,8 @@ namespace RMS.Forms
             iHeaderWidth[2] = 250;
 
             string strReturnString = "Item Code";
-            string strWhere = "fldStatus LIKE '1'";
-            txtItemCode.Text = cCommonMethods.BrowsData("tbl_ItemMaster", strFieldList, strHeaderList, iHeaderWidth, strReturnString, strWhere, "Item Code");
+            string strWhere = "fldStatus=1";
+            txtItemCode.Text = cCommonMethods.BrowsData("tbl_ItemMaster", strFieldList, strHeaderList, iHeaderWidth, strReturnString, strWhere, "Item Details");
             if (txtItemCode.Text != "")
             {
                 LoadItemDetails();
@@ -457,9 +447,9 @@ namespace RMS.Forms
             cmbConsignm.SelectedItem = oItemMaster.Consignm.ToString();
             cmbDepartment.SetText(cDepartment.GetDepartmentDataByCode(oItemMaster.Department));
             cmbCategory.SetText(cCategory.GetCategoryDataByDepartmentAndCategory(oItemMaster.Department, oItemMaster.Category));
-            cmbSupplier.SetText(cSupplier.GetSupplierDataBySupplierCode(oItemMaster.LocationCode, oItemMaster.Supplier));
-            cmbMCategory.SetText(cMenuCategory.GetMenuCategoryDataByCode(oItemMaster.LocationCode, oItemMaster.MenuCategory));
-            cmbCapacityType.SetText(cCapacityType.GetCapacityDataByCode(oItemMaster.CapacityType));
+            cmbSupplier.SetText(cSupplier.GetSupplierData(cGlobleVariable.LocationCode, oItemMaster.Supplier).SupplierName);
+            cmbMCategory.SetText(cMenuCategory.GetMenuCategoryData(cGlobleVariable.LocationCode, oItemMaster.Department,oItemMaster.MenuCategory).MenuCategoryName);
+            cmbCapacityType.SetText(cCapacityType.GetCapacityDataByCode(oItemMaster.CapacityType).CapacityName);
             cmbWeighted.SelectedItem = oItemMaster.Weighted.ToString();
             cmbStatus.SetText(cStatusMaster.GetStatusByCode(oItemMaster.Status));
 
