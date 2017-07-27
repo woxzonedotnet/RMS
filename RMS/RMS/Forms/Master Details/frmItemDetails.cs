@@ -34,7 +34,7 @@ namespace RMS.Forms
         #region Variables
         int result = -1;
         Point lastClick;
-        string Location="";
+        string Location = null;
         string SubLocation = "";
         #endregion
 

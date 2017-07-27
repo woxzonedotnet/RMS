@@ -28,11 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmStockAdjustmentNote));
             this.dtpDate = new System.Windows.Forms.DateTimePicker();
             this.lblLocation = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.clsItemCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Description = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clsPhyQty = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clsSysStock = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clsCost = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clsTotalCost = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lblDate = new System.Windows.Forms.Label();
             this.cmbLocation = new RMS.ColumnComboBox();
             this.txtSANNumber = new System.Windows.Forms.TextBox();
@@ -41,13 +48,15 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.txtTotalCost = new System.Windows.Forms.TextBox();
             this.lblTotalCost = new System.Windows.Forms.Label();
+            this.btnSearch = new System.Windows.Forms.Button();
             this.lblSANNumber = new System.Windows.Forms.Label();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
-            this.btnSearch = new System.Windows.Forms.Button();
+            this.errStockAdjusment = new System.Windows.Forms.ErrorProvider(this.components);
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errStockAdjusment)).BeginInit();
             this.SuspendLayout();
             // 
             // dtpDate
@@ -81,10 +90,47 @@
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.clsItemCode,
+            this.Description,
+            this.clsPhyQty,
+            this.clsSysStock,
+            this.clsCost,
+            this.clsTotalCost});
             this.dataGridView1.Location = new System.Drawing.Point(3, 3);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(394, 243);
             this.dataGridView1.TabIndex = 0;
+            // 
+            // clsItemCode
+            // 
+            this.clsItemCode.HeaderText = "Item Code";
+            this.clsItemCode.Name = "clsItemCode";
+            // 
+            // Description
+            // 
+            this.Description.HeaderText = "clsDescription";
+            this.Description.Name = "Description";
+            // 
+            // clsPhyQty
+            // 
+            this.clsPhyQty.HeaderText = "Phy.Qty";
+            this.clsPhyQty.Name = "clsPhyQty";
+            // 
+            // clsSysStock
+            // 
+            this.clsSysStock.HeaderText = "Sys.Stock";
+            this.clsSysStock.Name = "clsSysStock";
+            // 
+            // clsCost
+            // 
+            this.clsCost.HeaderText = "Cost";
+            this.clsCost.Name = "clsCost";
+            // 
+            // clsTotalCost
+            // 
+            this.clsTotalCost.HeaderText = "TotalCost";
+            this.clsTotalCost.Name = "clsTotalCost";
             // 
             // lblDate
             // 
@@ -170,6 +216,7 @@
             this.txtTotalCost.Name = "txtTotalCost";
             this.txtTotalCost.Size = new System.Drawing.Size(188, 20);
             this.txtTotalCost.TabIndex = 70;
+            this.txtTotalCost.TextChanged += new System.EventHandler(this.txtTotalCost_TextChanged);
             // 
             // lblTotalCost
             // 
@@ -180,6 +227,21 @@
             this.lblTotalCost.Size = new System.Drawing.Size(69, 16);
             this.lblTotalCost.TabIndex = 69;
             this.lblTotalCost.Text = "Total Cost";
+            // 
+            // btnSearch
+            // 
+            this.btnSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(41)))), ((int)(((byte)(46)))));
+            this.btnSearch.FlatAppearance.BorderSize = 0;
+            this.btnSearch.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Maroon;
+            this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSearch.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnSearch.Image = global::RMS.Properties.Resources.search25;
+            this.btnSearch.Location = new System.Drawing.Point(265, 10);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(35, 31);
+            this.btnSearch.TabIndex = 60;
+            this.btnSearch.UseVisualStyleBackColor = false;
             // 
             // lblSANNumber
             // 
@@ -205,6 +267,7 @@
             this.btnSave.TabIndex = 91;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = false;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // btnClose
             // 
@@ -221,20 +284,9 @@
             this.btnClose.Text = "Close";
             this.btnClose.UseVisualStyleBackColor = false;
             // 
-            // btnSearch
+            // errStockAdjusment
             // 
-            this.btnSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(41)))), ((int)(((byte)(46)))));
-            this.btnSearch.FlatAppearance.BorderSize = 0;
-            this.btnSearch.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Maroon;
-            this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSearch.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnSearch.Image = global::RMS.Properties.Resources.search25;
-            this.btnSearch.Location = new System.Drawing.Point(265, 10);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(35, 31);
-            this.btnSearch.TabIndex = 60;
-            this.btnSearch.UseVisualStyleBackColor = false;
+            this.errStockAdjusment.ContainerControl = this;
             // 
             // frmStockAdjustmentNote
             // 
@@ -249,10 +301,12 @@
             this.Controls.Add(this.btnClose);
             this.Name = "frmStockAdjustmentNote";
             this.Text = "Stock Adjustment Note";
+            this.Load += new System.EventHandler(this.frmStockAdjustmentNote_Load);
             this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errStockAdjusment)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -275,5 +329,12 @@
         private System.Windows.Forms.Label lblSANNumber;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnClose;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clsItemCode;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Description;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clsPhyQty;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clsSysStock;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clsCost;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clsTotalCost;
+        private System.Windows.Forms.ErrorProvider errStockAdjusment;
     }
 }

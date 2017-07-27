@@ -267,5 +267,10 @@ namespace RMS.Forms
                 LoadSearch();
             }
         }
+
+        private void cmbBankName_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

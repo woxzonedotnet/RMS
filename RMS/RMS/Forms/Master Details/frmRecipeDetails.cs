@@ -108,23 +108,23 @@ namespace RMS.Forms
 
             for (int j = 0; dgvItemDetails.RowCount > j; j++)
             {
-                if (dgvItemDetails.Rows[j].Cells[0].Value == oItemMaster.ItemCode)
-                {
-                    MessageBox.Show("The Item is already exist..!", "Attenction", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    break;
+                //if (dgvItemDetails.Rows[j].Cells[0].Value == oItemMaster.ItemCode)
+                //{
+                //    MessageBox.Show("The Item is already exist..!", "Attenction", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                //    break;
 
-                }
+                //}
 
-                else
-                {
-                    this.dgvItemDetails.Rows.Add();
-                    this.dgvItemDetails.Rows[this.dgvItemDetails.CurrentCell.RowIndex - 1].Cells["clsItemCode"].Value = oItemMaster.ItemCode;
-                    this.dgvItemDetails.Rows[this.dgvItemDetails.CurrentCell.RowIndex - 1].Cells["clsDescription"].Value = oItemMaster.Description;
-                    this.dgvItemDetails.Rows[this.dgvItemDetails.CurrentCell.RowIndex - 1].Cells["clsUnit"].Value = oItemMaster.Unit;
-                    this.dgvItemDetails.Rows[this.dgvItemDetails.CurrentCell.RowIndex - 1].Cells["clsItemCode"].Value = oItemMaster.CostPrice;
-                    this.dgvItemDetails.Rows[this.dgvItemDetails.CurrentCell.RowIndex - 1].Cells["clmQuantity"].Value = "0.00";
-                    this.dgvItemDetails.Rows[this.dgvItemDetails.CurrentCell.RowIndex - 1].Cells["clmTotalCost"].Value = "0.00";
-                }
+                //else
+                //{
+                //    this.dgvItemDetails.Rows.Add();
+                //    this.dgvItemDetails.Rows[this.dgvItemDetails.CurrentCell.RowIndex - 1].Cells["clsItemCode"].Value = oItemMaster.ItemCode;
+                //    this.dgvItemDetails.Rows[this.dgvItemDetails.CurrentCell.RowIndex - 1].Cells["clsDescription"].Value = oItemMaster.Description;
+                //    this.dgvItemDetails.Rows[this.dgvItemDetails.CurrentCell.RowIndex - 1].Cells["clsUnit"].Value = oItemMaster.Unit;
+                //    this.dgvItemDetails.Rows[this.dgvItemDetails.CurrentCell.RowIndex - 1].Cells["clsItemCode"].Value = oItemMaster.CostPrice;
+                //    this.dgvItemDetails.Rows[this.dgvItemDetails.CurrentCell.RowIndex - 1].Cells["clmQuantity"].Value = "0.00";
+                //    this.dgvItemDetails.Rows[this.dgvItemDetails.CurrentCell.RowIndex - 1].Cells["clmTotalCost"].Value = "0.00";
+                //}
             }
            
 

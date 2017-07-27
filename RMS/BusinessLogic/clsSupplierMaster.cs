@@ -50,7 +50,7 @@ namespace BusinessLogic
         }
         #endregion
 
-        #region GetSupplier Data
+        #region GetSupplierData using Location Code
         public DataTable GetSupplierData(string strLocationCode)
         {
             string strWhere = "fldLocationCode='" + strLocationCode + "' and fldStatus=1";
@@ -130,6 +130,15 @@ namespace BusinessLogic
             arrParameter[14, 1] = oSupplierMaster.RelesePendingPO;
 
             return cDBConnection.Insert("SP_INSERT_UPDATE_SUPPLIER_MASTER", arrParameter);
+        }
+        #endregion
+
+
+        #region  GetSupplierData
+        public DataTable GetSupplierData()
+        {
+            DataTable dtSupplierData = cDBConnection.SearchData("tbl_SupplierMaster");
+            return dtSupplierData;
         }
         #endregion
     }

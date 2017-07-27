@@ -77,6 +77,14 @@ namespace BusinessLogic
         }
         #endregion
 
+        #region GetSubLocation
+        public DataTable GetSubLocationData()
+        {
+            DataTable dtSubLocation = cDBConnection.SearchData("tbl_SubLocation");
+            return dtSubLocation;
+        }
+        #endregion
+
         #region Delete Location details By Category Code
         public int DeleteLocationData(string SearchValue)
         {

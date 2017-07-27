@@ -34,7 +34,7 @@ namespace RMS.Forms
                 }
                 catch (InvalidCastException exc)
                 {
-                    //MessageBox.Show(exc.Message);
+                    MessageBox.Show(exc.Message);
                 }
             }
         }
@@ -581,6 +581,45 @@ namespace RMS.Forms
                 if (open == null)
                 {
                     Inventory.frmPurchaseOrder childPurchaseOrder = new Inventory.frmPurchaseOrder();
+                    childPurchaseOrder.MdiParent = this;
+                    childPurchaseOrder.Show();
+                }
+                else
+                {
+                    if (open.WindowState == FormWindowState.Minimized)
+                    {
+                        open.WindowState = FormWindowState.Normal;
+                    }
+                    else
+                    {
+                        open.Activate();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void issuToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void stockAjestmentToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void goodsReciveNoteGRNToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Inventory.frmGoodsReceiveNote open = Application.OpenForms["frmGoodsReceiveNote"] as Inventory.frmGoodsReceiveNote;
+                if (open == null)
+                {
+                    Inventory.frmGoodsReceiveNote childPurchaseOrder = new Inventory.frmGoodsReceiveNote();
                     childPurchaseOrder.MdiParent = this;
                     childPurchaseOrder.Show();
                 }

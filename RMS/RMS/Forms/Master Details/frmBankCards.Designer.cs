@@ -329,6 +329,7 @@
             this.cmbBankName.Size = new System.Drawing.Size(223, 21);
             this.cmbBankName.TabIndex = 19;
             this.cmbBankName.ViewColumn = 0;
+            this.cmbBankName.SelectedIndexChanged += new System.EventHandler(this.cmbBankName_SelectedIndexChanged);
             // 
             // cmbCurrency
             // 

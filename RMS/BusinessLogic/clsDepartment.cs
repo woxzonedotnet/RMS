@@ -90,5 +90,12 @@ namespace BusinessLogic
             return dtDepartment;
         }
         #endregion
+
+        public DataTable GetDepartmentData(global::System.Drawing.Point Location)
+        {
+            throw new NotImplementedException();
+        }
+
+        
     }
 }

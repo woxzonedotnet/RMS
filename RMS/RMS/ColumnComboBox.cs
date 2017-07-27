@@ -120,7 +120,7 @@ namespace RMS
             }
             catch (Exception ex)
             {
-                //throw new Exception(ex.Message + "\r\nIn ColumnComboBox.OnSelectedIndexChanged(EventArgs).");
+                throw new Exception(ex.Message + "\r\nIn ColumnComboBox.OnSelectedIndexChanged(EventArgs).");
             }
         }
 

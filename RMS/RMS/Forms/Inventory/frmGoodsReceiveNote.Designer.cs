@@ -29,8 +29,18 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmGoodsReceiveNote));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.cmbLocation = new RMS.ColumnComboBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.clsItemCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clsDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clsUnit = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clsUnitPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clsQty = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clsValue = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clsTax = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.clsTaxAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clsAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel3 = new System.Windows.Forms.Panel();
             this.chkVat = new System.Windows.Forms.CheckBox();
             this.txtNetAmount = new System.Windows.Forms.TextBox();
@@ -81,10 +91,73 @@
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(3, 3);
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.clsItemCode,
+            this.clsDescription,
+            this.clsUnit,
+            this.clsUnitPrice,
+            this.clsQty,
+            this.clsValue,
+            this.clsTax,
+            this.clsTaxAmount,
+            this.clsAmount});
+            this.dataGridView1.Location = new System.Drawing.Point(-1, -1);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(394, 399);
+            this.dataGridView1.Size = new System.Drawing.Size(639, 399);
             this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            // 
+            // clsItemCode
+            // 
+            this.clsItemCode.HeaderText = "Item Code";
+            this.clsItemCode.Name = "clsItemCode";
+            // 
+            // clsDescription
+            // 
+            this.clsDescription.HeaderText = "Description";
+            this.clsDescription.Name = "clsDescription";
+            // 
+            // clsUnit
+            // 
+            this.clsUnit.HeaderText = "Unit";
+            this.clsUnit.Name = "clsUnit";
+            // 
+            // clsUnitPrice
+            // 
+            this.clsUnitPrice.HeaderText = "UnitPrice";
+            this.clsUnitPrice.Name = "clsUnitPrice";
+            // 
+            // clsQty
+            // 
+            this.clsQty.HeaderText = "Qty";
+            this.clsQty.Name = "clsQty";
+            // 
+            // clsValue
+            // 
+            this.clsValue.HeaderText = "Value";
+            this.clsValue.Name = "clsValue";
+            // 
+            // clsTax
+            // 
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle1.NullValue = false;
+            this.clsTax.DefaultCellStyle = dataGridViewCellStyle1;
+            this.clsTax.HeaderText = "Tax";
+            this.clsTax.Name = "clsTax";
+            this.clsTax.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.clsTax.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.clsTax.Width = 40;
+            // 
+            // clsTaxAmount
+            // 
+            this.clsTaxAmount.HeaderText = "Tax Amount";
+            this.clsTaxAmount.Name = "clsTaxAmount";
+            // 
+            // clsAmount
+            // 
+            this.clsAmount.HeaderText = "Amount";
+            this.clsAmount.Name = "clsAmount";
             // 
             // panel3
             // 
@@ -92,7 +165,7 @@
             this.panel3.Controls.Add(this.dataGridView1);
             this.panel3.Location = new System.Drawing.Point(12, 12);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(402, 407);
+            this.panel3.Size = new System.Drawing.Size(631, 407);
             this.panel3.TabIndex = 75;
             // 
             // chkVat
@@ -191,7 +264,7 @@
             this.panel2.Controls.Add(this.txtVatAmount);
             this.panel2.Controls.Add(this.txtGRNValue);
             this.panel2.Controls.Add(this.lblGRNValue);
-            this.panel2.Location = new System.Drawing.Point(430, 229);
+            this.panel2.Location = new System.Drawing.Point(657, 229);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(294, 190);
             this.panel2.TabIndex = 74;
@@ -339,7 +412,7 @@
             this.panel1.Controls.Add(this.btnSearch);
             this.panel1.Controls.Add(this.lblLocation);
             this.panel1.Controls.Add(this.lblGRNNumber);
-            this.panel1.Location = new System.Drawing.Point(430, 12);
+            this.panel1.Location = new System.Drawing.Point(659, 12);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(294, 198);
             this.panel1.TabIndex = 69;
@@ -395,7 +468,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(736, 485);
+            this.ClientSize = new System.Drawing.Size(968, 485);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.btnClose);
@@ -405,6 +478,7 @@
             this.Controls.Add(this.btnSave);
             this.Name = "frmGoodsReceiveNote";
             this.Text = "Goods Receive Note (GRN)";
+            this.Load += new System.EventHandler(this.frmGoodsReceiveNote_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
@@ -447,5 +521,14 @@
         private System.Windows.Forms.Label lblVATAmount;
         private System.Windows.Forms.TextBox txtInvoiceNo;
         private System.Windows.Forms.Label lblInvoiceNo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clsItemCode;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clsDescription;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clsUnit;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clsUnitPrice;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clsQty;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clsValue;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn clsTax;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clsTaxAmount;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clsAmount;
     }
 }
