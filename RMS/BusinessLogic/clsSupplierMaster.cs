@@ -59,39 +59,39 @@ namespace BusinessLogic
         }
         #endregion
 
-        #region GetSupplierMaster Data Using SupplierCode
-        public string GetSupplierDataBySupplierCode(string strLocationCode, string strSupplierCode)
-        {
-            string strWhere = "fldLocationCode='" + strLocationCode + "' AND fldSupplierCode='" + strSupplierCode + "'";
+        //#region GetSupplierMaster Data Using SupplierCode
+        //public string GetSupplierDataBySupplierCode(string strLocationCode, string strSupplierCode)
+        //{
+        //    string strWhere = "fldLocationCode='" + strLocationCode + "' AND fldSupplierCode='" + strSupplierCode + "'";
 
-            DataTable dtSupplier = cDBConnection.SearchData("tbl_SupplierMaster", strWhere);
+        //    DataTable dtSupplier = cDBConnection.SearchData("tbl_SupplierMaster", strWhere);
 
-            if (dtSupplier.Rows.Count > 0)
-            {
-                oSupplierMaster.LocationCode = dtSupplier.Rows[0][0].ToString();
-                oSupplierMaster.SupplierCode = dtSupplier.Rows[0][1].ToString();
-                oSupplierMaster.SupplierName = dtSupplier.Rows[0][2].ToString();
-                oSupplierMaster.ContactPerson = dtSupplier.Rows[0][3].ToString();
-                oSupplierMaster.Address = dtSupplier.Rows[0][4].ToString();
-                oSupplierMaster.TellephoneNo = dtSupplier.Rows[0][5].ToString();
-                oSupplierMaster.Fax = dtSupplier.Rows[0][6].ToString();
-                oSupplierMaster.Email = dtSupplier.Rows[0][7].ToString();
-                oSupplierMaster.SupplierCategoryCode = dtSupplier.Rows[0][8].ToString();
-                oSupplierMaster.Discount = Convert.ToDouble(dtSupplier.Rows[0][9]);
-                oSupplierMaster.Consignment = Convert.ToBoolean(dtSupplier.Rows[0][10]);
-                oSupplierMaster.EnterdDate = Convert.ToDateTime(dtSupplier.Rows[0][11]);
-                oSupplierMaster.CancelDate = Convert.ToDateTime(dtSupplier.Rows[0][12]);
-                oSupplierMaster.Status = Convert.ToInt16(dtSupplier.Rows[0][13]);
-                oSupplierMaster.RelesePendingPO = Convert.ToBoolean(dtSupplier.Rows[0][14]);
-                oSupplierMaster.IsExists = true;
-            }
-            else
-            {
-                oSupplierMaster.IsExists = false;
-            }
-            return oSupplierMaster.SupplierName;
-        }
-        #endregion
+        //    if (dtSupplier.Rows.Count > 0)
+        //    {
+        //        oSupplierMaster.LocationCode = dtSupplier.Rows[0][0].ToString();
+        //        oSupplierMaster.SupplierCode = dtSupplier.Rows[0][1].ToString();
+        //        oSupplierMaster.SupplierName = dtSupplier.Rows[0][2].ToString();
+        //        oSupplierMaster.ContactPerson = dtSupplier.Rows[0][3].ToString();
+        //        oSupplierMaster.Address = dtSupplier.Rows[0][4].ToString();
+        //        oSupplierMaster.TellephoneNo = dtSupplier.Rows[0][5].ToString();
+        //        oSupplierMaster.Fax = dtSupplier.Rows[0][6].ToString();
+        //        oSupplierMaster.Email = dtSupplier.Rows[0][7].ToString();
+        //        oSupplierMaster.SupplierCategoryCode = dtSupplier.Rows[0][8].ToString();
+        //        oSupplierMaster.Discount = Convert.ToDouble(dtSupplier.Rows[0][9]);
+        //        oSupplierMaster.Consignment = Convert.ToBoolean(dtSupplier.Rows[0][10]);
+        //        oSupplierMaster.EnterdDate = Convert.ToDateTime(dtSupplier.Rows[0][11]);
+        //        oSupplierMaster.CancelDate = Convert.ToDateTime(dtSupplier.Rows[0][12]);
+        //        oSupplierMaster.Status = Convert.ToInt16(dtSupplier.Rows[0][13]);
+        //        oSupplierMaster.RelesePendingPO = Convert.ToBoolean(dtSupplier.Rows[0][14]);
+        //        oSupplierMaster.IsExists = true;
+        //    }
+        //    else
+        //    {
+        //        oSupplierMaster.IsExists = false;
+        //    }
+        //    return oSupplierMaster.SupplierName;
+        //}
+        //#endregion
 
         #region InsertUpdateData
         public int InsertUpdateData(objSupplierMaster oSupplierMaster)
