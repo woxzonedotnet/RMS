@@ -55,7 +55,7 @@ namespace BusinessLogic
         #endregion
 
         #region Get Purchase Order Data using ItemCode
-        public objPurchaseOrder GetItemData(string strLocationCode, string strPurchaseOrderCode)
+        public objPurchaseOrder GetPurchaseOrderData(string strLocationCode, string strPurchaseOrderCode)
         {
             string strWhere1 = "fldPOCode='" + strPurchaseOrderCode + "' AND fldLocationCode='" + strLocationCode + "'";
             string strWhere2 = "fldPOCode='" + strPurchaseOrderCode + "'";
