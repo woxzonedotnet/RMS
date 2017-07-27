@@ -36,6 +36,9 @@ namespace BusinessLogic
             }
             else
             {
+                oDocumentNumber.PCID = null;
+                oDocumentNumber.DocumentCode = null;
+                oDocumentNumber.DocumentNo = null;
                 oDocumentNumber.IsExists = false;
             }
 
@@ -78,7 +81,7 @@ namespace BusinessLogic
             return cDBConnection.Execute("SP_GET_DOCUMENT_NUMBER", arrParameter);
         }
 
-        public string LoadDocNumber(string strUniqID,string strDocumentCode, string strLocationCode, string FinYear)
+        public string LoadDocNumber(string strUniqID, string strDocumentCode, string strLocationCode, string FinYear)
         {
             string numFromTempTbl = this.GetDocumentNumberData(strUniqID, strDocumentCode).DocumentNo;
             if ((numFromTempTbl == null) || numFromTempTbl.Equals(""))
