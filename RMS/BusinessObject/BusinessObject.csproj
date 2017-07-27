@@ -46,6 +46,7 @@
     <Compile Include="objCurrencyMaster.cs" />
     <Compile Include="objCustomerMaster.cs" />
     <Compile Include="objDocumentNumber.cs" />
+    <Compile Include="objGoodReceiveNote.cs" />
     <Compile Include="objIssuesNote.cs" />
     <Compile Include="objItemMaster.cs" />
     <Compile Include="objMainLocation.cs" />
