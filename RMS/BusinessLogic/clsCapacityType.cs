@@ -25,7 +25,7 @@ namespace BusinessLogic
         #endregion
 
         #region GetCapacity Data By Code
-        public string GetCapacityDataByCode(string strCapacityCode)
+        public objCapacityType GetCapacityDataByCode(string strCapacityCode)
         {
             string strWhere = "fldCapacityCode='" + strCapacityCode + "'";
             DataTable dtCapacity = cDBConnection.SearchData("tbl_Capacity",strWhere);
@@ -35,14 +35,14 @@ namespace BusinessLogic
                 oCapacityType.CapacityName = dtCapacity.Rows[0][1].ToString();
                 oCapacityType.CapacitySymbol = dtCapacity.Rows[0][2].ToString();
 
-                //oMenuCategory.IsExists = true;
+                oCapacityType.IsExists = true;
             }
             else
             {
-                //oMenuCategory.IsExists = false;
+                oCapacityType.IsExists = false;
             }
 
-            return oCapacityType.CapacityName;
+            return oCapacityType;
         }
         #endregion
     }
