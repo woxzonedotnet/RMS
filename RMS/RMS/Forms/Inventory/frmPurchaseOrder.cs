@@ -57,8 +57,8 @@ namespace RMS.Forms.Inventory
                 if (ValidateData())
                 {
                     LoadItemDetails();
-                }
             }
+        }
         }
 
 
@@ -135,47 +135,47 @@ namespace RMS.Forms.Inventory
         {
             try
             {
-                double qty = Convert.ToDouble(this.dgvItemData.Rows[this.dgvItemData.CurrentCell.RowIndex].Cells["clmQuantity"].Value);
-                double price = Convert.ToDouble(this.dgvItemData.Rows[this.dgvItemData.CurrentCell.RowIndex].Cells["clmUnitPrice"].Value);
-                double tax = Convert.ToDouble(this.dgvItemData.Rows[this.dgvItemData.CurrentCell.RowIndex].Cells["clmTaxAmount"].Value);
-                total = (qty * price);
-                if ((this.dgvItemData.Rows[this.dgvItemData.CurrentCell.RowIndex].Cells["clmTax_chk"].Value != null) && this.dgvItemData.Rows[this.dgvItemData.CurrentCell.RowIndex].Cells["clmTax_chk"].Value.ToString().Equals("True"))
+            double qty = Convert.ToDouble(this.dgvItemData.Rows[this.dgvItemData.CurrentCell.RowIndex].Cells["clmQuantity"].Value);
+            double price = Convert.ToDouble(this.dgvItemData.Rows[this.dgvItemData.CurrentCell.RowIndex].Cells["clmUnitPrice"].Value);
+            double tax = Convert.ToDouble(this.dgvItemData.Rows[this.dgvItemData.CurrentCell.RowIndex].Cells["clmTaxAmount"].Value);
+            total = (qty * price);
+            if ((this.dgvItemData.Rows[this.dgvItemData.CurrentCell.RowIndex].Cells["clmTax_chk"].Value != null) && this.dgvItemData.Rows[this.dgvItemData.CurrentCell.RowIndex].Cells["clmTax_chk"].Value.ToString().Equals("True"))
+            {
+                this.dgvItemData.Rows[this.dgvItemData.CurrentCell.RowIndex].Cells["clmTotalAmount"].Value = total + tax;
+            }
+            else
+            {
+                this.dgvItemData.Rows[this.dgvItemData.CurrentCell.RowIndex].Cells["clmTotalAmount"].Value = total;
+            }
+
+
+            Total = 0;
+            for (int i = 0; i < dgvItemData.Rows.Count; i++)
+            {
+                if (this.dgvItemData.Rows[i].Cells["clmTotalAmount"].Value != null)
                 {
-                    this.dgvItemData.Rows[this.dgvItemData.CurrentCell.RowIndex].Cells["clmTotalAmount"].Value = total + tax;
+                    Total += Convert.ToDouble(this.dgvItemData.Rows[i].Cells["clmTotalAmount"].Value);
+                }
+            }
+            this.txtPurchase.Text = Total.ToString();
+            if (txtVat.Enabled == true)
+            {
+                if (txtVat.Text != "")
+                {
+                    vat = double.Parse(txtVat.Text);
+                    NetAmount = (Total + vat);
+                    txtNetAmount.Text = NetAmount.ToString();
                 }
                 else
                 {
-                    this.dgvItemData.Rows[this.dgvItemData.CurrentCell.RowIndex].Cells["clmTotalAmount"].Value = total;
+                    NetAmount = Total;
+                    txtNetAmount.Text = NetAmount.ToString();
                 }
-
-
-                Total = 0;
-                for (int i = 0; i < dgvItemData.Rows.Count; i++)
-                {
-                    if (this.dgvItemData.Rows[i].Cells["clmTotalAmount"].Value != null)
-                    {
-                        Total += Convert.ToDouble(this.dgvItemData.Rows[i].Cells["clmTotalAmount"].Value);
-                    }
-                }
-                this.txtPurchase.Text = Total.ToString();
-                if (txtVat.Enabled == true)
-                {
-                    if (txtVat.Text != "")
-                    {
-                        vat = double.Parse(txtVat.Text);
-                        NetAmount = (Total + vat);
-                        txtNetAmount.Text = NetAmount.ToString();
-                    }
-                    else
-                    {
-                        NetAmount = Total;
-                        txtNetAmount.Text = NetAmount.ToString();
-                    }
-                }
-                else
-                {
-                    txtNetAmount.Text = Total.ToString();
-                }
+            }
+            else
+            {
+                txtNetAmount.Text = Total.ToString();
+            }
             }
             catch (Exception ex) 
             {
@@ -370,9 +370,9 @@ namespace RMS.Forms.Inventory
                     if ((this.dgvItemData.CurrentCell.Value != null) && this.dgvItemData.CurrentCell.Value.ToString().Equals("True"))
                     {
                         //tax calculate
-                        double taxPrecentage = Convert.ToDouble(cSetupSetting.GetSetupSettingData(cGlobleVariable.LocationCode).VAT);
-                        double totalTax = (total * taxPrecentage) / 100;
-                        this.dgvItemData.Rows[this.dgvItemData.CurrentCell.RowIndex].Cells["clmTaxAmount"].Value = totalTax;
+                       double taxPrecentage = Convert.ToDouble(cSetupSetting.GetSetupSettingData(cGlobleVariable.LocationCode).VAT);
+                       double totalTax = (total * taxPrecentage) / 100;
+                       this.dgvItemData.Rows[this.dgvItemData.CurrentCell.RowIndex].Cells["clmTaxAmount"].Value = totalTax; 
                     }
                 }
             }
@@ -389,7 +389,7 @@ namespace RMS.Forms.Inventory
                 this.Left += e.X - lastClick.X;
                 this.Top += e.Y - lastClick.Y;
             }
-        }
+            }
 
         private void panel3_MouseDown(object sender, MouseEventArgs e)
         {
@@ -400,7 +400,7 @@ namespace RMS.Forms.Inventory
         {
             LoadSearch();
         }
-
+       
         public void LoadSearch()
         {
             string[] strFieldList = new string[4];
@@ -470,7 +470,8 @@ namespace RMS.Forms.Inventory
                 double qty = Convert.ToDouble(oPurchaseOrder.dtItemList.Rows[i][3]);
                 double UnitPrice = Convert.ToDouble(oPurchaseOrder.dtItemList.Rows[i][4]);
                 double TaxAmount = Convert.ToDouble(oPurchaseOrder.dtItemList.Rows[i][5]);
-                dgvItemData.Rows[i].Cells["clmTotalAmount"].Value = ((qty*UnitPrice)+TaxAmount);
+                dgvItemData.Rows[i].Cells["clmTotalAmount"].Value = ((qty * UnitPrice) + TaxAmount);
+                calculatAmounts();
             }
 
             this.dgvItemData.Enabled = false;

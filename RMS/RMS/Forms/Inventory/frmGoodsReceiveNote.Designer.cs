@@ -28,9 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmGoodsReceiveNote));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.cmbLocation = new RMS.ColumnComboBox();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmGoodsReceiveNote));
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.clsItemCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clsDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -50,7 +49,6 @@
             this.txtVatAmount = new System.Windows.Forms.TextBox();
             this.txtGRNValue = new System.Windows.Forms.TextBox();
             this.lblGRNValue = new System.Windows.Forms.Label();
-            this.cmbSupplier = new RMS.ColumnComboBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.txtVatPrecentage = new System.Windows.Forms.TextBox();
@@ -69,24 +67,13 @@
             this.lblInvoiceNo = new System.Windows.Forms.Label();
             this.btnSearch = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
+            this.cmbSupplier = new RMS.ColumnComboBox();
+            this.cmbLocation = new RMS.ColumnComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // cmbLocation
-            // 
-            this.cmbLocation.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.cmbLocation.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.cmbLocation.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
-            this.cmbLocation.DropDownWidth = 17;
-            this.cmbLocation.FormattingEnabled = true;
-            this.cmbLocation.Location = new System.Drawing.Point(108, 55);
-            this.cmbLocation.Name = "cmbLocation";
-            this.cmbLocation.Size = new System.Drawing.Size(165, 21);
-            this.cmbLocation.TabIndex = 62;
-            this.cmbLocation.ViewColumn = 0;
             // 
             // dataGridView1
             // 
@@ -236,19 +223,6 @@
             this.lblGRNValue.Size = new System.Drawing.Size(76, 16);
             this.lblGRNValue.TabIndex = 62;
             this.lblGRNValue.Text = "GRN Value";
-            // 
-            // cmbSupplier
-            // 
-            this.cmbSupplier.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.cmbSupplier.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.cmbSupplier.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
-            this.cmbSupplier.DropDownWidth = 17;
-            this.cmbSupplier.FormattingEnabled = true;
-            this.cmbSupplier.Location = new System.Drawing.Point(108, 93);
-            this.cmbSupplier.Name = "cmbSupplier";
-            this.cmbSupplier.Size = new System.Drawing.Size(165, 21);
-            this.cmbSupplier.TabIndex = 64;
-            this.cmbSupplier.ViewColumn = 0;
             // 
             // panel2
             // 
@@ -448,6 +422,7 @@
             this.btnSearch.Size = new System.Drawing.Size(35, 31);
             this.btnSearch.TabIndex = 60;
             this.btnSearch.UseVisualStyleBackColor = false;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // btnSave
             // 
@@ -463,6 +438,32 @@
             this.btnSave.TabIndex = 70;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = false;
+            // 
+            // cmbSupplier
+            // 
+            this.cmbSupplier.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.cmbSupplier.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cmbSupplier.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.cmbSupplier.DropDownWidth = 17;
+            this.cmbSupplier.FormattingEnabled = true;
+            this.cmbSupplier.Location = new System.Drawing.Point(108, 93);
+            this.cmbSupplier.Name = "cmbSupplier";
+            this.cmbSupplier.Size = new System.Drawing.Size(165, 21);
+            this.cmbSupplier.TabIndex = 64;
+            this.cmbSupplier.ViewColumn = 0;
+            // 
+            // cmbLocation
+            // 
+            this.cmbLocation.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.cmbLocation.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cmbLocation.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.cmbLocation.DropDownWidth = 17;
+            this.cmbLocation.FormattingEnabled = true;
+            this.cmbLocation.Location = new System.Drawing.Point(108, 55);
+            this.cmbLocation.Name = "cmbLocation";
+            this.cmbLocation.Size = new System.Drawing.Size(165, 21);
+            this.cmbLocation.TabIndex = 62;
+            this.cmbLocation.ViewColumn = 0;
             // 
             // frmGoodsReceiveNote
             // 

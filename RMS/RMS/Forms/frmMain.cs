@@ -631,5 +631,34 @@ namespace RMS.Forms
                 MessageBox.Show(ex.Message);
             }
         }
+
+        private void goodsReciveNoteGRNToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Inventory.frmGoodsReceiveNote open = Application.OpenForms["frmGoodsReceiveNote"] as Inventory.frmGoodsReceiveNote;
+                if (open == null)
+                {
+                    Inventory.frmGoodsReceiveNote childTransferNote = new Inventory.frmGoodsReceiveNote();
+                    childTransferNote.MdiParent = this;
+                    childTransferNote.Show();
+                }
+                else
+                {
+                    if (open.WindowState == FormWindowState.Minimized)
+                    {
+                        open.WindowState = FormWindowState.Normal;
+                    }
+                    else
+                    {
+                        open.Activate();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
     }
 }
