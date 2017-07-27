@@ -50,6 +50,7 @@
     <Compile Include="clsCustomerMaster.cs" />
     <Compile Include="clsDepartment.cs" />
     <Compile Include="clsDocumentNumber.cs" />
+    <Compile Include="clsGoodReceiveNote.cs" />
     <Compile Include="clsIssuesNote.cs" />
     <Compile Include="clsItemMaster.cs" />
     <Compile Include="clsMainLocation.cs" />

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,16 +9,28 @@ namespace BusinessObject
 {
     public class objGoodReceiveNote
     {
+        public string LocationCode { get; set; }
+        public string GRNCode { get; set; }
+        public string SubLocationCode { get; set; }
+        public string SupplierCode { get; set; }
+        public DateTime Date { get; set; }
+        public string InvoiceNo { get; set; }
+        public double GRNValue { get; set; }
+        public double VATPresentage { get; set; }
+        public double VATAmount { get; set; }
+        public double Discount { get; set; }
+        public double NetAmount { get; set; }
 
-        string GRNNumber { get; set; }
-        string Location { get; set; }
-        string Supplier { get; set; }
-        DateTime Date { get; set; }
-        string InvoiceNo { get; set; }
-        string GRNValue { get; set; }
-        decimal VatAmount { get; set; }
-        decimal Discount { get; set; }
-        decimal VatPrecentage { get; set; }
 
+        //public string ItemCode { get; set; }
+        //public string ItemDescription { get; set; }
+        //public double UnitPrice { get; set; }
+        //public double Quantity { get; set; }
+        //public double TaxAmount { get; set; }
+        //public double TotalAmount { get; set; }
+        public DataTable dtItemList { get; set; }
+
+        public int Status { get; set; }
+        public bool IsExists { get; set; }
     }
 }
