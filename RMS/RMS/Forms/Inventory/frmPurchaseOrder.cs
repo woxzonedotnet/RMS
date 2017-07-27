@@ -203,6 +203,7 @@ namespace RMS.Forms.Inventory
             this.txtPONumber.Enabled = true;
             this.btnSave.Enabled = true;
             this.btnPrint.Enabled = true;
+            LoadDocumentNumber();
         }
         #endregion
 
@@ -223,7 +224,7 @@ namespace RMS.Forms.Inventory
                     if (result != -1)
                     {
                         MessageBox.Show("Successfully Saved...!", "Purchase Order", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        
+                        cDocumentNumber.DeleteDocumentNumber(cGlobleVariable.UniqID, DocumentCode, txtPONumber.Text);
                         clear();
                     }
                     else
