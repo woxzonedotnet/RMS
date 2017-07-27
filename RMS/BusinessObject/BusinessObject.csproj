@@ -45,13 +45,12 @@
     <Compile Include="objCapacityType.cs" />
     <Compile Include="objCurrencyMaster.cs" />
     <Compile Include="objCustomerMaster.cs" />
-    <Compile Include="objGoodReceiveNote.cs" />
-    <Compile Include="objIssuesNote.cs" />
+    <Compile Include="objDocumentNumber.cs" />
     <Compile Include="objItemMaster.cs" />
-    <Compile Include="objLocationMaster.cs" />
     <Compile Include="objMainLocation.cs" />
     <Compile Include="objMenuCategory.cs" />
     <Compile Include="objMenuDepartment.cs" />
+    <Compile Include="objPurchaseOrder.cs" />
     <Compile Include="objSetupSetting.cs" />
     <Compile Include="objSupplierCategory.cs" />
     <Compile Include="objSupplierMaster.cs" />
@@ -64,7 +63,6 @@
     <Compile Include="objSteward.cs" />
     <Compile Include="objSubLocation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="objStockAdjustmentNote.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

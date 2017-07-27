@@ -32,7 +32,6 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Drawing" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -49,24 +48,21 @@
     <Compile Include="clsCurrencyMaster.cs" />
     <Compile Include="clsCustomerMaster.cs" />
     <Compile Include="clsDepartment.cs" />
-    <Compile Include="clsGoodReceiveNote.cs" />
-    <Compile Include="clsIssuesNote.cs" />
+    <Compile Include="clsDocumentNumber.cs" />
     <Compile Include="clsItemMaster.cs" />
-    <Compile Include="clsLocationMaster.cs" />
     <Compile Include="clsMainLocation.cs" />
     <Compile Include="clsMenuCategory.cs" />
     <Compile Include="clsMenuDepartment.cs" />
+    <Compile Include="clsPurchaseOrder.cs" />
     <Compile Include="clsRecipeDetails.cs" />
     <Compile Include="clsSetupSetting.cs" />
     <Compile Include="clsStatusMaster.cs" />
     <Compile Include="clsSteward.cs" />
-    <Compile Include="clsStockAdjustmentNote.cs" />
     <Compile Include="clsSubLocation.cs" />
     <Compile Include="clsSupplierCategory.cs" />
     <Compile Include="clsSupplierMaster.cs" />
     <Compile Include="clsTableCategory.cs" />
     <Compile Include="clsTableMaster.cs" />
-    <Compile Include="Point.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

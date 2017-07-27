@@ -28,34 +28,51 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmTransferNote));
             this.txtTotal = new System.Windows.Forms.TextBox();
             this.lblTotal = new System.Windows.Forms.Label();
-            this.cmbLocationTo = new RMS.ColumnComboBox();
-            this.cmbLocationFrom = new RMS.ColumnComboBox();
             this.btnSearch = new System.Windows.Forms.Button();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvTransferNote = new System.Windows.Forms.DataGridView();
+            this.clmItemCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmUnit = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmCostPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmValue = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lblLocationFrom = new System.Windows.Forms.Label();
             this.lblIssuesNumber = new System.Windows.Forms.Label();
             this.btnClear = new System.Windows.Forms.Button();
             this.btnPrint = new System.Windows.Forms.Button();
             this.txtIssuesNumber = new System.Windows.Forms.TextBox();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.lblDate = new System.Windows.Forms.Label();
             this.dtpDate = new System.Windows.Forms.DateTimePicker();
             this.lblLocationTo = new System.Windows.Forms.Label();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
-            this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.panel1.SuspendLayout();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.lblTitle = new System.Windows.Forms.Label();
+            this.btnExit = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.cmbLocationTo = new RMS.ColumnComboBox();
+            this.cmbLocationFrom = new RMS.ColumnComboBox();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTransferNote)).BeginInit();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // txtTotal
             // 
-            this.txtTotal.Location = new System.Drawing.Point(112, 164);
+            this.txtTotal.Enabled = false;
+            this.txtTotal.Location = new System.Drawing.Point(487, 406);
             this.txtTotal.Name = "txtTotal";
+            this.txtTotal.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.txtTotal.Size = new System.Drawing.Size(188, 20);
             this.txtTotal.TabIndex = 70;
             // 
@@ -63,37 +80,11 @@
             // 
             this.lblTotal.AutoSize = true;
             this.lblTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
-            this.lblTotal.Location = new System.Drawing.Point(15, 165);
+            this.lblTotal.Location = new System.Drawing.Point(442, 407);
             this.lblTotal.Name = "lblTotal";
             this.lblTotal.Size = new System.Drawing.Size(39, 16);
             this.lblTotal.TabIndex = 69;
             this.lblTotal.Text = "Total";
-            // 
-            // cmbLocationTo
-            // 
-            this.cmbLocationTo.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.cmbLocationTo.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.cmbLocationTo.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
-            this.cmbLocationTo.DropDownWidth = 17;
-            this.cmbLocationTo.FormattingEnabled = true;
-            this.cmbLocationTo.Location = new System.Drawing.Point(112, 91);
-            this.cmbLocationTo.Name = "cmbLocationTo";
-            this.cmbLocationTo.Size = new System.Drawing.Size(188, 21);
-            this.cmbLocationTo.TabIndex = 64;
-            this.cmbLocationTo.ViewColumn = 0;
-            // 
-            // cmbLocationFrom
-            // 
-            this.cmbLocationFrom.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.cmbLocationFrom.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.cmbLocationFrom.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
-            this.cmbLocationFrom.DropDownWidth = 17;
-            this.cmbLocationFrom.FormattingEnabled = true;
-            this.cmbLocationFrom.Location = new System.Drawing.Point(112, 53);
-            this.cmbLocationFrom.Name = "cmbLocationFrom";
-            this.cmbLocationFrom.Size = new System.Drawing.Size(188, 21);
-            this.cmbLocationFrom.TabIndex = 62;
-            this.cmbLocationFrom.ViewColumn = 0;
             // 
             // btnSearch
             // 
@@ -104,34 +95,85 @@
             this.btnSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSearch.ForeColor = System.Drawing.SystemColors.Control;
             this.btnSearch.Image = global::RMS.Properties.Resources.search25;
-            this.btnSearch.Location = new System.Drawing.Point(265, 10);
+            this.btnSearch.Location = new System.Drawing.Point(258, 46);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(35, 31);
             this.btnSearch.TabIndex = 60;
             this.btnSearch.UseVisualStyleBackColor = false;
             // 
-            // panel3
+            // dgvTransferNote
             // 
-            this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel3.Controls.Add(this.dataGridView1);
-            this.panel3.Location = new System.Drawing.Point(12, 12);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(402, 251);
-            this.panel3.TabIndex = 89;
+            this.dgvTransferNote.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvTransferNote.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.clmItemCode,
+            this.clmDescription,
+            this.clmUnit,
+            this.clmCostPrice,
+            this.clmQuantity,
+            this.clmValue});
+            this.dgvTransferNote.Location = new System.Drawing.Point(10, 148);
+            this.dgvTransferNote.Name = "dgvTransferNote";
+            this.dgvTransferNote.Size = new System.Drawing.Size(665, 243);
+            this.dgvTransferNote.TabIndex = 0;
+            this.dgvTransferNote.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dataGridView1_KeyDown);
             // 
-            // dataGridView1
+            // clmItemCode
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(3, 3);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(394, 243);
-            this.dataGridView1.TabIndex = 0;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.clmItemCode.DefaultCellStyle = dataGridViewCellStyle1;
+            this.clmItemCode.HeaderText = "Item Code";
+            this.clmItemCode.Name = "clmItemCode";
+            this.clmItemCode.ReadOnly = true;
+            this.clmItemCode.Width = 80;
+            // 
+            // clmDescription
+            // 
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.clmDescription.DefaultCellStyle = dataGridViewCellStyle2;
+            this.clmDescription.HeaderText = "Description";
+            this.clmDescription.Name = "clmDescription";
+            this.clmDescription.ReadOnly = true;
+            this.clmDescription.Width = 240;
+            // 
+            // clmUnit
+            // 
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.clmUnit.DefaultCellStyle = dataGridViewCellStyle3;
+            this.clmUnit.HeaderText = "Unit";
+            this.clmUnit.Name = "clmUnit";
+            this.clmUnit.ReadOnly = true;
+            this.clmUnit.Width = 50;
+            // 
+            // clmCostPrice
+            // 
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.clmCostPrice.DefaultCellStyle = dataGridViewCellStyle4;
+            this.clmCostPrice.HeaderText = "Cost Price";
+            this.clmCostPrice.Name = "clmCostPrice";
+            this.clmCostPrice.ReadOnly = true;
+            // 
+            // clmQuantity
+            // 
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.clmQuantity.DefaultCellStyle = dataGridViewCellStyle5;
+            this.clmQuantity.HeaderText = "Quantity";
+            this.clmQuantity.Name = "clmQuantity";
+            this.clmQuantity.Width = 50;
+            // 
+            // clmValue
+            // 
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.clmValue.DefaultCellStyle = dataGridViewCellStyle6;
+            this.clmValue.HeaderText = "Value";
+            this.clmValue.Name = "clmValue";
+            this.clmValue.ReadOnly = true;
             // 
             // lblLocationFrom
             // 
             this.lblLocationFrom.AutoSize = true;
             this.lblLocationFrom.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
-            this.lblLocationFrom.Location = new System.Drawing.Point(15, 54);
+            this.lblLocationFrom.Location = new System.Drawing.Point(8, 83);
             this.lblLocationFrom.Name = "lblLocationFrom";
             this.lblLocationFrom.Size = new System.Drawing.Size(93, 16);
             this.lblLocationFrom.TabIndex = 59;
@@ -141,7 +183,7 @@
             // 
             this.lblIssuesNumber.AutoSize = true;
             this.lblIssuesNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
-            this.lblIssuesNumber.Location = new System.Drawing.Point(15, 18);
+            this.lblIssuesNumber.Location = new System.Drawing.Point(8, 53);
             this.lblIssuesNumber.Name = "lblIssuesNumber";
             this.lblIssuesNumber.Size = new System.Drawing.Size(91, 16);
             this.lblIssuesNumber.TabIndex = 58;
@@ -155,7 +197,7 @@
             this.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
             this.btnClear.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnClear.Location = new System.Drawing.Point(592, 227);
+            this.btnClear.Location = new System.Drawing.Point(520, 445);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(75, 36);
             this.btnClear.TabIndex = 86;
@@ -170,7 +212,7 @@
             this.btnPrint.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPrint.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
             this.btnPrint.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnPrint.Location = new System.Drawing.Point(511, 227);
+            this.btnPrint.Location = new System.Drawing.Point(439, 445);
             this.btnPrint.Name = "btnPrint";
             this.btnPrint.Size = new System.Drawing.Size(75, 36);
             this.btnPrint.TabIndex = 85;
@@ -179,36 +221,16 @@
             // 
             // txtIssuesNumber
             // 
-            this.txtIssuesNumber.Location = new System.Drawing.Point(112, 17);
+            this.txtIssuesNumber.Location = new System.Drawing.Point(105, 52);
             this.txtIssuesNumber.Name = "txtIssuesNumber";
             this.txtIssuesNumber.Size = new System.Drawing.Size(143, 20);
             this.txtIssuesNumber.TabIndex = 61;
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.SystemColors.Control;
-            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Controls.Add(this.lblDate);
-            this.panel1.Controls.Add(this.txtTotal);
-            this.panel1.Controls.Add(this.lblTotal);
-            this.panel1.Controls.Add(this.dtpDate);
-            this.panel1.Controls.Add(this.cmbLocationTo);
-            this.panel1.Controls.Add(this.lblLocationTo);
-            this.panel1.Controls.Add(this.cmbLocationFrom);
-            this.panel1.Controls.Add(this.txtIssuesNumber);
-            this.panel1.Controls.Add(this.btnSearch);
-            this.panel1.Controls.Add(this.lblLocationFrom);
-            this.panel1.Controls.Add(this.lblIssuesNumber);
-            this.panel1.Location = new System.Drawing.Point(430, 12);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(318, 200);
-            this.panel1.TabIndex = 83;
             // 
             // lblDate
             // 
             this.lblDate.AutoSize = true;
             this.lblDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
-            this.lblDate.Location = new System.Drawing.Point(15, 131);
+            this.lblDate.Location = new System.Drawing.Point(8, 117);
             this.lblDate.Name = "lblDate";
             this.lblDate.Size = new System.Drawing.Size(37, 16);
             this.lblDate.TabIndex = 71;
@@ -218,7 +240,7 @@
             // 
             this.dtpDate.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
             this.dtpDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpDate.Location = new System.Drawing.Point(112, 127);
+            this.dtpDate.Location = new System.Drawing.Point(105, 113);
             this.dtpDate.Name = "dtpDate";
             this.dtpDate.Size = new System.Drawing.Size(143, 20);
             this.dtpDate.TabIndex = 66;
@@ -227,11 +249,11 @@
             // 
             this.lblLocationTo.AutoSize = true;
             this.lblLocationTo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
-            this.lblLocationTo.Location = new System.Drawing.Point(15, 92);
+            this.lblLocationTo.Location = new System.Drawing.Point(316, 83);
             this.lblLocationTo.Name = "lblLocationTo";
-            this.lblLocationTo.Size = new System.Drawing.Size(79, 16);
+            this.lblLocationTo.Size = new System.Drawing.Size(25, 16);
             this.lblLocationTo.TabIndex = 63;
-            this.lblLocationTo.Text = "Location To";
+            this.lblLocationTo.Text = "To";
             // 
             // btnSave
             // 
@@ -241,12 +263,13 @@
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
             this.btnSave.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnSave.Location = new System.Drawing.Point(430, 227);
+            this.btnSave.Location = new System.Drawing.Point(358, 445);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 36);
             this.btnSave.TabIndex = 84;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = false;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // btnClose
             // 
@@ -256,31 +279,143 @@
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
             this.btnClose.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnClose.Location = new System.Drawing.Point(673, 227);
+            this.btnClose.Location = new System.Drawing.Point(601, 445);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(75, 36);
             this.btnClose.TabIndex = 87;
             this.btnClose.Text = "Close";
             this.btnClose.UseVisualStyleBackColor = false;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(41)))), ((int)(((byte)(46)))));
+            this.panel2.Controls.Add(this.lblTitle);
+            this.panel2.Controls.Add(this.btnExit);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(684, 31);
+            this.panel2.TabIndex = 90;
+            this.panel2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel2_MouseDown);
+            this.panel2.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel2_MouseMove);
+            // 
+            // lblTitle
+            // 
+            this.lblTitle.AutoSize = true;
+            this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitle.ForeColor = System.Drawing.SystemColors.Control;
+            this.lblTitle.Location = new System.Drawing.Point(9, 9);
+            this.lblTitle.Name = "lblTitle";
+            this.lblTitle.Size = new System.Drawing.Size(90, 16);
+            this.lblTitle.TabIndex = 4;
+            this.lblTitle.Text = "Transfer Note";
+            // 
+            // btnExit
+            // 
+            this.btnExit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(41)))), ((int)(((byte)(46)))));
+            this.btnExit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnExit.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnExit.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnExit.FlatAppearance.BorderSize = 0;
+            this.btnExit.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(41)))), ((int)(((byte)(46)))));
+            this.btnExit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Maroon;
+            this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnExit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(146)))), ((int)(((byte)(150)))), ((int)(((byte)(153)))));
+            this.btnExit.Location = new System.Drawing.Point(647, 0);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(37, 31);
+            this.btnExit.TabIndex = 3;
+            this.btnExit.Text = "X";
+            this.btnExit.UseVisualStyleBackColor = false;
+            this.btnExit.Click += new System.EventHandler(this.btnClose_Click);
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(41)))), ((int)(((byte)(46)))));
+            this.panel1.Location = new System.Drawing.Point(683, 27);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(10, 468);
+            this.panel1.TabIndex = 91;
+            // 
+            // panel4
+            // 
+            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(41)))), ((int)(((byte)(46)))));
+            this.panel4.Location = new System.Drawing.Point(-9, 27);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(10, 468);
+            this.panel4.TabIndex = 92;
+            // 
+            // panel5
+            // 
+            this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(41)))), ((int)(((byte)(46)))));
+            this.panel5.Location = new System.Drawing.Point(-1, 489);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(685, 10);
+            this.panel5.TabIndex = 93;
+            // 
+            // cmbLocationTo
+            // 
+            this.cmbLocationTo.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.cmbLocationTo.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cmbLocationTo.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.cmbLocationTo.DropDownWidth = 17;
+            this.cmbLocationTo.FormattingEnabled = true;
+            this.cmbLocationTo.Location = new System.Drawing.Point(347, 82);
+            this.cmbLocationTo.Name = "cmbLocationTo";
+            this.cmbLocationTo.Size = new System.Drawing.Size(188, 21);
+            this.cmbLocationTo.TabIndex = 64;
+            this.cmbLocationTo.ViewColumn = 0;
+            // 
+            // cmbLocationFrom
+            // 
+            this.cmbLocationFrom.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.cmbLocationFrom.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cmbLocationFrom.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.cmbLocationFrom.DropDownWidth = 17;
+            this.cmbLocationFrom.FormattingEnabled = true;
+            this.cmbLocationFrom.Location = new System.Drawing.Point(105, 82);
+            this.cmbLocationFrom.Name = "cmbLocationFrom";
+            this.cmbLocationFrom.Size = new System.Drawing.Size(188, 21);
+            this.cmbLocationFrom.TabIndex = 62;
+            this.cmbLocationFrom.ViewColumn = 0;
             // 
             // frmTransferNote
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(763, 276);
-            this.Controls.Add(this.panel3);
-            this.Controls.Add(this.btnClear);
-            this.Controls.Add(this.btnPrint);
+            this.CancelButton = this.btnExit;
+            this.ClientSize = new System.Drawing.Size(684, 490);
+            this.Controls.Add(this.dgvTransferNote);
+            this.Controls.Add(this.panel5);
+            this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel1);
+            this.Controls.Add(this.txtTotal);
+            this.Controls.Add(this.lblTotal);
+            this.Controls.Add(this.lblDate);
+            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.btnClear);
+            this.Controls.Add(this.dtpDate);
+            this.Controls.Add(this.btnPrint);
+            this.Controls.Add(this.lblLocationTo);
+            this.Controls.Add(this.cmbLocationTo);
             this.Controls.Add(this.btnSave);
+            this.Controls.Add(this.cmbLocationFrom);
+            this.Controls.Add(this.lblLocationFrom);
             this.Controls.Add(this.btnClose);
+            this.Controls.Add(this.btnSearch);
+            this.Controls.Add(this.txtIssuesNumber);
+            this.Controls.Add(this.lblIssuesNumber);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmTransferNote";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Transfer Note";
-            this.panel3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.Load += new System.EventHandler(this.frmTransferNote_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTransferNote)).EndInit();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -291,19 +426,29 @@
         private ColumnComboBox cmbLocationTo;
         private ColumnComboBox cmbLocationFrom;
         private System.Windows.Forms.Button btnSearch;
-        private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvTransferNote;
         private System.Windows.Forms.Label lblLocationFrom;
         private System.Windows.Forms.Label lblIssuesNumber;
         private System.Windows.Forms.Button btnClear;
         private System.Windows.Forms.Button btnPrint;
         private System.Windows.Forms.TextBox txtIssuesNumber;
-        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.DateTimePicker dtpDate;
         private System.Windows.Forms.Label lblLocationTo;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Label lblDate;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Button btnExit;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.Label lblTitle;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmItemCode;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmDescription;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmUnit;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmCostPrice;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmQuantity;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmValue;
 
     }
 }

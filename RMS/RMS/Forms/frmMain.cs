@@ -13,7 +13,7 @@ namespace RMS.Forms
     public partial class frmMain : Form
     {
         #region Object
-
+        clsCommonMethods cCommonMethods = new clsCommonMethods();
         #endregion
 
         #region Variables
@@ -34,9 +34,10 @@ namespace RMS.Forms
                 }
                 catch (InvalidCastException exc)
                 {
-                    MessageBox.Show(exc.Message);
+                    //MessageBox.Show(exc.Message);
                 }
             }
+            cCommonMethods.UniqID();
         }
 
         #region MenuStrip Design
@@ -602,26 +603,16 @@ namespace RMS.Forms
             }
         }
 
-        private void issuToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void stockAjestmentToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void goodsReciveNoteGRNToolStripMenuItem_Click(object sender, EventArgs e)
+        private void transferNoteToolStripMenuItem_Click(object sender, EventArgs e)
         {
             try
             {
-                Inventory.frmGoodsReceiveNote open = Application.OpenForms["frmGoodsReceiveNote"] as Inventory.frmGoodsReceiveNote;
+                Inventory.frmTransferNote open = Application.OpenForms["frmTransferNote"] as Inventory.frmTransferNote;
                 if (open == null)
                 {
-                    Inventory.frmGoodsReceiveNote childPurchaseOrder = new Inventory.frmGoodsReceiveNote();
-                    childPurchaseOrder.MdiParent = this;
-                    childPurchaseOrder.Show();
+                    Inventory.frmTransferNote childTransferNote = new Inventory.frmTransferNote();
+                    childTransferNote.MdiParent = this;
+                    childTransferNote.Show();
                 }
                 else
                 {
