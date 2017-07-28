@@ -49,7 +49,6 @@ namespace BusinessLogic
             arrParameter[8, 0] = "@mflddtItemList";
             arrParameter[8, 1] = oPurchaseOrder.dtItemList;
 
-
             return cDBConnection.Insert("sp_insert_update_PurchaseOrder", arrParameter);
         }
         #endregion
@@ -65,14 +64,14 @@ namespace BusinessLogic
 
             if (dtPODetails.Rows.Count > 0)
             {
-                oPurchaseOrder.LocationCode = dtPODetails.Rows[0][0].ToString();
-                oPurchaseOrder.PurchaseOrderCode = dtPODetails.Rows[0][1].ToString();
-                oPurchaseOrder.SubLocationCode = dtPODetails.Rows[0][2].ToString();
-                oPurchaseOrder.SupplierCode = dtPODetails.Rows[0][3].ToString();
-                oPurchaseOrder.Date = Convert.ToDateTime(dtPODetails.Rows[0][4].ToString());
-                oPurchaseOrder.VAT = Convert.ToDouble(dtPODetails.Rows[0][5].ToString());
-                oPurchaseOrder.NetAmount = Convert.ToDouble(dtPODetails.Rows[0][6].ToString());
-                oPurchaseOrder.Remarks = dtPODetails.Rows[0][7].ToString();
+                oPurchaseOrder.LocationCode = dtPODetails.Rows[0]["fldLocationCode"].ToString();
+                oPurchaseOrder.PurchaseOrderCode = dtPODetails.Rows[0]["fldPOCode"].ToString();
+                oPurchaseOrder.SubLocationCode = dtPODetails.Rows[0]["fldSubLocationCode"].ToString();
+                oPurchaseOrder.SupplierCode = dtPODetails.Rows[0]["fldSupplierCode"].ToString();
+                oPurchaseOrder.Date = Convert.ToDateTime(dtPODetails.Rows[0]["fldDate"].ToString());
+                oPurchaseOrder.VAT = Convert.ToDouble(dtPODetails.Rows[0]["fldVatAmount"].ToString());
+                oPurchaseOrder.NetAmount = Convert.ToDouble(dtPODetails.Rows[0]["fldPONetAmount"].ToString());
+                oPurchaseOrder.Remarks = dtPODetails.Rows[0]["fldRemarks"].ToString();
 
                 //Price Table
                 oPurchaseOrder.dtItemList = dtPOItemList;
@@ -83,8 +82,6 @@ namespace BusinessLogic
             {
                 oPurchaseOrder.IsExists = false;
             }
-
-
             return oPurchaseOrder;
         }
         #endregion
