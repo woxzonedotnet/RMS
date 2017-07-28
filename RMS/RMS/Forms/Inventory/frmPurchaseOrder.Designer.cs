@@ -302,9 +302,9 @@
             // 
             // txtVat
             // 
-            this.txtVat.Enabled = false;
             this.txtVat.Location = new System.Drawing.Point(161, 45);
             this.txtVat.Name = "txtVat";
+            this.txtVat.ReadOnly = true;
             this.txtVat.Size = new System.Drawing.Size(141, 20);
             this.txtVat.TabIndex = 65;
             this.txtVat.Text = "0.00";

@@ -37,7 +37,7 @@ namespace RMS.Forms.Inventory
         double vat = 0;
         string Location = "";
         string DocumentCode = "PO";
-        int result = 0;
+        //int result = 0;
         double total = 0;
         Point lastClick;
         #endregion
@@ -52,17 +52,21 @@ namespace RMS.Forms.Inventory
 
         private void dataGridView1_KeyDown(object sender, KeyEventArgs e)
         {
-            if ((e.KeyCode == Keys.Space) && this.dgvItemData.CurrentCell.OwningColumn.Name.Equals("clmItemCode"))
+            try
             {
-                if (ValidateData())
+                if ((e.KeyCode == Keys.Space) && this.dgvItemData.CurrentCell.OwningColumn.Name.Equals("clmItemCode"))
                 {
-                    LoadItemDetails();
+                    if (ValidateData())
+                    {
+                        LoadItemDetails();
+                    }
+                }
             }
-        }
+            catch (Exception ex) { }
         }
 
 
-        #region LoadLocation
+        #region Load Item Data
         public void LoadItemDetails()
         {
             string[] strFieldList = new string[2];
@@ -158,7 +162,7 @@ namespace RMS.Forms.Inventory
                 }
             }
             this.txtPurchase.Text = Total.ToString();
-            if (txtVat.Enabled == true)
+            if (txtVat.ReadOnly == false)
             {
                 if (txtVat.Text != "")
                 {
@@ -188,12 +192,12 @@ namespace RMS.Forms.Inventory
         {
             if (chkVat.Checked == true)
             {
-                txtVat.Enabled = true;
+                txtVat.ReadOnly = false;
             }
             else
             {
                 this.txtVat.Text = "0.0";
-                txtVat.Enabled = false;
+                txtVat.ReadOnly = true;
             }
         }
 
@@ -218,15 +222,9 @@ namespace RMS.Forms.Inventory
         public void clear()
         {
             cCommonMethods.ClearForm(this);
+            this.txtVat.Text = "0.0";
             LoadDocumentNumber();
-            this.dgvItemData.Enabled = true;
-            this.cmbLocation.Enabled = true;
-            this.cmbSupplier.Enabled = true;
-            this.txtRemark.Enabled = true;
-            this.dtpDate.Enabled = true;
-            this.chkVat.Enabled = true;
-            this.txtPONumber.Enabled = true;
-            this.btnSave.Enabled = true;
+            EnableControls(true);
             this.btnPrint.Enabled = false;
         }
         #endregion
@@ -244,13 +242,13 @@ namespace RMS.Forms.Inventory
 
                 if (oPurchaseOrder.IsExists == false)
                 {
-                    result = InsertUpdateData();
-                    if (result != -1)
+                    if (InsertUpdateData() != -1)
                     {
                         cDocumentNumber.DeleteDocumentNumber(cGlobleVariable.UniqID,DocumentCode,this.txtPONumber.Text);
                         MessageBox.Show("Successfully Saved...!", "Purchase Order", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         this.btnPrint.Enabled = true;
-                        this.btnSave.Enabled = false;
+                        EnableControls(false);
+                        this.txtVat.ReadOnly = true;
                     }
                     else
                     {
@@ -262,6 +260,31 @@ namespace RMS.Forms.Inventory
                     MessageBox.Show("Record already exist...!", "Purchase Order", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
+        }
+
+        public void EnableControls(bool Command)
+        {
+            bool result;
+            if (Command)
+            {
+                result = true;
+                this.txtVat.ReadOnly = true;
+                this.txtRemark.ReadOnly = false;
+            }
+            else
+            {
+                result = false;
+                this.txtVat.ReadOnly = false;
+                this.txtRemark.ReadOnly = true;
+            }
+
+            this.btnSave.Enabled = result;
+            this.dgvItemData.Enabled = result;
+            this.cmbLocation.Enabled = result;
+            this.cmbSupplier.Enabled = result;
+            this.dtpDate.Enabled = result;
+            this.chkVat.Enabled = result;
+            
         }
 
         #region Validate Purchase Order Data
@@ -423,9 +446,9 @@ namespace RMS.Forms.Inventory
 
             int[] iHeaderWidth = new int[4];
             iHeaderWidth[0] = 150;
-            iHeaderWidth[1] = 320;
-            iHeaderWidth[2] = 320;
-            iHeaderWidth[3] = 320;
+            iHeaderWidth[1] = 100;
+            iHeaderWidth[2] = 150;
+            iHeaderWidth[3] = 200;
 
             string strReturnString = "Purchase Order Code";
             string strWhere = "fldLocationCode= '" + cGlobleVariable.LocationCode + "'";
@@ -485,8 +508,8 @@ namespace RMS.Forms.Inventory
             this.cmbLocation.Enabled = false;
             this.cmbSupplier.Enabled = false;
             this.dtpDate.Enabled = false;
-            this.txtVat.Enabled = false;
-            this.txtRemark.Enabled = false;
+            this.txtVat.ReadOnly = true;
+            this.txtRemark.ReadOnly = true;
             this.btnSave.Enabled = false;
             this.btnPrint.Enabled = true;
         }
