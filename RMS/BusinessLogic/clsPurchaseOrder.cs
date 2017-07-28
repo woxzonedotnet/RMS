@@ -50,7 +50,7 @@ namespace BusinessLogic
             arrParameter[8, 1] = oPurchaseOrder.dtItemList;
 
 
-            return cDBConnection.Insert("sp_insert_update_PurchaseOrder", arrParameter);
+            return cDBConnection.Insert("sp_insert_update_GoodReceiveNote", arrParameter);
         }
         #endregion
 
