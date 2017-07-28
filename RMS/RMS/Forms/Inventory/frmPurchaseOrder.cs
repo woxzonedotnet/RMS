@@ -437,7 +437,7 @@ namespace RMS.Forms.Inventory
             oPurchaseOrder = cPurchaseOrder.GetPurchaseOrderData(cGlobleVariable.LocationCode, this.txtPONumber.Text);
 
             cmbLocation.SetText(cSubLocation.GetSubLocationData(cGlobleVariable.LocationCode, oPurchaseOrder.SubLocationCode).SubLocationName);
-            cmbSupplier.SetText(cSupplier.GetSupplierDataBySupplierCode(cGlobleVariable.LocationCode, oPurchaseOrder.SupplierCode));
+            cmbSupplier.SetText(cSupplier.GetSupplierData(cGlobleVariable.LocationCode, oPurchaseOrder.SupplierCode).SupplierName);
 
             dtpDate.Value = oPurchaseOrder.Date;
             txtPurchase.Text = oPurchaseOrder.Purchase.ToString();
