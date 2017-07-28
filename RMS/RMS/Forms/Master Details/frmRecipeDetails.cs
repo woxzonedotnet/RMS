@@ -26,6 +26,7 @@ namespace RMS.Forms
         #region Variable
         Point lastClick;
         string Item;
+        double Total = 0;
         #endregion
 
         public frmRecipeDetails()
@@ -166,7 +167,7 @@ namespace RMS.Forms
 
             string strReturnString = "Item Code";
             string strWhere = "fldStatus LIKE '1'";
-            Item = cCommonMethods.BrowsData("tbl_ItemMaster", strFieldList, strHeaderList, iHeaderWidth, strReturnString, strWhere, "Item Code");
+            Item = cCommonMethods.BrowsData("tbl_ItemMaster", strFieldList, strHeaderList, iHeaderWidth, strReturnString, strWhere, "Item Details");
             if (Item != "")
             {
                 LoadLocationDetails();
@@ -203,9 +204,9 @@ namespace RMS.Forms
                 this.dgvItemDetails.Rows.Add();
                 this.dgvItemDetails.Rows[this.dgvItemDetails.CurrentCell.RowIndex - 1].Cells["clmItemCode"].Value = oItemMaster.ItemCode;
                 this.dgvItemDetails.Rows[this.dgvItemDetails.CurrentCell.RowIndex - 1].Cells["clmDescription"].Value = oItemMaster.Description;
-                this.dgvItemDetails.Rows[this.dgvItemDetails.CurrentCell.RowIndex - 1].Cells["clmUnit"].Value = oItemMaster.Unit;
+                this.dgvItemDetails.Rows[this.dgvItemDetails.CurrentCell.RowIndex - 1].Cells["clmUnit"].Value = oItemMaster.Unit.ToString("N2");
                 this.dgvItemDetails.Rows[this.dgvItemDetails.CurrentCell.RowIndex - 1].Cells["clmQuantity"].Value = "0.00";
-                this.dgvItemDetails.Rows[this.dgvItemDetails.CurrentCell.RowIndex - 1].Cells["clmUnitPrice"].Value = oItemMaster.CostPrice;
+                this.dgvItemDetails.Rows[this.dgvItemDetails.CurrentCell.RowIndex - 1].Cells["clmUnitPrice"].Value = oItemMaster.CostPrice.ToString("###,###.00");
                 this.dgvItemDetails.CurrentCell = this.dgvItemDetails.Rows[row].Cells[3];
             }
         }
@@ -213,9 +214,29 @@ namespace RMS.Forms
 
         private void dgvItemDetails_CellValidated(object sender, DataGridViewCellEventArgs e)
         {
-            //calculation
+            Calcuation();
         }
 
+        private void Calcuation() 
+        {
+            try
+            {
+                double qtyPrice = Convert.ToDouble(this.dgvItemDetails.Rows[this.dgvItemDetails.CurrentCell.RowIndex].Cells["clmUnitPrice"].Value);
+                double qty = Convert.ToDouble(this.dgvItemDetails.Rows[this.dgvItemDetails.CurrentCell.RowIndex].Cells["clmUnit"].Value);
+                this.dgvItemDetails.Rows[this.dgvItemDetails.CurrentCell.RowIndex].Cells["clmTotalCost"].Value = (qtyPrice * qty).ToString("###,###.00");
+
+                Total = 0;
+                for (int i = 0; i < dgvItemDetails.Rows.Count; i++)
+                {
+                    if (this.dgvItemDetails.Rows[i].Cells["clmTotalCost"].Value != null)
+                    {
+                        Total += Convert.ToDouble(this.dgvItemDetails.Rows[i].Cells["clmTotalCost"].Value);
+                    }
+                }
+                this.txtRecipeCost.Text = Total.ToString("###,###.00");
+            }
+            catch (Exception ex) { }
+        }
 
     }
 }

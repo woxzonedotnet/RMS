@@ -75,6 +75,7 @@
             this.txtRecipeCost.Location = new System.Drawing.Point(453, 368);
             this.txtRecipeCost.Name = "txtRecipeCost";
             this.txtRecipeCost.ReadOnly = true;
+            this.txtRecipeCost.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.txtRecipeCost.Size = new System.Drawing.Size(150, 21);
             this.txtRecipeCost.TabIndex = 37;
             // 
