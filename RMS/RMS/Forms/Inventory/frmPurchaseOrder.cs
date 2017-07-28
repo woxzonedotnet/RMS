@@ -83,7 +83,7 @@ namespace RMS.Forms.Inventory
 
             string strReturnString = "Item Code";
             string strWhere = "fldStatus LIKE '1'";
-            Item = cCommonMethods.BrowsData("tbl_ItemMaster", strFieldList, strHeaderList, iHeaderWidth, strReturnString, strWhere, "Item Code");
+            Item = cCommonMethods.BrowsData("tbl_ItemMaster", strFieldList, strHeaderList, iHeaderWidth, strReturnString, strWhere, "Item Details");
             if (Item != "")
             {
                 LoadLocationDetails();
@@ -139,47 +139,47 @@ namespace RMS.Forms.Inventory
         {
             try
             {
-            double qty = Convert.ToDouble(this.dgvItemData.Rows[this.dgvItemData.CurrentCell.RowIndex].Cells["clmQuantity"].Value);
-            double price = Convert.ToDouble(this.dgvItemData.Rows[this.dgvItemData.CurrentCell.RowIndex].Cells["clmUnitPrice"].Value);
-            double tax = Convert.ToDouble(this.dgvItemData.Rows[this.dgvItemData.CurrentCell.RowIndex].Cells["clmTaxAmount"].Value);
-            total = (qty * price);
-            if ((this.dgvItemData.Rows[this.dgvItemData.CurrentCell.RowIndex].Cells["clmTax_chk"].Value != null) && this.dgvItemData.Rows[this.dgvItemData.CurrentCell.RowIndex].Cells["clmTax_chk"].Value.ToString().Equals("True"))
-            {
-                this.dgvItemData.Rows[this.dgvItemData.CurrentCell.RowIndex].Cells["clmTotalAmount"].Value = total + tax;
-            }
-            else
-            {
-                this.dgvItemData.Rows[this.dgvItemData.CurrentCell.RowIndex].Cells["clmTotalAmount"].Value = total;
-            }
-
-
-            Total = 0;
-            for (int i = 0; i < dgvItemData.Rows.Count; i++)
-            {
-                if (this.dgvItemData.Rows[i].Cells["clmTotalAmount"].Value != null)
+                double qty = Convert.ToDouble(this.dgvItemData.Rows[this.dgvItemData.CurrentCell.RowIndex].Cells["clmQuantity"].Value);
+                double price = Convert.ToDouble(this.dgvItemData.Rows[this.dgvItemData.CurrentCell.RowIndex].Cells["clmUnitPrice"].Value);
+                double tax = Convert.ToDouble(this.dgvItemData.Rows[this.dgvItemData.CurrentCell.RowIndex].Cells["clmTaxAmount"].Value);
+                total = (qty * price);
+                if ((this.dgvItemData.Rows[this.dgvItemData.CurrentCell.RowIndex].Cells["clmTax_chk"].Value != null) && this.dgvItemData.Rows[this.dgvItemData.CurrentCell.RowIndex].Cells["clmTax_chk"].Value.ToString().Equals("True"))
                 {
-                    Total += Convert.ToDouble(this.dgvItemData.Rows[i].Cells["clmTotalAmount"].Value);
-                }
-            }
-            this.txtPurchase.Text = Total.ToString();
-            if (txtVat.ReadOnly == false)
-            {
-                if (txtVat.Text != "")
-                {
-                    vat = double.Parse(txtVat.Text);
-                    NetAmount = (Total + vat);
-                    txtNetAmount.Text = NetAmount.ToString();
+                    this.dgvItemData.Rows[this.dgvItemData.CurrentCell.RowIndex].Cells["clmTotalAmount"].Value = (total + tax).ToString("###,###.00");
                 }
                 else
                 {
-                    NetAmount = Total;
-                    txtNetAmount.Text = NetAmount.ToString();
+                    this.dgvItemData.Rows[this.dgvItemData.CurrentCell.RowIndex].Cells["clmTotalAmount"].Value = total.ToString("###,###.00");
                 }
-            }
-            else
-            {
-                txtNetAmount.Text = Total.ToString();
-            }
+
+
+                Total = 0;
+                for (int i = 0; i < dgvItemData.Rows.Count; i++)
+                {
+                    if (this.dgvItemData.Rows[i].Cells["clmTotalAmount"].Value != null)
+                    {
+                        Total += Convert.ToDouble(this.dgvItemData.Rows[i].Cells["clmTotalAmount"].Value);
+                    }
+                }
+                this.txtPurchase.Text = Total.ToString("###,###.00");
+                if (txtVat.ReadOnly == false)
+                {
+                    if (txtVat.Text != "")
+                    {
+                        vat = double.Parse(txtVat.Text);
+                        NetAmount = (Total + vat);
+                        txtNetAmount.Text = NetAmount.ToString("###,###.00");
+                    }
+                    else
+                    {
+                        NetAmount = Total;
+                        txtNetAmount.Text = NetAmount.ToString("###,###.00");
+                    }
+                }
+                else
+                {
+                    txtNetAmount.Text = Total.ToString("###,###.00");
+                }
             }
             catch (Exception ex) 
             {
@@ -196,7 +196,7 @@ namespace RMS.Forms.Inventory
             }
             else
             {
-                this.txtVat.Text = "0.0";
+                this.txtVat.Text = "0.00";
                 txtVat.ReadOnly = true;
             }
         }
@@ -222,7 +222,7 @@ namespace RMS.Forms.Inventory
         public void clear()
         {
             cCommonMethods.ClearForm(this);
-            this.txtVat.Text = "0.0";
+            this.txtVat.Text = "0.00";
             LoadDocumentNumber();
             EnableControls(true);
             this.btnPrint.Enabled = false;
@@ -238,6 +238,7 @@ namespace RMS.Forms.Inventory
         {
             if (ValidateData())
             {
+                calculatAmounts();
                 oPurchaseOrder = cPurchaseOrder.GetPurchaseOrderData(cGlobleVariable.LocationCode, this.txtPONumber.Text);
 
                 if (oPurchaseOrder.IsExists == false)
@@ -340,16 +341,15 @@ namespace RMS.Forms.Inventory
             oPurchaseOrder.NetAmount = Convert.ToDouble(this.txtNetAmount.Text);
             oPurchaseOrder.Remarks = this.txtRemark.Text;
 
-            oPurchaseOrder.dtItemList = DataGridToDataTable(dgvItemData,oPurchaseOrder.LocationCode,oPurchaseOrder.PurchaseOrderCode);
+            oPurchaseOrder.dtItemList = DataGridToDataTable(dgvItemData,oPurchaseOrder.PurchaseOrderCode);
             
             return cPurchaseOrder.InsertUpdateData(oPurchaseOrder);
         }
         #endregion
-        public DataTable DataGridToDataTable(DataGridView dgv,string strLocationCode, string strPOCode)
+        public DataTable DataGridToDataTable(DataGridView dgv, string strPOCode)
         {
             DataTable dt = new DataTable();
 
-            dt.Columns.Add("fldLocationCode");
             dt.Columns.Add("fldPOCode");
             dt.Columns.Add("fldItemCode");
             dt.Columns.Add("fldUnitPrice");
@@ -362,12 +362,11 @@ namespace RMS.Forms.Inventory
                 DataRow dRow = dt.NewRow();
                 try
                 {
-                    dRow[0] = strLocationCode;
-                    dRow[1] = strPOCode;
-                    dRow[2] = row.Cells[0].Value.ToString();
-                    dRow[3] = row.Cells[2].Value.ToString();
-                    dRow[4] = row.Cells[3].Value.ToString();
-                    dRow[5] = row.Cells[5].Value.ToString();
+                    dRow[0] = strPOCode;
+                    dRow[1] = row.Cells[0].Value.ToString();
+                    dRow[2] = row.Cells[2].Value.ToString();
+                    dRow[3] = row.Cells[3].Value.ToString();
+                    dRow[4] = row.Cells[5].Value.ToString();
                     dt.Rows.Add(dRow);
                 }catch(Exception ex)
                 {
@@ -395,7 +394,7 @@ namespace RMS.Forms.Inventory
                         //tax calculate
                        double taxPrecentage = Convert.ToDouble(cSetupSetting.GetSetupSettingData(cGlobleVariable.LocationCode).VAT);
                        double totalTax = (total * taxPrecentage) / 100;
-                       this.dgvItemData.Rows[this.dgvItemData.CurrentCell.RowIndex].Cells["clmTaxAmount"].Value = totalTax;
+                       this.dgvItemData.Rows[this.dgvItemData.CurrentCell.RowIndex].Cells["clmTaxAmount"].Value = totalTax.ToString("###,###.00");
                        calculatAmounts();
                     }
                     else
@@ -469,7 +468,7 @@ namespace RMS.Forms.Inventory
             cmbSupplier.SetText(cSupplier.GetSupplierData(cGlobleVariable.LocationCode, oPurchaseOrder.SupplierCode).SupplierName);
 
             dtpDate.Value = oPurchaseOrder.Date;
-            txtPurchase.Text = oPurchaseOrder.Purchase.ToString();
+            txtPurchase.Text = oPurchaseOrder.Purchase.ToString("###,###.00");
 
             if (oPurchaseOrder.VAT > 0) 
             {
@@ -518,6 +517,11 @@ namespace RMS.Forms.Inventory
         private void btnPrint_Click(object sender, EventArgs e)
         {
             clear();
+        }
+
+        private void dgvItemData_RowsRemoved(object sender, DataGridViewRowsRemovedEventArgs e)
+        {
+            calculatAmounts();
         }
     }
 }
