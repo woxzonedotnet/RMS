@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using BusinessObject;
 using DataAccess;
+using System.Data;
 
 namespace BusinessLogic
 {
@@ -56,39 +57,43 @@ namespace BusinessLogic
         }
         #endregion
 
-        //#region Get Purchase Order Data using ItemCode
-        //public objPurchaseOrder GetItemData(string strLocationCode, string strPurchaseOrderCode)
-        //{
-        //    string strWhere1 = "fldPOCode='" + strPurchaseOrderCode + "' AND fldLocationCode='" + strLocationCode + "'";
-        //    string strWhere2 = "fldPOCode='" + strPurchaseOrderCode + "'";
+        #region Get Good Receive Note Data using GRNCode
+        public objGoodReceiveNote GetGoodReceiveNoteData(string strLocationCode, string strGoodReceiveNoteCode)
+        {
+            string strWhere1 = "fldGRNCode='" + strGoodReceiveNoteCode + "' AND fldLocationCode='" + strLocationCode + "'";
+            string strWhere2 = "fldGRNCode='" + strGoodReceiveNoteCode + "'";
 
-        //    DataTable dtPODetails = cDBConnection.SearchData("tbl_PODetails", strWhere2);
-        //    DataTable dtPOItemList = cDBConnection.SearchData("tbl_POItemList", strWhere1);
+            DataTable dtGRNDetails = cDBConnection.SearchData("tbl_GRNDetails", strWhere1);
+            DataTable dtGRNItemList = cDBConnection.SearchData("tbl_GRNItemList", strWhere2);
 
-        //    if (dtPODetails.Rows.Count > 0)
-        //    {
-        //        oPurchaseOrder.LocationCode = dtPODetails.Rows[0][0].ToString();
-        //        oPurchaseOrder.PurchaseOrderCode = dtPODetails.Rows[0][1].ToString();
-        //        oPurchaseOrder.SubLocationCode = dtPODetails.Rows[0][2].ToString();
-        //        oPurchaseOrder.SupplierCode = dtPODetails.Rows[0][3].ToString();
-        //        oPurchaseOrder.Date = Convert.ToDateTime(dtPODetails.Rows[0][4].ToString());
-        //        oPurchaseOrder.VAT = Convert.ToDouble(dtPODetails.Rows[0][5].ToString());
-        //        oPurchaseOrder.NetAmount = Convert.ToDouble(dtPODetails.Rows[0][6].ToString());
-        //        oPurchaseOrder.Remarks = dtPODetails.Rows[0][7].ToString();
+            if (dtGRNDetails.Rows.Count > 0)
+            {
 
-        //        //Price Table
-        //        oPurchaseOrder.dtItemList = dtPOItemList;
+                oGoodReceiveNote.LocationCode = dtGRNDetails.Rows[0]["fldLocationCode"].ToString();
+                oGoodReceiveNote.GRNCode = dtGRNDetails.Rows[0]["fldGRNCode"].ToString();
+                oGoodReceiveNote.SubLocationCode = dtGRNDetails.Rows[0]["fldSubLocationCode"].ToString();
+                oGoodReceiveNote.SupplierCode = dtGRNDetails.Rows[0]["fldSupplierCode"].ToString();
+                oGoodReceiveNote.Date = Convert.ToDateTime(dtGRNDetails.Rows[0]["fldDate"].ToString());
+                oGoodReceiveNote.InvoiceNo = dtGRNDetails.Rows[0]["fldInvoiceNo"].ToString();
+                oGoodReceiveNote.GRNValue = Convert.ToDouble(dtGRNDetails.Rows[0]["fldGRNValue"].ToString());
+                oGoodReceiveNote.VATPresentage = Convert.ToDouble(dtGRNDetails.Rows[0]["fldVatPrecentage"].ToString());
+                oGoodReceiveNote.VATAmount = Convert.ToDouble(dtGRNDetails.Rows[0]["fldVatAmount"].ToString());
+                oGoodReceiveNote.Discount = Convert.ToDouble(dtGRNDetails.Rows[0]["fldDiscount"].ToString());
+                oGoodReceiveNote.NetAmount = Convert.ToDouble(dtGRNDetails.Rows[0]["fldNetAmount"].ToString());
 
-        //        oPurchaseOrder.IsExists = true;
-        //    }
-        //    else
-        //    {
-        //        oPurchaseOrder.IsExists = false;
-        //    }
+                //Price Table
+                oGoodReceiveNote.dtItemList = dtGRNItemList;
+
+                oGoodReceiveNote.IsExists = true;
+            }
+            else
+            {
+                oGoodReceiveNote.IsExists = false;
+            }
 
 
-        //    return oPurchaseOrder;
-        //}
-        //#endregion
+            return oGoodReceiveNote;
+        }
+        #endregion
     }
 }

@@ -23,17 +23,22 @@ namespace RMS.Forms.Inventory
         objItemMaster oItemMaster = new objItemMaster();
         clsItemMaster cItemMaster = new clsItemMaster();
         clsSetupSetting cSetupSetting = new clsSetupSetting();
+        objGoodReceiveNote oGoodReceiveNote = new objGoodReceiveNote();
+        clsGoodReceiveNote cGoodReceiveNote = new clsGoodReceiveNote();
+        clsDocumentNumber cDocumentNumber = new clsDocumentNumber();
         #endregion
 
         #region Variable
         string Location = "";
         string Item = "";
+        string DocumentCode = "GR";
         double unitPrice = 0;
         double TotalAmount = 0;
         double vat = 0;
         double discount = 0;
         double Value = 0;
         double NetAmount = 0;
+        int result = 0;
         #endregion
 
         public frmGoodsReceiveNote()
@@ -169,11 +174,11 @@ namespace RMS.Forms.Inventory
                 this.dgvItemData.Rows[this.dgvItemData.CurrentCell.RowIndex].Cells["clmUnitPrice"].Value = Math.Round(unitPrice,2);
                 if ((this.dgvItemData.Rows[this.dgvItemData.CurrentCell.RowIndex].Cells["clmTax_chk"].Value != null) && this.dgvItemData.Rows[this.dgvItemData.CurrentCell.RowIndex].Cells["clmTax_chk"].Value.ToString().Equals("True"))
                 {
-                    this.dgvItemData.Rows[this.dgvItemData.CurrentCell.RowIndex].Cells["clmTotalAmount"].Value = Value + tax;
+                    this.dgvItemData.Rows[this.dgvItemData.CurrentCell.RowIndex].Cells["clmTotalAmount"].Value = Math.Round(Value + tax,2);
                 }
                 else
                 {
-                    this.dgvItemData.Rows[this.dgvItemData.CurrentCell.RowIndex].Cells["clmTotalAmount"].Value = Value;
+                    this.dgvItemData.Rows[this.dgvItemData.CurrentCell.RowIndex].Cells["clmTotalAmount"].Value = Math.Round(Value,2);
                 }
 
 
@@ -185,16 +190,16 @@ namespace RMS.Forms.Inventory
                         TotalAmount += Convert.ToDouble(this.dgvItemData.Rows[i].Cells["clmTotalAmount"].Value);
                     }
                 }
-                this.txtGRNValue.Text = TotalAmount.ToString();
+                this.txtGRNValue.Text = Math.Round(TotalAmount,2).ToString();
                 if (txtVatPrecentage.Enabled == true)
                 {
                     //VAT
                     if (txtVatPrecentage.Text != "")
                     {
                         vat = (double.Parse(txtGRNValue.Text)) * (double.Parse(txtVatPrecentage.Text) / 100);
-                        txtVatAmount.Text = vat.ToString();
+                        txtVatAmount.Text = Math.Round(vat,2).ToString();
                         NetAmount = (TotalAmount + vat);
-                        txtNetAmount.Text = NetAmount.ToString();
+                        txtNetAmount.Text = Math.Round(NetAmount,2).ToString();
                     }
                     //discount
                     if (txtDiscount.Text != "")
@@ -204,7 +209,7 @@ namespace RMS.Forms.Inventory
                         NetAmount = (NetAmount - discount);
                         if (NetAmount >= 0)
                         {
-                            txtNetAmount.Text = NetAmount.ToString();
+                            txtNetAmount.Text = Math.Round(NetAmount,2).ToString();
                         }
                         else
                         {
@@ -214,7 +219,7 @@ namespace RMS.Forms.Inventory
                 }
                 else
                 {
-                    txtNetAmount.Text = TotalAmount.ToString();
+                    txtNetAmount.Text = Math.Round(TotalAmount,2).ToString();
                 }
             }
             catch (Exception ex)
@@ -258,7 +263,7 @@ namespace RMS.Forms.Inventory
                         //tax calculate
                         double taxPrecentage = Convert.ToDouble(cSetupSetting.GetSetupSettingData(cGlobleVariable.LocationCode).VAT);
                         double totalTax = (Value * taxPrecentage) / 100;
-                        this.dgvItemData.Rows[this.dgvItemData.CurrentCell.RowIndex].Cells["clmTaxAmount"].Value = totalTax;
+                        this.dgvItemData.Rows[this.dgvItemData.CurrentCell.RowIndex].Cells["clmTaxAmount"].Value = Math.Round(totalTax,2);
                         calculatAmounts();
                     }
                     else
@@ -278,27 +283,26 @@ namespace RMS.Forms.Inventory
         {
             if (ValidateData())
             {
-                MessageBox.Show("Valid Date");
-                //oPurchaseOrder = cPurchaseOrder.GetItemData(cGlobleVariable.LocationCode, this.txtPONumber.Text);
+                oGoodReceiveNote = cGoodReceiveNote.GetGoodReceiveNoteData(cGlobleVariable.LocationCode, this.txtGRNNumber.Text);
 
-                //if (oPurchaseOrder.IsExists == false)
-                //{
-                //    result = InsertUpdateData();
-                //    if (result != -1)
-                //    {
-                //        MessageBox.Show("Successfully Saved...!", "Purchase Order", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                //        cDocumentNumber.DeleteDocumentNumber(cGlobleVariable.UniqID, DocumentCode, txtPONumber.Text);
-                //        clear();
-                //    }
-                //    else
-                //    {
-                //        MessageBox.Show("Item Data Not Saved...!", "Purchase Order", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                //    }
-                //}
-                //else
-                //{
-                //    MessageBox.Show("Record already exist...!", "Purchase Order", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                //}
+                if (oGoodReceiveNote.IsExists == false)
+                {
+                    result = InsertUpdateData();
+                    if (result != -1)
+                    {
+                        MessageBox.Show("Successfully Saved...!", "Purchase Order", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        cDocumentNumber.DeleteDocumentNumber(cGlobleVariable.UniqID, DocumentCode, txtGRNNumber.Text);
+                        //clear();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Item Data Not Saved...!", "Purchase Order", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Record already exist...!", "Purchase Order", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
             }
         }
 
@@ -366,6 +370,65 @@ namespace RMS.Forms.Inventory
         }
         #endregion
 
+        public DataTable DataGridToDataTable(DataGridView dgv,string strGRNCode)
+        {
+            DataTable dt = new DataTable();
+
+            dt.Columns.Add("fldGRNCode");
+            dt.Columns.Add("fldItemCode");
+            dt.Columns.Add("fldUnitPrice");
+            dt.Columns.Add("fldQuantity");
+            dt.Columns.Add("fldValue");
+            dt.Columns.Add("fldTaxAmount");
+
+
+            foreach (DataGridViewRow row in dgv.Rows)
+            {
+                DataRow dRow = dt.NewRow();
+                try
+                {
+                    dRow[0] = strGRNCode;
+                    dRow[1] = row.Cells[0].Value.ToString();
+                    dRow[2] = row.Cells[3].Value.ToString();
+                    dRow[3] = row.Cells[4].Value.ToString();
+                    dRow[4] = row.Cells[5].Value.ToString();
+                    dRow[5] = row.Cells[7].Value.ToString();
+                    dt.Rows.Add(dRow);
+                }
+                catch (Exception ex)
+                {
+
+                }
+
+            }
+            return dt;
+        }
+        
+        #region InsertUpdate Good Receive Note Data
+        private int InsertUpdateData()
+        {
+            oGoodReceiveNote.LocationCode = cGlobleVariable.LocationCode;
+            oGoodReceiveNote.GRNCode = this.txtGRNNumber.Text;
+            oGoodReceiveNote.SubLocationCode = this.cmbLocation["fldSubLocationCode"].ToString();
+            oGoodReceiveNote.SupplierCode = this.cmbSupplier["fldSupplierCode"].ToString();
+            oGoodReceiveNote.Date = this.dtpDate.Value;
+            oGoodReceiveNote.InvoiceNo = this.txtInvoiceNo.Text;
+            oGoodReceiveNote.GRNValue = Convert.ToDouble(this.txtGRNValue.Text);
+            oGoodReceiveNote.VATPresentage = Convert.ToDouble(this.txtVatPrecentage.Text);
+            oGoodReceiveNote.VATAmount = Convert.ToDouble(this.txtVatAmount.Text);
+            oGoodReceiveNote.Discount = Convert.ToDouble(this.txtDiscount.Text);
+            oGoodReceiveNote.NetAmount = Convert.ToDouble(this.txtNetAmount.Text);
+
+            oGoodReceiveNote.dtItemList = DataGridToDataTable(dgvItemData, oGoodReceiveNote.GRNCode);
+
+            return cGoodReceiveNote.InsertUpdateData(oGoodReceiveNote);
+        }
+        #endregion
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
+        }
 
     }
 }
