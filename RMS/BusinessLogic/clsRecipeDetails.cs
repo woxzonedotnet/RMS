@@ -13,17 +13,9 @@ namespace BusinessLogic
     {
         #region Objects
         clsDBConnection cDBConnection = new clsDBConnection();
-        //objRecipeDetails oRecipeDetails = new objRecipeDetails();
         #endregion
 
-        #region GetOrderType Data
-        public DataTable GetOrderTypeData()
-        {
-            
-            DataTable dtOrderType = cDBConnection.SearchData("tbl_OrderType");
-            return dtOrderType;
-        }
-        #endregion
+
         
 
        
