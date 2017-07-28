@@ -59,8 +59,8 @@ namespace BusinessLogic
             string strWhere1 = "fldPOCode='" + strPurchaseOrderCode + "' AND fldLocationCode='" + strLocationCode + "'";
             string strWhere2 = "fldPOCode='" + strPurchaseOrderCode + "'";
 
-            DataTable dtPODetails = cDBConnection.SearchData("tbl_PODetails", strWhere2);
-            DataTable dtPOItemList = cDBConnection.SearchData("tbl_POItemList", strWhere1);
+            DataTable dtPODetails = cDBConnection.SearchData("tbl_PODetails", strWhere1);
+            DataTable dtPOItemList = cDBConnection.SearchData("tbl_POItemList", strWhere2);
 
             if (dtPODetails.Rows.Count > 0)
             {
