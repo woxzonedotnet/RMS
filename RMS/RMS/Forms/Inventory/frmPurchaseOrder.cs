@@ -372,7 +372,13 @@ namespace RMS.Forms.Inventory
                         //tax calculate
                        double taxPrecentage = Convert.ToDouble(cSetupSetting.GetSetupSettingData(cGlobleVariable.LocationCode).VAT);
                        double totalTax = (total * taxPrecentage) / 100;
-                       this.dgvItemData.Rows[this.dgvItemData.CurrentCell.RowIndex].Cells["clmTaxAmount"].Value = totalTax; 
+                       this.dgvItemData.Rows[this.dgvItemData.CurrentCell.RowIndex].Cells["clmTaxAmount"].Value = totalTax;
+                       calculatAmounts();
+                    }
+                    else
+                    {
+                        this.dgvItemData.Rows[this.dgvItemData.CurrentCell.RowIndex].Cells["clmTaxAmount"].Value = "0.00";
+                        calculatAmounts();
                     }
                 }
             }
