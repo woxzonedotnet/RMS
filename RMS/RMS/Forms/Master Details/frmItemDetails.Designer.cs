@@ -469,7 +469,6 @@
             this.lblActiveStatus.Size = new System.Drawing.Size(85, 16);
             this.lblActiveStatus.TabIndex = 95;
             this.lblActiveStatus.Text = "Active Status";
-            this.lblActiveStatus.Click += new System.EventHandler(this.lblActiveStatus_Click);
             // 
             // errItem
             // 
@@ -532,7 +531,6 @@
             this.cmbStatus.Size = new System.Drawing.Size(157, 21);
             this.cmbStatus.TabIndex = 94;
             this.cmbStatus.ViewColumn = 0;
-            this.cmbStatus.SelectedIndexChanged += new System.EventHandler(this.cmbStatus_SelectedIndexChanged);
             // 
             // cmbCapacityType
             // 
