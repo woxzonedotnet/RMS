@@ -19,7 +19,16 @@ namespace BusinessLogic
         #region GetMenuCategory Data Using MenuDepartmentCode & MenuCategoryCode
         public objMenuCategory GetMenuCategoryData(string strLocationCode, string strMenuDepartmentCode,string strMenuCategoryCode)
         {
-            string strWhere = "fldLocationCode='" + strLocationCode + "' AND fldMenuDepartmentCode='" + strMenuDepartmentCode + "' and fldMenuCategoryCode='"+ strMenuCategoryCode +"'";
+            string strWhere = "";
+
+            if (strMenuDepartmentCode == "%")
+            {
+                strWhere = "fldLocationCode='" + strLocationCode + "'and fldMenuCategoryCode='" + strMenuCategoryCode + "'";
+            }
+            else 
+            {
+                strWhere = "fldLocationCode='" + strLocationCode + "' AND fldMenuDepartmentCode='" + strMenuDepartmentCode + "' and fldMenuCategoryCode='" + strMenuCategoryCode + "'";
+            }
 
             DataTable dtMenuCategory = cDBConnection.SearchData("tbl_MenuCategory", strWhere);
 

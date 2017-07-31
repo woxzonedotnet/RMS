@@ -68,6 +68,8 @@ namespace BusinessLogic
             arrParameter[19, 1] = oItemMaster.ReOrderMax;
             arrParameter[20, 0] = "@mfldStatus";
             arrParameter[20, 1] = oItemMaster.Status;
+            arrParameter[21, 0] = "@mflddtItemLocationList";
+            arrParameter[21, 1] = oItemMaster.dtItemList;
 
             return cDBConnection.Insert("sp_insert_update_itemMaster", arrParameter);
         }
@@ -98,6 +100,7 @@ namespace BusinessLogic
             DataTable dtItemMaster = cDBConnection.SearchData("tbl_ItemMaster", strWhere1);
             DataTable dtItemPrice = cDBConnection.SearchData("tbl_ItemPrice", strWhere2);
             DataTable dtItemReOrder = cDBConnection.SearchData("tbl_ItemReOrder", strWhere2);
+            DataTable dtItemLocation = cDBConnection.SearchData("tbl_ItemLocation", strWhere1);
 
             if (dtItemMaster.Rows.Count > 0)
             {
@@ -127,6 +130,8 @@ namespace BusinessLogic
                 oItemMaster.ReOrderLevel = Convert.ToDouble(dtItemReOrder.Rows[0]["fldReOrderLevel"].ToString());
                 oItemMaster.ReOrderQty = Convert.ToDouble(dtItemReOrder.Rows[0]["fldReOrderQty"].ToString());
                 oItemMaster.ReOrderMax = Convert.ToDouble(dtItemReOrder.Rows[0]["fldReOrderMax"].ToString());
+
+                oItemMaster.dtItemList = dtItemLocation;
 
                 oItemMaster.IsExists = true;
             }
