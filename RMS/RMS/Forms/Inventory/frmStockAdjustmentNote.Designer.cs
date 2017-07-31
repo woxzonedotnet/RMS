@@ -32,7 +32,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmStockAdjustmentNote));
             this.dtpDate = new System.Windows.Forms.DateTimePicker();
             this.lblLocation = new System.Windows.Forms.Label();
-            this.panel3 = new System.Windows.Forms.Panel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.clsItemCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Description = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -53,7 +52,6 @@
             this.btnSave = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
             this.errStockAdjusment = new System.Windows.Forms.ErrorProvider(this.components);
-            this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errStockAdjusment)).BeginInit();
@@ -78,15 +76,6 @@
             this.lblLocation.TabIndex = 63;
             this.lblLocation.Text = "Location";
             // 
-            // panel3
-            // 
-            this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel3.Controls.Add(this.dataGridView1);
-            this.panel3.Location = new System.Drawing.Point(12, 12);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(402, 251);
-            this.panel3.TabIndex = 95;
-            // 
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -97,9 +86,9 @@
             this.clsSysStock,
             this.clsCost,
             this.clsTotalCost});
-            this.dataGridView1.Location = new System.Drawing.Point(3, 3);
+            this.dataGridView1.Location = new System.Drawing.Point(12, 20);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(394, 243);
+            this.dataGridView1.Size = new System.Drawing.Size(645, 306);
             this.dataGridView1.TabIndex = 0;
             // 
             // clsItemCode
@@ -170,7 +159,7 @@
             this.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
             this.btnClear.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnClear.Location = new System.Drawing.Point(592, 227);
+            this.btnClear.Location = new System.Drawing.Point(825, 189);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(75, 36);
             this.btnClear.TabIndex = 93;
@@ -185,7 +174,7 @@
             this.btnPrint.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPrint.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
             this.btnPrint.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnPrint.Location = new System.Drawing.Point(511, 227);
+            this.btnPrint.Location = new System.Drawing.Point(744, 189);
             this.btnPrint.Name = "btnPrint";
             this.btnPrint.Size = new System.Drawing.Size(75, 36);
             this.btnPrint.TabIndex = 92;
@@ -205,7 +194,7 @@
             this.panel1.Controls.Add(this.txtSANNumber);
             this.panel1.Controls.Add(this.btnSearch);
             this.panel1.Controls.Add(this.lblSANNumber);
-            this.panel1.Location = new System.Drawing.Point(430, 12);
+            this.panel1.Location = new System.Drawing.Point(663, 20);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(318, 163);
             this.panel1.TabIndex = 90;
@@ -216,7 +205,6 @@
             this.txtTotalCost.Name = "txtTotalCost";
             this.txtTotalCost.Size = new System.Drawing.Size(188, 20);
             this.txtTotalCost.TabIndex = 70;
-            this.txtTotalCost.TextChanged += new System.EventHandler(this.txtTotalCost_TextChanged);
             // 
             // lblTotalCost
             // 
@@ -261,7 +249,7 @@
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
             this.btnSave.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnSave.Location = new System.Drawing.Point(430, 227);
+            this.btnSave.Location = new System.Drawing.Point(663, 189);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 36);
             this.btnSave.TabIndex = 91;
@@ -277,7 +265,7 @@
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
             this.btnClose.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnClose.Location = new System.Drawing.Point(673, 227);
+            this.btnClose.Location = new System.Drawing.Point(906, 189);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(75, 36);
             this.btnClose.TabIndex = 94;
@@ -292,8 +280,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(763, 277);
-            this.Controls.Add(this.panel3);
+            this.ClientSize = new System.Drawing.Size(986, 338);
+            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.btnClear);
             this.Controls.Add(this.btnPrint);
             this.Controls.Add(this.panel1);
@@ -301,8 +289,6 @@
             this.Controls.Add(this.btnClose);
             this.Name = "frmStockAdjustmentNote";
             this.Text = "Stock Adjustment Note";
-            this.Load += new System.EventHandler(this.frmStockAdjustmentNote_Load);
-            this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -315,7 +301,6 @@
 
         private System.Windows.Forms.DateTimePicker dtpDate;
         private System.Windows.Forms.Label lblLocation;
-        private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label lblDate;
         private ColumnComboBox cmbLocation;

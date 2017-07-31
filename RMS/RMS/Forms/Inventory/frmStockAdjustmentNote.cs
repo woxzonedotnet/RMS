@@ -129,15 +129,6 @@ namespace RMS.Forms.Inventory
             //this.txtCardCode.Focus();
         }
         #endregion
-        private void txtTotalCost_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void frmStockAdjustmentNote_Load(object sender, EventArgs e)
-        {
-
-        }
         }
 }
 
