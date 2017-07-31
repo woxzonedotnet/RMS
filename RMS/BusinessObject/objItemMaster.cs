@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -32,6 +33,7 @@ namespace BusinessObject
         public double ReOrderQty { get; set; }
         public double ReOrderMax { get; set; }
         public int Status { get; set; }
+        public DataTable dtItemList { get; set; }
         public bool IsExists { get; set; }
 
     }

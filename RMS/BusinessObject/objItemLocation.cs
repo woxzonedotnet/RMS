@@ -17,7 +17,7 @@ namespace BusinessObject
         public double OldStock { get; set; }
         public bool Initialized { get; set; }
         public bool DataTransfer { get; set; }
-        public char Sup { get; set; }
+        //public char Sup { get; set; }
         public double PendingInvoice { get; set; }
         public double DamageReturn { get; set; }
         public bool Invoiced { get; set; }
