@@ -353,6 +353,43 @@ namespace RMS.Forms
         }
         #endregion
 
+        //private int InsertUpdateItemLocationData()
+        //{
+        //    oItemLocation.LocationCode=cGlobleVariable.LocationCode;
+        //    oItemLocation.SubLocationCode=
+        //    return 
+        //}
+
+
+        public DataTable DataGridToDataTable(DataGridView dgv, string strItemCode)
+        {
+            DataTable dt = new DataTable();
+
+            dt.Columns.Add("fldLocationCode");
+            dt.Columns.Add("fldSubLocationCode");
+            dt.Columns.Add("fldItemCode");
+
+
+            foreach (DataGridViewRow row in dgv.Rows)
+            {
+                DataRow dRow = dt.NewRow();
+                try
+                {
+                    dRow[0] = cGlobleVariable.LocationCode;
+                    dRow[1] = row.Cells[0].Value.ToString();
+                    dRow[2] = this.txtItemCode.Text;
+                    dt.Rows.Add(dRow);
+                }
+                catch (Exception ex)
+                {
+
+                }
+
+            }
+            return dt;
+        }
+
+
         #region InsertUpdate Item Data
         private int InsertUpdateData()
         {
@@ -379,6 +416,9 @@ namespace RMS.Forms
             oItemMaster.ReOrderQty = Convert.ToDouble(this.txtROQ.Text);
             oItemMaster.ReOrderMax = Convert.ToDouble(this.txtMax.Text);
             oItemMaster.Status = Convert.ToInt16(cmbStatus["fldStatusCode"]);
+
+            oItemMaster.dtItemList = DataGridToDataTable(dgvLocationData, oItemMaster.ItemCode);
+
             return cItemMaster.InsertUpdateData(oItemMaster);
         }
         #endregion
@@ -414,9 +454,10 @@ namespace RMS.Forms
         #region Load Item Details
         private void LoadItemDetails()
         {
+            dgvLocationData.Rows.Clear();
             oItemMaster = cItemMaster.GetItemData(cGlobleVariable.LocationCode, txtItemCode.Text);
 
-            txtBarCode.Text = oItemMaster.BarCode;
+            this.txtBarCode.Text = oItemMaster.BarCode;
             txtPackageSize.Text = oItemMaster.PackageSize.ToString("N2");
             txtDescription.Text = oItemMaster.Description;
             txtMinimumGP.Text = oItemMaster.MinimumGP.ToString("N2");
@@ -430,14 +471,23 @@ namespace RMS.Forms
 
             cmbConsignm.SelectedItem = oItemMaster.Consignm.ToString();
             cmbDepartment.SetText(cDepartment.GetDepartmentDataByCode(oItemMaster.Department));
-            cmbCategory.SetText(cCategory.GetCategoryDataByDepartmentAndCategory(oItemMaster.Department, oItemMaster.Category));
+            cmbCategory.SetText(cCategory.GetCategoryData(cGlobleVariable.LocationCode, oItemMaster.Department,oItemMaster.Category).CategoryName);
             cmbSupplier.SetText(cSupplier.GetSupplierData(cGlobleVariable.LocationCode, oItemMaster.Supplier).SupplierName);
-
-            cmbMenuCategory.SetText(cMenuCategory.GetMenuCategoryData(cGlobleVariable.LocationCode, oItemMaster.Department,oItemMaster.MenuCategory).MenuCategoryName);
+            cmbMenuCategory.SetText(cMenuCategory.GetMenuCategoryData(cGlobleVariable.LocationCode,"%",oItemMaster.MenuCategory).MenuCategoryName);
 
             cmbCapacityType.SetText(cCapacityType.GetCapacityDataByCode(oItemMaster.CapacityType).CapacityName);
             cmbWeighted.SelectedItem = oItemMaster.Weighted.ToString();
             cmbStatus.SetText(cStatusMaster.GetStatusByCode(oItemMaster.Status));
+
+            for (int i = 0; i < oItemMaster.dtItemList.Rows.Count; i++)
+            {
+                this.dgvLocationData.Rows.Add();
+                dgvLocationData.Rows[i].Cells["clmLocationCode"].Value = oItemMaster.dtItemList.Rows[i]["fldSubLocationCode"].ToString();
+                dgvLocationData.Rows[i].Cells["clmLocationName"].Value = cSubLocation.GetSubLocationData(cGlobleVariable.LocationCode,oItemMaster.dtItemList.Rows[i]["fldItemCode"].ToString()).SubLocationName;
+                dgvLocationData.Rows[i].Cells["clmShelfQty"].Value = oItemMaster.dtItemList.Rows[i]["fldShelfStock"].ToString();
+                dgvLocationData.Rows[i].Cells["clmDamageQty"].Value = oItemMaster.dtItemList.Rows[i]["fldDamageStock"].ToString();
+                dgvLocationData.Rows[i].Cells["clmMonthOpenQty"].Value = oItemMaster.dtItemList.Rows[i]["fldMonthlyOpenQty"].ToString();
+            }
 
             this.txtBarCode.Select();
             this.txtItemCode.Enabled = false;
@@ -475,7 +525,7 @@ namespace RMS.Forms
         private void LoadLocationDetails()
         {
             oSubLocation = cSubLocation.GetSubLocationData(cGlobleVariable.LocationCode, strSubLocation);
-            oItemLocation = cItemLocation.GetItemLocationData(cGlobleVariable.LocationCode);
+            oItemLocation = cItemLocation.GetItemLocationData(cGlobleVariable.LocationCode,this.txtItemCode.Text);
 
             int isExist = 0;
             for (int i = 0; i < dgvLocationData.Rows.Count; i++)
