@@ -161,6 +161,7 @@ namespace RMS.Forms.Inventory
                         Total += Convert.ToDouble(this.dgvItemData.Rows[i].Cells["clmTotalAmount"].Value);
                     }
                 }
+
                 this.txtPurchase.Text = Total.ToString("###,###.00");
                 if (txtVat.ReadOnly == false)
                 {
