@@ -45,7 +45,7 @@ namespace RMS.Forms
         {
             if (ValidateData())
             {
-                oCategoryMaster = cCategoryMaster.GetCategoryData(cGlobleVariable.LocationCode, this.txtCategoryCode.Text);
+                oCategoryMaster = cCategoryMaster.GetCategoryData(cGlobleVariable.LocationCode,this.cmbDepartmentName["fldDepartmentCode"].ToString() ,this.txtCategoryCode.Text);
 
                 if (oCategoryMaster.IsExistCategory == false)
                 {
@@ -143,7 +143,7 @@ namespace RMS.Forms
         {
             if (ValidateData())
             {
-                oCategoryMaster = cCategoryMaster.GetCategoryData(cGlobleVariable.LocationCode, this.txtCategoryCode.Text);
+                oCategoryMaster = cCategoryMaster.GetCategoryData(cGlobleVariable.LocationCode, this.cmbDepartmentName["fldDepartmentCode"].ToString(), this.txtCategoryCode.Text);
 
                 if (oCategoryMaster.IsExistCategory == true)
                 {
@@ -200,7 +200,7 @@ namespace RMS.Forms
         #region Load Category Details
         private void LoadDepartmentDetails()
         {
-            oCategoryMaster = cCategoryMaster.GetCategoryData(cGlobleVariable.LocationCode, this.txtCategoryCode.Text);
+            oCategoryMaster = cCategoryMaster.GetCategoryData(cGlobleVariable.LocationCode, this.cmbDepartmentName["fldDepartmentCode"].ToString(), this.txtCategoryCode.Text);
 
             this.txtCategoryName.Text = oCategoryMaster.CategoryName;
 
