@@ -127,7 +127,7 @@ namespace RMS.Forms.Inventory
         #region Load Item Details
         private void LoadItemDetails()
         {
-            oItemMaster = cItemMaster.GetItemData(cGlobleVariable.LocationCode, Item);
+            oItemMaster = cItemMaster.GetItemData(cGlobleVariable.LocationCode,Item);
 
             int isExist = 0;
             for (int i = 0; i < dgvItemData.Rows.Count; i++)

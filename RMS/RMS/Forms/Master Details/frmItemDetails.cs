@@ -41,6 +41,8 @@ namespace RMS.Forms
         public frmItemDetails()
         {
             InitializeComponent();
+            this.lblTitle.Text = this.Text;
+            clear();
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -57,7 +59,7 @@ namespace RMS.Forms
         {
             if (ValidateData())
             {
-                oItemMaster = cItemMaster.GetItemData(cGlobleVariable.LocationCode, this.txtItemCode.Text);
+                oItemMaster = cItemMaster.GetItemData(cGlobleVariable.LocationCode,this.txtItemCode.Text);
 
                 if (oItemMaster.IsExists == false)
                 {
@@ -104,7 +106,7 @@ namespace RMS.Forms
         {
             if (ValidateData())
             {
-                oItemMaster = cItemMaster.GetItemData(cGlobleVariable.LocationCode, this.txtItemCode.Text);
+                oItemMaster = cItemMaster.GetItemData(cGlobleVariable.LocationCode,this.txtItemCode.Text);
 
                 if (oItemMaster.IsExists == true)
                 {
@@ -353,12 +355,6 @@ namespace RMS.Forms
         }
         #endregion
 
-        //private int InsertUpdateItemLocationData()
-        //{
-        //    oItemLocation.LocationCode=cGlobleVariable.LocationCode;
-        //    oItemLocation.SubLocationCode=
-        //    return 
-        //}
 
 
         public DataTable DataGridToDataTable(DataGridView dgv, string strItemCode)
@@ -455,7 +451,7 @@ namespace RMS.Forms
         private void LoadItemDetails()
         {
             dgvLocationData.Rows.Clear();
-            oItemMaster = cItemMaster.GetItemData(cGlobleVariable.LocationCode, txtItemCode.Text);
+            oItemMaster = cItemMaster.GetItemData(cGlobleVariable.LocationCode,txtItemCode.Text);
 
             this.txtBarCode.Text = oItemMaster.BarCode;
             txtPackageSize.Text = oItemMaster.PackageSize.ToString("N2");
@@ -474,8 +470,8 @@ namespace RMS.Forms
             cmbCategory.SetText(cCategory.GetCategoryData(cGlobleVariable.LocationCode, oItemMaster.Department,oItemMaster.Category).CategoryName);
             cmbSupplier.SetText(cSupplier.GetSupplierData(cGlobleVariable.LocationCode, oItemMaster.Supplier).SupplierName);
             cmbMenuCategory.SetText(cMenuCategory.GetMenuCategoryData(cGlobleVariable.LocationCode,"%",oItemMaster.MenuCategory).MenuCategoryName);
+            cmbCapacityType.SetText(cCapacityType.GetCapacityDataByCode(oItemMaster.CapacityType).CapacitySymbol);
 
-            cmbCapacityType.SetText(cCapacityType.GetCapacityDataByCode(oItemMaster.CapacityType).CapacityName);
             cmbWeighted.SelectedItem = oItemMaster.Weighted.ToString();
             cmbStatus.SetText(cStatusMaster.GetStatusByCode(oItemMaster.Status));
 
@@ -483,7 +479,7 @@ namespace RMS.Forms
             {
                 this.dgvLocationData.Rows.Add();
                 dgvLocationData.Rows[i].Cells["clmLocationCode"].Value = oItemMaster.dtItemList.Rows[i]["fldSubLocationCode"].ToString();
-                dgvLocationData.Rows[i].Cells["clmLocationName"].Value = cSubLocation.GetSubLocationData(cGlobleVariable.LocationCode,oItemMaster.dtItemList.Rows[i]["fldItemCode"].ToString()).SubLocationName;
+                dgvLocationData.Rows[i].Cells["clmLocationName"].Value = cSubLocation.GetSubLocationData(cGlobleVariable.LocationCode, oItemMaster.dtItemList.Rows[i]["fldSubLocationCode"].ToString()).SubLocationName;
                 dgvLocationData.Rows[i].Cells["clmShelfQty"].Value = oItemMaster.dtItemList.Rows[i]["fldShelfStock"].ToString();
                 dgvLocationData.Rows[i].Cells["clmDamageQty"].Value = oItemMaster.dtItemList.Rows[i]["fldDamageStock"].ToString();
                 dgvLocationData.Rows[i].Cells["clmMonthOpenQty"].Value = oItemMaster.dtItemList.Rows[i]["fldMonthlyOpenQty"].ToString();
@@ -566,6 +562,5 @@ namespace RMS.Forms
                 this.Top += e.Y - lastClick.Y;
             }
         }
-
     }
 }

@@ -29,6 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmItemDetails));
             this.btnClose = new System.Windows.Forms.Button();
             this.btnClear = new System.Windows.Forms.Button();
@@ -106,7 +109,7 @@
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClose.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnClose.Location = new System.Drawing.Point(742, 482);
+            this.btnClose.Location = new System.Drawing.Point(595, 475);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(75, 36);
             this.btnClose.TabIndex = 92;
@@ -122,7 +125,7 @@
             this.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClear.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnClear.Location = new System.Drawing.Point(661, 482);
+            this.btnClear.Location = new System.Drawing.Point(514, 475);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(75, 36);
             this.btnClear.TabIndex = 91;
@@ -138,7 +141,7 @@
             this.btnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUpdate.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnUpdate.Location = new System.Drawing.Point(580, 482);
+            this.btnUpdate.Location = new System.Drawing.Point(433, 475);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(75, 36);
             this.btnUpdate.TabIndex = 90;
@@ -154,7 +157,7 @@
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSave.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnSave.Location = new System.Drawing.Point(499, 482);
+            this.btnSave.Location = new System.Drawing.Point(352, 475);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 36);
             this.btnSave.TabIndex = 89;
@@ -167,7 +170,7 @@
             this.txtMax.Location = new System.Drawing.Point(95, 76);
             this.txtMax.Name = "txtMax";
             this.txtMax.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.txtMax.Size = new System.Drawing.Size(157, 20);
+            this.txtMax.Size = new System.Drawing.Size(75, 20);
             this.txtMax.TabIndex = 34;
             // 
             // lblMax
@@ -185,7 +188,7 @@
             this.txtROQ.Location = new System.Drawing.Point(95, 47);
             this.txtROQ.Name = "txtROQ";
             this.txtROQ.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.txtROQ.Size = new System.Drawing.Size(157, 20);
+            this.txtROQ.Size = new System.Drawing.Size(75, 20);
             this.txtROQ.TabIndex = 32;
             // 
             // lblROQ
@@ -203,7 +206,7 @@
             this.txtROL.Location = new System.Drawing.Point(95, 19);
             this.txtROL.Name = "txtROL";
             this.txtROL.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.txtROL.Size = new System.Drawing.Size(157, 20);
+            this.txtROL.Size = new System.Drawing.Size(75, 20);
             this.txtROL.TabIndex = 30;
             // 
             // lblROL
@@ -224,9 +227,9 @@
             this.groupBox1.Controls.Add(this.lblWholeSale);
             this.groupBox1.Controls.Add(this.txtCost);
             this.groupBox1.Controls.Add(this.lblCost);
-            this.groupBox1.Location = new System.Drawing.Point(554, 49);
+            this.groupBox1.Location = new System.Drawing.Point(486, 49);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(265, 106);
+            this.groupBox1.Size = new System.Drawing.Size(184, 106);
             this.groupBox1.TabIndex = 77;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Price";
@@ -236,7 +239,7 @@
             this.txtSelling.Location = new System.Drawing.Point(95, 76);
             this.txtSelling.Name = "txtSelling";
             this.txtSelling.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.txtSelling.Size = new System.Drawing.Size(157, 20);
+            this.txtSelling.Size = new System.Drawing.Size(75, 20);
             this.txtSelling.TabIndex = 34;
             // 
             // lblSelling
@@ -254,7 +257,7 @@
             this.txtWholeSale.Location = new System.Drawing.Point(95, 47);
             this.txtWholeSale.Name = "txtWholeSale";
             this.txtWholeSale.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.txtWholeSale.Size = new System.Drawing.Size(157, 20);
+            this.txtWholeSale.Size = new System.Drawing.Size(75, 20);
             this.txtWholeSale.TabIndex = 32;
             // 
             // lblWholeSale
@@ -272,7 +275,7 @@
             this.txtCost.Location = new System.Drawing.Point(95, 19);
             this.txtCost.Name = "txtCost";
             this.txtCost.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.txtCost.Size = new System.Drawing.Size(157, 20);
+            this.txtCost.Size = new System.Drawing.Size(75, 20);
             this.txtCost.TabIndex = 30;
             // 
             // lblCost
@@ -293,9 +296,9 @@
             this.groupBox2.Controls.Add(this.lblROQ);
             this.groupBox2.Controls.Add(this.txtROL);
             this.groupBox2.Controls.Add(this.lblROL);
-            this.groupBox2.Location = new System.Drawing.Point(554, 161);
+            this.groupBox2.Location = new System.Drawing.Point(486, 161);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(265, 106);
+            this.groupBox2.Size = new System.Drawing.Size(184, 106);
             this.groupBox2.TabIndex = 78;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Re Oder";
@@ -311,13 +314,14 @@
             this.clmMonthOpenQty});
             this.dgvLocationData.Location = new System.Drawing.Point(8, 313);
             this.dgvLocationData.Name = "dgvLocationData";
-            this.dgvLocationData.Size = new System.Drawing.Size(811, 150);
+            this.dgvLocationData.Size = new System.Drawing.Size(662, 150);
             this.dgvLocationData.TabIndex = 80;
             this.dgvLocationData.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dataGridView1_KeyDown);
             // 
             // clmLocationCode
             // 
             this.clmLocationCode.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.clmLocationCode.FillWeight = 43.13193F;
             this.clmLocationCode.HeaderText = "Location Code";
             this.clmLocationCode.Name = "clmLocationCode";
             this.clmLocationCode.ReadOnly = true;
@@ -325,33 +329,53 @@
             // clmLocationName
             // 
             this.clmLocationName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.clmLocationName.FillWeight = 142.5132F;
             this.clmLocationName.HeaderText = "Location Name";
             this.clmLocationName.Name = "clmLocationName";
+            this.clmLocationName.ReadOnly = true;
             // 
             // clmShelfQty
             // 
             this.clmShelfQty.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle1.Format = "N2";
+            dataGridViewCellStyle1.NullValue = "0.00";
+            this.clmShelfQty.DefaultCellStyle = dataGridViewCellStyle1;
+            this.clmShelfQty.FillWeight = 84.71056F;
             this.clmShelfQty.HeaderText = "Shelf Quantity";
             this.clmShelfQty.Name = "clmShelfQty";
+            this.clmShelfQty.ReadOnly = true;
             // 
             // clmDamageQty
             // 
             this.clmDamageQty.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle2.Format = "N2";
+            dataGridViewCellStyle2.NullValue = "0.00";
+            this.clmDamageQty.DefaultCellStyle = dataGridViewCellStyle2;
+            this.clmDamageQty.FillWeight = 102.7407F;
             this.clmDamageQty.HeaderText = "Damage Quantity";
             this.clmDamageQty.Name = "clmDamageQty";
+            this.clmDamageQty.ReadOnly = true;
             // 
             // clmMonthOpenQty
             // 
             this.clmMonthOpenQty.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle3.Format = "N2";
+            dataGridViewCellStyle3.NullValue = "0.00";
+            this.clmMonthOpenQty.DefaultCellStyle = dataGridViewCellStyle3;
+            this.clmMonthOpenQty.FillWeight = 126.9036F;
             this.clmMonthOpenQty.HeaderText = "Month Open Quantity";
             this.clmMonthOpenQty.Name = "clmMonthOpenQty";
+            this.clmMonthOpenQty.ReadOnly = true;
             // 
             // txtPackageSize
             // 
             this.txtPackageSize.Location = new System.Drawing.Point(380, 182);
             this.txtPackageSize.Name = "txtPackageSize";
             this.txtPackageSize.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.txtPackageSize.Size = new System.Drawing.Size(157, 20);
+            this.txtPackageSize.Size = new System.Drawing.Size(90, 20);
             this.txtPackageSize.TabIndex = 75;
             // 
             // txtMinimumGP
@@ -373,7 +397,7 @@
             this.txtDescription.Location = new System.Drawing.Point(286, 56);
             this.txtDescription.Multiline = true;
             this.txtDescription.Name = "txtDescription";
-            this.txtDescription.Size = new System.Drawing.Size(251, 82);
+            this.txtDescription.Size = new System.Drawing.Size(184, 82);
             this.txtDescription.TabIndex = 65;
             // 
             // txtBarCode
@@ -532,7 +556,7 @@
             "False"});
             this.cmbConsignm.Location = new System.Drawing.Point(380, 214);
             this.cmbConsignm.Name = "cmbConsignm";
-            this.cmbConsignm.Size = new System.Drawing.Size(157, 21);
+            this.cmbConsignm.Size = new System.Drawing.Size(90, 21);
             this.cmbConsignm.TabIndex = 96;
             // 
             // cmbWeighted
@@ -543,7 +567,7 @@
             "False"});
             this.cmbWeighted.Location = new System.Drawing.Point(380, 149);
             this.cmbWeighted.Name = "cmbWeighted";
-            this.cmbWeighted.Size = new System.Drawing.Size(157, 21);
+            this.cmbWeighted.Size = new System.Drawing.Size(90, 21);
             this.cmbWeighted.TabIndex = 96;
             // 
             // btnSearch
@@ -569,7 +593,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(828, 31);
+            this.panel1.Size = new System.Drawing.Size(679, 31);
             this.panel1.TabIndex = 98;
             this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
             this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseMove);
@@ -596,7 +620,7 @@
             this.btnExit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Maroon;
             this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnExit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(146)))), ((int)(((byte)(150)))), ((int)(((byte)(153)))));
-            this.btnExit.Location = new System.Drawing.Point(791, 0);
+            this.btnExit.Location = new System.Drawing.Point(642, 0);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(37, 31);
             this.btnExit.TabIndex = 3;
@@ -617,7 +641,7 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(41)))), ((int)(((byte)(46)))));
-            this.panel2.Location = new System.Drawing.Point(827, 31);
+            this.panel2.Location = new System.Drawing.Point(678, 31);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(10, 495);
             this.panel2.TabIndex = 100;
@@ -635,7 +659,7 @@
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(41)))), ((int)(((byte)(46)))));
             this.panel4.Location = new System.Drawing.Point(0, 524);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(828, 10);
+            this.panel4.Size = new System.Drawing.Size(679, 10);
             this.panel4.TabIndex = 101;
             // 
             // cmbStatus
@@ -645,7 +669,7 @@
             this.cmbStatus.FormattingEnabled = true;
             this.cmbStatus.Location = new System.Drawing.Point(380, 248);
             this.cmbStatus.Name = "cmbStatus";
-            this.cmbStatus.Size = new System.Drawing.Size(157, 21);
+            this.cmbStatus.Size = new System.Drawing.Size(90, 21);
             this.cmbStatus.TabIndex = 94;
             this.cmbStatus.ViewColumn = 0;
             // 
@@ -710,7 +734,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnExit;
-            this.ClientSize = new System.Drawing.Size(828, 525);
+            this.ClientSize = new System.Drawing.Size(679, 525);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
@@ -819,11 +843,6 @@
         private System.Windows.Forms.ComboBox cmbConsignm;
         private System.Windows.Forms.ComboBox cmbWeighted;
         private System.Windows.Forms.Button btnSearch;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clmLocationCode;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clmLocationName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clmShelfQty;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clmDamageQty;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clmMonthOpenQty;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.Button btnExit;
@@ -831,5 +850,10 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmLocationCode;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmLocationName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmShelfQty;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmDamageQty;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmMonthOpenQty;
     }
 }

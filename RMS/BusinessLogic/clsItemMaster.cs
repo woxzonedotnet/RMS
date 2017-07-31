@@ -91,8 +91,11 @@ namespace BusinessLogic
         }
         #endregion
 
+
+
+
         #region Get ItemData using ItemCode
-        public objItemMaster GetItemData(string strLocationCode, string strItemCode)
+        public objItemMaster GetItemData(string strLocationCode,string strItemCode)
         {
             string strWhere1 = "fldItemCode='" + strItemCode + "' AND fldLocationCode='" + strLocationCode + "'";
             string strWhere2 = "fldItemCode='" + strItemCode + "'";
