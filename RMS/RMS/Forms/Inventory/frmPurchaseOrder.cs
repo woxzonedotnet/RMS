@@ -94,7 +94,7 @@ namespace RMS.Forms.Inventory
         #region Load Item Details
         private void LoadLocationDetails()
         {
-            oItemMaster = cItemMaster.GetItemData(Item);
+            oItemMaster = cItemMaster.GetItemData(cGlobleVariable.LocationCode,Item);
 
             int isExist = 0;
             int row = 0;
@@ -483,7 +483,7 @@ namespace RMS.Forms.Inventory
             {
                 this.dgvItemData.Rows.Add();
                 dgvItemData.Rows[i].Cells["clmItemCode"].Value = oPurchaseOrder.dtItemList.Rows[i][2].ToString();
-                dgvItemData.Rows[i].Cells["clmItemDescription"].Value = cItemMaster.GetItemData(oPurchaseOrder.dtItemList.Rows[i][2].ToString()).Description;
+                dgvItemData.Rows[i].Cells["clmItemDescription"].Value = cItemMaster.GetItemData(cGlobleVariable.LocationCode, oPurchaseOrder.dtItemList.Rows[i][2].ToString()).Description;
                 dgvItemData.Rows[i].Cells["clmUnitPrice"].Value = oPurchaseOrder.dtItemList.Rows[i][4].ToString();
                 dgvItemData.Rows[i].Cells["clmQuantity"].Value = oPurchaseOrder.dtItemList.Rows[i][3].ToString();
 
