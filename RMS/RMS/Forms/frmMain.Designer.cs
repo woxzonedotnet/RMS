@@ -300,6 +300,7 @@
             this.supplierReturnNoteSRNToolStripMenuItem.Name = "supplierReturnNoteSRNToolStripMenuItem";
             this.supplierReturnNoteSRNToolStripMenuItem.Size = new System.Drawing.Size(217, 22);
             this.supplierReturnNoteSRNToolStripMenuItem.Text = "Supplier Return Note (SRN)";
+            this.supplierReturnNoteSRNToolStripMenuItem.Click += new System.EventHandler(this.supplierReturnNoteSRNToolStripMenuItem_Click);
             // 
             // transferNoteToolStripMenuItem
             // 
@@ -313,24 +314,28 @@
             this.stockAjestmentToolStripMenuItem.Name = "stockAjestmentToolStripMenuItem";
             this.stockAjestmentToolStripMenuItem.Size = new System.Drawing.Size(217, 22);
             this.stockAjestmentToolStripMenuItem.Text = "Stock Ajustment Note";
+            this.stockAjestmentToolStripMenuItem.Click += new System.EventHandler(this.stockAjestmentToolStripMenuItem_Click);
             // 
             // gRNCancelToolStripMenuItem
             // 
             this.gRNCancelToolStripMenuItem.Name = "gRNCancelToolStripMenuItem";
             this.gRNCancelToolStripMenuItem.Size = new System.Drawing.Size(217, 22);
             this.gRNCancelToolStripMenuItem.Text = "GRN Cancel";
+            this.gRNCancelToolStripMenuItem.Click += new System.EventHandler(this.gRNCancelToolStripMenuItem_Click);
             // 
             // issuToolStripMenuItem
             // 
             this.issuToolStripMenuItem.Name = "issuToolStripMenuItem";
             this.issuToolStripMenuItem.Size = new System.Drawing.Size(217, 22);
             this.issuToolStripMenuItem.Text = "Issue Note";
+            this.issuToolStripMenuItem.Click += new System.EventHandler(this.issuToolStripMenuItem_Click);
             // 
             // stockInitializeToolStripMenuItem
             // 
             this.stockInitializeToolStripMenuItem.Name = "stockInitializeToolStripMenuItem";
             this.stockInitializeToolStripMenuItem.Size = new System.Drawing.Size(217, 22);
             this.stockInitializeToolStripMenuItem.Text = "Stock Initialize";
+            this.stockInitializeToolStripMenuItem.Click += new System.EventHandler(this.stockInitializeToolStripMenuItem_Click);
             // 
             // processToolStripMenuItem
             // 

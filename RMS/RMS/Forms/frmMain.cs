@@ -660,5 +660,150 @@ namespace RMS.Forms
                 MessageBox.Show(ex.Message);
             }
         }
+
+        private void supplierReturnNoteSRNToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Inventory.frmSupplierReturnNote open = Application.OpenForms["frmSupplierReturnNote"] as Inventory.frmSupplierReturnNote;
+                if (open == null)
+                {
+                    Inventory.frmSupplierReturnNote childSupplierReturnNote = new Inventory.frmSupplierReturnNote();
+                    childSupplierReturnNote.MdiParent = this;
+                    childSupplierReturnNote.Show();
+                }
+                else
+                {
+                    if (open.WindowState == FormWindowState.Minimized)
+                    {
+                        open.WindowState = FormWindowState.Normal;
+                    }
+                    else
+                    {
+                        open.Activate();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void stockAjestmentToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Inventory.frmStockAdjustmentNote open = Application.OpenForms["frmStockAdjustmentNote"] as Inventory.frmStockAdjustmentNote;
+                if (open == null)
+                {
+                    Inventory.frmStockAdjustmentNote childStockAdjustmentNote = new Inventory.frmStockAdjustmentNote();
+                    childStockAdjustmentNote.MdiParent = this;
+                    childStockAdjustmentNote.Show();
+                }
+                else
+                {
+                    if (open.WindowState == FormWindowState.Minimized)
+                    {
+                        open.WindowState = FormWindowState.Normal;
+                    }
+                    else
+                    {
+                        open.Activate();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void gRNCancelToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Inventory.frmGRNCancel open = Application.OpenForms["frmGRNCancel"] as Inventory.frmGRNCancel;
+                if (open == null)
+                {
+                    Inventory.frmGRNCancel childGRNCancel = new Inventory.frmGRNCancel();
+                    childGRNCancel.MdiParent = this;
+                    childGRNCancel.Show();
+                }
+                else
+                {
+                    if (open.WindowState == FormWindowState.Minimized)
+                    {
+                        open.WindowState = FormWindowState.Normal;
+                    }
+                    else
+                    {
+                        open.Activate();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void issuToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Inventory.frmIssuesNote open = Application.OpenForms["frmIssuesNote"] as Inventory.frmIssuesNote;
+                if (open == null)
+                {
+                    Inventory.frmIssuesNote childIssuesNote = new Inventory.frmIssuesNote();
+                    childIssuesNote.MdiParent = this;
+                    childIssuesNote.Show();
+                }
+                else
+                {
+                    if (open.WindowState == FormWindowState.Minimized)
+                    {
+                        open.WindowState = FormWindowState.Normal;
+                    }
+                    else
+                    {
+                        open.Activate();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void stockInitializeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Inventory.frmStockInitialize open = Application.OpenForms["frmStockInitialize"] as Inventory.frmStockInitialize;
+                if (open == null)
+                {
+                    Inventory.frmStockInitialize childfrmStockInitialize = new Inventory.frmStockInitialize();
+                    childfrmStockInitialize.MdiParent = this;
+                    childfrmStockInitialize.Show();
+                }
+                else
+                {
+                    if (open.WindowState == FormWindowState.Minimized)
+                    {
+                        open.WindowState = FormWindowState.Normal;
+                    }
+                    else
+                    {
+                        open.Activate();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
     }
 }
