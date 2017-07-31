@@ -384,6 +384,7 @@
             // 
             // btnEdit
             // 
+            this.btnEdit.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnEdit.Location = new System.Drawing.Point(629, 439);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(75, 36);
@@ -404,6 +405,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.btnEdit;
             this.ClientSize = new System.Drawing.Size(879, 487);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.btnClear);

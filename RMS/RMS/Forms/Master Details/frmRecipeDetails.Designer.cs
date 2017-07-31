@@ -39,6 +39,12 @@
             this.txtRecipeCost = new System.Windows.Forms.TextBox();
             this.lblRecipeCost = new System.Windows.Forms.Label();
             this.dgvItemDetails = new System.Windows.Forms.DataGridView();
+            this.clmItemCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmUnit = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmUnitPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmTotalCost = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lblLocation = new System.Windows.Forms.Label();
             this.lblOrderType = new System.Windows.Forms.Label();
             this.txtFullDescription = new System.Windows.Forms.TextBox();
@@ -56,12 +62,6 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.errRecipe = new System.Windows.Forms.ErrorProvider(this.components);
-            this.clmItemCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmUnit = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmUnitPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmTotalCost = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cmbLocation = new RMS.ColumnComboBox();
             this.cmbOrderType = new RMS.ColumnComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvItemDetails)).BeginInit();
@@ -106,6 +106,59 @@
             this.dgvItemDetails.CellValidated += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvItemDetails_CellValidated);
             this.dgvItemDetails.CurrentCellDirtyStateChanged += new System.EventHandler(this.dgvItemDetails_CurrentCellDirtyStateChanged);
             this.dgvItemDetails.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dgvItemDetails_KeyDown);
+            // 
+            // clmItemCode
+            // 
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.clmItemCode.DefaultCellStyle = dataGridViewCellStyle1;
+            this.clmItemCode.HeaderText = "Item Code";
+            this.clmItemCode.Name = "clmItemCode";
+            this.clmItemCode.ReadOnly = true;
+            this.clmItemCode.Width = 50;
+            // 
+            // clmDescription
+            // 
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.clmDescription.DefaultCellStyle = dataGridViewCellStyle2;
+            this.clmDescription.HeaderText = "Description";
+            this.clmDescription.Name = "clmDescription";
+            this.clmDescription.ReadOnly = true;
+            this.clmDescription.Width = 200;
+            // 
+            // clmUnit
+            // 
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.clmUnit.DefaultCellStyle = dataGridViewCellStyle3;
+            this.clmUnit.HeaderText = "Unit";
+            this.clmUnit.Name = "clmUnit";
+            this.clmUnit.ReadOnly = true;
+            this.clmUnit.Width = 48;
+            // 
+            // clmQuantity
+            // 
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.clmQuantity.DefaultCellStyle = dataGridViewCellStyle4;
+            this.clmQuantity.HeaderText = "Quantity";
+            this.clmQuantity.Name = "clmQuantity";
+            this.clmQuantity.Width = 50;
+            // 
+            // clmUnitPrice
+            // 
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.clmUnitPrice.DefaultCellStyle = dataGridViewCellStyle5;
+            this.clmUnitPrice.HeaderText = "Unit Price";
+            this.clmUnitPrice.Name = "clmUnitPrice";
+            this.clmUnitPrice.ReadOnly = true;
+            // 
+            // clmTotalCost
+            // 
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.clmTotalCost.DefaultCellStyle = dataGridViewCellStyle6;
+            this.clmTotalCost.HeaderText = "Total Cost";
+            this.clmTotalCost.Name = "clmTotalCost";
+            this.clmTotalCost.ReadOnly = true;
             // 
             // lblLocation
             // 
@@ -297,59 +350,6 @@
             // 
             this.errRecipe.ContainerControl = this;
             // 
-            // clmItemCode
-            // 
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.clmItemCode.DefaultCellStyle = dataGridViewCellStyle1;
-            this.clmItemCode.HeaderText = "Item Code";
-            this.clmItemCode.Name = "clmItemCode";
-            this.clmItemCode.ReadOnly = true;
-            this.clmItemCode.Width = 50;
-            // 
-            // clmDescription
-            // 
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.clmDescription.DefaultCellStyle = dataGridViewCellStyle2;
-            this.clmDescription.HeaderText = "Description";
-            this.clmDescription.Name = "clmDescription";
-            this.clmDescription.ReadOnly = true;
-            this.clmDescription.Width = 200;
-            // 
-            // clmUnit
-            // 
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.clmUnit.DefaultCellStyle = dataGridViewCellStyle3;
-            this.clmUnit.HeaderText = "Unit";
-            this.clmUnit.Name = "clmUnit";
-            this.clmUnit.ReadOnly = true;
-            this.clmUnit.Width = 48;
-            // 
-            // clmQuantity
-            // 
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.clmQuantity.DefaultCellStyle = dataGridViewCellStyle4;
-            this.clmQuantity.HeaderText = "Quantity";
-            this.clmQuantity.Name = "clmQuantity";
-            this.clmQuantity.Width = 50;
-            // 
-            // clmUnitPrice
-            // 
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.clmUnitPrice.DefaultCellStyle = dataGridViewCellStyle5;
-            this.clmUnitPrice.HeaderText = "Unit Price";
-            this.clmUnitPrice.Name = "clmUnitPrice";
-            this.clmUnitPrice.ReadOnly = true;
-            // 
-            // clmTotalCost
-            // 
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.clmTotalCost.DefaultCellStyle = dataGridViewCellStyle6;
-            this.clmTotalCost.HeaderText = "Total Cost";
-            this.clmTotalCost.Name = "clmTotalCost";
-            this.clmTotalCost.ReadOnly = true;
-            // 
             // cmbLocation
             // 
             this.cmbLocation.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
@@ -376,6 +376,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.btnExit;
             this.ClientSize = new System.Drawing.Size(612, 460);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
