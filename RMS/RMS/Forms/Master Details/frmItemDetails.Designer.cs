@@ -49,10 +49,14 @@
             this.lblCost = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dgvLocationData = new System.Windows.Forms.DataGridView();
+            this.clmLocationCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmLocationName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmShelfQty = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmDamageQty = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmMonthOpenQty = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtPackageSize = new System.Windows.Forms.TextBox();
             this.txtMinimumGP = new System.Windows.Forms.TextBox();
             this.txtCapacity = new System.Windows.Forms.TextBox();
-            this.txtUnit = new System.Windows.Forms.TextBox();
             this.txtDescription = new System.Windows.Forms.TextBox();
             this.txtBarCode = new System.Windows.Forms.TextBox();
             this.txtItemCode = new System.Windows.Forms.TextBox();
@@ -63,7 +67,6 @@
             this.lblMCategory = new System.Windows.Forms.Label();
             this.lblCategory = new System.Windows.Forms.Label();
             this.lblDepartment = new System.Windows.Forms.Label();
-            this.lblUnit = new System.Windows.Forms.Label();
             this.lblWeighted = new System.Windows.Forms.Label();
             this.lblConsignm = new System.Windows.Forms.Label();
             this.lblDescription = new System.Windows.Forms.Label();
@@ -82,20 +85,19 @@
             this.cmbMCategory = new RMS.ColumnComboBox();
             this.cmbCategory = new RMS.ColumnComboBox();
             this.cmbDepartment = new RMS.ColumnComboBox();
-            this.clmLocationCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmLocationName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmShelfQty = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmDamageQty = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmMonthOpenQty = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.lblTitle = new System.Windows.Forms.Label();
+            this.btnExit = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLocationData)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errItem)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnClose
             // 
-            this.btnClose.Location = new System.Drawing.Point(742, 440);
+            this.btnClose.Location = new System.Drawing.Point(742, 482);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(75, 36);
             this.btnClose.TabIndex = 92;
@@ -105,7 +107,7 @@
             // 
             // btnClear
             // 
-            this.btnClear.Location = new System.Drawing.Point(661, 440);
+            this.btnClear.Location = new System.Drawing.Point(661, 482);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(75, 36);
             this.btnClear.TabIndex = 91;
@@ -115,7 +117,7 @@
             // 
             // btnUpdate
             // 
-            this.btnUpdate.Location = new System.Drawing.Point(580, 440);
+            this.btnUpdate.Location = new System.Drawing.Point(580, 482);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(75, 36);
             this.btnUpdate.TabIndex = 90;
@@ -125,7 +127,7 @@
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(499, 440);
+            this.btnSave.Location = new System.Drawing.Point(499, 482);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 36);
             this.btnSave.TabIndex = 89;
@@ -192,7 +194,7 @@
             this.groupBox1.Controls.Add(this.lblWholeSale);
             this.groupBox1.Controls.Add(this.txtCost);
             this.groupBox1.Controls.Add(this.lblCost);
-            this.groupBox1.Location = new System.Drawing.Point(578, 13);
+            this.groupBox1.Location = new System.Drawing.Point(565, 49);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(265, 106);
             this.groupBox1.TabIndex = 77;
@@ -258,7 +260,7 @@
             this.groupBox2.Controls.Add(this.lblROQ);
             this.groupBox2.Controls.Add(this.txtROL);
             this.groupBox2.Controls.Add(this.lblROL);
-            this.groupBox2.Location = new System.Drawing.Point(578, 125);
+            this.groupBox2.Location = new System.Drawing.Point(565, 161);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(265, 106);
             this.groupBox2.TabIndex = 78;
@@ -274,319 +276,11 @@
             this.clmShelfQty,
             this.clmDamageQty,
             this.clmMonthOpenQty});
-            this.dgvLocationData.Location = new System.Drawing.Point(19, 271);
+            this.dgvLocationData.Location = new System.Drawing.Point(19, 313);
             this.dgvLocationData.Name = "dgvLocationData";
-            this.dgvLocationData.Size = new System.Drawing.Size(824, 150);
+            this.dgvLocationData.Size = new System.Drawing.Size(811, 150);
             this.dgvLocationData.TabIndex = 80;
             this.dgvLocationData.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dataGridView1_KeyDown);
-            // 
-            // txtPackageSize
-            // 
-            this.txtPackageSize.Location = new System.Drawing.Point(114, 231);
-            this.txtPackageSize.Name = "txtPackageSize";
-            this.txtPackageSize.Size = new System.Drawing.Size(157, 20);
-            this.txtPackageSize.TabIndex = 75;
-            // 
-            // txtMinimumGP
-            // 
-            this.txtMinimumGP.Location = new System.Drawing.Point(396, 199);
-            this.txtMinimumGP.Name = "txtMinimumGP";
-            this.txtMinimumGP.Size = new System.Drawing.Size(157, 20);
-            this.txtMinimumGP.TabIndex = 74;
-            // 
-            // txtCapacity
-            // 
-            this.txtCapacity.Location = new System.Drawing.Point(397, 231);
-            this.txtCapacity.Name = "txtCapacity";
-            this.txtCapacity.Size = new System.Drawing.Size(115, 20);
-            this.txtCapacity.TabIndex = 69;
-            // 
-            // txtUnit
-            // 
-            this.txtUnit.Location = new System.Drawing.Point(114, 200);
-            this.txtUnit.Name = "txtUnit";
-            this.txtUnit.Size = new System.Drawing.Size(157, 20);
-            this.txtUnit.TabIndex = 68;
-            // 
-            // txtDescription
-            // 
-            this.txtDescription.Location = new System.Drawing.Point(396, 43);
-            this.txtDescription.Multiline = true;
-            this.txtDescription.Name = "txtDescription";
-            this.txtDescription.Size = new System.Drawing.Size(157, 82);
-            this.txtDescription.TabIndex = 65;
-            // 
-            // txtBarCode
-            // 
-            this.txtBarCode.Location = new System.Drawing.Point(114, 42);
-            this.txtBarCode.Name = "txtBarCode";
-            this.txtBarCode.Size = new System.Drawing.Size(157, 20);
-            this.txtBarCode.TabIndex = 64;
-            // 
-            // txtItemCode
-            // 
-            this.txtItemCode.Location = new System.Drawing.Point(114, 12);
-            this.txtItemCode.Name = "txtItemCode";
-            this.txtItemCode.Size = new System.Drawing.Size(157, 20);
-            this.txtItemCode.TabIndex = 63;
-            // 
-            // lblPackageSize
-            // 
-            this.lblPackageSize.AutoSize = true;
-            this.lblPackageSize.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
-            this.lblPackageSize.Location = new System.Drawing.Point(17, 232);
-            this.lblPackageSize.Name = "lblPackageSize";
-            this.lblPackageSize.Size = new System.Drawing.Size(92, 16);
-            this.lblPackageSize.TabIndex = 62;
-            this.lblPackageSize.Text = "Package Size";
-            // 
-            // lblCapacityML
-            // 
-            this.lblCapacityML.AutoSize = true;
-            this.lblCapacityML.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
-            this.lblCapacityML.Location = new System.Drawing.Point(299, 231);
-            this.lblCapacityML.Name = "lblCapacityML";
-            this.lblCapacityML.Size = new System.Drawing.Size(94, 16);
-            this.lblCapacityML.TabIndex = 61;
-            this.lblCapacityML.Text = "Capacity (kg/l)";
-            // 
-            // lblMinimumGP
-            // 
-            this.lblMinimumGP.AutoSize = true;
-            this.lblMinimumGP.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
-            this.lblMinimumGP.Location = new System.Drawing.Point(299, 200);
-            this.lblMinimumGP.Name = "lblMinimumGP";
-            this.lblMinimumGP.Size = new System.Drawing.Size(83, 16);
-            this.lblMinimumGP.TabIndex = 60;
-            this.lblMinimumGP.Text = "Minimum GP";
-            // 
-            // lblSupplier
-            // 
-            this.lblSupplier.AutoSize = true;
-            this.lblSupplier.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
-            this.lblSupplier.Location = new System.Drawing.Point(16, 169);
-            this.lblSupplier.Name = "lblSupplier";
-            this.lblSupplier.Size = new System.Drawing.Size(58, 16);
-            this.lblSupplier.TabIndex = 59;
-            this.lblSupplier.Text = "Supplier";
-            // 
-            // lblMCategory
-            // 
-            this.lblMCategory.AutoSize = true;
-            this.lblMCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
-            this.lblMCategory.Location = new System.Drawing.Point(299, 168);
-            this.lblMCategory.Name = "lblMCategory";
-            this.lblMCategory.Size = new System.Drawing.Size(80, 16);
-            this.lblMCategory.TabIndex = 58;
-            this.lblMCategory.Text = "M. Category";
-            // 
-            // lblCategory
-            // 
-            this.lblCategory.AutoSize = true;
-            this.lblCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
-            this.lblCategory.Location = new System.Drawing.Point(17, 137);
-            this.lblCategory.Name = "lblCategory";
-            this.lblCategory.Size = new System.Drawing.Size(63, 16);
-            this.lblCategory.TabIndex = 56;
-            this.lblCategory.Text = "Category";
-            // 
-            // lblDepartment
-            // 
-            this.lblDepartment.AutoSize = true;
-            this.lblDepartment.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
-            this.lblDepartment.Location = new System.Drawing.Point(16, 105);
-            this.lblDepartment.Name = "lblDepartment";
-            this.lblDepartment.Size = new System.Drawing.Size(78, 16);
-            this.lblDepartment.TabIndex = 55;
-            this.lblDepartment.Text = "Department";
-            // 
-            // lblUnit
-            // 
-            this.lblUnit.AutoSize = true;
-            this.lblUnit.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
-            this.lblUnit.Location = new System.Drawing.Point(16, 201);
-            this.lblUnit.Name = "lblUnit";
-            this.lblUnit.Size = new System.Drawing.Size(31, 16);
-            this.lblUnit.TabIndex = 54;
-            this.lblUnit.Text = "Unit";
-            // 
-            // lblWeighted
-            // 
-            this.lblWeighted.AutoSize = true;
-            this.lblWeighted.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
-            this.lblWeighted.Location = new System.Drawing.Point(299, 137);
-            this.lblWeighted.Name = "lblWeighted";
-            this.lblWeighted.Size = new System.Drawing.Size(66, 16);
-            this.lblWeighted.TabIndex = 53;
-            this.lblWeighted.Text = "Weighted";
-            // 
-            // lblConsignm
-            // 
-            this.lblConsignm.AutoSize = true;
-            this.lblConsignm.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
-            this.lblConsignm.Location = new System.Drawing.Point(16, 73);
-            this.lblConsignm.Name = "lblConsignm";
-            this.lblConsignm.Size = new System.Drawing.Size(68, 16);
-            this.lblConsignm.TabIndex = 52;
-            this.lblConsignm.Text = "Consignm";
-            // 
-            // lblDescription
-            // 
-            this.lblDescription.AutoSize = true;
-            this.lblDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
-            this.lblDescription.Location = new System.Drawing.Point(299, 44);
-            this.lblDescription.Name = "lblDescription";
-            this.lblDescription.Size = new System.Drawing.Size(76, 16);
-            this.lblDescription.TabIndex = 51;
-            this.lblDescription.Text = "Description";
-            // 
-            // lblBarCode
-            // 
-            this.lblBarCode.AutoSize = true;
-            this.lblBarCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
-            this.lblBarCode.Location = new System.Drawing.Point(16, 43);
-            this.lblBarCode.Name = "lblBarCode";
-            this.lblBarCode.Size = new System.Drawing.Size(65, 16);
-            this.lblBarCode.TabIndex = 50;
-            this.lblBarCode.Text = "Bar Code";
-            // 
-            // lblItemCode
-            // 
-            this.lblItemCode.AutoSize = true;
-            this.lblItemCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
-            this.lblItemCode.Location = new System.Drawing.Point(16, 13);
-            this.lblItemCode.Name = "lblItemCode";
-            this.lblItemCode.Size = new System.Drawing.Size(69, 16);
-            this.lblItemCode.TabIndex = 49;
-            this.lblItemCode.Text = "Item Code";
-            // 
-            // lblActiveStatus
-            // 
-            this.lblActiveStatus.AutoSize = true;
-            this.lblActiveStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblActiveStatus.Location = new System.Drawing.Point(576, 238);
-            this.lblActiveStatus.Name = "lblActiveStatus";
-            this.lblActiveStatus.Size = new System.Drawing.Size(85, 16);
-            this.lblActiveStatus.TabIndex = 95;
-            this.lblActiveStatus.Text = "Active Status";
-            // 
-            // errItem
-            // 
-            this.errItem.ContainerControl = this;
-            // 
-            // fldBoolName
-            // 
-            this.fldBoolName.Caption = "Name";
-            this.fldBoolName.ColumnName = "fldBoolName";
-            // 
-            // fldBoolValue
-            // 
-            this.fldBoolValue.Caption = "BoolValue";
-            this.fldBoolValue.ColumnName = "fldBoolValue";
-            // 
-            // cmbConsignm
-            // 
-            this.cmbConsignm.FormattingEnabled = true;
-            this.cmbConsignm.Items.AddRange(new object[] {
-            "True",
-            "False"});
-            this.cmbConsignm.Location = new System.Drawing.Point(114, 72);
-            this.cmbConsignm.Name = "cmbConsignm";
-            this.cmbConsignm.Size = new System.Drawing.Size(157, 21);
-            this.cmbConsignm.TabIndex = 96;
-            // 
-            // cmbWeighted
-            // 
-            this.cmbWeighted.FormattingEnabled = true;
-            this.cmbWeighted.Items.AddRange(new object[] {
-            "True",
-            "False"});
-            this.cmbWeighted.Location = new System.Drawing.Point(396, 136);
-            this.cmbWeighted.Name = "cmbWeighted";
-            this.cmbWeighted.Size = new System.Drawing.Size(157, 21);
-            this.cmbWeighted.TabIndex = 96;
-            // 
-            // btnSearch
-            // 
-            this.btnSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(41)))), ((int)(((byte)(46)))));
-            this.btnSearch.FlatAppearance.BorderSize = 0;
-            this.btnSearch.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Maroon;
-            this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSearch.Image = global::RMS.Properties.Resources.search25;
-            this.btnSearch.Location = new System.Drawing.Point(286, 5);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(35, 31);
-            this.btnSearch.TabIndex = 97;
-            this.btnSearch.UseVisualStyleBackColor = false;
-            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
-            // 
-            // cmbStatus
-            // 
-            this.cmbStatus.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
-            this.cmbStatus.DropDownWidth = 17;
-            this.cmbStatus.FormattingEnabled = true;
-            this.cmbStatus.Location = new System.Drawing.Point(673, 237);
-            this.cmbStatus.Name = "cmbStatus";
-            this.cmbStatus.Size = new System.Drawing.Size(157, 21);
-            this.cmbStatus.TabIndex = 94;
-            this.cmbStatus.ViewColumn = 0;
-            // 
-            // cmbCapacityType
-            // 
-            this.cmbCapacityType.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
-            this.cmbCapacityType.DropDownWidth = 17;
-            this.cmbCapacityType.FormattingEnabled = true;
-            this.cmbCapacityType.Location = new System.Drawing.Point(518, 230);
-            this.cmbCapacityType.Name = "cmbCapacityType";
-            this.cmbCapacityType.Size = new System.Drawing.Size(36, 21);
-            this.cmbCapacityType.TabIndex = 93;
-            this.cmbCapacityType.ViewColumn = 0;
-            // 
-            // cmbSupplier
-            // 
-            this.cmbSupplier.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
-            this.cmbSupplier.DropDownWidth = 17;
-            this.cmbSupplier.FormattingEnabled = true;
-            this.cmbSupplier.Location = new System.Drawing.Point(114, 168);
-            this.cmbSupplier.Name = "cmbSupplier";
-            this.cmbSupplier.Size = new System.Drawing.Size(157, 21);
-            this.cmbSupplier.TabIndex = 76;
-            this.cmbSupplier.ViewColumn = 0;
-            // 
-            // cmbMCategory
-            // 
-            this.cmbMCategory.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
-            this.cmbMCategory.DropDownWidth = 17;
-            this.cmbMCategory.FormattingEnabled = true;
-            this.cmbMCategory.Location = new System.Drawing.Point(396, 167);
-            this.cmbMCategory.Name = "cmbMCategory";
-            this.cmbMCategory.Size = new System.Drawing.Size(157, 21);
-            this.cmbMCategory.TabIndex = 73;
-            this.cmbMCategory.ViewColumn = 0;
-            // 
-            // cmbCategory
-            // 
-            this.cmbCategory.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
-            this.cmbCategory.DropDownWidth = 17;
-            this.cmbCategory.FormattingEnabled = true;
-            this.cmbCategory.Location = new System.Drawing.Point(114, 136);
-            this.cmbCategory.Name = "cmbCategory";
-            this.cmbCategory.Size = new System.Drawing.Size(157, 21);
-            this.cmbCategory.TabIndex = 71;
-            this.cmbCategory.ViewColumn = 0;
-            // 
-            // cmbDepartment
-            // 
-            this.cmbDepartment.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
-            this.cmbDepartment.DropDownWidth = 17;
-            this.cmbDepartment.FormattingEnabled = true;
-            this.cmbDepartment.Location = new System.Drawing.Point(114, 104);
-            this.cmbDepartment.Name = "cmbDepartment";
-            this.cmbDepartment.Size = new System.Drawing.Size(157, 21);
-            this.cmbDepartment.TabIndex = 70;
-            this.cmbDepartment.ViewColumn = 0;
-            this.cmbDepartment.SelectedIndexChanged += new System.EventHandler(this.cmbDepartment_SelectedIndexChanged);
             // 
             // clmLocationCode
             // 
@@ -619,11 +313,344 @@
             this.clmMonthOpenQty.HeaderText = "Month Open Quantity";
             this.clmMonthOpenQty.Name = "clmMonthOpenQty";
             // 
+            // txtPackageSize
+            // 
+            this.txtPackageSize.Location = new System.Drawing.Point(114, 245);
+            this.txtPackageSize.Name = "txtPackageSize";
+            this.txtPackageSize.Size = new System.Drawing.Size(157, 20);
+            this.txtPackageSize.TabIndex = 75;
+            // 
+            // txtMinimumGP
+            // 
+            this.txtMinimumGP.Location = new System.Drawing.Point(391, 212);
+            this.txtMinimumGP.Name = "txtMinimumGP";
+            this.txtMinimumGP.Size = new System.Drawing.Size(157, 20);
+            this.txtMinimumGP.TabIndex = 74;
+            // 
+            // txtCapacity
+            // 
+            this.txtCapacity.Location = new System.Drawing.Point(392, 244);
+            this.txtCapacity.Name = "txtCapacity";
+            this.txtCapacity.Size = new System.Drawing.Size(115, 20);
+            this.txtCapacity.TabIndex = 69;
+            // 
+            // txtDescription
+            // 
+            this.txtDescription.Location = new System.Drawing.Point(391, 56);
+            this.txtDescription.Multiline = true;
+            this.txtDescription.Name = "txtDescription";
+            this.txtDescription.Size = new System.Drawing.Size(157, 82);
+            this.txtDescription.TabIndex = 65;
+            // 
+            // txtBarCode
+            // 
+            this.txtBarCode.Location = new System.Drawing.Point(114, 86);
+            this.txtBarCode.Name = "txtBarCode";
+            this.txtBarCode.Size = new System.Drawing.Size(157, 20);
+            this.txtBarCode.TabIndex = 64;
+            // 
+            // txtItemCode
+            // 
+            this.txtItemCode.Location = new System.Drawing.Point(114, 56);
+            this.txtItemCode.Name = "txtItemCode";
+            this.txtItemCode.Size = new System.Drawing.Size(116, 20);
+            this.txtItemCode.TabIndex = 63;
+            // 
+            // lblPackageSize
+            // 
+            this.lblPackageSize.AutoSize = true;
+            this.lblPackageSize.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
+            this.lblPackageSize.Location = new System.Drawing.Point(17, 246);
+            this.lblPackageSize.Name = "lblPackageSize";
+            this.lblPackageSize.Size = new System.Drawing.Size(92, 16);
+            this.lblPackageSize.TabIndex = 62;
+            this.lblPackageSize.Text = "Package Size";
+            // 
+            // lblCapacityML
+            // 
+            this.lblCapacityML.AutoSize = true;
+            this.lblCapacityML.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
+            this.lblCapacityML.Location = new System.Drawing.Point(294, 244);
+            this.lblCapacityML.Name = "lblCapacityML";
+            this.lblCapacityML.Size = new System.Drawing.Size(94, 16);
+            this.lblCapacityML.TabIndex = 61;
+            this.lblCapacityML.Text = "Capacity (kg/l)";
+            // 
+            // lblMinimumGP
+            // 
+            this.lblMinimumGP.AutoSize = true;
+            this.lblMinimumGP.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
+            this.lblMinimumGP.Location = new System.Drawing.Point(294, 213);
+            this.lblMinimumGP.Name = "lblMinimumGP";
+            this.lblMinimumGP.Size = new System.Drawing.Size(83, 16);
+            this.lblMinimumGP.TabIndex = 60;
+            this.lblMinimumGP.Text = "Minimum GP";
+            // 
+            // lblSupplier
+            // 
+            this.lblSupplier.AutoSize = true;
+            this.lblSupplier.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
+            this.lblSupplier.Location = new System.Drawing.Point(16, 213);
+            this.lblSupplier.Name = "lblSupplier";
+            this.lblSupplier.Size = new System.Drawing.Size(58, 16);
+            this.lblSupplier.TabIndex = 59;
+            this.lblSupplier.Text = "Supplier";
+            // 
+            // lblMCategory
+            // 
+            this.lblMCategory.AutoSize = true;
+            this.lblMCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
+            this.lblMCategory.Location = new System.Drawing.Point(294, 181);
+            this.lblMCategory.Name = "lblMCategory";
+            this.lblMCategory.Size = new System.Drawing.Size(80, 16);
+            this.lblMCategory.TabIndex = 58;
+            this.lblMCategory.Text = "M. Category";
+            // 
+            // lblCategory
+            // 
+            this.lblCategory.AutoSize = true;
+            this.lblCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
+            this.lblCategory.Location = new System.Drawing.Point(17, 181);
+            this.lblCategory.Name = "lblCategory";
+            this.lblCategory.Size = new System.Drawing.Size(63, 16);
+            this.lblCategory.TabIndex = 56;
+            this.lblCategory.Text = "Category";
+            // 
+            // lblDepartment
+            // 
+            this.lblDepartment.AutoSize = true;
+            this.lblDepartment.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
+            this.lblDepartment.Location = new System.Drawing.Point(16, 149);
+            this.lblDepartment.Name = "lblDepartment";
+            this.lblDepartment.Size = new System.Drawing.Size(78, 16);
+            this.lblDepartment.TabIndex = 55;
+            this.lblDepartment.Text = "Department";
+            // 
+            // lblWeighted
+            // 
+            this.lblWeighted.AutoSize = true;
+            this.lblWeighted.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
+            this.lblWeighted.Location = new System.Drawing.Point(294, 150);
+            this.lblWeighted.Name = "lblWeighted";
+            this.lblWeighted.Size = new System.Drawing.Size(66, 16);
+            this.lblWeighted.TabIndex = 53;
+            this.lblWeighted.Text = "Weighted";
+            // 
+            // lblConsignm
+            // 
+            this.lblConsignm.AutoSize = true;
+            this.lblConsignm.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
+            this.lblConsignm.Location = new System.Drawing.Point(16, 117);
+            this.lblConsignm.Name = "lblConsignm";
+            this.lblConsignm.Size = new System.Drawing.Size(68, 16);
+            this.lblConsignm.TabIndex = 52;
+            this.lblConsignm.Text = "Consignm";
+            // 
+            // lblDescription
+            // 
+            this.lblDescription.AutoSize = true;
+            this.lblDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
+            this.lblDescription.Location = new System.Drawing.Point(294, 57);
+            this.lblDescription.Name = "lblDescription";
+            this.lblDescription.Size = new System.Drawing.Size(76, 16);
+            this.lblDescription.TabIndex = 51;
+            this.lblDescription.Text = "Description";
+            // 
+            // lblBarCode
+            // 
+            this.lblBarCode.AutoSize = true;
+            this.lblBarCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
+            this.lblBarCode.Location = new System.Drawing.Point(16, 87);
+            this.lblBarCode.Name = "lblBarCode";
+            this.lblBarCode.Size = new System.Drawing.Size(65, 16);
+            this.lblBarCode.TabIndex = 50;
+            this.lblBarCode.Text = "Bar Code";
+            // 
+            // lblItemCode
+            // 
+            this.lblItemCode.AutoSize = true;
+            this.lblItemCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
+            this.lblItemCode.Location = new System.Drawing.Point(16, 57);
+            this.lblItemCode.Name = "lblItemCode";
+            this.lblItemCode.Size = new System.Drawing.Size(69, 16);
+            this.lblItemCode.TabIndex = 49;
+            this.lblItemCode.Text = "Item Code";
+            // 
+            // lblActiveStatus
+            // 
+            this.lblActiveStatus.AutoSize = true;
+            this.lblActiveStatus.BackColor = System.Drawing.Color.Transparent;
+            this.lblActiveStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblActiveStatus.Location = new System.Drawing.Point(576, 274);
+            this.lblActiveStatus.Name = "lblActiveStatus";
+            this.lblActiveStatus.Size = new System.Drawing.Size(85, 16);
+            this.lblActiveStatus.TabIndex = 95;
+            this.lblActiveStatus.Text = "Active Status";
+            // 
+            // errItem
+            // 
+            this.errItem.ContainerControl = this;
+            // 
+            // fldBoolName
+            // 
+            this.fldBoolName.Caption = "Name";
+            this.fldBoolName.ColumnName = "fldBoolName";
+            // 
+            // fldBoolValue
+            // 
+            this.fldBoolValue.Caption = "BoolValue";
+            this.fldBoolValue.ColumnName = "fldBoolValue";
+            // 
+            // cmbConsignm
+            // 
+            this.cmbConsignm.FormattingEnabled = true;
+            this.cmbConsignm.Items.AddRange(new object[] {
+            "True",
+            "False"});
+            this.cmbConsignm.Location = new System.Drawing.Point(114, 116);
+            this.cmbConsignm.Name = "cmbConsignm";
+            this.cmbConsignm.Size = new System.Drawing.Size(157, 21);
+            this.cmbConsignm.TabIndex = 96;
+            // 
+            // cmbWeighted
+            // 
+            this.cmbWeighted.FormattingEnabled = true;
+            this.cmbWeighted.Items.AddRange(new object[] {
+            "True",
+            "False"});
+            this.cmbWeighted.Location = new System.Drawing.Point(391, 149);
+            this.cmbWeighted.Name = "cmbWeighted";
+            this.cmbWeighted.Size = new System.Drawing.Size(157, 21);
+            this.cmbWeighted.TabIndex = 96;
+            // 
+            // btnSearch
+            // 
+            this.btnSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(41)))), ((int)(((byte)(46)))));
+            this.btnSearch.FlatAppearance.BorderSize = 0;
+            this.btnSearch.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Maroon;
+            this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSearch.Image = global::RMS.Properties.Resources.search25;
+            this.btnSearch.Location = new System.Drawing.Point(236, 49);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(35, 31);
+            this.btnSearch.TabIndex = 97;
+            this.btnSearch.UseVisualStyleBackColor = false;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
+            // 
+            // cmbStatus
+            // 
+            this.cmbStatus.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.cmbStatus.DropDownWidth = 17;
+            this.cmbStatus.FormattingEnabled = true;
+            this.cmbStatus.Location = new System.Drawing.Point(660, 273);
+            this.cmbStatus.Name = "cmbStatus";
+            this.cmbStatus.Size = new System.Drawing.Size(157, 21);
+            this.cmbStatus.TabIndex = 94;
+            this.cmbStatus.ViewColumn = 0;
+            // 
+            // cmbCapacityType
+            // 
+            this.cmbCapacityType.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.cmbCapacityType.DropDownWidth = 17;
+            this.cmbCapacityType.FormattingEnabled = true;
+            this.cmbCapacityType.Location = new System.Drawing.Point(513, 243);
+            this.cmbCapacityType.Name = "cmbCapacityType";
+            this.cmbCapacityType.Size = new System.Drawing.Size(36, 21);
+            this.cmbCapacityType.TabIndex = 93;
+            this.cmbCapacityType.ViewColumn = 0;
+            // 
+            // cmbSupplier
+            // 
+            this.cmbSupplier.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.cmbSupplier.DropDownWidth = 17;
+            this.cmbSupplier.FormattingEnabled = true;
+            this.cmbSupplier.Location = new System.Drawing.Point(114, 212);
+            this.cmbSupplier.Name = "cmbSupplier";
+            this.cmbSupplier.Size = new System.Drawing.Size(157, 21);
+            this.cmbSupplier.TabIndex = 76;
+            this.cmbSupplier.ViewColumn = 0;
+            // 
+            // cmbMCategory
+            // 
+            this.cmbMCategory.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.cmbMCategory.DropDownWidth = 17;
+            this.cmbMCategory.FormattingEnabled = true;
+            this.cmbMCategory.Location = new System.Drawing.Point(391, 180);
+            this.cmbMCategory.Name = "cmbMCategory";
+            this.cmbMCategory.Size = new System.Drawing.Size(157, 21);
+            this.cmbMCategory.TabIndex = 73;
+            this.cmbMCategory.ViewColumn = 0;
+            // 
+            // cmbCategory
+            // 
+            this.cmbCategory.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.cmbCategory.DropDownWidth = 17;
+            this.cmbCategory.FormattingEnabled = true;
+            this.cmbCategory.Location = new System.Drawing.Point(114, 180);
+            this.cmbCategory.Name = "cmbCategory";
+            this.cmbCategory.Size = new System.Drawing.Size(157, 21);
+            this.cmbCategory.TabIndex = 71;
+            this.cmbCategory.ViewColumn = 0;
+            // 
+            // cmbDepartment
+            // 
+            this.cmbDepartment.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.cmbDepartment.DropDownWidth = 17;
+            this.cmbDepartment.FormattingEnabled = true;
+            this.cmbDepartment.Location = new System.Drawing.Point(114, 148);
+            this.cmbDepartment.Name = "cmbDepartment";
+            this.cmbDepartment.Size = new System.Drawing.Size(157, 21);
+            this.cmbDepartment.TabIndex = 70;
+            this.cmbDepartment.ViewColumn = 0;
+            this.cmbDepartment.SelectedIndexChanged += new System.EventHandler(this.cmbDepartment_SelectedIndexChanged);
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(41)))), ((int)(((byte)(46)))));
+            this.panel1.Controls.Add(this.lblTitle);
+            this.panel1.Controls.Add(this.btnExit);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(861, 31);
+            this.panel1.TabIndex = 98;
+            // 
+            // lblTitle
+            // 
+            this.lblTitle.AutoSize = true;
+            this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitle.ForeColor = System.Drawing.SystemColors.Control;
+            this.lblTitle.Location = new System.Drawing.Point(12, 9);
+            this.lblTitle.Name = "lblTitle";
+            this.lblTitle.Size = new System.Drawing.Size(78, 16);
+            this.lblTitle.TabIndex = 4;
+            this.lblTitle.Text = "Item Details";
+            // 
+            // btnExit
+            // 
+            this.btnExit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(41)))), ((int)(((byte)(46)))));
+            this.btnExit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnExit.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnExit.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnExit.FlatAppearance.BorderSize = 0;
+            this.btnExit.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(41)))), ((int)(((byte)(46)))));
+            this.btnExit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Maroon;
+            this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnExit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(146)))), ((int)(((byte)(150)))), ((int)(((byte)(153)))));
+            this.btnExit.Location = new System.Drawing.Point(824, 0);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(37, 31);
+            this.btnExit.TabIndex = 3;
+            this.btnExit.Text = "X";
+            this.btnExit.UseVisualStyleBackColor = false;
+            // 
             // frmItemDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(861, 489);
+            this.ClientSize = new System.Drawing.Size(861, 525);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.cmbWeighted);
             this.Controls.Add(this.cmbConsignm);
@@ -644,7 +671,6 @@
             this.Controls.Add(this.cmbCategory);
             this.Controls.Add(this.cmbDepartment);
             this.Controls.Add(this.txtCapacity);
-            this.Controls.Add(this.txtUnit);
             this.Controls.Add(this.txtDescription);
             this.Controls.Add(this.txtBarCode);
             this.Controls.Add(this.txtItemCode);
@@ -655,7 +681,6 @@
             this.Controls.Add(this.lblMCategory);
             this.Controls.Add(this.lblCategory);
             this.Controls.Add(this.lblDepartment);
-            this.Controls.Add(this.lblUnit);
             this.Controls.Add(this.lblWeighted);
             this.Controls.Add(this.lblConsignm);
             this.Controls.Add(this.lblDescription);
@@ -671,6 +696,8 @@
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLocationData)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errItem)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -704,7 +731,6 @@
         private ColumnComboBox cmbCategory;
         private ColumnComboBox cmbDepartment;
         private System.Windows.Forms.TextBox txtCapacity;
-        private System.Windows.Forms.TextBox txtUnit;
         private System.Windows.Forms.TextBox txtDescription;
         private System.Windows.Forms.TextBox txtBarCode;
         private System.Windows.Forms.TextBox txtItemCode;
@@ -715,7 +741,6 @@
         private System.Windows.Forms.Label lblMCategory;
         private System.Windows.Forms.Label lblCategory;
         private System.Windows.Forms.Label lblDepartment;
-        private System.Windows.Forms.Label lblUnit;
         private System.Windows.Forms.Label lblWeighted;
         private System.Windows.Forms.Label lblConsignm;
         private System.Windows.Forms.Label lblDescription;
@@ -735,5 +760,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn clmShelfQty;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmDamageQty;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmMonthOpenQty;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label lblTitle;
+        private System.Windows.Forms.Button btnExit;
     }
 }

@@ -171,17 +171,6 @@ namespace RMS.Forms
 
             }
 
-            if (txtUnit.Text == "")
-            {
-                errItem.SetError(txtUnit, "Please Enter No of Unit");
-                isValidate = false;
-            }
-            else
-            {
-                errItem.SetError(txtUnit, "");
-
-            }
-
             if (txtPackageSize.Text == "")
             {
                 errItem.SetError(txtPackageSize, "Please Enter Package Size");
@@ -382,7 +371,7 @@ namespace RMS.Forms
             //oItemMaster.SubCategory = cmbSubCategory["fldSubCategoryCode"].ToString();
             oItemMaster.Supplier = cmbSupplier["fldSupplierCode"].ToString();
             oItemMaster.MenuCategory = cmbMCategory["fldMenuCategoryCode"].ToString();
-            oItemMaster.Unit = Convert.ToInt32(this.txtUnit.Text);
+            //oItemMaster.Unit = Convert.ToInt32(this.txtUnit.Text);
             oItemMaster.MinimumGP = Convert.ToDouble(this.txtMinimumGP.Text);
             oItemMaster.PackageSize = Convert.ToDouble(this.txtPackageSize.Text);
             oItemMaster.Capacity = Convert.ToDouble(this.txtCapacity.Text);
@@ -429,10 +418,10 @@ namespace RMS.Forms
         #region Load Item Details
         private void LoadItemDetails()
         {
-            oItemMaster = cItemMaster.GetItemData(txtItemCode.Text);
+            oItemMaster = cItemMaster.GetItemData(cGlobleVariable.LocationCode, txtItemCode.Text);
 
             txtBarCode.Text = oItemMaster.BarCode;
-            txtUnit.Text = oItemMaster.Unit.ToString();
+            //txtUnit.Text = oItemMaster.Unit.ToString();
             txtPackageSize.Text = oItemMaster.PackageSize.ToString();
             txtDescription.Text = oItemMaster.Description;
             txtMinimumGP.Text = oItemMaster.MinimumGP.ToString();
