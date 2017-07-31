@@ -23,26 +23,24 @@ namespace RMS.Forms
         clsDepartment cDepartment = new clsDepartment();
         clsCategoryMaster cCategory = new clsCategoryMaster();
         clsSupplierMaster cSupplier = new clsSupplierMaster();
-        //clsSubCategory cSubCategory = new clsSubCategory();
         clsMenuCategory cMenuCategory = new clsMenuCategory();
         clsCapacityType cCapacityType = new clsCapacityType();
         objSubLocation oSubLocation = new objSubLocation();
         clsSubLocation cSubLocation = new clsSubLocation();
-        
+        objItemLocation oItemLocation = new objItemLocation();
+        clsItemLocation cItemLocation = new clsItemLocation();
         #endregion
 
         #region Variables
         int result = -1;
         Point lastClick;
-        string Location = null;
-        string SubLocation = "";
+        string strSubLocation=null;
         #endregion
 
 
         public frmItemDetails()
         {
             InitializeComponent();
-            Location = cGlobleVariable.LocationCode.ToString();
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -85,18 +83,16 @@ namespace RMS.Forms
         {
             
             cCommonMethods.loadComboRMS(cStatusMaster.GetStatusDetails(), cmbStatus, 1);
-            cCommonMethods.loadComboRMS(cDepartment.GetDepartmentData(Location), cmbDepartment, 2);
-            cCommonMethods.loadComboRMS(cSupplier.GetSupplierData(Location), cmbSupplier, 2);
-            cCommonMethods.loadComboRMS(cMenuCategory.GetMenuCategoryData(Location), cmbMCategory, 3);
-            cCommonMethods.loadComboRMS(cCapacityType.GetCapacityData(), cmbCapacityType, 1);
+            cCommonMethods.loadComboRMS(cDepartment.GetDepartmentData(cGlobleVariable.LocationCode), cmbDepartment, 2);
+            cCommonMethods.loadComboRMS(cSupplier.GetSupplierData(cGlobleVariable.LocationCode), cmbSupplier, 2);
+            cCommonMethods.loadComboRMS(cMenuCategory.GetMenuCategoryData(cGlobleVariable.LocationCode), cmbMenuCategory, 3);
+            cCommonMethods.loadComboRMS(cCapacityType.GetCapacityData(), cmbCapacityType, 2);
         }
 
         private void cmbDepartment_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string DepartmentCode = cmbDepartment["fldDepartmentCode"].ToString();
             cmbCategory.ClearItems();
-            cCommonMethods.loadComboRMS(cCategory.GetCategoryDataByDepartment(Location, DepartmentCode), cmbCategory, 3);
-            
+            cCommonMethods.loadComboRMS(cCategory.GetCategoryDataByDepartment(cGlobleVariable.LocationCode, cmbDepartment["fldDepartmentCode"].ToString()), cmbCategory, 3);
         }
         
         private void btnSearch_Click(object sender, EventArgs e)
@@ -130,7 +126,7 @@ namespace RMS.Forms
         {
             if ((e.KeyCode == Keys.Space) && this.dgvLocationData.CurrentCell.OwningColumn.Name.Equals("clmLocationCode"))
             {
-                LoadLocation();
+                LoadItemLocation();
             }
         }
 
@@ -323,14 +319,14 @@ namespace RMS.Forms
                 errItem.SetError(cmbWeighted, "");
             }
 
-            if (cmbMCategory.SelectedIndex == -1)
+            if (cmbMenuCategory.SelectedIndex == -1)
             {
-                errItem.SetError(cmbMCategory, "Please Select Menu Category");
+                errItem.SetError(cmbMenuCategory, "Please Select Menu Category");
                 isValidate = false;
             }
             else
             {
-                errItem.SetError(cmbMCategory, "");
+                errItem.SetError(cmbMenuCategory, "");
             }
 
             if (cmbCapacityType.SelectedIndex == -1)
@@ -370,7 +366,7 @@ namespace RMS.Forms
             oItemMaster.Category = cmbCategory["fldCategoryCode"].ToString();
             //oItemMaster.SubCategory = cmbSubCategory["fldSubCategoryCode"].ToString();
             oItemMaster.Supplier = cmbSupplier["fldSupplierCode"].ToString();
-            oItemMaster.MenuCategory = cmbMCategory["fldMenuCategoryCode"].ToString();
+            oItemMaster.MenuCategory = cmbMenuCategory["fldMenuCategoryCode"].ToString();
             //oItemMaster.Unit = Convert.ToInt32(this.txtUnit.Text);
             oItemMaster.MinimumGP = Convert.ToDouble(this.txtMinimumGP.Text);
             oItemMaster.PackageSize = Convert.ToDouble(this.txtPackageSize.Text);
@@ -421,23 +417,24 @@ namespace RMS.Forms
             oItemMaster = cItemMaster.GetItemData(cGlobleVariable.LocationCode, txtItemCode.Text);
 
             txtBarCode.Text = oItemMaster.BarCode;
-            //txtUnit.Text = oItemMaster.Unit.ToString();
-            txtPackageSize.Text = oItemMaster.PackageSize.ToString();
+            txtPackageSize.Text = oItemMaster.PackageSize.ToString("N2");
             txtDescription.Text = oItemMaster.Description;
-            txtMinimumGP.Text = oItemMaster.MinimumGP.ToString();
+            txtMinimumGP.Text = oItemMaster.MinimumGP.ToString("N2");
             txtCapacity.Text = oItemMaster.Capacity.ToString();
-            txtCost.Text = oItemMaster.CostPrice.ToString();
-            txtWholeSale.Text = oItemMaster.WholeSalePrice.ToString();
-            txtSelling.Text = oItemMaster.SellingPrice.ToString();
-            txtROL.Text = oItemMaster.ReOrderLevel.ToString();
-            txtROQ.Text = oItemMaster.ReOrderQty.ToString();
-            txtMax.Text = oItemMaster.ReOrderMax.ToString();
+            txtCost.Text = oItemMaster.CostPrice.ToString("###,###.00");
+            txtWholeSale.Text = oItemMaster.WholeSalePrice.ToString("###,###.00");
+            txtSelling.Text = oItemMaster.SellingPrice.ToString("###,###.00");
+            txtROL.Text = oItemMaster.ReOrderLevel.ToString("N2");
+            txtROQ.Text = oItemMaster.ReOrderQty.ToString("N2");
+            txtMax.Text = oItemMaster.ReOrderMax.ToString("N2");
 
             cmbConsignm.SelectedItem = oItemMaster.Consignm.ToString();
             cmbDepartment.SetText(cDepartment.GetDepartmentDataByCode(oItemMaster.Department));
             cmbCategory.SetText(cCategory.GetCategoryDataByDepartmentAndCategory(oItemMaster.Department, oItemMaster.Category));
             cmbSupplier.SetText(cSupplier.GetSupplierData(cGlobleVariable.LocationCode, oItemMaster.Supplier).SupplierName);
-            cmbMCategory.SetText(cMenuCategory.GetMenuCategoryData(cGlobleVariable.LocationCode, oItemMaster.Department,oItemMaster.MenuCategory).MenuCategoryName);
+
+            cmbMenuCategory.SetText(cMenuCategory.GetMenuCategoryData(cGlobleVariable.LocationCode, oItemMaster.Department,oItemMaster.MenuCategory).MenuCategoryName);
+
             cmbCapacityType.SetText(cCapacityType.GetCapacityDataByCode(oItemMaster.CapacityType).CapacityName);
             cmbWeighted.SelectedItem = oItemMaster.Weighted.ToString();
             cmbStatus.SetText(cStatusMaster.GetStatusByCode(oItemMaster.Status));
@@ -450,7 +447,7 @@ namespace RMS.Forms
         #endregion
 
         #region LoadLocation
-        public void LoadLocation()
+        public void LoadItemLocation()
         {
             string[] strFieldList = new string[2];
             strFieldList[0] = "fldSubLocationCode";
@@ -466,8 +463,8 @@ namespace RMS.Forms
 
             string strReturnString = "Location Code";
             string strWhere = "fldActiveStatus LIKE '1'";
-            SubLocation = cCommonMethods.BrowsData("tbl_SubLocation", strFieldList, strHeaderList, iHeaderWidth, strReturnString, strWhere, "Location Code");
-            if (SubLocation != "")
+            strSubLocation = cCommonMethods.BrowsData("tbl_SubLocation", strFieldList, strHeaderList, iHeaderWidth, strReturnString, strWhere, "Sub Location Details");
+            if (strSubLocation != "")
             {
                 LoadLocationDetails();
             }
@@ -477,12 +474,13 @@ namespace RMS.Forms
         #region Load Location Details
         private void LoadLocationDetails()
         {
-            oSubLocation = cSubLocation.GetSubLocationData(Location, SubLocation);
+            oSubLocation = cSubLocation.GetSubLocationData(cGlobleVariable.LocationCode, strSubLocation);
+            oItemLocation = cItemLocation.GetItemLocationData(cGlobleVariable.LocationCode);
 
             int isExist = 0;
             for (int i = 0; i < dgvLocationData.Rows.Count; i++)
             {
-                if (dgvLocationData.Rows[i].Cells[0].Value != null && SubLocation == dgvLocationData.Rows[i].Cells[0].Value.ToString())
+                if (dgvLocationData.Rows[i].Cells[0].Value != null && strSubLocation == dgvLocationData.Rows[i].Cells[0].Value.ToString())
                 {
                     MessageBox.Show("The Selected Location already existed.");
                     isExist = -1;
@@ -498,12 +496,26 @@ namespace RMS.Forms
                 this.dgvLocationData.Rows.Add();
                 this.dgvLocationData.Rows[this.dgvLocationData.CurrentCell.RowIndex - 1].Cells["clmLocationCode"].Value = oSubLocation.SubLocationCode;
                 this.dgvLocationData.Rows[this.dgvLocationData.CurrentCell.RowIndex - 1].Cells["clmLocationName"].Value = oSubLocation.SubLocationName;
-                this.dgvLocationData.Rows[this.dgvLocationData.CurrentCell.RowIndex - 1].Cells["clmShelfQty"].Value = "0.00";
-                this.dgvLocationData.Rows[this.dgvLocationData.CurrentCell.RowIndex - 1].Cells["clmDamageQty"].Value = "0.00";
-                this.dgvLocationData.Rows[this.dgvLocationData.CurrentCell.RowIndex - 1].Cells["clmMonthOpenQty"].Value = "0.00";
+                this.dgvLocationData.Rows[this.dgvLocationData.CurrentCell.RowIndex - 1].Cells["clmShelfQty"].Value = oItemLocation.ShelfStock;
+                this.dgvLocationData.Rows[this.dgvLocationData.CurrentCell.RowIndex - 1].Cells["clmDamageQty"].Value = oItemLocation.DamageStock;
+                this.dgvLocationData.Rows[this.dgvLocationData.CurrentCell.RowIndex - 1].Cells["clmMonthOpenQty"].Value = oItemLocation.MonthlyOpenQty;
             }
         }
         #endregion
+
+        private void panel1_MouseDown(object sender, MouseEventArgs e)
+        {
+            lastClick = e.Location;
+        }
+
+        private void panel1_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                this.Left += e.X - lastClick.X;
+                this.Top += e.Y - lastClick.Y;
+            }
+        }
 
     }
 }
