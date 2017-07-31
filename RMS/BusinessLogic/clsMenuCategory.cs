@@ -25,11 +25,11 @@ namespace BusinessLogic
 
             if (dtMenuCategory.Rows.Count > 0)
             {
-                oMenuCategory.LocationCode = dtMenuCategory.Rows[0][0].ToString();
-                oMenuCategory.MenuDepartmentCode = dtMenuCategory.Rows[0][1].ToString();
-                oMenuCategory.MenuCategoryCode = dtMenuCategory.Rows[0][2].ToString();
-                oMenuCategory.MenuCategoryName = dtMenuCategory.Rows[0][3].ToString();
-                oMenuCategory.Status = Convert.ToInt16(dtMenuCategory.Rows[0][4]);
+                oMenuCategory.LocationCode = dtMenuCategory.Rows[0]["fldLocationCode"].ToString();
+                oMenuCategory.MenuDepartmentCode = dtMenuCategory.Rows[0]["fldMenuDepartmentCode"].ToString();
+                oMenuCategory.MenuCategoryCode = dtMenuCategory.Rows[0]["fldMenuCategoryCode"].ToString();
+                oMenuCategory.MenuCategoryName = dtMenuCategory.Rows[0]["fldMenuCategoryName"].ToString();
+                oMenuCategory.Status = Convert.ToInt16(dtMenuCategory.Rows[0]["fldStatus"]);
 
                 oMenuCategory.IsExists = true;
             }
