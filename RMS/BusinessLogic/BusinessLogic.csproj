@@ -52,6 +52,7 @@
     <Compile Include="clsDocumentNumber.cs" />
     <Compile Include="clsGoodReceiveNote.cs" />
     <Compile Include="clsIssuesNote.cs" />
+    <Compile Include="clsItemLocation.cs" />
     <Compile Include="clsItemMaster.cs" />
     <Compile Include="clsMainLocation.cs" />
     <Compile Include="clsMenuCategory.cs" />
