@@ -56,6 +56,7 @@
     <Compile Include="objOrderType.cs" />
     <Compile Include="objPurchaseOrder.cs" />
     <Compile Include="objRecipeDetails.cs" />
+    <Compile Include="objReportMaster.cs" />
     <Compile Include="objSetupSetting.cs" />
     <Compile Include="objStockAdjustmentNote.cs" />
     <Compile Include="objSupplierCategory.cs" />
