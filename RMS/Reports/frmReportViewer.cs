@@ -20,9 +20,6 @@ namespace Reports
         objReportMaster oReportMaster = new objReportMaster();
         clsReportMaster cReportMaster = new clsReportMaster();
         ReportDocument cReportDocument = new ReportDocument();
-        ParameterField cParameterField;
-        ParameterDiscreteValue cParameterDiscreteValue;
-        ParameterFields cParameterFields;
         #endregion
 
         #region Variables
@@ -68,6 +65,8 @@ namespace Reports
 
             arrParamFields = new object[arrParameter.GetLength(0) - 1, 2];
             arrParamFields = arrParameter;
+
+            PassParemeterFields(arrParamFields);
             this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
         }
         #endregion
@@ -111,17 +110,24 @@ namespace Reports
 
         private void PassParemeterFields(System.Object[,] arrParameter)
         {
+            ReportDocument reportDocument;
+            ParameterFields paramFields;
+
+            ParameterField paramField;
+            ParameterDiscreteValue paramDiscreteValue;
+
+            reportDocument = new ReportDocument();
+            paramFields = new ParameterFields();
+
             for (int i = 0; i <= arrParameter.GetLength(0) - 1; i++)
             {
-                cParameterField = new ParameterField();
-                cParameterField.Name = arrParameter[i, 0].ToString();
-
-                cParameterDiscreteValue = new ParameterDiscreteValue();
-                cParameterDiscreteValue.Value = arrParameter[i, 1].ToString();
-                cParameterField.CurrentValues.Add(cParameterDiscreteValue);
-
-                cParameterFields.Add(cParameterField);
-                crystalReportViewer.ParameterFieldInfo = cParameterFields;
+                paramField = new ParameterField();
+                paramField.Name = arrParameter[i, 0].ToString();
+                paramDiscreteValue = new ParameterDiscreteValue();
+                paramDiscreteValue.Value = arrParameter[i, 1].ToString();
+                paramField.CurrentValues.Add(paramDiscreteValue);
+                paramFields.Add(paramField);
+                crystalReportViewer.ParameterFieldInfo = paramFields;
             }
         }
 

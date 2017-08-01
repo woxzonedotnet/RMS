@@ -522,7 +522,7 @@ namespace RMS.Forms.Inventory
 
         private void btnPrint_Click(object sender, EventArgs e)
         {
-            ReportViewer("1", "rptPurchaseOrder.rpt");
+            ReportViewer("1", "Purchase Order");
         }
 
         #region Report Section
@@ -535,9 +535,9 @@ namespace RMS.Forms.Inventory
             arrParameter = new Object[(7), 2];
 
             arrParameter[0, 0] = "strCompanyName";
-            arrParameter[0, 1] = cGlobleVariable.LocationCode;
+            arrParameter[0, 1] = cGlobleVariable.CompanyName;
             arrParameter[1, 0] = "strAddress";
-            arrParameter[1, 1] = cGlobleVariable.Address_1 + "," + cGlobleVariable.Address_2 + "," + cGlobleVariable.Address_3;
+            arrParameter[1, 1] = cGlobleVariable.Address_1 + "," + "\n" + cGlobleVariable.Address_2 + "," + "\n" + cGlobleVariable.Address_3;
             arrParameter[2, 0] = "strCustomerTelFax";
             arrParameter[2, 1] = "Tel : " + cGlobleVariable.CustomerTel + " Fax :" + cGlobleVariable.CustomerFAX;
             arrParameter[3, 0] = "strCustomerEMAIL";
