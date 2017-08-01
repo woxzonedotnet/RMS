@@ -8,7 +8,7 @@ namespace BusinessObject
 {
     public class objReportMaster
     {
-        public string LocationCode{get;set;}
+        public string LocationCode { get; set; }
         public string ReportID { get; set; }
         public string ReportName { get; set; }
         public string ReportTitle { get; set; }
