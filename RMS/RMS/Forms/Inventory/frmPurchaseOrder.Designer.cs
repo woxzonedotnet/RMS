@@ -29,18 +29,16 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPurchaseOrder));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPurchaseOrder));
             this.panel1 = new System.Windows.Forms.Panel();
             this.dtpDate = new System.Windows.Forms.DateTimePicker();
             this.lblDate = new System.Windows.Forms.Label();
-            this.cmbSupplier = new RMS.ColumnComboBox();
             this.lblSupplier = new System.Windows.Forms.Label();
-            this.cmbLocation = new RMS.ColumnComboBox();
             this.txtPONumber = new System.Windows.Forms.TextBox();
             this.btnSearch = new System.Windows.Forms.Button();
             this.lblLocation = new System.Windows.Forms.Label();
@@ -73,6 +71,8 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
+            this.cmbSupplier = new RMS.ColumnComboBox();
+            this.cmbLocation = new RMS.ColumnComboBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvItemData)).BeginInit();
@@ -106,6 +106,7 @@
             this.dtpDate.Name = "dtpDate";
             this.dtpDate.Size = new System.Drawing.Size(120, 20);
             this.dtpDate.TabIndex = 66;
+            this.dtpDate.ValueChanged += new System.EventHandler(this.dtpDate_ValueChanged);
             // 
             // lblDate
             // 
@@ -117,19 +118,6 @@
             this.lblDate.TabIndex = 65;
             this.lblDate.Text = "Date";
             // 
-            // cmbSupplier
-            // 
-            this.cmbSupplier.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.cmbSupplier.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.cmbSupplier.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
-            this.cmbSupplier.DropDownWidth = 17;
-            this.cmbSupplier.FormattingEnabled = true;
-            this.cmbSupplier.Location = new System.Drawing.Point(109, 79);
-            this.cmbSupplier.Name = "cmbSupplier";
-            this.cmbSupplier.Size = new System.Drawing.Size(193, 21);
-            this.cmbSupplier.TabIndex = 64;
-            this.cmbSupplier.ViewColumn = 0;
-            // 
             // lblSupplier
             // 
             this.lblSupplier.AutoSize = true;
@@ -139,19 +127,6 @@
             this.lblSupplier.Size = new System.Drawing.Size(58, 16);
             this.lblSupplier.TabIndex = 63;
             this.lblSupplier.Text = "Supplier";
-            // 
-            // cmbLocation
-            // 
-            this.cmbLocation.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.cmbLocation.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.cmbLocation.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
-            this.cmbLocation.DropDownWidth = 17;
-            this.cmbLocation.FormattingEnabled = true;
-            this.cmbLocation.Location = new System.Drawing.Point(109, 46);
-            this.cmbLocation.Name = "cmbLocation";
-            this.cmbLocation.Size = new System.Drawing.Size(193, 21);
-            this.cmbLocation.TabIndex = 62;
-            this.cmbLocation.ViewColumn = 0;
             // 
             // txtPONumber
             // 
@@ -525,6 +500,33 @@
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(954, 10);
             this.panel6.TabIndex = 71;
+            // 
+            // cmbSupplier
+            // 
+            this.cmbSupplier.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.cmbSupplier.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cmbSupplier.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.cmbSupplier.DropDownWidth = 17;
+            this.cmbSupplier.FormattingEnabled = true;
+            this.cmbSupplier.Location = new System.Drawing.Point(109, 79);
+            this.cmbSupplier.Name = "cmbSupplier";
+            this.cmbSupplier.Size = new System.Drawing.Size(193, 21);
+            this.cmbSupplier.TabIndex = 64;
+            this.cmbSupplier.ViewColumn = 0;
+            this.cmbSupplier.SelectedIndexChanged += new System.EventHandler(this.cmbSupplier_SelectedIndexChanged);
+            // 
+            // cmbLocation
+            // 
+            this.cmbLocation.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.cmbLocation.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cmbLocation.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.cmbLocation.DropDownWidth = 17;
+            this.cmbLocation.FormattingEnabled = true;
+            this.cmbLocation.Location = new System.Drawing.Point(109, 46);
+            this.cmbLocation.Name = "cmbLocation";
+            this.cmbLocation.Size = new System.Drawing.Size(193, 21);
+            this.cmbLocation.TabIndex = 62;
+            this.cmbLocation.ViewColumn = 0;
             // 
             // frmPurchaseOrder
             // 

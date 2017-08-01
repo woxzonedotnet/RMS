@@ -37,7 +37,6 @@ namespace RMS.Forms.Inventory
         double vat = 0;
         string Location = "";
         string DocumentCode = "PO";
-        //int result = 0;
         double total = 0;
         Point lastClick;
         #endregion
@@ -70,8 +69,8 @@ namespace RMS.Forms.Inventory
         public void LoadItemDetails()
         {
             string[] strFieldList = new string[2];
-            strFieldList[0] = "fldItemCode";
-            strFieldList[1] = "fldDescription";
+            strFieldList[0] = "a.fldItemCode";
+            strFieldList[1] = "a.fldDescription";
 
             string[] strHeaderList = new string[2];
             strHeaderList[0] = "Item Code";
@@ -82,8 +81,8 @@ namespace RMS.Forms.Inventory
             iHeaderWidth[1] = 150;
 
             string strReturnString = "Item Code";
-            string strWhere = "fldStatus LIKE '1'";
-            Item = cCommonMethods.BrowsData("tbl_ItemMaster", strFieldList, strHeaderList, iHeaderWidth, strReturnString, strWhere, "Item Details");
+            string strWhere = "b.fldSubLocationCode='"+ this.cmbLocation["fldSubLocationCode"].ToString() +"' and b.fldItemCode=a.fldItemCode";
+            Item = cCommonMethods.BrowsData("tbl_ItemMaster a,tbl_ItemLocation b", strFieldList, strHeaderList, iHeaderWidth, strReturnString, strWhere, "Item Details");
             if (Item != "")
             {
                 LoadLocationDetails();
@@ -194,6 +193,7 @@ namespace RMS.Forms.Inventory
             if (chkVat.Checked == true)
             {
                 txtVat.ReadOnly = false;
+                this.txtVat.Focus();
             }
             else
             {
@@ -347,6 +347,7 @@ namespace RMS.Forms.Inventory
             return cPurchaseOrder.InsertUpdateData(oPurchaseOrder);
         }
         #endregion
+
         public DataTable DataGridToDataTable(DataGridView dgv, string strPOCode)
         {
             DataTable dt = new DataTable();
@@ -480,13 +481,14 @@ namespace RMS.Forms.Inventory
             this.txtNetAmount.Text = oPurchaseOrder.NetAmount.ToString();
             this.txtRemark.Text = oPurchaseOrder.Remarks;
 
+
             for (int i = 0; i < oPurchaseOrder.dtItemList.Rows.Count; i++)
             {
                 this.dgvItemData.Rows.Add();
-                dgvItemData.Rows[i].Cells["clmItemCode"].Value = oPurchaseOrder.dtItemList.Rows[i][2].ToString();
+                dgvItemData.Rows[i].Cells["clmItemCode"].Value = oPurchaseOrder.dtItemList.Rows[i]["fldItemCode"].ToString();
                 dgvItemData.Rows[i].Cells["clmItemDescription"].Value = cItemMaster.GetItemData(cGlobleVariable.LocationCode,oPurchaseOrder.dtItemList.Rows[i][2].ToString()).Description;
-                dgvItemData.Rows[i].Cells["clmUnitPrice"].Value = oPurchaseOrder.dtItemList.Rows[i][4].ToString();
-                dgvItemData.Rows[i].Cells["clmQuantity"].Value = oPurchaseOrder.dtItemList.Rows[i][3].ToString();
+                dgvItemData.Rows[i].Cells["clmUnitPrice"].Value = oPurchaseOrder.dtItemList.Rows[i]["fldUnitPrice"].ToString();
+                dgvItemData.Rows[i].Cells["clmQuantity"].Value = oPurchaseOrder.dtItemList.Rows[i]["fldQuantity"].ToString();
 
                 double a = Convert.ToDouble(oPurchaseOrder.dtItemList.Rows[i][5].ToString());
                 if (a > 0)
@@ -494,7 +496,7 @@ namespace RMS.Forms.Inventory
                     dgvItemData.Rows[i].Cells["clmTax_chk"].Value = true;
                 }
 
-                dgvItemData.Rows[i].Cells["clmTaxAmount"].Value = oPurchaseOrder.dtItemList.Rows[i][5].ToString();
+                dgvItemData.Rows[i].Cells["clmTaxAmount"].Value = oPurchaseOrder.dtItemList.Rows[i]["fldTaxAmount"].ToString();
 
                 double qty = Convert.ToDouble(oPurchaseOrder.dtItemList.Rows[i][3]);
                 double UnitPrice = Convert.ToDouble(oPurchaseOrder.dtItemList.Rows[i][4]);
@@ -517,12 +519,25 @@ namespace RMS.Forms.Inventory
 
         private void btnPrint_Click(object sender, EventArgs e)
         {
-            clear();
+            //clear();
+            
+            //ReportViwer(lstDailyReport.SelectedItems[0].SubItems[0].Text, lstDailyReport.SelectedItems[0].SubItems[1].Text, Convert.ToBoolean(lstDailyReport.SelectedItems[0].SubItems[2].Text));
+           
         }
 
         private void dgvItemData_RowsRemoved(object sender, DataGridViewRowsRemovedEventArgs e)
         {
             calculatAmounts();
+        }
+
+        private void cmbSupplier_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            this.dgvItemData.Focus();
+        }
+
+        private void dtpDate_ValueChanged(object sender, EventArgs e)
+        {
+            this.dgvItemData.Focus();
         }
     }
 }
