@@ -20,12 +20,17 @@ namespace RMS.Forms.Inventory
         clsGlobleVariable cGlobleVariable = new clsGlobleVariable();
         clsSubLocation cSubLocation = new clsSubLocation();
         clsDocumentNumber cDocumentNumber = new clsDocumentNumber();
-        objDocumentNumber oDocumentNumber = new objDocumentNumber(); 
+        objDocumentNumber oDocumentNumber = new objDocumentNumber();
+        objItemMaster oItemMaster = new objItemMaster();
+        clsItemMaster cItemMaster = new clsItemMaster();
+        objItemLocation oItemLocation = new objItemLocation();
+        clsItemLocation cItemLocation = new clsItemLocation();
         #endregion
 
         #region Variables
         Point lastClick;
         string DocumentCode = "TN";
+        string ItemCode = null;
         #endregion
 
         public frmTransferNote()
@@ -41,6 +46,7 @@ namespace RMS.Forms.Inventory
             this.Dispose();
         }
 
+        #region Form Move
         private void panel2_MouseDown(object sender, MouseEventArgs e)
         {
            lastClick = e.Location;
@@ -54,31 +60,130 @@ namespace RMS.Forms.Inventory
                 this.Top += e.Y - lastClick.Y;
             }
         }
+        #endregion
+
+        #region Validate
+        private bool ValidateData() 
+        {
+            bool isValidate = true;
+
+            if (txtIssuesNumber.Text == "")
+            {
+                errTransferNote.SetError(txtIssuesNumber, "Please Enter Issue Number");
+                isValidate = false;
+            }
+            else
+            {
+                errTransferNote.SetError(txtIssuesNumber, "");
+            }
+
+            if (cmbLocationFrom.SelectedIndex < 0)
+            {
+                errTransferNote.SetError(cmbLocationFrom, "Please Select From Location");
+                isValidate = false;
+            }
+            else
+            {
+                errTransferNote.SetError(cmbLocationFrom, "");
+            }
+
+            if (cmbLocationTo.SelectedIndex < 0)
+            {
+                errTransferNote.SetError(cmbLocationTo, "Please Select To Location");
+                isValidate = false;
+            }
+            else
+            {
+                errTransferNote.SetError(cmbLocationTo, "");
+            }
+
+
+            return isValidate;
+        }
+        #endregion
 
         private void dataGridView1_KeyDown(object sender, KeyEventArgs e)
         {
             if ((e.KeyCode == Keys.Space) && this.dgvTransferNote.CurrentCell.OwningColumn.Name.Equals("clmItemCode"))
             {
-                LoadItemDetails();
+                if (ValidateData())
+                {
+                    if (this.cmbLocationFrom["fldSubLocationCode"].ToString() != this.cmbLocationTo["fldSubLocationCode"].ToString())
+                    {
+                        MessageBox.Show(this.cmbLocationFrom["fldSubLocationCode"].ToString());
+                        LoadItemDetails();
+                    }
+                    else 
+                    {
+                        MessageBox.Show("Please Select Different Location");
+                    }
+                }
             }
         }
 
-        #region Load Item Details
-        private void LoadItemDetails()
+        #region Load Item Data
+        public void LoadItemDetails()
         {
-            //oDepartment = cDepartment.GetDepartmentData(cGlobleVariable.LocationCode, this.txtDepartmentCode.Text);
+            string[] strFieldList = new string[2];
+            strFieldList[0] = "a.fldItemCode";
+            strFieldList[1] = "a.fldDescription";
 
-            //txtDepartmentName.Text = oDepartment.DepartmentName;
+            string[] strHeaderList = new string[2];
+            strHeaderList[0] = "Item Code";
+            strHeaderList[1] = "Item Name";
 
+            int[] iHeaderWidth = new int[2];
+            iHeaderWidth[0] = 150;
+            iHeaderWidth[1] = 150;
 
-            //cmbStatus.SetText(cStatusMaster.GetStatusByCode(oDepartment.Status));
-
-            //this.dgvTransferNote.Select();
-            //this.btnSave.Enabled = false;
-            //this.btnPrint.Enabled = true;
+            string strReturnString = "Item Code";
+            string strWhere = "b.fldSubLocationCode='" + this.cmbLocationTo["fldSubLocationCode"].ToString() + "' and b.fldItemCode=a.fldItemCode";
+            ItemCode = cCommonMethods.BrowsData("tbl_ItemMaster a,tbl_ItemLocation b", strFieldList, strHeaderList, iHeaderWidth, strReturnString, strWhere, "Item Details - '"+ this.cmbLocationTo["fldSubLocationName"].ToString()+"'");
+            if (ItemCode != "")
+            {
+                LoadLocationDetails();
+            }
         }
         #endregion
-        
+
+        #region Load Item Details
+        private void LoadLocationDetails()
+        {
+            oItemMaster = cItemMaster.GetItemData(cGlobleVariable.LocationCode, ItemCode);
+            oItemLocation = cItemLocation.GetItemLocationData(cGlobleVariable.LocationCode,this.cmbLocationFrom["fldSubLocationCode"].ToString(), ItemCode);
+
+            int isExist = 0;
+            int row = 0;
+            for (int i = 0; i < dgvTransferNote.Rows.Count; i++)
+            {
+                if (dgvTransferNote.Rows[i].Cells[0].Value != null && ItemCode == dgvTransferNote.Rows[i].Cells[0].Value.ToString())
+                {
+                    MessageBox.Show("Item already Existed.");
+                    this.dgvTransferNote.CurrentCell = this.dgvTransferNote.Rows[i].Cells[3];
+                    isExist = -1;
+                    break;
+                }
+                else
+                {
+                    isExist = 1;
+                    row = i;
+                }
+            }
+
+            if (isExist == 1)
+            {
+                this.dgvTransferNote.Rows.Add();
+                this.dgvTransferNote.Rows[this.dgvTransferNote.CurrentCell.RowIndex - 1].Cells["clmItemCode"].Value = oItemMaster.ItemCode;
+                this.dgvTransferNote.Rows[this.dgvTransferNote.CurrentCell.RowIndex - 1].Cells["clmDescription"].Value = oItemMaster.Description;
+                this.dgvTransferNote.Rows[this.dgvTransferNote.CurrentCell.RowIndex - 1].Cells["clmUnit"].Value = oItemLocation.ShelfStock;
+                this.dgvTransferNote.Rows[this.dgvTransferNote.CurrentCell.RowIndex - 1].Cells["clmCostPrice"].Value = oItemMaster.CostPrice;
+                this.dgvTransferNote.CurrentCell = this.dgvTransferNote.Rows[row].Cells["clmQuantity"];
+            }
+        }
+        #endregion
+
+
+
         private void frmTransferNote_Load(object sender, EventArgs e)
         {
             LoadDocumentNumber();
@@ -102,6 +207,22 @@ namespace RMS.Forms.Inventory
         private void btnSave_Click(object sender, EventArgs e)
         {
             cDocumentNumber.DeleteDocumentNumber(cGlobleVariable.UniqID, DocumentCode, this.txtIssuesNumber.Text);
+        }
+
+        private void cmbLocationTo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (this.cmbLocationTo.SelectedIndex >= 0)
+            {
+                this.cmbLocationFrom.Enabled = false;
+            }
+        }
+
+        private void cmbLocationFrom_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (this.cmbLocationFrom.SelectedIndex >= 0)
+            {
+                this.cmbLocationTo.Enabled = true;
+            }
         }
 
     }

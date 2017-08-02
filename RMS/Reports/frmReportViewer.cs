@@ -12,11 +12,13 @@ using BusinessObject;
 using CrystalDecisions.CrystalReports.Engine;
 using CrystalDecisions.Shared;
 
+
 namespace Reports
 {
     public partial class frmReportViewer : Form
     {
         #region Objects
+        
         objReportMaster oReportMaster = new objReportMaster();
         clsReportMaster cReportMaster = new clsReportMaster();
         ReportDocument cReportDocument = new ReportDocument();
@@ -58,7 +60,6 @@ namespace Reports
         public frmReportViewer(int ReportID, string LocationCode, string SelectionFormular, System.Object[,] arrParameter)
         {
             InitializeComponent();
-
             iReportID = ReportID;
             strSelectionFormular = SelectionFormular;
             strLocationCode = LocationCode;

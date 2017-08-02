@@ -21,8 +21,14 @@ namespace RMS
         private static string _CustomerTel = "+9411254853";
         private static string _CustomerFAX = "+9411254853";
         private static string _CustomerEmail = "info@woxzone.com";
+        private static string _ReportLocation = "";
 
 
+        public string ReportLocation
+        {
+            get { return _ReportLocation; }
+            set { _ReportLocation = value; }
+        }
         public string CustomerTel
         {
             get { return _CustomerTel; }

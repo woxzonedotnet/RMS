@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Management;
+using System.Xml;
 
 namespace RMS
 {
@@ -126,6 +127,5 @@ namespace RMS
             strYear = strYear.Substring(2);
             return strYear;
         }
-
     }
 }

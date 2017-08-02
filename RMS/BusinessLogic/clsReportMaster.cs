@@ -13,6 +13,7 @@ namespace BusinessLogic
     {
         #region Objects
         clsDBConnection cDBConnection = new clsDBConnection();
+        objReportMaster oReportMaster = new objReportMaster();
         #endregion
 
 
@@ -29,10 +30,7 @@ namespace BusinessLogic
 
         public objReportMaster GetReports(int ReportID)
         {
-            objReportMaster oReportMaster = new objReportMaster();
-
             string strWhereString = "fldReportID =" + ReportID;
-
             DataTable dtReports = cDBConnection.SearchData("tbl_ReportMaster", strWhereString);
 
             try

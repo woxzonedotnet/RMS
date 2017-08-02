@@ -537,7 +537,7 @@ namespace RMS.Forms.Inventory
             arrParameter[0, 0] = "strCompanyName";
             arrParameter[0, 1] = cGlobleVariable.CompanyName;
             arrParameter[1, 0] = "strAddress";
-            arrParameter[1, 1] = cGlobleVariable.Address_1 + "," + "\n" + cGlobleVariable.Address_2 + "," + "\n" + cGlobleVariable.Address_3;
+            arrParameter[1, 1] = cGlobleVariable.Address_1 + "," + cGlobleVariable.Address_2 + "," + cGlobleVariable.Address_3;
             arrParameter[2, 0] = "strCustomerTelFax";
             arrParameter[2, 1] = "Tel : " + cGlobleVariable.CustomerTel + " Fax :" + cGlobleVariable.CustomerFAX;
             arrParameter[3, 0] = "strCustomerEMAIL";
