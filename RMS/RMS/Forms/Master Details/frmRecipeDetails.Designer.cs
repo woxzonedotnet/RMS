@@ -115,7 +115,7 @@
             this.clmItemCode.HeaderText = "Item Code";
             this.clmItemCode.Name = "clmItemCode";
             this.clmItemCode.ReadOnly = true;
-            this.clmItemCode.Width = 50;
+            this.clmItemCode.Width = 80;
             // 
             // clmDescription
             // 
@@ -124,28 +124,30 @@
             this.clmDescription.HeaderText = "Description";
             this.clmDescription.Name = "clmDescription";
             this.clmDescription.ReadOnly = true;
-            this.clmDescription.Width = 200;
+            this.clmDescription.Width = 160;
             // 
             // clmUnit
             // 
+            this.clmUnit.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             this.clmUnit.DefaultCellStyle = dataGridViewCellStyle3;
             this.clmUnit.HeaderText = "Unit";
             this.clmUnit.Name = "clmUnit";
             this.clmUnit.ReadOnly = true;
-            this.clmUnit.Width = 48;
             // 
             // clmQuantity
             // 
+            this.clmQuantity.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.clmQuantity.DefaultCellStyle = dataGridViewCellStyle4;
             this.clmQuantity.HeaderText = "Quantity";
             this.clmQuantity.Name = "clmQuantity";
-            this.clmQuantity.Width = 50;
+            this.clmQuantity.ToolTipText = "Kg \\ l \\ Unit";
             // 
             // clmUnitPrice
             // 
+            this.clmUnitPrice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
             this.clmUnitPrice.DefaultCellStyle = dataGridViewCellStyle5;
             this.clmUnitPrice.HeaderText = "Unit Price";
@@ -154,6 +156,7 @@
             // 
             // clmTotalCost
             // 
+            this.clmTotalCost.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
             this.clmTotalCost.DefaultCellStyle = dataGridViewCellStyle6;
             this.clmTotalCost.HeaderText = "Total Cost";
@@ -306,6 +309,7 @@
             this.btnSave.TabIndex = 71;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = false;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // btnSearch
             // 
@@ -321,6 +325,7 @@
             this.btnSearch.Size = new System.Drawing.Size(35, 31);
             this.btnSearch.TabIndex = 70;
             this.btnSearch.UseVisualStyleBackColor = false;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // panel4
             // 

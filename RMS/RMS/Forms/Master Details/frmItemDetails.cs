@@ -438,7 +438,7 @@ namespace RMS.Forms
             iHeaderWidth[2] = 250;
 
             string strReturnString = "Item Code";
-            string strWhere = "fldStatus=1";
+            string strWhere = "fldStatus LIKE '%'";
             txtItemCode.Text = cCommonMethods.BrowsData("tbl_ItemMaster", strFieldList, strHeaderList, iHeaderWidth, strReturnString, strWhere, "Item Details");
             if (txtItemCode.Text != "")
             {
