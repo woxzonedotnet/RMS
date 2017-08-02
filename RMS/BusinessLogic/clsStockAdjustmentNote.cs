@@ -14,7 +14,6 @@ namespace BusinessLogic
 
 
         #region Objects
-        clsStockAdjustmentNote cStockAdjustmentNote = new clsStockAdjustmentNote();
         objStockAdjustmentNote oStockAdjustmentNote = new objStockAdjustmentNote();
         clsDBConnection cDBConnection = new clsDBConnection();
          
