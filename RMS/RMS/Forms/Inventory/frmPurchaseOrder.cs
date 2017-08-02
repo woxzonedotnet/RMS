@@ -207,7 +207,7 @@ namespace RMS.Forms.Inventory
 
         private void txtVat_TextChanged(object sender, EventArgs e)
         {
-            calculatAmounts();
+            calculatAmounts();   
         }
 
         private void frmPurchaseOrder_Load(object sender, EventArgs e)
