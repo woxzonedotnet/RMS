@@ -117,7 +117,7 @@ namespace BusinessLogic
                 oItemMaster.Category = dtItemMaster.Rows[0]["fldCategoryCode"].ToString();
                 oItemMaster.Supplier = dtItemMaster.Rows[0]["fldSupplierCode"].ToString();
                 oItemMaster.MenuCategory = dtItemMaster.Rows[0]["fldMenuCategoryCode"].ToString();
-                //oItemMaster.Unit = Convert.ToInt32(dtItemMaster.Rows[0]["fldUnit"].ToString());
+                oItemMaster.Unit = Convert.ToDouble(dtItemLocation.Rows[0]["fldShelfStock"].ToString());
                 oItemMaster.MinimumGP = Convert.ToDouble(dtItemMaster.Rows[0]["fldMinimumGP"].ToString());
                 oItemMaster.PackageSize = Convert.ToDouble(dtItemMaster.Rows[0]["fldPackageSize"].ToString());
                 oItemMaster.Capacity = Convert.ToDouble(dtItemMaster.Rows[0]["fldCapacity"].ToString());

@@ -16,10 +16,21 @@ namespace BusinessLogic
         objOrderType oOrderType = new objOrderType();
         #endregion
 
-        #region GetRecipe Data Using Recipe Code
-        public DataTable GetDepartmentData(string strLocationCode)
+        #region GetOrderType Using OrderType Code
+        public DataTable GetOrderType(string strLocationCode)
         {
-            string strWhere = "fldLocationCode='" + strLocationCode + "'";
+            string strWhere = "fldLocationCode ='" + strLocationCode + "'";
+
+            DataTable dtOrderType = cDBConnection.SearchData("tbl_OrderType", strWhere);
+
+            
+            return dtOrderType;
+        }
+        #endregion
+
+        public objOrderType GetOrderTypeByCode(string strOrderTypeCode)
+        {
+            string strWhere = "fldOrderTypeCode ='" + strOrderTypeCode + "'";
 
             DataTable dtOrderType = cDBConnection.SearchData("tbl_OrderType", strWhere);
 
@@ -36,9 +47,7 @@ namespace BusinessLogic
             {
                 oOrderType.IsExists = false;
             }
-            return dtOrderType;
+            return oOrderType;
         }
-        #endregion
-
     }
 }
