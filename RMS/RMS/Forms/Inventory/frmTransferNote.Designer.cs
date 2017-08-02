@@ -29,13 +29,13 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmTransferNote));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmTransferNote));
             this.txtTotal = new System.Windows.Forms.TextBox();
             this.lblTotal = new System.Windows.Forms.Label();
             this.btnSearch = new System.Windows.Forms.Button();
@@ -57,14 +57,14 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.errTransferNote = new System.Windows.Forms.ErrorProvider(this.components);
-            this.cmbLocationTo = new RMS.ColumnComboBox();
-            this.cmbLocationFrom = new RMS.ColumnComboBox();
             this.clmItemCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmUnit = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmCostPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmValue = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cmbLocationTo = new RMS.ColumnComboBox();
+            this.cmbLocationFrom = new RMS.ColumnComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTransferNote)).BeginInit();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errTransferNote)).BeginInit();
@@ -72,11 +72,11 @@
             // 
             // txtTotal
             // 
-            this.txtTotal.Enabled = false;
-            this.txtTotal.Location = new System.Drawing.Point(487, 406);
+            this.txtTotal.Location = new System.Drawing.Point(544, 406);
             this.txtTotal.Name = "txtTotal";
+            this.txtTotal.ReadOnly = true;
             this.txtTotal.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.txtTotal.Size = new System.Drawing.Size(188, 20);
+            this.txtTotal.Size = new System.Drawing.Size(131, 20);
             this.txtTotal.TabIndex = 70;
             // 
             // lblTotal
@@ -85,9 +85,9 @@
             this.lblTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
             this.lblTotal.Location = new System.Drawing.Point(442, 407);
             this.lblTotal.Name = "lblTotal";
-            this.lblTotal.Size = new System.Drawing.Size(39, 16);
+            this.lblTotal.Size = new System.Drawing.Size(87, 16);
             this.lblTotal.TabIndex = 69;
-            this.lblTotal.Text = "Total";
+            this.lblTotal.Text = "Total Amount";
             // 
             // btnSearch
             // 
@@ -118,6 +118,7 @@
             this.dgvTransferNote.Name = "dgvTransferNote";
             this.dgvTransferNote.Size = new System.Drawing.Size(665, 243);
             this.dgvTransferNote.TabIndex = 0;
+            this.dgvTransferNote.CellValidated += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTransferNote_CellValidated);
             this.dgvTransferNote.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dataGridView1_KeyDown);
             // 
             // lblLocationFrom
@@ -154,6 +155,7 @@
             this.btnClear.TabIndex = 86;
             this.btnClear.Text = "Clear";
             this.btnClear.UseVisualStyleBackColor = false;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
             // btnPrint
             // 
@@ -174,6 +176,7 @@
             // 
             this.txtIssuesNumber.Location = new System.Drawing.Point(105, 52);
             this.txtIssuesNumber.Name = "txtIssuesNumber";
+            this.txtIssuesNumber.ReadOnly = true;
             this.txtIssuesNumber.Size = new System.Drawing.Size(143, 20);
             this.txtIssuesNumber.TabIndex = 61;
             // 
@@ -309,35 +312,6 @@
             // 
             this.errTransferNote.ContainerControl = this;
             // 
-            // cmbLocationTo
-            // 
-            this.cmbLocationTo.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.cmbLocationTo.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.cmbLocationTo.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
-            this.cmbLocationTo.DropDownWidth = 17;
-            this.cmbLocationTo.Enabled = false;
-            this.cmbLocationTo.FormattingEnabled = true;
-            this.cmbLocationTo.Location = new System.Drawing.Point(347, 82);
-            this.cmbLocationTo.Name = "cmbLocationTo";
-            this.cmbLocationTo.Size = new System.Drawing.Size(188, 21);
-            this.cmbLocationTo.TabIndex = 64;
-            this.cmbLocationTo.ViewColumn = 0;
-            this.cmbLocationTo.SelectedIndexChanged += new System.EventHandler(this.cmbLocationTo_SelectedIndexChanged);
-            // 
-            // cmbLocationFrom
-            // 
-            this.cmbLocationFrom.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.cmbLocationFrom.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.cmbLocationFrom.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
-            this.cmbLocationFrom.DropDownWidth = 17;
-            this.cmbLocationFrom.FormattingEnabled = true;
-            this.cmbLocationFrom.Location = new System.Drawing.Point(105, 82);
-            this.cmbLocationFrom.Name = "cmbLocationFrom";
-            this.cmbLocationFrom.Size = new System.Drawing.Size(188, 21);
-            this.cmbLocationFrom.TabIndex = 62;
-            this.cmbLocationFrom.ViewColumn = 0;
-            this.cmbLocationFrom.SelectedIndexChanged += new System.EventHandler(this.cmbLocationFrom_SelectedIndexChanged);
-            // 
             // clmItemCode
             // 
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
@@ -397,6 +371,35 @@
             this.clmValue.HeaderText = "Value";
             this.clmValue.Name = "clmValue";
             this.clmValue.ReadOnly = true;
+            // 
+            // cmbLocationTo
+            // 
+            this.cmbLocationTo.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.cmbLocationTo.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cmbLocationTo.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.cmbLocationTo.DropDownWidth = 17;
+            this.cmbLocationTo.Enabled = false;
+            this.cmbLocationTo.FormattingEnabled = true;
+            this.cmbLocationTo.Location = new System.Drawing.Point(347, 82);
+            this.cmbLocationTo.Name = "cmbLocationTo";
+            this.cmbLocationTo.Size = new System.Drawing.Size(188, 21);
+            this.cmbLocationTo.TabIndex = 64;
+            this.cmbLocationTo.ViewColumn = 0;
+            this.cmbLocationTo.SelectedIndexChanged += new System.EventHandler(this.cmbLocationTo_SelectedIndexChanged);
+            // 
+            // cmbLocationFrom
+            // 
+            this.cmbLocationFrom.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.cmbLocationFrom.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cmbLocationFrom.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.cmbLocationFrom.DropDownWidth = 17;
+            this.cmbLocationFrom.FormattingEnabled = true;
+            this.cmbLocationFrom.Location = new System.Drawing.Point(105, 82);
+            this.cmbLocationFrom.Name = "cmbLocationFrom";
+            this.cmbLocationFrom.Size = new System.Drawing.Size(188, 21);
+            this.cmbLocationFrom.TabIndex = 62;
+            this.cmbLocationFrom.ViewColumn = 0;
+            this.cmbLocationFrom.SelectedIndexChanged += new System.EventHandler(this.cmbLocationFrom_SelectedIndexChanged);
             // 
             // frmTransferNote
             // 

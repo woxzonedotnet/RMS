@@ -25,12 +25,15 @@ namespace RMS.Forms.Inventory
         clsItemMaster cItemMaster = new clsItemMaster();
         objItemLocation oItemLocation = new objItemLocation();
         clsItemLocation cItemLocation = new clsItemLocation();
+        objTransferNote oTransferNote = new objTransferNote();
+        clsTransferNote cTransferNote = new clsTransferNote();
         #endregion
 
         #region Variables
         Point lastClick;
         string DocumentCode = "TN";
         string ItemCode = null;
+        double total = 0;
         #endregion
 
         public frmTransferNote()
@@ -39,6 +42,7 @@ namespace RMS.Forms.Inventory
             this.lblTitle.Text = this.Text;
             cCommonMethods.loadComboRMS(cSubLocation.GetSubLocationData(cGlobleVariable.LocationCode), cmbLocationFrom, 2);
             cCommonMethods.loadComboRMS(cSubLocation.GetSubLocationData(cGlobleVariable.LocationCode), cmbLocationTo, 2);
+            Clear();
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -110,7 +114,6 @@ namespace RMS.Forms.Inventory
                 {
                     if (this.cmbLocationFrom["fldSubLocationCode"].ToString() != this.cmbLocationTo["fldSubLocationCode"].ToString())
                     {
-                        MessageBox.Show(this.cmbLocationFrom["fldSubLocationCode"].ToString());
                         LoadItemDetails();
                     }
                     else 
@@ -159,7 +162,7 @@ namespace RMS.Forms.Inventory
                 if (dgvTransferNote.Rows[i].Cells[0].Value != null && ItemCode == dgvTransferNote.Rows[i].Cells[0].Value.ToString())
                 {
                     MessageBox.Show("Item already Existed.");
-                    this.dgvTransferNote.CurrentCell = this.dgvTransferNote.Rows[i].Cells[3];
+                    this.dgvTransferNote.CurrentCell = this.dgvTransferNote.Rows[i].Cells["clmQuantity"];
                     isExist = -1;
                     break;
                 }
@@ -206,7 +209,112 @@ namespace RMS.Forms.Inventory
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            cDocumentNumber.DeleteDocumentNumber(cGlobleVariable.UniqID, DocumentCode, this.txtIssuesNumber.Text);
+            if (ValidateData())
+            {
+                calculatAmounts();
+                oTransferNote = cTransferNote.GetTransferNoteData(cGlobleVariable.LocationCode, this.txtIssuesNumber.Text);
+
+                if (oTransferNote.IsExists == false)
+                {
+                    if (InsertUpdateData() != -1)
+                    {
+
+                        cDocumentNumber.DeleteDocumentNumber(cGlobleVariable.UniqID, DocumentCode, this.txtIssuesNumber.Text);
+                        MessageBox.Show("Successfully Saved...!", "Transfer Note", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        this.btnPrint.Enabled = true;
+                        EnableControls(false);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Item Data Not Saved...!", "Transfer Note", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Record already exist...!", "Transfer Note", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+        }
+
+        #region InsertUpdate TransferNote Order Data
+        private int InsertUpdateData()
+        {
+            oTransferNote.LocationCode = cGlobleVariable.LocationCode.ToString();
+            oTransferNote.IssueNumber = this.txtIssuesNumber.Text;
+            oTransferNote.FromSubLocation = this.cmbLocationFrom["fldSubLocationCode"].ToString();
+            oTransferNote.ToSubLocation = this.cmbLocationTo["fldSubLocationCode"].ToString();
+            oTransferNote.IssueDate = this.dtpDate.Value;
+            oTransferNote.IssueValue = Convert.ToDouble(this.txtTotal.Text);
+            oTransferNote.User = cGlobleVariable.User;
+
+            oTransferNote.dtTransferNote = DataGridToDataTable(dgvTransferNote, oTransferNote.IssueNumber);
+
+            return cTransferNote.InsertUpdateData(oTransferNote);
+        }
+        #endregion
+
+        public DataTable DataGridToDataTable(DataGridView dgv, string strIssueNumber)
+        {
+            DataTable dt = new DataTable();
+
+            dt.Columns.Add("fldIssueNumber");
+            dt.Columns.Add("fldItemCode");
+            dt.Columns.Add("fldQty");
+            dt.Columns.Add("fldUnitCost");
+            dt.Columns.Add("fldItemTotalCost");
+
+
+            foreach (DataGridViewRow row in dgv.Rows)
+            {
+                DataRow dRow = dt.NewRow();
+                try
+                {
+                    dRow["fldIssueNumber"] = strIssueNumber;
+                    dRow["fldItemCode"] = row.Cells["clmItemCode"].Value.ToString();
+                    dRow["fldUnitCost"] = row.Cells["clmCostPrice"].Value.ToString();
+                    dRow["fldQty"] = row.Cells["clmQuantity"].Value.ToString();
+                    dRow["fldItemTotalCost"] = row.Cells["clmValue"].Value.ToString();
+                    dt.Rows.Add(dRow);
+                }
+                catch (Exception ex)
+                {
+
+                }
+
+            }
+            return dt;
+        }
+
+
+        public void EnableControls(bool Command)
+        {
+            bool result;
+            if (Command)
+            {
+                result = true;
+            }
+            else
+            {
+                result = false;
+            }
+
+            this.btnSave.Enabled = result;
+            this.dgvTransferNote.Enabled = result;
+            this.cmbLocationFrom.Enabled = result;
+            this.cmbLocationTo.Enabled = result;
+            this.dtpDate.Enabled = result;
+        }
+
+        private void Clear() 
+        {
+            cCommonMethods.ClearForm(this);
+            this.btnPrint.Enabled = false;
+            this.btnSave.Enabled = true;
+            this.cmbLocationFrom.Enabled = true;
+            this.cmbLocationTo.Enabled = false;
+            LoadDocumentNumber();
+            EnableControls(true);
+            this.btnPrint.Enabled = false;
         }
 
         private void cmbLocationTo_SelectedIndexChanged(object sender, EventArgs e)
@@ -225,5 +333,42 @@ namespace RMS.Forms.Inventory
             }
         }
 
+        private void dgvTransferNote_CellValidated(object sender, DataGridViewCellEventArgs e)
+        {
+            calculatAmounts();
+        }
+
+        public void calculatAmounts()
+        {
+            try
+            {
+                double qty = Convert.ToDouble(this.dgvTransferNote.Rows[this.dgvTransferNote.CurrentCell.RowIndex].Cells["clmQuantity"].Value);
+                double price = Convert.ToDouble(this.dgvTransferNote.Rows[this.dgvTransferNote.CurrentCell.RowIndex].Cells["clmCostPrice"].Value);
+                total = (qty * price);
+
+                this.dgvTransferNote.Rows[this.dgvTransferNote.CurrentCell.RowIndex].Cells["clmValue"].Value = total.ToString("###,###.00");
+
+                double NetTotal = 0;
+                for (int i = 0; i < dgvTransferNote.Rows.Count; i++)
+                {
+                    if (this.dgvTransferNote.Rows[i].Cells["clmValue"].Value != null)
+                    {
+                        NetTotal += Convert.ToDouble(this.dgvTransferNote.Rows[i].Cells["clmValue"].Value);
+                    }
+                }
+
+                this.txtTotal.Text = NetTotal.ToString("###,###.00");
+            }
+            catch (Exception ex)
+            {
+                //MessageBox.Show(ex.Message);
+            }
+
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            Clear();
+        }
     }
 }

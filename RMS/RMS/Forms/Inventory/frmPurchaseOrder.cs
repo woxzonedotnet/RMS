@@ -475,7 +475,7 @@ namespace RMS.Forms.Inventory
             dtpDate.Value = oPurchaseOrder.Date;
             txtPurchase.Text = oPurchaseOrder.Purchase.ToString("###,###.00");
 
-            if (oPurchaseOrder.VAT > 0) 
+            if (oPurchaseOrder.VAT != 0) 
             {
                 chkVat.Checked = true;
                 this.txtVat.Text = oPurchaseOrder.VAT.ToString();
@@ -489,7 +489,7 @@ namespace RMS.Forms.Inventory
             {
                 this.dgvItemData.Rows.Add();
                 dgvItemData.Rows[i].Cells["clmItemCode"].Value = oPurchaseOrder.dtItemList.Rows[i]["fldItemCode"].ToString();
-                dgvItemData.Rows[i].Cells["clmItemDescription"].Value = cItemMaster.GetItemData(cGlobleVariable.LocationCode,oPurchaseOrder.dtItemList.Rows[i][2].ToString()).Description;
+                dgvItemData.Rows[i].Cells["clmItemDescription"].Value = cItemMaster.GetItemData(cGlobleVariable.LocationCode, oPurchaseOrder.dtItemList.Rows[i]["fldItemCode"].ToString()).Description;
                 dgvItemData.Rows[i].Cells["clmUnitPrice"].Value = oPurchaseOrder.dtItemList.Rows[i]["fldUnitPrice"].ToString();
                 dgvItemData.Rows[i].Cells["clmQuantity"].Value = oPurchaseOrder.dtItemList.Rows[i]["fldQuantity"].ToString();
 

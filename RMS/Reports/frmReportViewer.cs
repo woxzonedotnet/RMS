@@ -103,7 +103,7 @@ namespace Reports
             LoadReportDeta();
             this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
             //cReportDocument.FileName = Application.StartupPath + "\\Reports\\" + oReportMaster.ReportName;
-            cReportDocument.FileName = @"C:\Users\Woxzone - Thameesha\Source\Repos\RMS\RMS\Reports\" + oReportMaster.ReportName;
+            cReportDocument.FileName = @"E:\WOXZONE RMS\RMS2\RMS\Reports\" + oReportMaster.ReportName;
             cReportDocument.RecordSelectionFormula = strSelectionFormular;
             crystalReportViewer.ReportSource = cReportDocument;
         }

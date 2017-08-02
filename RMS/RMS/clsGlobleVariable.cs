@@ -9,6 +9,7 @@ namespace RMS
     class clsGlobleVariable
     {
         private static string _LocationCode = "LOC01";
+        private static string _User = "USER01";
         private static string _CompanyName = "WOXZONE (PVT) LTD";
         private static string _Address_1 = "21/5 PAGODA ROAD";
         private static string _Address_2 = "NUGEGODA";
@@ -24,6 +25,12 @@ namespace RMS
         private static string _ReportLocation = "";
 
 
+
+        public string User
+        {
+            get { return _User; }
+            set { _User = value; }
+        }
         public string ReportLocation
         {
             get { return _ReportLocation; }

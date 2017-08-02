@@ -66,8 +66,6 @@
     <Compile Include="Forms\Inventory\frmOpeningStock.Designer.cs">
       <DependentUpon>frmOpeningStock.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Inventory\objReportMaster.cs" />
-    <Compile Include="Forms\Inventory\objReportMaster_2.cs" />
     <Compile Include="Forms\Master Details\frmBankCards.cs">
       <SubType>Form</SubType>
     </Compile>
