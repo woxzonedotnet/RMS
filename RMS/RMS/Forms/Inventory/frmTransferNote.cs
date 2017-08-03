@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using BusinessLogic;
 using System.Management;
 using BusinessObject;
+using Reports;
 
 namespace RMS.Forms.Inventory
 {
@@ -27,6 +28,8 @@ namespace RMS.Forms.Inventory
         clsItemLocation cItemLocation = new clsItemLocation();
         objTransferNote oTransferNote = new objTransferNote();
         clsTransferNote cTransferNote = new clsTransferNote();
+        objReportMaster oReportMaster = new objReportMaster();
+        clsReportMaster cReportMaster = new clsReportMaster();
         #endregion
 
         #region Variables
@@ -273,7 +276,7 @@ namespace RMS.Forms.Inventory
                     dRow["fldItemCode"] = row.Cells["clmItemCode"].Value.ToString();
                     dRow["fldQty"] = row.Cells["clmQuantity"].Value.ToString();
                     dRow["fldUnitCost"] = row.Cells["clmCostPrice"].Value.ToString();
-                    dRow["fldItemTotalCost"] =Convert.ToDouble(row.Cells["clmValue"].Value);//.ToString();
+                    dRow["fldItemTotalCost"] =Convert.ToDouble(row.Cells["clmValue"].Value);
                     dt.Rows.Add(dRow);
                 }
                 catch (Exception ex)
@@ -369,5 +372,83 @@ namespace RMS.Forms.Inventory
         {
             Clear();
         }
+
+        private void btnPrint_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        #region Report Section
+        private void ReportViewer(string strReportID, string strReportName)
+        {
+            System.Object[,] arrParameter;
+            int iReportID = Convert.ToInt16(strReportID);
+
+
+            arrParameter = new Object[(7), 2];
+
+            //arrParameter[0, 0] = "strCompanyName";
+            //arrParameter[0, 1] = cGlobleVariable.CompanyName;
+            //arrParameter[1, 0] = "strAddress";
+            //arrParameter[1, 1] = cGlobleVariable.Address_1 + "," + cGlobleVariable.Address_2 + "," + cGlobleVariable.Address_3;
+            //arrParameter[2, 0] = "strCustomerTelFax";
+            //arrParameter[2, 1] = "Tel : " + cGlobleVariable.CustomerTel + " Fax :" + cGlobleVariable.CustomerFAX;
+            //arrParameter[3, 0] = "strCustomerEMAIL";
+            //arrParameter[3, 1] = "E - Mail : " + cGlobleVariable.CustomerEmail;
+            //arrParameter[4, 0] = "strCustomerWEB";
+            //arrParameter[4, 1] = "Web : " + cGlobleVariable.CustomerWeb;
+            arrParameter[5, 0] = "strCopyRight";
+            arrParameter[5, 1] = cGlobleVariable.CopyRight;
+            arrParameter[6, 0] = "strReportTitle";
+            arrParameter[6, 1] = strReportName;
+
+            frmReportViewer frmReportViever = new frmReportViewer(iReportID, cGlobleVariable.LocationCode, SelectionFormularValues(iReportID), arrParameter);
+            frmReportViever.Show();
+        }
+
+        private string SelectionFormularValues(int iReportID)
+        {
+            string srtFormular = string.Empty;
+
+            oReportMaster = cReportMaster.GetReports(iReportID);
+
+            if (oReportMaster.SelectedTable.ToString() != string.Empty)
+            {
+                srtFormular += "{" + oReportMaster.SelectedTable + ".fldIssueNumber}='" + this.txtIssuesNumber.Text + "'"; // +"' AND {tbl_daily_in_out_details.fldAttendanceDate}=#" + Convert.ToDateTime(dFromDate).ToString("yyyy-MM-dd") + "# TO #" + Convert.ToDateTime(dToDate).ToString("yyyy-MM-dd") + "# ";
+            }
+
+            if (oReportMaster.SelectionFormular.ToString() != string.Empty)
+            {
+                srtFormular += " AND " + oReportMaster.SelectionFormular + " OR ";
+            }
+            else
+            {
+                srtFormular += " OR ";
+            }
+
+            if (srtFormular != string.Empty)
+            {
+                if (srtFormular.Substring(srtFormular.Length - 3, 2) == "OR")
+                {
+                    int n = srtFormular.LastIndexOf("OR");
+
+                    srtFormular = srtFormular.Substring(0, n - 1);
+                }
+            }
+
+            if (srtFormular != string.Empty)
+            {
+                if (srtFormular.Substring(srtFormular.Length - 3, 3) == "AND")
+                {
+                    int n = srtFormular.LastIndexOf("AND");
+
+                    srtFormular = srtFormular.Substring(0, n - 1);
+                }
+            }
+
+
+            return srtFormular;
+        }
+        #endregion
     }
 }

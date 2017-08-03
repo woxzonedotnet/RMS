@@ -17,7 +17,6 @@ namespace BusinessObject
         public string Department { get; set; }
         public string Category { get; set; }
         public string Supplier { get; set; }
-        public double Unit { get; set; }
         public double PackageSize { get; set; }
         public string Description { get; set; }
         public bool Weighted { get; set; }

@@ -26,6 +26,8 @@ namespace RMS.Forms.Inventory
         objGoodReceiveNote oGoodReceiveNote = new objGoodReceiveNote();
         clsGoodReceiveNote cGoodReceiveNote = new clsGoodReceiveNote();
         clsDocumentNumber cDocumentNumber = new clsDocumentNumber();
+        objItemLocation oItemLocation = new objItemLocation();
+        clsItemLocation cItemLocation = new clsItemLocation();
         #endregion
 
         #region Variable
@@ -128,6 +130,7 @@ namespace RMS.Forms.Inventory
         private void LoadItemDetails()
         {
             oItemMaster = cItemMaster.GetItemData(cGlobleVariable.LocationCode,Item);
+            oItemLocation = cItemLocation.GetItemLocationData(this.cmbLocation["fldSubLocationCode"].ToString(), Item);
 
             int isExist = 0;
             for (int i = 0; i < dgvItemData.Rows.Count; i++)
@@ -149,7 +152,7 @@ namespace RMS.Forms.Inventory
                 this.dgvItemData.Rows.Add();
                 this.dgvItemData.Rows[this.dgvItemData.CurrentCell.RowIndex - 1].Cells["clmItemCode"].Value = oItemMaster.ItemCode;
                 this.dgvItemData.Rows[this.dgvItemData.CurrentCell.RowIndex - 1].Cells["clmItemDescription"].Value = oItemMaster.Description;
-                this.dgvItemData.Rows[this.dgvItemData.CurrentCell.RowIndex - 1].Cells["clmUnit"].Value = oItemMaster.Unit;
+                this.dgvItemData.Rows[this.dgvItemData.CurrentCell.RowIndex - 1].Cells["clmUnit"].Value = oItemLocation.ShelfStock;
                 this.dgvItemData.Rows[this.dgvItemData.CurrentCell.RowIndex - 1].Cells["clmUnitPrice"].Value = oItemMaster.CostPrice;
                 this.dgvItemData.Rows[this.dgvItemData.CurrentCell.RowIndex - 1].Cells["clmQuantity"].Value = "0.00";
                 this.dgvItemData.Rows[this.dgvItemData.CurrentCell.RowIndex - 1].Cells["clmValue"].Value = "0.00";

@@ -23,6 +23,8 @@ namespace RMS.Forms
         objItemMaster oItemMaster = new objItemMaster();
         objRecipeDetails oRecipeDetails = new objRecipeDetails();
         clsRecipeDetails cRecipeDetails = new clsRecipeDetails();
+        objItemLocation oItemLocation = new objItemLocation();
+        clsItemLocation cItemLocation = new clsItemLocation();
         #endregion
 
         #region Variable
@@ -183,6 +185,7 @@ namespace RMS.Forms
         private void LoadLocationDetails()
         {
             oItemMaster = cItemMaster.GetItemData(cGlobleVariable.LocationCode,Item);
+            oItemLocation = cItemLocation.GetItemLocationData(this.cmbLocation["fldSubLocation"].ToString(), Item);
 
             int isExist = 0;
             int row = 0;
@@ -207,7 +210,7 @@ namespace RMS.Forms
                 this.dgvItemDetails.Rows.Add();
                 this.dgvItemDetails.Rows[this.dgvItemDetails.CurrentCell.RowIndex - 1].Cells["clmItemCode"].Value = oItemMaster.ItemCode;
                 this.dgvItemDetails.Rows[this.dgvItemDetails.CurrentCell.RowIndex - 1].Cells["clmDescription"].Value = oItemMaster.Description;
-                this.dgvItemDetails.Rows[this.dgvItemDetails.CurrentCell.RowIndex - 1].Cells["clmUnit"].Value = oItemMaster.Unit.ToString("N2");
+                this.dgvItemDetails.Rows[this.dgvItemDetails.CurrentCell.RowIndex - 1].Cells["clmUnit"].Value = oItemLocation.ShelfStock.ToString("N2");
                 this.dgvItemDetails.Rows[this.dgvItemDetails.CurrentCell.RowIndex - 1].Cells["clmQuantity"].Value = "0.00";
                 this.dgvItemDetails.Rows[this.dgvItemDetails.CurrentCell.RowIndex - 1].Cells["clmUnitPrice"].Value = oItemMaster.CostPrice.ToString("###,###.00");
                 this.dgvItemDetails.CurrentCell = this.dgvItemDetails.Rows[row].Cells[3];
@@ -365,7 +368,7 @@ namespace RMS.Forms
                 this.dgvItemDetails.Rows.Add();
                 dgvItemDetails.Rows[i].Cells["clmItemCode"].Value = oRecipeDetails.dtRecipeDetails.Rows[i]["fldItemCode"].ToString();
                 dgvItemDetails.Rows[i].Cells["clmDescription"].Value = oItemMaster.Description;
-                dgvItemDetails.Rows[i].Cells["clmUnit"].Value = oItemMaster.Unit;
+                dgvItemDetails.Rows[i].Cells["clmUnit"].Value = oItemLocation.ShelfStock;
                 dgvItemDetails.Rows[i].Cells["clmQuantity"].Value = oRecipeDetails.dtRecipeDetails.Rows[i]["fldItemQty"].ToString();
                 dgvItemDetails.Rows[i].Cells["clmUnitPrice"].Value = oRecipeDetails.dtRecipeDetails.Rows[i]["fldUnitPrice"].ToString();
 
