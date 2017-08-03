@@ -143,7 +143,7 @@ namespace RMS.Forms.Inventory
             iHeaderWidth[1] = 150;
 
             string strReturnString = "Item Code";
-            string strWhere = "b.fldSubLocationCode='" + this.cmbLocationTo["fldSubLocationCode"].ToString() + "' and b.fldItemCode=a.fldItemCode";
+            string strWhere = "b.fldSubLocationCode='" + this.cmbLocationFrom["fldSubLocationCode"].ToString() + "' and b.fldItemCode=a.fldItemCode";
             ItemCode = cCommonMethods.BrowsData("tbl_ItemMaster a,tbl_ItemLocation b", strFieldList, strHeaderList, iHeaderWidth, strReturnString, strWhere, "Item Details - '"+ this.cmbLocationTo["fldSubLocationName"].ToString()+"'");
             if (ItemCode != "")
             {
