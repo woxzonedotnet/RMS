@@ -371,7 +371,7 @@ namespace RMS.Forms.Inventory
                     dRow["fldItemCode"] = row.Cells["clmItemCode"].Value.ToString();
                     dRow["fldQuantity"] = row.Cells["clmQuantity"].Value.ToString();
                     dRow["fldUnitPrice"] = row.Cells["clmUnitPrice"].Value.ToString();
-                    dRow["fldTaxAmount"] = row.Cells["clmTaxAmount"].Value.ToString();
+                    dRow["fldTaxAmount"] = Convert.ToDouble(row.Cells["clmTaxAmount"].Value);
                     dt.Rows.Add(dRow);
                 }catch(Exception ex)
                 {
@@ -415,6 +415,7 @@ namespace RMS.Forms.Inventory
             }
         }
 
+        #region Form Move
         private void panel3_MouseMove(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
@@ -428,7 +429,7 @@ namespace RMS.Forms.Inventory
         {
             lastClick = e.Location;
         }
-
+        #endregion
         private void btnSearch_Click(object sender, EventArgs e)
         {
             LoadSearch();
@@ -519,45 +520,32 @@ namespace RMS.Forms.Inventory
             this.btnPrint.Enabled = true;
         }
         #endregion
-
+        
+        #region Report Section
         private void btnPrint_Click(object sender, EventArgs e)
         {
-            ReportViewer("1", "Purchase Order");
+            ReportViewer(1);
         }
 
-        #region Report Section
-        private void ReportViewer(string strReportID, string strReportName)
+        private void ReportViewer(int strReportID)
         {
             System.Object[,] arrParameter;
-            int iReportID = Convert.ToInt16(strReportID);
+            oReportMaster = cReportMaster.GetReports(strReportID);
 
+            arrParameter = new Object[(2), 2];
 
-            arrParameter = new Object[(7), 2];
+            arrParameter[0, 0] = "strCopyRight";
+            arrParameter[0, 1] = cGlobleVariable.CopyRight;
+            arrParameter[1, 0] = "strReportTitle";
+            arrParameter[1, 1] = oReportMaster.ReportTitle;
 
-            arrParameter[0, 0] = "strCompanyName";
-            arrParameter[0, 1] = cGlobleVariable.CompanyName;
-            arrParameter[1, 0] = "strAddress";
-            arrParameter[1, 1] = cGlobleVariable.Address_1 + "," + cGlobleVariable.Address_2 + "," + cGlobleVariable.Address_3;
-            arrParameter[2, 0] = "strCustomerTelFax";
-            arrParameter[2, 1] = "Tel : " + cGlobleVariable.CustomerTel + " Fax :" + cGlobleVariable.CustomerFAX;
-            arrParameter[3, 0] = "strCustomerEMAIL";
-            arrParameter[3, 1] = "E - Mail : " + cGlobleVariable.CustomerEmail;
-            arrParameter[4, 0] = "strCustomerWEB";
-            arrParameter[4, 1] = "Web : " + cGlobleVariable.CustomerWeb;
-            arrParameter[5, 0] = "strCopyRight";
-            arrParameter[5, 1] = cGlobleVariable.CopyRight;
-            arrParameter[6, 0] = "strReportTitle";
-            arrParameter[6, 1] = strReportName;
-
-            frmReportViewer frmReportViever = new frmReportViewer(iReportID, cGlobleVariable.LocationCode, SelectionFormularValues(iReportID), arrParameter);
+            frmReportViewer frmReportViever = new frmReportViewer(strReportID, cGlobleVariable.LocationCode, SelectionFormularValues(strReportID), arrParameter);
             frmReportViever.Show();
         }
 
         private string SelectionFormularValues(int iReportID)
         {
             string srtFormular = string.Empty;
-
-            oReportMaster = cReportMaster.GetReports(iReportID);
 
             if (oReportMaster.SelectedTable.ToString() != string.Empty)
             {
@@ -592,8 +580,6 @@ namespace RMS.Forms.Inventory
                     srtFormular = srtFormular.Substring(0, n - 1);
                 }
             }
-
-
             return srtFormular;
         }
         #endregion

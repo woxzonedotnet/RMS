@@ -193,6 +193,7 @@ namespace RMS.Forms.Inventory
         private void frmTransferNote_Load(object sender, EventArgs e)
         {
             LoadDocumentNumber();
+            Clear();
         }
 
         public void LoadDocumentNumber() 
@@ -310,13 +311,12 @@ namespace RMS.Forms.Inventory
         private void Clear() 
         {
             cCommonMethods.ClearForm(this);
+            EnableControls(true);
             this.btnPrint.Enabled = false;
             this.btnSave.Enabled = true;
             this.cmbLocationFrom.Enabled = true;
             this.cmbLocationTo.Enabled = false;
             LoadDocumentNumber();
-            EnableControls(true);
-            this.btnPrint.Enabled = false;
         }
 
         private void cmbLocationTo_SelectedIndexChanged(object sender, EventArgs e)
@@ -372,45 +372,36 @@ namespace RMS.Forms.Inventory
         {
             Clear();
         }
-
+        
+        #region Report Section
         private void btnPrint_Click(object sender, EventArgs e)
         {
-
+            ReportViewer(2);
         }
 
-        #region Report Section
-        private void ReportViewer(string strReportID, string strReportName)
+        private void ReportViewer(int strReportID)
         {
             System.Object[,] arrParameter;
-            int iReportID = Convert.ToInt16(strReportID);
+            oReportMaster = cReportMaster.GetReports(strReportID);
 
+            arrParameter = new Object[(4), 2];
 
-            arrParameter = new Object[(7), 2];
+            arrParameter[0, 0] = "strCopyRight";
+            arrParameter[0, 1] = cGlobleVariable.CopyRight;
+            arrParameter[1, 0] = "strReportTitle";
+            arrParameter[1, 1] = oReportMaster.ReportTitle;
+            arrParameter[2, 0] = "strFromLocation";
+            arrParameter[2, 1] = this.cmbLocationFrom["fldSubLocationName"];
+            arrParameter[3, 0] = "strToLocation";
+            arrParameter[3, 1] = this.cmbLocationTo["fldSubLocationName"];
 
-            //arrParameter[0, 0] = "strCompanyName";
-            //arrParameter[0, 1] = cGlobleVariable.CompanyName;
-            //arrParameter[1, 0] = "strAddress";
-            //arrParameter[1, 1] = cGlobleVariable.Address_1 + "," + cGlobleVariable.Address_2 + "," + cGlobleVariable.Address_3;
-            //arrParameter[2, 0] = "strCustomerTelFax";
-            //arrParameter[2, 1] = "Tel : " + cGlobleVariable.CustomerTel + " Fax :" + cGlobleVariable.CustomerFAX;
-            //arrParameter[3, 0] = "strCustomerEMAIL";
-            //arrParameter[3, 1] = "E - Mail : " + cGlobleVariable.CustomerEmail;
-            //arrParameter[4, 0] = "strCustomerWEB";
-            //arrParameter[4, 1] = "Web : " + cGlobleVariable.CustomerWeb;
-            arrParameter[5, 0] = "strCopyRight";
-            arrParameter[5, 1] = cGlobleVariable.CopyRight;
-            arrParameter[6, 0] = "strReportTitle";
-            arrParameter[6, 1] = strReportName;
-
-            frmReportViewer frmReportViever = new frmReportViewer(iReportID, cGlobleVariable.LocationCode, SelectionFormularValues(iReportID), arrParameter);
+            frmReportViewer frmReportViever = new frmReportViewer(strReportID, cGlobleVariable.LocationCode, SelectionFormularValues(strReportID), arrParameter);
             frmReportViever.Show();
         }
 
         private string SelectionFormularValues(int iReportID)
         {
             string srtFormular = string.Empty;
-
-            oReportMaster = cReportMaster.GetReports(iReportID);
 
             if (oReportMaster.SelectedTable.ToString() != string.Empty)
             {
@@ -445,9 +436,68 @@ namespace RMS.Forms.Inventory
                     srtFormular = srtFormular.Substring(0, n - 1);
                 }
             }
-
-
             return srtFormular;
+        }
+        #endregion
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            LoadSearch();
+        }
+
+        public void LoadSearch()
+        {
+            string[] strFieldList = new string[2];
+            strFieldList[0] = "fldIssueNumber";
+            strFieldList[1] = "fldIssueDate";
+
+            string[] strHeaderList = new string[2];
+            strHeaderList[0] = "Issue Number";
+            strHeaderList[1] = "Issue Date";
+
+            int[] iHeaderWidth = new int[2];
+            iHeaderWidth[0] = 150;
+            iHeaderWidth[1] = 100;
+
+            string strReturnString = "Issue Number";
+            string strWhere = "fldLocationCode= '" + cGlobleVariable.LocationCode + "'";
+            this.txtIssuesNumber.Text = cCommonMethods.BrowsData("tbl_TransferHeader", strFieldList, strHeaderList, iHeaderWidth, strReturnString, strWhere, "Transfer Note");
+            if (this.txtIssuesNumber.Text != "")
+            {
+                LoadTransferNoteDetails();
+            }
+        }
+
+         #region Load Purchase Order Details
+        private void LoadTransferNoteDetails()
+        {
+            dgvTransferNote.Rows.Clear();
+            oTransferNote = cTransferNote.GetTransferNoteData(cGlobleVariable.LocationCode,this.txtIssuesNumber.Text);
+
+            cmbLocationFrom.SetText(cSubLocation.GetSubLocationData(cGlobleVariable.LocationCode, oTransferNote.FromSubLocation).SubLocationName);
+            cmbLocationTo.SetText(cSubLocation.GetSubLocationData(cGlobleVariable.LocationCode, oTransferNote.ToSubLocation).SubLocationName);
+            dtpDate.Value = oTransferNote.IssueDate;
+
+            txtTotal.Text = oTransferNote.IssueValue.ToString("###,###.00");
+
+            for (int i = 0; i < oTransferNote.dtTransferNote.Rows.Count; i++)
+            {
+                this.dgvTransferNote.Rows.Add();
+                dgvTransferNote.Rows[i].Cells["clmItemCode"].Value = oTransferNote.dtTransferNote.Rows[i]["fldItemCode"].ToString();
+                dgvTransferNote.Rows[i].Cells["clmDescription"].Value = cItemMaster.GetItemData(cGlobleVariable.LocationCode, oTransferNote.dtTransferNote.Rows[i]["fldItemCode"].ToString()).Description;
+                dgvTransferNote.Rows[i].Cells["clmUnit"].Value = cItemLocation.GetItemLocationData(cGlobleVariable.LocationCode, oTransferNote.dtTransferNote.Rows[i]["fldItemCode"].ToString()).ShelfStock;
+                dgvTransferNote.Rows[i].Cells["clmCostPrice"].Value = oTransferNote.dtTransferNote.Rows[i]["fldUnitCost"].ToString();
+                dgvTransferNote.Rows[i].Cells["clmQuantity"].Value = oTransferNote.dtTransferNote.Rows[i]["fldQty"].ToString();
+                dgvTransferNote.Rows[i].Cells["clmValue"].Value = oTransferNote.dtTransferNote.Rows[i]["fldItemTotalCost"].ToString();
+
+            }
+
+            this.dgvTransferNote.Enabled = false;
+            this.cmbLocationFrom.Enabled = false;
+            this.cmbLocationTo.Enabled = false;
+            this.dtpDate.Enabled = false;
+            this.btnSave.Enabled = false;
+            this.btnPrint.Enabled = true;
         }
         #endregion
     }

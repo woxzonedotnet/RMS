@@ -16,14 +16,14 @@ namespace Reports {
     using CrystalDecisions.CrystalReports.Engine;
     
     
-    public class rptPurchaseOrder : ReportClass {
+    public class rptTransferNote : ReportClass {
         
-        public rptPurchaseOrder() {
+        public rptTransferNote() {
         }
         
         public override string ResourceName {
             get {
-                return "rptPurchaseOrder.rpt";
+                return "rptTransferNote.rpt";
             }
             set {
                 // Do nothing
@@ -41,7 +41,7 @@ namespace Reports {
         
         public override string FullResourceName {
             get {
-                return "Reports.rptPurchaseOrder.rpt";
+                return "Reports.rptTransferNote.rpt";
             }
             set {
                 // Do nothing
@@ -90,7 +90,7 @@ namespace Reports {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.Shared.IParameterField Parameter_strCopyRight {
+        public CrystalDecisions.Shared.IParameterField Parameter_strReportTitle {
             get {
                 return this.DataDefinition.ParameterFields[0];
             }
@@ -98,17 +98,33 @@ namespace Reports {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.Shared.IParameterField Parameter_strReportTitle {
+        public CrystalDecisions.Shared.IParameterField Parameter_strCopyRight {
             get {
                 return this.DataDefinition.ParameterFields[1];
+            }
+        }
+        
+        [Browsable(false)]
+        [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
+        public CrystalDecisions.Shared.IParameterField Parameter_strFromLocation {
+            get {
+                return this.DataDefinition.ParameterFields[2];
+            }
+        }
+        
+        [Browsable(false)]
+        [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
+        public CrystalDecisions.Shared.IParameterField Parameter_strToLocation {
+            get {
+                return this.DataDefinition.ParameterFields[3];
             }
         }
     }
     
     [System.Drawing.ToolboxBitmapAttribute(typeof(CrystalDecisions.Shared.ExportOptions), "report.bmp")]
-    public class CachedrptPurchaseOrder : Component, ICachedReport {
+    public class CachedrptTransferNote : Component, ICachedReport {
         
-        public CachedrptPurchaseOrder() {
+        public CachedrptTransferNote() {
         }
         
         [Browsable(false)]
@@ -145,7 +161,7 @@ namespace Reports {
         }
         
         public virtual CrystalDecisions.CrystalReports.Engine.ReportDocument CreateReport() {
-            rptPurchaseOrder rpt = new rptPurchaseOrder();
+            rptTransferNote rpt = new rptTransferNote();
             rpt.Site = this.Site;
             return rpt;
         }

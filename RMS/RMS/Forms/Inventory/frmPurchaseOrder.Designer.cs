@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPurchaseOrder));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPurchaseOrder));
             this.panel1 = new System.Windows.Forms.Panel();
             this.dtpDate = new System.Windows.Forms.DateTimePicker();
             this.lblDate = new System.Windows.Forms.Label();
@@ -57,13 +57,6 @@
             this.txtPurchase = new System.Windows.Forms.TextBox();
             this.lblPurchase = new System.Windows.Forms.Label();
             this.dgvItemData = new System.Windows.Forms.DataGridView();
-            this.clmItemCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmItemDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmUnitPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmTax_chk = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.clmTaxAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmTotalAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.errPO = new System.Windows.Forms.ErrorProvider(this.components);
             this.panel3 = new System.Windows.Forms.Panel();
             this.lblTitle = new System.Windows.Forms.Label();
@@ -73,6 +66,13 @@
             this.panel6 = new System.Windows.Forms.Panel();
             this.cmbSupplier = new RMS.ColumnComboBox();
             this.cmbLocation = new RMS.ColumnComboBox();
+            this.clmItemCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmItemDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmUnitPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmTax_chk = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.clmTaxAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmTotalAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvItemData)).BeginInit();
@@ -351,85 +351,6 @@
             this.dgvItemData.RowsRemoved += new System.Windows.Forms.DataGridViewRowsRemovedEventHandler(this.dgvItemData_RowsRemoved);
             this.dgvItemData.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dataGridView1_KeyDown);
             // 
-            // clmItemCode
-            // 
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.clmItemCode.DefaultCellStyle = dataGridViewCellStyle1;
-            this.clmItemCode.FillWeight = 213.198F;
-            this.clmItemCode.Frozen = true;
-            this.clmItemCode.HeaderText = "Item Code";
-            this.clmItemCode.Name = "clmItemCode";
-            this.clmItemCode.ReadOnly = true;
-            this.clmItemCode.Width = 50;
-            // 
-            // clmItemDescription
-            // 
-            this.clmItemDescription.FillWeight = 77.3604F;
-            this.clmItemDescription.Frozen = true;
-            this.clmItemDescription.HeaderText = "Item Description";
-            this.clmItemDescription.Name = "clmItemDescription";
-            this.clmItemDescription.ReadOnly = true;
-            this.clmItemDescription.Width = 150;
-            // 
-            // clmUnitPrice
-            // 
-            this.clmUnitPrice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Format = "###,###.00";
-            dataGridViewCellStyle2.NullValue = "0.00";
-            this.clmUnitPrice.DefaultCellStyle = dataGridViewCellStyle2;
-            this.clmUnitPrice.FillWeight = 77.3604F;
-            this.clmUnitPrice.Frozen = true;
-            this.clmUnitPrice.HeaderText = "Unit Price";
-            this.clmUnitPrice.Name = "clmUnitPrice";
-            // 
-            // clmQuantity
-            // 
-            this.clmQuantity.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.clmQuantity.DefaultCellStyle = dataGridViewCellStyle3;
-            this.clmQuantity.FillWeight = 77.3604F;
-            this.clmQuantity.Frozen = true;
-            this.clmQuantity.HeaderText = "Quantity";
-            this.clmQuantity.Name = "clmQuantity";
-            this.clmQuantity.Width = 50;
-            // 
-            // clmTax_chk
-            // 
-            this.clmTax_chk.Frozen = true;
-            this.clmTax_chk.HeaderText = "TAX";
-            this.clmTax_chk.Name = "clmTax_chk";
-            this.clmTax_chk.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.clmTax_chk.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.clmTax_chk.Width = 40;
-            // 
-            // clmTaxAmount
-            // 
-            this.clmTaxAmount.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            dataGridViewCellStyle4.Format = "###,###.00";
-            dataGridViewCellStyle4.NullValue = "0.00";
-            this.clmTaxAmount.DefaultCellStyle = dataGridViewCellStyle4;
-            this.clmTaxAmount.FillWeight = 77.3604F;
-            this.clmTaxAmount.HeaderText = "Tax Amount";
-            this.clmTaxAmount.Name = "clmTaxAmount";
-            this.clmTaxAmount.ReadOnly = true;
-            // 
-            // clmTotalAmount
-            // 
-            this.clmTotalAmount.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle5.Format = "###,###.00";
-            dataGridViewCellStyle5.NullValue = "0.00";
-            this.clmTotalAmount.DefaultCellStyle = dataGridViewCellStyle5;
-            this.clmTotalAmount.FillWeight = 77.3604F;
-            this.clmTotalAmount.HeaderText = "Total Amount";
-            this.clmTotalAmount.Name = "clmTotalAmount";
-            this.clmTotalAmount.ReadOnly = true;
-            // 
             // errPO
             // 
             this.errPO.ContainerControl = this;
@@ -527,6 +448,86 @@
             this.cmbLocation.Size = new System.Drawing.Size(193, 21);
             this.cmbLocation.TabIndex = 62;
             this.cmbLocation.ViewColumn = 0;
+            // 
+            // clmItemCode
+            // 
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.clmItemCode.DefaultCellStyle = dataGridViewCellStyle1;
+            this.clmItemCode.FillWeight = 213.198F;
+            this.clmItemCode.Frozen = true;
+            this.clmItemCode.HeaderText = "Item Code";
+            this.clmItemCode.Name = "clmItemCode";
+            this.clmItemCode.ReadOnly = true;
+            this.clmItemCode.Width = 60;
+            // 
+            // clmItemDescription
+            // 
+            this.clmItemDescription.FillWeight = 77.3604F;
+            this.clmItemDescription.Frozen = true;
+            this.clmItemDescription.HeaderText = "Item Description";
+            this.clmItemDescription.Name = "clmItemDescription";
+            this.clmItemDescription.ReadOnly = true;
+            this.clmItemDescription.Width = 150;
+            // 
+            // clmUnitPrice
+            // 
+            this.clmUnitPrice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Format = "###,###.00";
+            dataGridViewCellStyle2.NullValue = "0.00";
+            this.clmUnitPrice.DefaultCellStyle = dataGridViewCellStyle2;
+            this.clmUnitPrice.FillWeight = 77.3604F;
+            this.clmUnitPrice.Frozen = true;
+            this.clmUnitPrice.HeaderText = "Unit Price";
+            this.clmUnitPrice.Name = "clmUnitPrice";
+            this.clmUnitPrice.Width = 80;
+            // 
+            // clmQuantity
+            // 
+            this.clmQuantity.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.clmQuantity.DefaultCellStyle = dataGridViewCellStyle3;
+            this.clmQuantity.FillWeight = 77.3604F;
+            this.clmQuantity.Frozen = true;
+            this.clmQuantity.HeaderText = "Quantity";
+            this.clmQuantity.Name = "clmQuantity";
+            this.clmQuantity.Width = 50;
+            // 
+            // clmTax_chk
+            // 
+            this.clmTax_chk.Frozen = true;
+            this.clmTax_chk.HeaderText = "TAX";
+            this.clmTax_chk.Name = "clmTax_chk";
+            this.clmTax_chk.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.clmTax_chk.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.clmTax_chk.Width = 40;
+            // 
+            // clmTaxAmount
+            // 
+            this.clmTaxAmount.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle4.Format = "###,###.00";
+            dataGridViewCellStyle4.NullValue = "0.00";
+            this.clmTaxAmount.DefaultCellStyle = dataGridViewCellStyle4;
+            this.clmTaxAmount.FillWeight = 77.3604F;
+            this.clmTaxAmount.HeaderText = "Tax Amount";
+            this.clmTaxAmount.Name = "clmTaxAmount";
+            this.clmTaxAmount.ReadOnly = true;
+            // 
+            // clmTotalAmount
+            // 
+            this.clmTotalAmount.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle5.Format = "###,###.00";
+            dataGridViewCellStyle5.NullValue = "0.00";
+            this.clmTotalAmount.DefaultCellStyle = dataGridViewCellStyle5;
+            this.clmTotalAmount.FillWeight = 77.3604F;
+            this.clmTotalAmount.HeaderText = "Total Amount";
+            this.clmTotalAmount.Name = "clmTotalAmount";
+            this.clmTotalAmount.ReadOnly = true;
             // 
             // frmPurchaseOrder
             // 
