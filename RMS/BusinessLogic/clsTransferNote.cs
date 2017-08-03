@@ -33,7 +33,7 @@ namespace BusinessLogic
             arrParameter[4, 1] = oTransferNote.IssueDate;
             arrParameter[5, 0] = "@mfldIssueValue";
             arrParameter[5, 1] = oTransferNote.IssueValue;
-            arrParameter[6, 0] = "@mfldUser";
+            arrParameter[6, 0] = "@mfldIssueUser";
             arrParameter[6, 1] = oTransferNote.User;
             arrParameter[7, 0] = "@mflddtItemList";
             arrParameter[7, 1] = oTransferNote.dtTransferNote;

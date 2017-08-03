@@ -357,8 +357,8 @@ namespace RMS.Forms.Inventory
 
             dt.Columns.Add("fldPOCode");
             dt.Columns.Add("fldItemCode");
-            dt.Columns.Add("fldUnitPrice");
             dt.Columns.Add("fldQuantity");
+            dt.Columns.Add("fldUnitPrice");
             dt.Columns.Add("fldTaxAmount");
 
 
@@ -369,8 +369,8 @@ namespace RMS.Forms.Inventory
                 {
                     dRow["fldPOCode"] = strPOCode;
                     dRow["fldItemCode"] = row.Cells["clmItemCode"].Value.ToString();
-                    dRow["fldUnitPrice"] = row.Cells["clmUnitPrice"].Value.ToString();
                     dRow["fldQuantity"] = row.Cells["clmQuantity"].Value.ToString();
+                    dRow["fldUnitPrice"] = row.Cells["clmUnitPrice"].Value.ToString();
                     dRow["fldTaxAmount"] = row.Cells["clmTaxAmount"].Value.ToString();
                     dt.Rows.Add(dRow);
                 }catch(Exception ex)

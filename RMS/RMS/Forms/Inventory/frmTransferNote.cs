@@ -271,16 +271,15 @@ namespace RMS.Forms.Inventory
                 {
                     dRow["fldIssueNumber"] = strIssueNumber;
                     dRow["fldItemCode"] = row.Cells["clmItemCode"].Value.ToString();
-                    dRow["fldUnitCost"] = row.Cells["clmCostPrice"].Value.ToString();
                     dRow["fldQty"] = row.Cells["clmQuantity"].Value.ToString();
-                    dRow["fldItemTotalCost"] = row.Cells["clmValue"].Value.ToString();
+                    dRow["fldUnitCost"] = row.Cells["clmCostPrice"].Value.ToString();
+                    dRow["fldItemTotalCost"] =Convert.ToDouble(row.Cells["clmValue"].Value);//.ToString();
                     dt.Rows.Add(dRow);
                 }
                 catch (Exception ex)
                 {
 
                 }
-
             }
             return dt;
         }
