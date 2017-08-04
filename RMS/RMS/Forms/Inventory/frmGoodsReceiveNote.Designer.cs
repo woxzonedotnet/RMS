@@ -29,12 +29,14 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmGoodsReceiveNote));
             this.dgvItemData = new System.Windows.Forms.DataGridView();
+            this.clmSelectItem = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.clmItemCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmItemDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmUnit = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmOrderQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmUnitPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmValue = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -64,6 +66,9 @@
             this.lblLocation = new System.Windows.Forms.Label();
             this.lblGRNNumber = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.chkPONumber = new System.Windows.Forms.CheckBox();
+            this.txtPONumber = new System.Windows.Forms.TextBox();
+            this.btnPOSesrch = new System.Windows.Forms.Button();
             this.txtInvoiceNo = new System.Windows.Forms.TextBox();
             this.lblInvoiceNo = new System.Windows.Forms.Label();
             this.cmbSupplier = new RMS.ColumnComboBox();
@@ -82,9 +87,11 @@
             // 
             this.dgvItemData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvItemData.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.clmSelectItem,
             this.clmItemCode,
             this.clmItemDescription,
             this.clmUnit,
+            this.clmOrderQuantity,
             this.clmUnitPrice,
             this.clmQuantity,
             this.clmValue,
@@ -93,18 +100,29 @@
             this.clmTotalAmount});
             this.dgvItemData.Location = new System.Drawing.Point(-1, -1);
             this.dgvItemData.Name = "dgvItemData";
-            this.dgvItemData.Size = new System.Drawing.Size(639, 399);
+            this.dgvItemData.Size = new System.Drawing.Size(631, 435);
             this.dgvItemData.TabIndex = 0;
             this.dgvItemData.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             this.dgvItemData.CellValidated += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvItemData_CellValidated);
             this.dgvItemData.CurrentCellDirtyStateChanged += new System.EventHandler(this.dgvItemData_CurrentCellDirtyStateChanged);
+            this.dgvItemData.RowsRemoved += new System.Windows.Forms.DataGridViewRowsRemovedEventHandler(this.dgvItemData_RowsRemoved);
             this.dgvItemData.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dataGridView1_KeyDown);
+            // 
+            // clmSelectItem
+            // 
+            this.clmSelectItem.HeaderText = "";
+            this.clmSelectItem.Name = "clmSelectItem";
+            this.clmSelectItem.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.clmSelectItem.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.clmSelectItem.Visible = false;
+            this.clmSelectItem.Width = 20;
             // 
             // clmItemCode
             // 
             this.clmItemCode.HeaderText = "Item Code";
             this.clmItemCode.Name = "clmItemCode";
             this.clmItemCode.ReadOnly = true;
+            this.clmItemCode.Width = 70;
             // 
             // clmItemDescription
             // 
@@ -119,6 +137,14 @@
             this.clmUnit.Name = "clmUnit";
             this.clmUnit.ReadOnly = true;
             this.clmUnit.Width = 60;
+            // 
+            // clmOrderQuantity
+            // 
+            this.clmOrderQuantity.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.clmOrderQuantity.HeaderText = "Order Qty";
+            this.clmOrderQuantity.Name = "clmOrderQuantity";
+            this.clmOrderQuantity.ReadOnly = true;
+            this.clmOrderQuantity.Visible = false;
             // 
             // clmUnitPrice
             // 
@@ -141,10 +167,10 @@
             // 
             // clmTax_chk
             // 
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle2.NullValue = false;
-            this.clmTax_chk.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle1.NullValue = false;
+            this.clmTax_chk.DefaultCellStyle = dataGridViewCellStyle1;
             this.clmTax_chk.HeaderText = "Tax";
             this.clmTax_chk.Name = "clmTax_chk";
             this.clmTax_chk.Resizable = System.Windows.Forms.DataGridViewTriState.True;
@@ -169,7 +195,7 @@
             this.panel3.Controls.Add(this.dgvItemData);
             this.panel3.Location = new System.Drawing.Point(12, 12);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(631, 407);
+            this.panel3.Size = new System.Drawing.Size(631, 439);
             this.panel3.TabIndex = 75;
             // 
             // chkVat
@@ -257,7 +283,7 @@
             this.panel2.Controls.Add(this.txtVatAmount);
             this.panel2.Controls.Add(this.txtGRNValue);
             this.panel2.Controls.Add(this.lblGRNValue);
-            this.panel2.Location = new System.Drawing.Point(657, 229);
+            this.panel2.Location = new System.Drawing.Point(657, 261);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(294, 190);
             this.panel2.TabIndex = 74;
@@ -299,7 +325,7 @@
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
             this.btnClose.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnClose.Location = new System.Drawing.Point(649, 437);
+            this.btnClose.Location = new System.Drawing.Point(649, 464);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(75, 36);
             this.btnClose.TabIndex = 73;
@@ -315,12 +341,13 @@
             this.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
             this.btnClear.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnClear.Location = new System.Drawing.Point(568, 437);
+            this.btnClear.Location = new System.Drawing.Point(568, 464);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(75, 36);
             this.btnClear.TabIndex = 72;
             this.btnClear.Text = "Clear";
             this.btnClear.UseVisualStyleBackColor = false;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
             // btnPrint
             // 
@@ -330,7 +357,7 @@
             this.btnPrint.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPrint.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
             this.btnPrint.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnPrint.Location = new System.Drawing.Point(487, 437);
+            this.btnPrint.Location = new System.Drawing.Point(487, 464);
             this.btnPrint.Name = "btnPrint";
             this.btnPrint.Size = new System.Drawing.Size(75, 36);
             this.btnPrint.TabIndex = 71;
@@ -341,7 +368,7 @@
             // 
             this.dtpDate.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
             this.dtpDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpDate.Location = new System.Drawing.Point(108, 129);
+            this.dtpDate.Location = new System.Drawing.Point(114, 165);
             this.dtpDate.Name = "dtpDate";
             this.dtpDate.Size = new System.Drawing.Size(120, 20);
             this.dtpDate.TabIndex = 66;
@@ -350,7 +377,7 @@
             // 
             this.lblDate.AutoSize = true;
             this.lblDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
-            this.lblDate.Location = new System.Drawing.Point(15, 133);
+            this.lblDate.Location = new System.Drawing.Point(15, 169);
             this.lblDate.Name = "lblDate";
             this.lblDate.Size = new System.Drawing.Size(37, 16);
             this.lblDate.TabIndex = 65;
@@ -360,7 +387,7 @@
             // 
             this.lblSupplier.AutoSize = true;
             this.lblSupplier.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
-            this.lblSupplier.Location = new System.Drawing.Point(15, 94);
+            this.lblSupplier.Location = new System.Drawing.Point(15, 130);
             this.lblSupplier.Name = "lblSupplier";
             this.lblSupplier.Size = new System.Drawing.Size(58, 16);
             this.lblSupplier.TabIndex = 63;
@@ -368,7 +395,7 @@
             // 
             // txtGRNNumber
             // 
-            this.txtGRNNumber.Location = new System.Drawing.Point(108, 19);
+            this.txtGRNNumber.Location = new System.Drawing.Point(114, 19);
             this.txtGRNNumber.Name = "txtGRNNumber";
             this.txtGRNNumber.Size = new System.Drawing.Size(120, 20);
             this.txtGRNNumber.TabIndex = 61;
@@ -377,7 +404,7 @@
             // 
             this.lblLocation.AutoSize = true;
             this.lblLocation.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
-            this.lblLocation.Location = new System.Drawing.Point(15, 56);
+            this.lblLocation.Location = new System.Drawing.Point(15, 92);
             this.lblLocation.Name = "lblLocation";
             this.lblLocation.Size = new System.Drawing.Size(59, 16);
             this.lblLocation.TabIndex = 59;
@@ -397,6 +424,9 @@
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.Control;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.chkPONumber);
+            this.panel1.Controls.Add(this.txtPONumber);
+            this.panel1.Controls.Add(this.btnPOSesrch);
             this.panel1.Controls.Add(this.txtInvoiceNo);
             this.panel1.Controls.Add(this.lblInvoiceNo);
             this.panel1.Controls.Add(this.dtpDate);
@@ -410,12 +440,49 @@
             this.panel1.Controls.Add(this.lblGRNNumber);
             this.panel1.Location = new System.Drawing.Point(659, 12);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(294, 198);
+            this.panel1.Size = new System.Drawing.Size(294, 236);
             this.panel1.TabIndex = 69;
+            // 
+            // chkPONumber
+            // 
+            this.chkPONumber.AutoSize = true;
+            this.chkPONumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
+            this.chkPONumber.Location = new System.Drawing.Point(16, 57);
+            this.chkPONumber.Name = "chkPONumber";
+            this.chkPONumber.Size = new System.Drawing.Size(97, 20);
+            this.chkPONumber.TabIndex = 73;
+            this.chkPONumber.Text = "PO Number";
+            this.chkPONumber.UseVisualStyleBackColor = true;
+            this.chkPONumber.CheckedChanged += new System.EventHandler(this.chkPONumber_CheckedChanged);
+            // 
+            // txtPONumber
+            // 
+            this.txtPONumber.Enabled = false;
+            this.txtPONumber.Location = new System.Drawing.Point(116, 57);
+            this.txtPONumber.Name = "txtPONumber";
+            this.txtPONumber.Size = new System.Drawing.Size(120, 20);
+            this.txtPONumber.TabIndex = 71;
+            // 
+            // btnPOSesrch
+            // 
+            this.btnPOSesrch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(41)))), ((int)(((byte)(46)))));
+            this.btnPOSesrch.Enabled = false;
+            this.btnPOSesrch.FlatAppearance.BorderSize = 0;
+            this.btnPOSesrch.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Maroon;
+            this.btnPOSesrch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPOSesrch.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPOSesrch.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnPOSesrch.Image = global::RMS.Properties.Resources.search25;
+            this.btnPOSesrch.Location = new System.Drawing.Point(244, 50);
+            this.btnPOSesrch.Name = "btnPOSesrch";
+            this.btnPOSesrch.Size = new System.Drawing.Size(35, 31);
+            this.btnPOSesrch.TabIndex = 70;
+            this.btnPOSesrch.UseVisualStyleBackColor = false;
+            this.btnPOSesrch.Click += new System.EventHandler(this.btnPOSesrch_Click);
             // 
             // txtInvoiceNo
             // 
-            this.txtInvoiceNo.Location = new System.Drawing.Point(108, 165);
+            this.txtInvoiceNo.Location = new System.Drawing.Point(114, 201);
             this.txtInvoiceNo.Name = "txtInvoiceNo";
             this.txtInvoiceNo.Size = new System.Drawing.Size(120, 20);
             this.txtInvoiceNo.TabIndex = 68;
@@ -424,7 +491,7 @@
             // 
             this.lblInvoiceNo.AutoSize = true;
             this.lblInvoiceNo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
-            this.lblInvoiceNo.Location = new System.Drawing.Point(15, 166);
+            this.lblInvoiceNo.Location = new System.Drawing.Point(15, 202);
             this.lblInvoiceNo.Name = "lblInvoiceNo";
             this.lblInvoiceNo.Size = new System.Drawing.Size(72, 16);
             this.lblInvoiceNo.TabIndex = 67;
@@ -437,7 +504,7 @@
             this.cmbSupplier.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
             this.cmbSupplier.DropDownWidth = 17;
             this.cmbSupplier.FormattingEnabled = true;
-            this.cmbSupplier.Location = new System.Drawing.Point(108, 93);
+            this.cmbSupplier.Location = new System.Drawing.Point(114, 129);
             this.cmbSupplier.Name = "cmbSupplier";
             this.cmbSupplier.Size = new System.Drawing.Size(165, 21);
             this.cmbSupplier.TabIndex = 64;
@@ -450,7 +517,7 @@
             this.cmbLocation.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
             this.cmbLocation.DropDownWidth = 17;
             this.cmbLocation.FormattingEnabled = true;
-            this.cmbLocation.Location = new System.Drawing.Point(108, 55);
+            this.cmbLocation.Location = new System.Drawing.Point(114, 91);
             this.cmbLocation.Name = "cmbLocation";
             this.cmbLocation.Size = new System.Drawing.Size(165, 21);
             this.cmbLocation.TabIndex = 62;
@@ -465,7 +532,7 @@
             this.btnSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSearch.ForeColor = System.Drawing.SystemColors.Control;
             this.btnSearch.Image = global::RMS.Properties.Resources.search25;
-            this.btnSearch.Location = new System.Drawing.Point(238, 12);
+            this.btnSearch.Location = new System.Drawing.Point(244, 12);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(35, 31);
             this.btnSearch.TabIndex = 60;
@@ -480,7 +547,7 @@
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
             this.btnSave.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnSave.Location = new System.Drawing.Point(406, 437);
+            this.btnSave.Location = new System.Drawing.Point(406, 464);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 36);
             this.btnSave.TabIndex = 70;
@@ -496,7 +563,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(968, 485);
+            this.ClientSize = new System.Drawing.Size(968, 511);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.btnClose);
@@ -550,15 +617,20 @@
         private System.Windows.Forms.Label lblVATAmount;
         private System.Windows.Forms.TextBox txtInvoiceNo;
         private System.Windows.Forms.Label lblInvoiceNo;
+        private System.Windows.Forms.ErrorProvider errGRN;
+        private System.Windows.Forms.TextBox txtPONumber;
+        private System.Windows.Forms.Button btnPOSesrch;
+        private System.Windows.Forms.CheckBox chkPONumber;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn clmSelectItem;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmItemCode;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmItemDescription;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmUnit;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmOrderQuantity;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmUnitPrice;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmQuantity;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmValue;
         private System.Windows.Forms.DataGridViewCheckBoxColumn clmTax_chk;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmTaxAmount;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmTotalAmount;
-        private System.Windows.Forms.ErrorProvider errGRN;
     }
 }

@@ -28,6 +28,9 @@ namespace RMS.Forms.Inventory
         clsDocumentNumber cDocumentNumber = new clsDocumentNumber();
         objItemLocation oItemLocation = new objItemLocation();
         clsItemLocation cItemLocation = new clsItemLocation();
+        objPurchaseOrder oPurchaseOrder = new objPurchaseOrder();
+        clsPurchaseOrder cPurchaseOrder = new clsPurchaseOrder();
+        clsSupplierMaster cSupplier = new clsSupplierMaster();
         #endregion
 
         #region Variable
@@ -56,8 +59,14 @@ namespace RMS.Forms.Inventory
 
         private void frmGoodsReceiveNote_Load(object sender, EventArgs e)
         {
+            LoadDocumentNumber();
             cCommonMethods.loadComboRMS(cSubLocation.GetSubLocationData(), cmbLocation, 2);
             cCommonMethods.loadComboRMS(cSupplierMaster.GetSupplierData(), cmbSupplier, 2);
+        }
+
+        public void LoadDocumentNumber()
+        {
+            this.txtGRNNumber.Text = cDocumentNumber.LoadDocNumber(cGlobleVariable.UniqID, DocumentCode, cGlobleVariable.LocationCode, cCommonMethods.DateYear());
         }
 
         #region Search Button
@@ -97,7 +106,17 @@ namespace RMS.Forms.Inventory
         {
             if ((e.KeyCode == Keys.Space) && this.dgvItemData.CurrentCell.OwningColumn.Name.Equals("clmItemCode"))
             {
-                LoadItem();
+
+                if (ValidateData())
+                {
+                    LoadItem();
+                    if (dgvItemData.RowCount != 0)
+                    {
+                        cmbLocation.Enabled = false;
+                        cmbSupplier.Enabled = false;
+                    }
+                }
+
             }
         }
 
@@ -105,8 +124,8 @@ namespace RMS.Forms.Inventory
         public void LoadItem()
         {
             string[] strFieldList = new string[2];
-            strFieldList[0] = "fldItemCode";
-            strFieldList[1] = "fldDescription";
+            strFieldList[0] = "a.fldItemCode";
+            strFieldList[1] = "a.fldDescription";
 
             string[] strHeaderList = new string[2];
             strHeaderList[0] = "Item Code";
@@ -117,8 +136,8 @@ namespace RMS.Forms.Inventory
             iHeaderWidth[1] = 150;
 
             string strReturnString = "Item Code";
-            string strWhere = "fldStatus LIKE '1'";
-            Item = cCommonMethods.BrowsData("tbl_ItemMaster", strFieldList, strHeaderList, iHeaderWidth, strReturnString, strWhere, "Item Code");
+            string strWhere = "fldStatus LIKE '1' AND b.fldSubLocationCode='" + this.cmbLocation["fldSubLocationCode"].ToString() + "' and b.fldItemCode=a.fldItemCode";
+            Item = cCommonMethods.BrowsData("tbl_ItemMaster a,tbl_ItemLocation b", strFieldList, strHeaderList, iHeaderWidth, strReturnString, strWhere, "Item Code");
             if (Item != "")
             {
                 LoadItemDetails();
@@ -130,7 +149,7 @@ namespace RMS.Forms.Inventory
         private void LoadItemDetails()
         {
             oItemMaster = cItemMaster.GetItemData(cGlobleVariable.LocationCode,Item);
-            oItemLocation = cItemLocation.GetItemLocationData(this.cmbLocation["fldSubLocationCode"].ToString(), Item);
+            oItemLocation = cItemLocation.GetItemLocationData(cGlobleVariable.LocationCode,this.cmbLocation["fldSubLocationCode"].ToString(), Item);
 
             int isExist = 0;
             for (int i = 0; i < dgvItemData.Rows.Count; i++)
@@ -166,6 +185,7 @@ namespace RMS.Forms.Inventory
         {
             calculatAmounts();
         }
+
         public void calculatAmounts()
         {
             try
@@ -275,6 +295,22 @@ namespace RMS.Forms.Inventory
                         calculatAmounts();
                     }
                 }
+
+                if (this.dgvItemData.CurrentCell.OwningColumn.Name.Equals("clmSelectItem"))
+                {
+                    dgvItemData.EndEdit();
+                    if ((this.dgvItemData.CurrentCell.Value != null) && this.dgvItemData.CurrentCell.Value.ToString().Equals("True"))
+                    {
+                        dgvItemData.CurrentCell.Style.BackColor = Color.LightGreen;
+                        dgvItemData.CurrentRow.Cells["clmItemCode"].Style.BackColor = Color.LightGreen;
+                    }
+                    else
+                    {
+                        dgvItemData.CurrentCell.Style.BackColor = Color.White;
+                        dgvItemData.CurrentRow.Cells["clmItemCode"].Style.BackColor = Color.White;
+                    }
+
+                }
             }
             catch (Exception ex)
             {
@@ -295,7 +331,8 @@ namespace RMS.Forms.Inventory
                     {
                         MessageBox.Show("Successfully Saved...!", "Purchase Order", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         cDocumentNumber.DeleteDocumentNumber(cGlobleVariable.UniqID, DocumentCode, txtGRNNumber.Text);
-                        //clear();
+                        EnableControls(false);
+                        this.btnPrint.Enabled = true;
                     }
                     else
                     {
@@ -308,6 +345,7 @@ namespace RMS.Forms.Inventory
                 }
             }
         }
+
 
         #region Validate Purchase Order Data
         private bool ValidateData()
@@ -433,5 +471,176 @@ namespace RMS.Forms.Inventory
             this.Dispose();
         }
 
+        private void dgvItemData_RowsRemoved(object sender, DataGridViewRowsRemovedEventArgs e)
+        {
+            if (dgvItemData.RowCount == 1)
+            {
+                cmbLocation.Enabled = true;
+                cmbSupplier.Enabled = true;
+            }
+        }
+
+        private void chkPONumber_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chkPONumber.Checked == true)
+            {
+                txtPONumber.Enabled = true;
+                btnPOSesrch.Enabled = true;
+                dgvItemData.Rows.Clear();
+                dgvItemData.Columns["clmOrderQuantity"].Visible = true;
+                dgvItemData.Columns["clmSelectItem"].Visible = true;
+                dgvItemData.Columns["clmItemCode"].ReadOnly = false;
+                cmbLocation.Enabled = false;
+                cmbSupplier.Enabled = false;
+
+            }
+            else
+            {
+                dgvItemData.Rows.Clear();
+                txtPONumber.Clear();
+                txtPONumber.Enabled = false;
+                btnPOSesrch.Enabled = false;
+                cmbLocation.Enabled = true;
+                cmbLocation.SetText("");
+                cmbSupplier.Enabled = true;
+                cmbSupplier.SetText("");
+                dgvItemData.Columns["clmOrderQuantity"].Visible = false;
+                dgvItemData.Columns["clmSelectItem"].Visible = false;
+                dgvItemData.Columns["clmItemCode"].ReadOnly = true;
+            }
+        }
+
+        private void btnPOSesrch_Click(object sender, EventArgs e)
+        {
+            LoadPOSearch();
+        }
+
+        public void LoadPOSearch()
+        {
+            string[] strFieldList = new string[4];
+            strFieldList[0] = "fldPOCode";
+            strFieldList[1] = "fldSupplierCode";
+            strFieldList[2] = "fldDate";
+            strFieldList[3] = "fldRemarks";
+
+            string[] strHeaderList = new string[4];
+            strHeaderList[0] = "Purchase Order Code";
+            strHeaderList[1] = "Supplier Code";
+            strHeaderList[2] = "Purchase Order Date";
+            strHeaderList[3] = "Remarks";
+
+            int[] iHeaderWidth = new int[4];
+            iHeaderWidth[0] = 150;
+            iHeaderWidth[1] = 100;
+            iHeaderWidth[2] = 150;
+            iHeaderWidth[3] = 200;
+
+            string strReturnString = "Purchase Order Code";
+            string strWhere = "fldLocationCode= '" + cGlobleVariable.LocationCode + "'";
+            txtPONumber.Text = cCommonMethods.BrowsData("tbl_PODetails", strFieldList, strHeaderList, iHeaderWidth, strReturnString, strWhere, "Purchase Order");
+            if (txtPONumber.Text != "")
+            {
+                LoadPurchaseOrderDetails();
+            }
+        }
+
+        #region Load Purchase Order Details
+        private void LoadPurchaseOrderDetails()
+        {
+            oPurchaseOrder = cPurchaseOrder.GetPurchaseOrderData(cGlobleVariable.LocationCode, this.txtPONumber.Text);
+
+            cmbLocation.SetText(cSubLocation.GetSubLocationData(cGlobleVariable.LocationCode, oPurchaseOrder.SubLocationCode).SubLocationName);
+            cmbSupplier.SetText(cSupplier.GetSupplierData(cGlobleVariable.LocationCode, oPurchaseOrder.SupplierCode).SupplierName);
+
+
+            for (int i = 0; i < oPurchaseOrder.dtItemList.Rows.Count; i++)
+            {
+                this.dgvItemData.Rows.Add();
+                dgvItemData.Rows[i].Cells["clmItemCode"].Value = oPurchaseOrder.dtItemList.Rows[i]["fldItemCode"].ToString();
+                dgvItemData.Rows[i].Cells["clmItemDescription"].Value = cItemMaster.GetItemData(cGlobleVariable.LocationCode, oPurchaseOrder.dtItemList.Rows[i]["fldItemCode"].ToString()).Description;
+                dgvItemData.Rows[i].Cells["clmUnit"].Value = cItemLocation.GetItemLocationData(cGlobleVariable.LocationCode,oPurchaseOrder.dtItemList.Rows[i]["fldItemCode"].ToString()).ShelfStock;
+                dgvItemData.Rows[i].Cells["clmQuantity"].Value = cItemLocation.GetItemLocationData(cGlobleVariable.LocationCode, oPurchaseOrder.dtItemList.Rows[i]["fldItemCode"].ToString()).ShelfStock;
+                dgvItemData.Rows[i].Cells["clmUnitPrice"].Value = oPurchaseOrder.dtItemList.Rows[i]["fldUnitPrice"].ToString();
+                dgvItemData.Rows[i].Cells["clmOrderQuantity"].Value = oPurchaseOrder.dtItemList.Rows[i]["fldQuantity"].ToString();
+
+                double a = Convert.ToDouble(oPurchaseOrder.dtItemList.Rows[i][4].ToString());
+                if (a > 0)
+                {
+                    dgvItemData.Rows[i].Cells["clmTax_chk"].Value = true;
+                }
+
+                dgvItemData.Rows[i].Cells["clmTaxAmount"].Value = oPurchaseOrder.dtItemList.Rows[i]["fldTaxAmount"].ToString();
+
+                double qty = Convert.ToDouble(oPurchaseOrder.dtItemList.Rows[i]["fldQuantity"]);
+                double UnitPrice = Convert.ToDouble(oPurchaseOrder.dtItemList.Rows[i]["fldUnitPrice"]);
+                double TaxAmount = Convert.ToDouble(oPurchaseOrder.dtItemList.Rows[i]["fldTaxAmount"]);
+                dgvItemData.Rows[i].Cells["clmTotalAmount"].Value = ((qty * UnitPrice) + TaxAmount);
+                //calculatAmounts();
+            }
+
+            //this.dgvItemData.Enabled = false;
+            //this.chkVat.Enabled = false;
+            //this.dtpDate.Enabled = false;
+            //this.btnSave.Enabled = false;
+            //this.btnPrint.Enabled = true;
+        }
+        #endregion
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            clear();
+        }
+
+        #region Clear
+        public void clear()
+        {
+            cCommonMethods.ClearForm(this);
+            LoadDocumentNumber();
+            EnableControls(true);
+            this.btnPrint.Enabled = false;
+            this.btnPOSesrch.Enabled = false;
+        }
+        #endregion
+
+        #region Disable Component
+        public void EnableControls(bool Command)
+        {
+            bool result;
+            if (Command)
+            {
+                result = true;
+                this.txtGRNNumber.ReadOnly = false;
+                this.txtPONumber.ReadOnly = true;
+                this.txtInvoiceNo.ReadOnly = false;
+                this.txtGRNValue.ReadOnly = false;
+                this.txtVatPrecentage.ReadOnly = false;
+                this.txtVatAmount.ReadOnly = false;
+                this.txtDiscount.ReadOnly = false;
+                this.txtNetAmount.ReadOnly = false;
+            }
+            else
+            {
+                result = false;
+                this.txtGRNNumber.ReadOnly = true;
+                this.txtPONumber.ReadOnly = true;
+                this.txtInvoiceNo.ReadOnly = true;
+                this.txtGRNValue.ReadOnly = true;
+                this.txtVatPrecentage.ReadOnly = true;
+                this.txtVatAmount.ReadOnly = true;
+                this.txtDiscount.ReadOnly = true;
+                this.txtNetAmount.ReadOnly = true;
+            }
+
+            this.btnSave.Enabled = result;
+            this.btnPOSesrch.Enabled = result;
+            this.chkPONumber.Enabled = result;
+            this.dgvItemData.Enabled = result;
+            this.cmbLocation.Enabled = result;
+            this.cmbSupplier.Enabled = result;
+            this.dtpDate.Enabled = result;
+            this.chkVat.Enabled = result;
+
+        }
+        #endregion
     }
 }
