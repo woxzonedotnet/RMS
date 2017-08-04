@@ -185,7 +185,6 @@ namespace RMS.Forms
         private void LoadLocationDetails()
         {
             oItemMaster = cItemMaster.GetItemData(cGlobleVariable.LocationCode,Item);
-            oItemLocation = cItemLocation.GetItemLocationData(this.cmbLocation["fldSubLocation"].ToString(), Item);
 
             int isExist = 0;
             int row = 0;
@@ -210,7 +209,7 @@ namespace RMS.Forms
                 this.dgvItemDetails.Rows.Add();
                 this.dgvItemDetails.Rows[this.dgvItemDetails.CurrentCell.RowIndex - 1].Cells["clmItemCode"].Value = oItemMaster.ItemCode;
                 this.dgvItemDetails.Rows[this.dgvItemDetails.CurrentCell.RowIndex - 1].Cells["clmDescription"].Value = oItemMaster.Description;
-                this.dgvItemDetails.Rows[this.dgvItemDetails.CurrentCell.RowIndex - 1].Cells["clmUnit"].Value = oItemLocation.ShelfStock.ToString("N2");
+                this.dgvItemDetails.Rows[this.dgvItemDetails.CurrentCell.RowIndex - 1].Cells["clmUnit"].Value = cItemLocation.GetItemLocationData(cGlobleVariable.LocationCode,this.cmbLocation["fldSubLocationCode"].ToString()).ShelfStock;
                 this.dgvItemDetails.Rows[this.dgvItemDetails.CurrentCell.RowIndex - 1].Cells["clmQuantity"].Value = "0.00";
                 this.dgvItemDetails.Rows[this.dgvItemDetails.CurrentCell.RowIndex - 1].Cells["clmUnitPrice"].Value = oItemMaster.CostPrice.ToString("###,###.00");
                 this.dgvItemDetails.CurrentCell = this.dgvItemDetails.Rows[row].Cells[3];
