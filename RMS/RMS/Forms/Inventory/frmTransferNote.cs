@@ -181,7 +181,7 @@ namespace RMS.Forms.Inventory
                 this.dgvTransferNote.Rows.Add();
                 this.dgvTransferNote.Rows[this.dgvTransferNote.CurrentCell.RowIndex - 1].Cells["clmItemCode"].Value = oItemMaster.ItemCode;
                 this.dgvTransferNote.Rows[this.dgvTransferNote.CurrentCell.RowIndex - 1].Cells["clmDescription"].Value = oItemMaster.Description;
-                this.dgvTransferNote.Rows[this.dgvTransferNote.CurrentCell.RowIndex - 1].Cells["clmUnit"].Value = oItemLocation.ShelfStock;
+                this.dgvTransferNote.Rows[this.dgvTransferNote.CurrentCell.RowIndex - 1].Cells["clmUnit"].Value = cItemLocation.GetItemLocationData(cGlobleVariable.LocationCode, this.cmbLocationFrom["fldSubLocationCode"].ToString(), ItemCode).ShelfStock;
                 this.dgvTransferNote.Rows[this.dgvTransferNote.CurrentCell.RowIndex - 1].Cells["clmCostPrice"].Value = oItemMaster.CostPrice;
                 this.dgvTransferNote.CurrentCell = this.dgvTransferNote.Rows[row].Cells["clmQuantity"];
             }
@@ -196,19 +196,9 @@ namespace RMS.Forms.Inventory
             Clear();
         }
 
-        public void LoadDocumentNumber() 
+        private void LoadDocumentNumber() 
         {
-            cDocumentNumber.LoadDocNumber(cGlobleVariable.UniqID, DocumentCode, cGlobleVariable.LocationCode, cCommonMethods.DateYear());
-            oDocumentNumber = cDocumentNumber.GetDocumentNumberData(cGlobleVariable.UniqID, DocumentCode);
-
-            if (oDocumentNumber.IsExists)
-            {
-                this.txtIssuesNumber.Text = oDocumentNumber.DocumentNo;
-            }
-            else
-            {
-                cDocumentNumber.DocumentNo(DocumentCode, cGlobleVariable.LocationCode, cCommonMethods.DateYear());
-            }
+            this.txtIssuesNumber.Text = cDocumentNumber.LoadDocNumber(cGlobleVariable.UniqID, DocumentCode, cGlobleVariable.LocationCode, cCommonMethods.DateYear());
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -468,7 +458,7 @@ namespace RMS.Forms.Inventory
             }
         }
 
-         #region Load Purchase Order Details
+        #region Load Purchase Order Details
         private void LoadTransferNoteDetails()
         {
             dgvTransferNote.Rows.Clear();
