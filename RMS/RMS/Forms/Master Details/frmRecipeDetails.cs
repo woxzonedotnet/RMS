@@ -71,7 +71,13 @@ namespace RMS.Forms
         private void Clear() 
         {
             cCommonMethods.ClearForm(this);
-            this.txtRecipeCost.Text = "";
+            this.txtRecipeCost.Text = "0.0";
+            this.dgvItemDetails.Enabled = true;
+            this.cmbLocation.Enabled = true;
+            this.cmbOrderType.Enabled = true;
+            this.txtRecipeCode.Enabled = true;
+            this.txtFullDescription.ReadOnly = false;
+            this.btnSave.Enabled = true;
         }
 
         private bool ValidateData() 
@@ -254,11 +260,8 @@ namespace RMS.Forms
                 {
                     if (InsertUpdateData() != -1)
                     {
-                        //cDocumentNumber.DeleteDocumentNumber(cGlobleVariable.UniqID, DocumentCode, this.txtPONumber.Text);
                         MessageBox.Show("Successfully Saved...!", "Purchase Order", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        //this.btnPrint.Enabled = true;
-                        //EnableControls(false);
-                        //this.txtVat.ReadOnly = true;
+                        Clear();
                     }
                     else
                     {
@@ -306,7 +309,7 @@ namespace RMS.Forms
                     dRow["fldRecipeCode"] = strRecipeCode;
                     dRow["fldItemCode"] = row.Cells["clmItemCode"].Value.ToString();
                     dRow["fldItemQty"] = row.Cells["clmQuantity"].Value.ToString();
-                    dRow["fldUnitPrice"] = row.Cells["clmUnitPrice"].Value.ToString();
+                    dRow["fldUnitPrice"] = Convert.ToDouble(row.Cells["clmUnitPrice"].Value);
                     
                     dt.Rows.Add(dRow);
                 }
@@ -363,19 +366,16 @@ namespace RMS.Forms
 
             for (int i = 0; i < oRecipeDetails.dtRecipeDetails.Rows.Count; i++)
             {
-                oItemMaster = cItemMaster.GetItemData(cGlobleVariable.LocationCode, oRecipeDetails.dtRecipeDetails.Rows[i]["fldItemCode"].ToString());
                 this.dgvItemDetails.Rows.Add();
                 dgvItemDetails.Rows[i].Cells["clmItemCode"].Value = oRecipeDetails.dtRecipeDetails.Rows[i]["fldItemCode"].ToString();
-                dgvItemDetails.Rows[i].Cells["clmDescription"].Value = oItemMaster.Description;
-                dgvItemDetails.Rows[i].Cells["clmUnit"].Value = oItemLocation.ShelfStock;
+                dgvItemDetails.Rows[i].Cells["clmDescription"].Value = cItemMaster.GetItemData(cGlobleVariable.LocationCode, oRecipeDetails.dtRecipeDetails.Rows[i]["fldItemCode"].ToString()).Description;
+                dgvItemDetails.Rows[i].Cells["clmUnit"].Value = cItemLocation.GetItemLocationData(cGlobleVariable.LocationCode, this.cmbLocation["fldSubLocationCode"].ToString(), Item).ShelfStock;
                 dgvItemDetails.Rows[i].Cells["clmQuantity"].Value = oRecipeDetails.dtRecipeDetails.Rows[i]["fldItemQty"].ToString();
                 dgvItemDetails.Rows[i].Cells["clmUnitPrice"].Value = oRecipeDetails.dtRecipeDetails.Rows[i]["fldUnitPrice"].ToString();
 
                 double qtyPrice = Convert.ToDouble(this.dgvItemDetails.Rows[i].Cells["clmUnitPrice"].Value);
                 double qty = Convert.ToDouble(this.dgvItemDetails.Rows[i].Cells["clmQuantity"].Value);
                 this.dgvItemDetails.Rows[i].Cells["clmTotalCost"].Value = (qtyPrice * qty).ToString("###,###.00");
-
-                //calculatAmounts();
             }
 
             this.dgvItemDetails.Enabled = false;
