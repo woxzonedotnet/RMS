@@ -39,6 +39,7 @@ namespace RMS.Forms.Inventory
         double total = 0;
         #endregion
 
+        #region Constructor
         public frmTransferNote()
         {
             InitializeComponent();
@@ -47,6 +48,7 @@ namespace RMS.Forms.Inventory
             cCommonMethods.loadComboRMS(cSubLocation.GetSubLocationData(cGlobleVariable.LocationCode), cmbLocationTo, 2);
             Clear();
         }
+        #endregion
 
         private void btnClose_Click(object sender, EventArgs e)
         {
@@ -69,7 +71,7 @@ namespace RMS.Forms.Inventory
         }
         #endregion
 
-        #region Validate
+        #region Validate Form Data
         private bool ValidateData() 
         {
             bool isValidate = true;
@@ -109,6 +111,7 @@ namespace RMS.Forms.Inventory
         }
         #endregion
 
+        #region Load Item Data to Grid View
         private void dataGridView1_KeyDown(object sender, KeyEventArgs e)
         {
             if ((e.KeyCode == Keys.Space) && this.dgvTransferNote.CurrentCell.OwningColumn.Name.Equals("clmItemCode"))
@@ -127,7 +130,7 @@ namespace RMS.Forms.Inventory
             }
         }
 
-        #region Load Item Data
+       
         public void LoadItemDetails()
         {
             string[] strFieldList = new string[2];
@@ -150,9 +153,7 @@ namespace RMS.Forms.Inventory
                 LoadLocationDetails();
             }
         }
-        #endregion
 
-        #region Load Item Details
         private void LoadLocationDetails()
         {
             oItemMaster = cItemMaster.GetItemData(cGlobleVariable.LocationCode, ItemCode);
@@ -188,19 +189,20 @@ namespace RMS.Forms.Inventory
         }
         #endregion
 
-
-
         private void frmTransferNote_Load(object sender, EventArgs e)
         {
             LoadDocumentNumber();
             Clear();
         }
 
+        #region Load Document Number
         private void LoadDocumentNumber() 
         {
             this.txtIssuesNumber.Text = cDocumentNumber.LoadDocNumber(cGlobleVariable.UniqID, DocumentCode, cGlobleVariable.LocationCode, cCommonMethods.DateYear());
         }
+        #endregion
 
+        #region Insert Data To Database
         private void btnSave_Click(object sender, EventArgs e)
         {
             if (ValidateData())
@@ -230,7 +232,6 @@ namespace RMS.Forms.Inventory
             }
         }
 
-        #region InsertUpdate TransferNote Order Data
         private int InsertUpdateData()
         {
             oTransferNote.LocationCode = cGlobleVariable.LocationCode.ToString();
@@ -245,7 +246,6 @@ namespace RMS.Forms.Inventory
 
             return cTransferNote.InsertUpdateData(oTransferNote);
         }
-        #endregion
 
         public DataTable DataGridToDataTable(DataGridView dgv, string strIssueNumber)
         {
@@ -277,7 +277,7 @@ namespace RMS.Forms.Inventory
             }
             return dt;
         }
-
+        #endregion
 
         public void EnableControls(bool Command)
         {
@@ -298,6 +298,7 @@ namespace RMS.Forms.Inventory
             this.dtpDate.Enabled = result;
         }
 
+        #region Clear Data
         private void Clear() 
         {
             cCommonMethods.ClearForm(this);
@@ -308,6 +309,7 @@ namespace RMS.Forms.Inventory
             this.cmbLocationTo.Enabled = false;
             LoadDocumentNumber();
         }
+        #endregion
 
         private void cmbLocationTo_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -325,6 +327,7 @@ namespace RMS.Forms.Inventory
             }
         }
 
+        #region Calculate Grid view data
         private void dgvTransferNote_CellValidated(object sender, DataGridViewCellEventArgs e)
         {
             calculatAmounts();
@@ -357,6 +360,7 @@ namespace RMS.Forms.Inventory
             }
 
         }
+        #endregion
 
         private void btnClear_Click(object sender, EventArgs e)
         {
@@ -430,6 +434,7 @@ namespace RMS.Forms.Inventory
         }
         #endregion
 
+        #region Load Transfer Note Data
         private void btnSearch_Click(object sender, EventArgs e)
         {
             LoadSearch();
@@ -457,6 +462,7 @@ namespace RMS.Forms.Inventory
                 LoadTransferNoteDetails();
             }
         }
+        #endregion
 
         #region Load Purchase Order Details
         private void LoadTransferNoteDetails()

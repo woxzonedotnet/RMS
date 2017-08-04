@@ -48,7 +48,8 @@ namespace RMS.Forms.Inventory
             cCommonMethods.loadComboRMS(cSubLocation.GetSubLocationData(cGlobleVariable.LocationCode), cmbLocation, 2);
         }
         #endregion
-
+        
+        #region InsertUpdate SAN Data
         private void btnSave_Click(object sender, EventArgs e)
         {
             if (ValidateData()) 
@@ -60,7 +61,6 @@ namespace RMS.Forms.Inventory
                 {
                     if (InsertUpdateData() != -1)
                     {
-
                         cDocumentNumber.DeleteDocumentNumber(cGlobleVariable.UniqID, DocumentCode, this.txtSANNumber.Text);
                         MessageBox.Show("Successfully Saved...!", "Stock Ajustment Note", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         this.btnPrint.Enabled = true;
@@ -78,8 +78,7 @@ namespace RMS.Forms.Inventory
                 }
             }
         }
-
-        #region InsertUpdate SAN Data
+        
         private int InsertUpdateData()
         {
             oStockAdjustmentNote.LocationCode = cGlobleVariable.LocationCode;
@@ -93,7 +92,6 @@ namespace RMS.Forms.Inventory
 
             return cStockAdjustmentNote.InsertUpdateData(oStockAdjustmentNote);
         }
-        #endregion
 
         public DataTable DataGridToDataTable(DataGridView dgv, string strSANNo)
         {
@@ -126,7 +124,8 @@ namespace RMS.Forms.Inventory
             }
             return dt;
         }
-        
+        #endregion
+
         #region Validate Data
         private bool ValidateData()
         {
@@ -202,6 +201,7 @@ namespace RMS.Forms.Inventory
             LoadDocumentNumber();
         }
 
+        #region Load Item Data to Grid View
         private void dgvItem_KeyDown(object sender, KeyEventArgs e)
         {
             if ((e.KeyCode == Keys.Space) && this.dgvItem.CurrentCell.OwningColumn.Name.Equals("clmItemCode"))
@@ -219,7 +219,6 @@ namespace RMS.Forms.Inventory
             }
         }
 
-        #region Load Item Data
         public void LoadItemDetails()
         {
             string[] strFieldList = new string[2];
@@ -242,9 +241,7 @@ namespace RMS.Forms.Inventory
                 LoadLocationDetails();
             }
         }
-        #endregion
 
-        #region Load Item Details
         private void LoadLocationDetails()
         {
             oItemMaster = cItemMaster.GetItemData(cGlobleVariable.LocationCode, ItemCode);

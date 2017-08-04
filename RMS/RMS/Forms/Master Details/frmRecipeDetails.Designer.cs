@@ -104,7 +104,6 @@
             this.dgvItemDetails.Size = new System.Drawing.Size(591, 212);
             this.dgvItemDetails.TabIndex = 35;
             this.dgvItemDetails.CellValidated += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvItemDetails_CellValidated);
-            this.dgvItemDetails.CurrentCellDirtyStateChanged += new System.EventHandler(this.dgvItemDetails_CurrentCellDirtyStateChanged);
             this.dgvItemDetails.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dgvItemDetails_KeyDown);
             // 
             // clmItemCode

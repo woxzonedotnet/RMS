@@ -368,7 +368,7 @@
             // ddToolStripMenuItem
             // 
             this.ddToolStripMenuItem.Name = "ddToolStripMenuItem";
-            this.ddToolStripMenuItem.Size = new System.Drawing.Size(88, 22);
+            this.ddToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.ddToolStripMenuItem.Text = "dd";
             // 
             // userToolStripMenuItem
@@ -384,7 +384,7 @@
             // ffToolStripMenuItem
             // 
             this.ffToolStripMenuItem.Name = "ffToolStripMenuItem";
-            this.ffToolStripMenuItem.Size = new System.Drawing.Size(82, 22);
+            this.ffToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.ffToolStripMenuItem.Text = "ff";
             // 
             // btnExit

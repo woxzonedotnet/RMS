@@ -33,6 +33,7 @@ namespace RMS.Forms
         double Total = 0;
         #endregion
 
+        #region Constructors
         public frmRecipeDetails()
         {
             InitializeComponent();
@@ -40,7 +41,7 @@ namespace RMS.Forms
             cCommonMethods.loadComboRMS(cSubLocation.GetSubLocationData(cGlobleVariable.LocationCode), cmbLocation, 2);
             cCommonMethods.loadComboRMS(cOrderType.GetOrderType(cGlobleVariable.LocationCode), cmbOrderType, 2);
         }
-
+        #endregion
 
         #region Form Move
         private void panel3_MouseDown(object sender, MouseEventArgs e)
@@ -68,6 +69,7 @@ namespace RMS.Forms
             Clear();
         }
 
+        #region Clear
         private void Clear() 
         {
             cCommonMethods.ClearForm(this);
@@ -79,7 +81,9 @@ namespace RMS.Forms
             this.txtFullDescription.ReadOnly = false;
             this.btnSave.Enabled = true;
         }
+        #endregion
 
+        #region Validate Form Data
         private bool ValidateData() 
         {
             bool isValidate = true;
@@ -117,35 +121,9 @@ namespace RMS.Forms
 
             return isValidate;
         }
+        #endregion
 
-        private void dgvItemDetails_CurrentCellDirtyStateChanged(object sender, EventArgs e)
-        {
-            //try
-            //{
-            //    if (this.dgvItemDetails.CurrentCell.OwningColumn.Name.Equals("clmTax_chk"))
-            //    {
-            //        dgvItemData.EndEdit();
-            //        if ((this.dgvItemData.CurrentCell.Value != null) && this.dgvItemData.CurrentCell.Value.ToString().Equals("True"))
-            //        {
-            //            //tax calculate
-            //            double taxPrecentage = Convert.ToDouble(cSetupSetting.GetSetupSettingData(cGlobleVariable.LocationCode).VAT);
-            //            double totalTax = (total * taxPrecentage) / 100;
-            //            this.dgvItemData.Rows[this.dgvItemData.CurrentCell.RowIndex].Cells["clmTaxAmount"].Value = totalTax;
-            //            calculatAmounts();
-            //        }
-            //        else
-            //        {
-            //            this.dgvItemData.Rows[this.dgvItemData.CurrentCell.RowIndex].Cells["clmTaxAmount"].Value = "0.00";
-            //            calculatAmounts();
-            //        }
-            //    }
-            //}
-            //catch (Exception ex)
-            //{
-
-            //}
-        }
-
+        #region Load Item Data to Grid View
         private void dgvItemDetails_KeyDown(object sender, KeyEventArgs e)
         {
             try
@@ -161,7 +139,7 @@ namespace RMS.Forms
             catch (Exception ex) { }
         }
 
-        #region Load Item Data
+        
         public void LoadItemDetails()
         {
             string[] strFieldList = new string[2];
@@ -184,10 +162,8 @@ namespace RMS.Forms
                 LoadLocationDetails();
             }
         }
-        #endregion
 
 
-        #region Load Item Details
         private void LoadLocationDetails()
         {
             oItemMaster = cItemMaster.GetItemData(cGlobleVariable.LocationCode,Item);
@@ -223,6 +199,7 @@ namespace RMS.Forms
         }
         #endregion
 
+        #region Calculate Grid View Data
         private void dgvItemDetails_CellValidated(object sender, DataGridViewCellEventArgs e)
         {
             calculatAmounts();
@@ -248,7 +225,9 @@ namespace RMS.Forms
             }
             catch (Exception ex) { }
         }
+        #endregion
 
+        #region InsertUpdate Recipe Order Data
         private void btnSave_Click(object sender, EventArgs e)
         {
             if (ValidateData())
@@ -274,8 +253,7 @@ namespace RMS.Forms
                 }
             }
         }
-
-        #region InsertUpdate Recipe Order Data
+        
         private int InsertUpdateData()
         {
             oRecipeDetails.LocationCode = cGlobleVariable.LocationCode.ToString();
@@ -289,7 +267,6 @@ namespace RMS.Forms
 
             return cRecipeDetails.InsertUpdateData(oRecipeDetails);
         }
-        #endregion
 
         public DataTable DataGridToDataTable(DataGridView dgv, string strRecipeCode)
         {
@@ -300,7 +277,6 @@ namespace RMS.Forms
             dt.Columns.Add("fldItemQty");
             dt.Columns.Add("fldUnitPrice");
 
-
             foreach (DataGridViewRow row in dgv.Rows)
             {
                 DataRow dRow = dt.NewRow();
@@ -310,18 +286,15 @@ namespace RMS.Forms
                     dRow["fldItemCode"] = row.Cells["clmItemCode"].Value.ToString();
                     dRow["fldItemQty"] = row.Cells["clmQuantity"].Value.ToString();
                     dRow["fldUnitPrice"] = Convert.ToDouble(row.Cells["clmUnitPrice"].Value);
-                    
                     dt.Rows.Add(dRow);
                 }
-                catch (Exception ex)
-                {
-
-                }
-
+                catch (Exception ex){}
             }
             return dt;
         }
+        #endregion
 
+        #region Search Recipe Details
         private void btnSearch_Click(object sender, EventArgs e)
         {
             LoadSearch();
@@ -349,6 +322,7 @@ namespace RMS.Forms
                 LoadRecipeDetails();
             }
         }
+        #endregion
 
         #region Load Recipe Details
         private void LoadRecipeDetails()
