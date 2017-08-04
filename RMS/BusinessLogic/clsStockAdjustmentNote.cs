@@ -11,38 +11,38 @@ namespace BusinessLogic
 {
     public class clsStockAdjustmentNote
     {
-
-
         #region Objects
         objStockAdjustmentNote oStockAdjustmentNote = new objStockAdjustmentNote();
         clsDBConnection cDBConnection = new clsDBConnection();
-         
         #endregion
 
 
-        #region Get BankCard Data using Bank Code
-        public objStockAdjustmentNote GetStockAdjustmentNote(string strCardCode)
+        #region Get SAN Details using SAN No
+        public objStockAdjustmentNote GetStockAdjustmentNoteData(string LocationCode,string strSANNo)
         {
-            string strWhere = "fldSANNumber='" + strCardCode + "'";
+            string strWhere1 = "fldLocationCode='" + LocationCode + "' and fldSANNo='" + strSANNo + "'";
+            string strWhere2 = "fldSANNo='" + strSANNo + "'";
 
-            DataTable dtStockAdjustmentNote = cDBConnection.SearchData("tbl_BankCardMaster", strWhere);
+            DataTable dtSANHeader = cDBConnection.SearchData("tbl_SANHeader", strWhere1);
+            DataTable dtSANDetails = cDBConnection.SearchData("tbl_SANDetails", strWhere2);
 
-            if (dtStockAdjustmentNote.Rows.Count > 0)
+            if (dtSANHeader.Rows.Count > 0)
             {
-                oStockAdjustmentNote.SANNumber = dtStockAdjustmentNote.Rows[0][0].ToString();
-                oStockAdjustmentNote.Location = dtStockAdjustmentNote.Rows[0][1].ToString();
-                oStockAdjustmentNote.Date = DateTime.Parse(dtStockAdjustmentNote.Rows[0][2].ToString());
-                oStockAdjustmentNote.TotalCost = decimal.Parse(dtStockAdjustmentNote.Rows[0][3].ToString());
+                oStockAdjustmentNote.LocationCode = dtSANHeader.Rows[0]["fldLocationCode"].ToString();
+                oStockAdjustmentNote.SANNumber = dtSANHeader.Rows[0]["fldSANNo"].ToString();
+                oStockAdjustmentNote.SubLocation = dtSANHeader.Rows[0]["fldSubLocationCode"].ToString();
+                oStockAdjustmentNote.Date = DateTime.Parse(dtSANHeader.Rows[0]["fldSANDate"].ToString());
+                oStockAdjustmentNote.TotalCost = Convert.ToDouble(dtSANHeader.Rows[0]["fldSANTotalCost"].ToString());
+                oStockAdjustmentNote.User = dtSANHeader.Rows[0]["fldUser"].ToString();
+                oStockAdjustmentNote.dtItemData = dtSANDetails;
                 oStockAdjustmentNote.IsExists = true;
             }
             else
             {
                 oStockAdjustmentNote.IsExists = false;
             }
-
             return oStockAdjustmentNote;
-
-            }   
+        }   
             
         #endregion
 
@@ -50,25 +50,25 @@ namespace BusinessLogic
         #region InsertUpdate StockAjustmentNote
         public int InsertUpdateData(objStockAdjustmentNote oStockAdjustmentNote)
         {
-            System.Object[,] arrParameter = new Object[6, 2];
+            System.Object[,] arrParameter = new Object[7, 2];
 
-            arrParameter[0, 0] = "@mfldSANNumber";
-            arrParameter[0, 1] = oStockAdjustmentNote.SANNumber;
-            arrParameter[1, 0] = "@mfldLocation";
-            arrParameter[1, 1] = oStockAdjustmentNote.Location;
-            arrParameter[2, 0] = "@mfldDate";
-            arrParameter[2, 1] = oStockAdjustmentNote.Date;
-            arrParameter[3, 0] = "@mfldTotalCost";
-            arrParameter[3, 1] = oStockAdjustmentNote.TotalCost;
-           
+            arrParameter[0, 0] = "@mfldLocationCode";
+            arrParameter[0, 1] = oStockAdjustmentNote.LocationCode;
+            arrParameter[1, 0] = "@mfldSANNo";
+            arrParameter[1, 1] = oStockAdjustmentNote.SANNumber;
+            arrParameter[2, 0] = "@mfldSubLocationCode";
+            arrParameter[2, 1] = oStockAdjustmentNote.SubLocation;
+            arrParameter[3, 0] = "@mfldSANDate";
+            arrParameter[3, 1] = oStockAdjustmentNote.Date;
+            arrParameter[4, 0] = "@mfldTotalCost";
+            arrParameter[4, 1] = oStockAdjustmentNote.TotalCost;
+            arrParameter[5, 0] = "@mfldUser";
+            arrParameter[5, 1] = oStockAdjustmentNote.User;
+            arrParameter[6, 0] = "@mflddtItemList";
+            arrParameter[6, 1] = oStockAdjustmentNote.dtItemData;
 
-            return cDBConnection.Insert("sp_insert_update_StockAdjustmentNote", arrParameter);
+            return cDBConnection.Insert("SP_INSERT_STOCK_AJUSTMENT_NOTE", arrParameter);
         }
         #endregion
-
-        public objStockAdjustmentNote GetStockAdjustmentNote()
-        {
-            throw new NotImplementedException();
-        }
     }
 }
