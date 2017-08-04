@@ -174,6 +174,7 @@
             // 
             // itemDetailsToolStripMenuItem
             // 
+            this.itemDetailsToolStripMenuItem.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.itemDetailsToolStripMenuItem.Name = "itemDetailsToolStripMenuItem";
             this.itemDetailsToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
             this.itemDetailsToolStripMenuItem.Text = "Item Details";
@@ -213,6 +214,7 @@
             // 
             // recipeDetailsToolStripMenuItem
             // 
+            this.recipeDetailsToolStripMenuItem.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.recipeDetailsToolStripMenuItem.Name = "recipeDetailsToolStripMenuItem";
             this.recipeDetailsToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
             this.recipeDetailsToolStripMenuItem.Text = "Recipe Details";
@@ -283,6 +285,7 @@
             // 
             // aaToolStripMenuItem
             // 
+            this.aaToolStripMenuItem.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.aaToolStripMenuItem.Name = "aaToolStripMenuItem";
             this.aaToolStripMenuItem.Size = new System.Drawing.Size(217, 22);
             this.aaToolStripMenuItem.Text = "Purchase Order (PO)";
@@ -304,6 +307,7 @@
             // 
             // transferNoteToolStripMenuItem
             // 
+            this.transferNoteToolStripMenuItem.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.transferNoteToolStripMenuItem.Name = "transferNoteToolStripMenuItem";
             this.transferNoteToolStripMenuItem.Size = new System.Drawing.Size(217, 22);
             this.transferNoteToolStripMenuItem.Text = "Transfer Note";

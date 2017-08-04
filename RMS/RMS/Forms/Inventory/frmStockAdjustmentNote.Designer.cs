@@ -30,15 +30,14 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmStockAdjustmentNote));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dtpDate = new System.Windows.Forms.DateTimePicker();
             this.lblLocation = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.clsItemCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Description = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clsPhyQty = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clsSysStock = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clsCost = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clsTotalCost = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lblDate = new System.Windows.Forms.Label();
             this.cmbLocation = new RMS.ColumnComboBox();
             this.txtSANNumber = new System.Windows.Forms.TextBox();
@@ -52,6 +51,12 @@
             this.btnSave = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
             this.errStockAdjusment = new System.Windows.Forms.ErrorProvider(this.components);
+            this.clsItemCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clsDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clsPhyQty = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clsSysStock = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clsCost = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clsTotalCost = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errStockAdjusment)).BeginInit();
@@ -81,7 +86,7 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.clsItemCode,
-            this.Description,
+            this.clsDescription,
             this.clsPhyQty,
             this.clsSysStock,
             this.clsCost,
@@ -90,36 +95,6 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(645, 306);
             this.dataGridView1.TabIndex = 0;
-            // 
-            // clsItemCode
-            // 
-            this.clsItemCode.HeaderText = "Item Code";
-            this.clsItemCode.Name = "clsItemCode";
-            // 
-            // Description
-            // 
-            this.Description.HeaderText = "clsDescription";
-            this.Description.Name = "Description";
-            // 
-            // clsPhyQty
-            // 
-            this.clsPhyQty.HeaderText = "Phy.Qty";
-            this.clsPhyQty.Name = "clsPhyQty";
-            // 
-            // clsSysStock
-            // 
-            this.clsSysStock.HeaderText = "Sys.Stock";
-            this.clsSysStock.Name = "clsSysStock";
-            // 
-            // clsCost
-            // 
-            this.clsCost.HeaderText = "Cost";
-            this.clsCost.Name = "clsCost";
-            // 
-            // clsTotalCost
-            // 
-            this.clsTotalCost.HeaderText = "TotalCost";
-            this.clsTotalCost.Name = "clsTotalCost";
             // 
             // lblDate
             // 
@@ -276,6 +251,53 @@
             // 
             this.errStockAdjusment.ContainerControl = this;
             // 
+            // clsItemCode
+            // 
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.clsItemCode.DefaultCellStyle = dataGridViewCellStyle1;
+            this.clsItemCode.HeaderText = "Item Code";
+            this.clsItemCode.Name = "clsItemCode";
+            // 
+            // clsDescription
+            // 
+            this.clsDescription.HeaderText = "Description";
+            this.clsDescription.Name = "clsDescription";
+            // 
+            // clsPhyQty
+            // 
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle2.Format = "N2";
+            dataGridViewCellStyle2.NullValue = "0.0";
+            this.clsPhyQty.DefaultCellStyle = dataGridViewCellStyle2;
+            this.clsPhyQty.HeaderText = "Phy.Qty";
+            this.clsPhyQty.Name = "clsPhyQty";
+            // 
+            // clsSysStock
+            // 
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.Format = "N2";
+            dataGridViewCellStyle3.NullValue = "0.0";
+            this.clsSysStock.DefaultCellStyle = dataGridViewCellStyle3;
+            this.clsSysStock.HeaderText = "Sys.Stock";
+            this.clsSysStock.Name = "clsSysStock";
+            // 
+            // clsCost
+            // 
+            dataGridViewCellStyle4.Format = "###,###.00";
+            dataGridViewCellStyle4.NullValue = "0.0";
+            this.clsCost.DefaultCellStyle = dataGridViewCellStyle4;
+            this.clsCost.HeaderText = "Cost";
+            this.clsCost.Name = "clsCost";
+            // 
+            // clsTotalCost
+            // 
+            dataGridViewCellStyle5.Format = "###,###.00";
+            dataGridViewCellStyle5.NullValue = "0.0";
+            this.clsTotalCost.DefaultCellStyle = dataGridViewCellStyle5;
+            this.clsTotalCost.HeaderText = "Total Cost";
+            this.clsTotalCost.Name = "clsTotalCost";
+            // 
             // frmStockAdjustmentNote
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -314,12 +336,12 @@
         private System.Windows.Forms.Label lblSANNumber;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnClose;
+        private System.Windows.Forms.ErrorProvider errStockAdjusment;
         private System.Windows.Forms.DataGridViewTextBoxColumn clsItemCode;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Description;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clsDescription;
         private System.Windows.Forms.DataGridViewTextBoxColumn clsPhyQty;
         private System.Windows.Forms.DataGridViewTextBoxColumn clsSysStock;
         private System.Windows.Forms.DataGridViewTextBoxColumn clsCost;
         private System.Windows.Forms.DataGridViewTextBoxColumn clsTotalCost;
-        private System.Windows.Forms.ErrorProvider errStockAdjusment;
     }
 }
