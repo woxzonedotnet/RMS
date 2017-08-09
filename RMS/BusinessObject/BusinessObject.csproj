@@ -69,6 +69,7 @@
     <Compile Include="objStatusMaster.cs" />
     <Compile Include="objSteward.cs" />
     <Compile Include="objSubLocation.cs" />
+    <Compile Include="objIssueNote.cs" />
     <Compile Include="objTransferNote.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

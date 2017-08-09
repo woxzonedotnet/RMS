@@ -70,6 +70,7 @@
     <Compile Include="clsSupplierMaster.cs" />
     <Compile Include="clsTableCategory.cs" />
     <Compile Include="clsTableMaster.cs" />
+    <Compile Include="clsIssueNote.cs" />
     <Compile Include="clsTransferNote.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -607,10 +607,10 @@ namespace RMS.Forms
         {
             try
             {
-                Inventory.frmTransferNote open = Application.OpenForms["frmTransferNote"] as Inventory.frmTransferNote;
+                Inventory.frmIssueNote open = Application.OpenForms["frmTransferNote"] as Inventory.frmIssueNote;
                 if (open == null)
                 {
-                    Inventory.frmTransferNote childTransferNote = new Inventory.frmTransferNote();
+                    Inventory.frmIssueNote childTransferNote = new Inventory.frmIssueNote();
                     childTransferNote.MdiParent = this;
                     childTransferNote.Show();
                 }
@@ -752,10 +752,10 @@ namespace RMS.Forms
         {
             try
             {
-                Inventory.frmIssuesNote open = Application.OpenForms["frmIssuesNote"] as Inventory.frmIssuesNote;
+                Inventory.frmTransferNote open = Application.OpenForms["frmIssuesNote"] as Inventory.frmTransferNote;
                 if (open == null)
                 {
-                    Inventory.frmIssuesNote childIssuesNote = new Inventory.frmIssuesNote();
+                    Inventory.frmTransferNote childIssuesNote = new Inventory.frmTransferNote();
                     childIssuesNote.MdiParent = this;
                     childIssuesNote.Show();
                 }

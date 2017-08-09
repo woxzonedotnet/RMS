@@ -66,10 +66,10 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>rptStockAjustmentNote.rpt</DependentUpon>
     </Compile>
-    <Compile Include="rptTransferNote.cs">
+    <Compile Include="rptIssueNote.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>rptTransferNote.rpt</DependentUpon>
+      <DependentUpon>rptIssueNote.rpt</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -84,9 +84,9 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>rptStockAjustmentNote.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="rptTransferNote.rpt">
+    <EmbeddedResource Include="rptIssueNote.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>rptTransferNote.cs</LastGenOutput>
+      <LastGenOutput>rptIssueNote.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

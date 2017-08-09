@@ -16,14 +16,14 @@ namespace Reports {
     using CrystalDecisions.CrystalReports.Engine;
     
     
-    public class rptTransferNote : ReportClass {
+    public class rptIssueNote : ReportClass {
         
-        public rptTransferNote() {
+        public rptIssueNote() {
         }
         
         public override string ResourceName {
             get {
-                return "rptTransferNote.rpt";
+                return "rptIssueNote.rpt";
             }
             set {
                 // Do nothing
@@ -41,7 +41,7 @@ namespace Reports {
         
         public override string FullResourceName {
             get {
-                return "Reports.rptTransferNote.rpt";
+                return "Reports.rptIssueNote.rpt";
             }
             set {
                 // Do nothing
@@ -122,9 +122,9 @@ namespace Reports {
     }
     
     [System.Drawing.ToolboxBitmapAttribute(typeof(CrystalDecisions.Shared.ExportOptions), "report.bmp")]
-    public class CachedrptTransferNote : Component, ICachedReport {
+    public class CachedrptIssueNote : Component, ICachedReport {
         
-        public CachedrptTransferNote() {
+        public CachedrptIssueNote() {
         }
         
         [Browsable(false)]
@@ -161,7 +161,7 @@ namespace Reports {
         }
         
         public virtual CrystalDecisions.CrystalReports.Engine.ReportDocument CreateReport() {
-            rptTransferNote rpt = new rptTransferNote();
+            rptIssueNote rpt = new rptIssueNote();
             rpt.Site = this.Site;
             return rpt;
         }

@@ -310,11 +310,12 @@
             this.transferNoteToolStripMenuItem.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.transferNoteToolStripMenuItem.Name = "transferNoteToolStripMenuItem";
             this.transferNoteToolStripMenuItem.Size = new System.Drawing.Size(217, 22);
-            this.transferNoteToolStripMenuItem.Text = "Transfer Note";
+            this.transferNoteToolStripMenuItem.Text = "Issue Note";
             this.transferNoteToolStripMenuItem.Click += new System.EventHandler(this.transferNoteToolStripMenuItem_Click);
             // 
             // stockAjestmentToolStripMenuItem
             // 
+            this.stockAjestmentToolStripMenuItem.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.stockAjestmentToolStripMenuItem.Name = "stockAjestmentToolStripMenuItem";
             this.stockAjestmentToolStripMenuItem.Size = new System.Drawing.Size(217, 22);
             this.stockAjestmentToolStripMenuItem.Text = "Stock Ajustment Note";
@@ -331,7 +332,7 @@
             // 
             this.issuToolStripMenuItem.Name = "issuToolStripMenuItem";
             this.issuToolStripMenuItem.Size = new System.Drawing.Size(217, 22);
-            this.issuToolStripMenuItem.Text = "Issue Note";
+            this.issuToolStripMenuItem.Text = "Transfer Note";
             this.issuToolStripMenuItem.Click += new System.EventHandler(this.issuToolStripMenuItem_Click);
             // 
             // stockInitializeToolStripMenuItem
@@ -368,7 +369,7 @@
             // ddToolStripMenuItem
             // 
             this.ddToolStripMenuItem.Name = "ddToolStripMenuItem";
-            this.ddToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.ddToolStripMenuItem.Size = new System.Drawing.Size(88, 22);
             this.ddToolStripMenuItem.Text = "dd";
             // 
             // userToolStripMenuItem
@@ -384,7 +385,7 @@
             // ffToolStripMenuItem
             // 
             this.ffToolStripMenuItem.Name = "ffToolStripMenuItem";
-            this.ffToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.ffToolStripMenuItem.Size = new System.Drawing.Size(82, 22);
             this.ffToolStripMenuItem.Text = "ff";
             // 
             // btnExit
