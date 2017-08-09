@@ -105,9 +105,24 @@ namespace Reports
             //cReportDocument.FileName = Application.StartupPath + "\\Reports\\" + oReportMaster.ReportName;
             cReportDocument.FileName = @"E:\WOXZONE RMS\RMS\RMS\Reports\" + oReportMaster.ReportName;
             cReportDocument.RecordSelectionFormula = strSelectionFormular;
+            ConnectionInfo connectionInfo = new ConnectionInfo();
+            connectionInfo.DatabaseName = "RMS";
+            connectionInfo.UserID = "SQLRemote";
+            connectionInfo.Password = "12345";
+            SetDBLogonForReport(connectionInfo, cReportDocument);
             crystalReportViewer.ReportSource = cReportDocument;
         }
 
+        private void SetDBLogonForReport(ConnectionInfo connectionInfo, ReportDocument reportDocument)
+        {
+            Tables tables = reportDocument.Database.Tables;
+            foreach (CrystalDecisions.CrystalReports.Engine.Table table in tables)
+            {
+                TableLogOnInfo tableLogonInfo = table.LogOnInfo;
+                tableLogonInfo.ConnectionInfo = connectionInfo;
+                table.ApplyLogOnInfo(tableLogonInfo);
+            }
+        }
 
         private void PassParemeterFields(System.Object[,] arrParameter)
         {
