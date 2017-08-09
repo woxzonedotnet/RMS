@@ -55,6 +55,11 @@
       <DependentUpon>frmReportViewer.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="rptfrmItemMasterDetailsReports.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptfrmItemMasterDetailsReports.rpt</DependentUpon>
+    </Compile>
     <Compile Include="rptPurchaseOrder.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -71,10 +76,24 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>rptIssueNote.rpt</DependentUpon>
     </Compile>
+    <Compile Include="rptSupplierDetails.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptSupplierDetails.rpt</DependentUpon>
+    </Compile>
+    <Compile Include="rptSupplierDetails2.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptSupplierDetails2.rpt</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="frmReportViewer.resx">
       <DependentUpon>frmReportViewer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rptfrmItemMasterDetailsReports.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptfrmItemMasterDetailsReports.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="rptPurchaseOrder.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
@@ -87,6 +106,14 @@
     <EmbeddedResource Include="rptIssueNote.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>rptIssueNote.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rptSupplierDetails.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptSupplierDetails.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rptSupplierDetails2.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptSupplierDetails2.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

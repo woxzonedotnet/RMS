@@ -62,11 +62,13 @@
             this.ssToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ddToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.supplierDetailsReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.userToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ffToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.btnExit = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnMinimize = new System.Windows.Forms.Button();
+            this.itemDetailsReportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStripMain.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -360,7 +362,9 @@
             // reportsToolStripMenuItem
             // 
             this.reportsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.ddToolStripMenuItem});
+            this.ddToolStripMenuItem,
+            this.supplierDetailsReportToolStripMenuItem,
+            this.itemDetailsReportsToolStripMenuItem});
             this.reportsToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(146)))), ((int)(((byte)(150)))), ((int)(((byte)(153)))));
             this.reportsToolStripMenuItem.Name = "reportsToolStripMenuItem";
             this.reportsToolStripMenuItem.Size = new System.Drawing.Size(59, 31);
@@ -369,8 +373,15 @@
             // ddToolStripMenuItem
             // 
             this.ddToolStripMenuItem.Name = "ddToolStripMenuItem";
-            this.ddToolStripMenuItem.Size = new System.Drawing.Size(88, 22);
+            this.ddToolStripMenuItem.Size = new System.Drawing.Size(198, 22);
             this.ddToolStripMenuItem.Text = "dd";
+            // 
+            // supplierDetailsReportToolStripMenuItem
+            // 
+            this.supplierDetailsReportToolStripMenuItem.Name = "supplierDetailsReportToolStripMenuItem";
+            this.supplierDetailsReportToolStripMenuItem.Size = new System.Drawing.Size(198, 22);
+            this.supplierDetailsReportToolStripMenuItem.Text = "Supplier Details Reports";
+            this.supplierDetailsReportToolStripMenuItem.Click += new System.EventHandler(this.supplierDetailsReportToolStripMenuItem_Click);
             // 
             // userToolStripMenuItem
             // 
@@ -435,6 +446,13 @@
             this.btnMinimize.UseVisualStyleBackColor = false;
             this.btnMinimize.Click += new System.EventHandler(this.btnMinimize_Click);
             // 
+            // itemDetailsReportsToolStripMenuItem
+            // 
+            this.itemDetailsReportsToolStripMenuItem.Name = "itemDetailsReportsToolStripMenuItem";
+            this.itemDetailsReportsToolStripMenuItem.Size = new System.Drawing.Size(198, 22);
+            this.itemDetailsReportsToolStripMenuItem.Text = "Item Details Reports";
+            this.itemDetailsReportsToolStripMenuItem.Click += new System.EventHandler(this.itemDetailsReportsToolStripMenuItem_Click);
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -496,5 +514,7 @@
         private System.Windows.Forms.ToolStripMenuItem gRNCancelToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem issuToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem stockInitializeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem supplierDetailsReportToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem itemDetailsReportsToolStripMenuItem;
     }
 }

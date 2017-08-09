@@ -16,6 +16,16 @@ namespace BusinessLogic
         objCategoryMaster oCategoryMaster = new objCategoryMaster();
         #endregion
 
+        #region  GetItemCategory
+        public DataTable GetItemCategory()
+        {
+            DataTable dtItemDepartment = cDBConnection.SearchData("tbl_CategoryMaster");
+            return dtItemDepartment;
+        }
+        #endregion
+
+
+
         #region GetCategory Data Using CategoryCode
         public objCategoryMaster GetCategoryData(string strLocationCode, string strDepartmentCode,string strCategoryCode)
         {

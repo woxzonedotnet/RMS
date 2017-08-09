@@ -91,6 +91,15 @@ namespace BusinessLogic
         }
         #endregion
 
+        #region  GetDepartment
+        public DataTable GetDepartment()
+        {
+            DataTable dtDepartment = cDBConnection.SearchData("tbl_DepartmentMaster");
+            return dtDepartment;
+        }
+        #endregion
+
+
         public DataTable GetDepartmentData(global::System.Drawing.Point Location)
         {
             throw new NotImplementedException();

@@ -16,6 +16,14 @@ namespace BusinessLogic
         objSupplierCategory oSupplierCategory = new objSupplierCategory();
         #endregion
 
+        #region  GetSupplierCategory
+        public DataTable GetSupplierCategory()
+        {
+            DataTable dtSupplierCategory = cDBConnection.SearchData("tbl_SupplierCategory");
+            return dtSupplierCategory;
+        }
+        #endregion
+
 
         #region GetSupplierCategory Data Using SupplierCategoryCode
         public objSupplierCategory GetSupplierCategoryData(string strLocationCode, string strSupplierCategoryCode)

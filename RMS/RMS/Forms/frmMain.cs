@@ -805,5 +805,65 @@ namespace RMS.Forms
                 MessageBox.Show(ex.Message);
             }
         }
+
+        private void supplierDetailsReportToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Reports.frmSupplierDetailReport open = Application.OpenForms["frmSupplierDetailReport"] as Reports.frmSupplierDetailReport;
+                if (open == null)
+                {
+                    Reports.frmSupplierDetailReport childfrmStockInitialize = new Reports.frmSupplierDetailReport();
+                    childfrmStockInitialize.MdiParent = this;
+                    childfrmStockInitialize.Show();
+                }
+                else
+                {
+                    if (open.WindowState == FormWindowState.Minimized)
+                    {
+                        open.WindowState = FormWindowState.Normal;
+                    }
+                    else
+                    {
+                        open.Activate();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void itemDetailsReportsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            try
+            {
+                Reports.frmItemMasterDetailsReports open = Application.OpenForms["frmItemMasterDetailsReports"] as Reports.frmItemMasterDetailsReports;
+                if (open == null)
+                {
+                    Reports.frmItemMasterDetailsReports childfrmStockInitialize = new Reports.frmItemMasterDetailsReports();
+                    childfrmStockInitialize.MdiParent = this;
+                    childfrmStockInitialize.Show();
+                }
+                else
+                {
+                    if (open.WindowState == FormWindowState.Minimized)
+                    {
+                        open.WindowState = FormWindowState.Normal;
+                    }
+                    else
+                    {
+                        open.Activate();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+        }
     }
 }
