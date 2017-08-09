@@ -25,7 +25,7 @@ namespace BusinessLogic
         #region InsertUpdateData
         public int InsertUpdateData(objGoodReceiveNote oGoodReceiveNote)
         {
-            System.Object[,] arrParameter = new Object[12, 2];
+            System.Object[,] arrParameter = new Object[13, 2];
 
             arrParameter[0, 0] = "@mfldLocationCode";
             arrParameter[0, 1] = oGoodReceiveNote.LocationCode;
@@ -51,6 +51,8 @@ namespace BusinessLogic
             arrParameter[10, 1] = oGoodReceiveNote.NetAmount;
             arrParameter[11, 0] = "@mflddtItemList";
             arrParameter[11, 1] = oGoodReceiveNote.dtItemList;
+            arrParameter[12, 0] = "@mfldPOCode";
+            arrParameter[12, 1] = oGoodReceiveNote.POCode;
             
             
             return cDBConnection.Insert("sp_insert_update_GoodReceiveNote", arrParameter);

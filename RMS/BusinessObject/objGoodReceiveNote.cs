@@ -21,6 +21,8 @@ namespace BusinessObject
         public double Discount { get; set; }
         public double NetAmount { get; set; }
 
+        public string POCode { get; set; }
+
 
         //public string ItemCode { get; set; }
         //public string ItemDescription { get; set; }
