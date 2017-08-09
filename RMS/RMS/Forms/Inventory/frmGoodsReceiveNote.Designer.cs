@@ -71,11 +71,11 @@
             this.btnPOSesrch = new System.Windows.Forms.Button();
             this.txtInvoiceNo = new System.Windows.Forms.TextBox();
             this.lblInvoiceNo = new System.Windows.Forms.Label();
-            this.cmbSupplier = new RMS.ColumnComboBox();
-            this.cmbLocation = new RMS.ColumnComboBox();
             this.btnSearch = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.errGRN = new System.Windows.Forms.ErrorProvider(this.components);
+            this.cmbSupplier = new RMS.ColumnComboBox();
+            this.cmbLocation = new RMS.ColumnComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvItemData)).BeginInit();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -233,6 +233,7 @@
             this.txtDiscount.Name = "txtDiscount";
             this.txtDiscount.Size = new System.Drawing.Size(157, 20);
             this.txtDiscount.TabIndex = 67;
+            this.txtDiscount.Text = "0.00";
             this.txtDiscount.TextChanged += new System.EventHandler(this.txtDiscount_TextChanged);
             // 
             // lblDiscount
@@ -251,6 +252,7 @@
             this.txtVatAmount.Name = "txtVatAmount";
             this.txtVatAmount.Size = new System.Drawing.Size(157, 20);
             this.txtVatAmount.TabIndex = 65;
+            this.txtVatAmount.Text = "0.00";
             // 
             // txtGRNValue
             // 
@@ -305,6 +307,7 @@
             this.txtVatPrecentage.Name = "txtVatPrecentage";
             this.txtVatPrecentage.Size = new System.Drawing.Size(139, 20);
             this.txtVatPrecentage.TabIndex = 71;
+            this.txtVatPrecentage.Text = "0";
             this.txtVatPrecentage.TextChanged += new System.EventHandler(this.txtVatPrecentage_TextChanged);
             // 
             // lblVATAmount
@@ -363,6 +366,7 @@
             this.btnPrint.TabIndex = 71;
             this.btnPrint.Text = "Print";
             this.btnPrint.UseVisualStyleBackColor = false;
+            this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
             // 
             // dtpDate
             // 
@@ -497,32 +501,6 @@
             this.lblInvoiceNo.TabIndex = 67;
             this.lblInvoiceNo.Text = "Invoice No";
             // 
-            // cmbSupplier
-            // 
-            this.cmbSupplier.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.cmbSupplier.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.cmbSupplier.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
-            this.cmbSupplier.DropDownWidth = 17;
-            this.cmbSupplier.FormattingEnabled = true;
-            this.cmbSupplier.Location = new System.Drawing.Point(114, 129);
-            this.cmbSupplier.Name = "cmbSupplier";
-            this.cmbSupplier.Size = new System.Drawing.Size(165, 21);
-            this.cmbSupplier.TabIndex = 64;
-            this.cmbSupplier.ViewColumn = 0;
-            // 
-            // cmbLocation
-            // 
-            this.cmbLocation.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.cmbLocation.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.cmbLocation.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
-            this.cmbLocation.DropDownWidth = 17;
-            this.cmbLocation.FormattingEnabled = true;
-            this.cmbLocation.Location = new System.Drawing.Point(114, 91);
-            this.cmbLocation.Name = "cmbLocation";
-            this.cmbLocation.Size = new System.Drawing.Size(165, 21);
-            this.cmbLocation.TabIndex = 62;
-            this.cmbLocation.ViewColumn = 0;
-            // 
             // btnSearch
             // 
             this.btnSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(41)))), ((int)(((byte)(46)))));
@@ -558,6 +536,32 @@
             // errGRN
             // 
             this.errGRN.ContainerControl = this;
+            // 
+            // cmbSupplier
+            // 
+            this.cmbSupplier.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.cmbSupplier.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cmbSupplier.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.cmbSupplier.DropDownWidth = 17;
+            this.cmbSupplier.FormattingEnabled = true;
+            this.cmbSupplier.Location = new System.Drawing.Point(114, 129);
+            this.cmbSupplier.Name = "cmbSupplier";
+            this.cmbSupplier.Size = new System.Drawing.Size(165, 21);
+            this.cmbSupplier.TabIndex = 64;
+            this.cmbSupplier.ViewColumn = 0;
+            // 
+            // cmbLocation
+            // 
+            this.cmbLocation.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.cmbLocation.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cmbLocation.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.cmbLocation.DropDownWidth = 17;
+            this.cmbLocation.FormattingEnabled = true;
+            this.cmbLocation.Location = new System.Drawing.Point(114, 91);
+            this.cmbLocation.Name = "cmbLocation";
+            this.cmbLocation.Size = new System.Drawing.Size(165, 21);
+            this.cmbLocation.TabIndex = 62;
+            this.cmbLocation.ViewColumn = 0;
             // 
             // frmGoodsReceiveNote
             // 
