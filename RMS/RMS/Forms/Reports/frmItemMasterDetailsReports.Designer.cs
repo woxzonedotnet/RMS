@@ -48,6 +48,7 @@
             this.chkDepartment.TabIndex = 2;
             this.chkDepartment.Text = "ALL";
             this.chkDepartment.UseVisualStyleBackColor = true;
+            this.chkDepartment.CheckedChanged += new System.EventHandler(this.chkDepartment_CheckedChanged);
             // 
             // chkCategory
             // 
@@ -58,6 +59,7 @@
             this.chkCategory.TabIndex = 3;
             this.chkCategory.Text = "ALL";
             this.chkCategory.UseVisualStyleBackColor = true;
+            this.chkCategory.CheckedChanged += new System.EventHandler(this.chkCategory_CheckedChanged);
             // 
             // button1
             // 
@@ -117,7 +119,6 @@
             this.cmbDepartment.Size = new System.Drawing.Size(121, 21);
             this.cmbDepartment.TabIndex = 0;
             this.cmbDepartment.ViewColumn = 0;
-            this.cmbDepartment.SelectedIndexChanged += new System.EventHandler(this.cmbDepartment_SelectedIndexChanged);
             // 
             // frmItemMasterDetailsReports
             // 

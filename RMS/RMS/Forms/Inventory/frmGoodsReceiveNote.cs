@@ -72,35 +72,88 @@ namespace RMS.Forms.Inventory
         #region Search Button
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            //LoadSearch();
+            LoadSearch();
         }
         
         public void LoadSearch()
         {
             string[] strFieldList = new string[3];
-            strFieldList[0] = "fldCardCode";
-            strFieldList[1] = "fldBankCode";
-            strFieldList[2] = "fldCardTypeCode";
+            strFieldList[0] = "fldGRNCode";
+            strFieldList[1] = "fldSupplierCode";
+            strFieldList[2] = "fldDate";
 
             string[] strHeaderList = new string[3];
-            strHeaderList[0] = "Card Code";
-            strHeaderList[1] = "Bank Code";
-            strHeaderList[2] = "Card Type Code";
+            strHeaderList[0] = "Good Recieve Code";
+            strHeaderList[1] = "Supplier Code";
+            strHeaderList[2] = "Good Recieve Date";
 
             int[] iHeaderWidth = new int[3];
             iHeaderWidth[0] = 150;
-            iHeaderWidth[1] = 150;
-            iHeaderWidth[2] = 320;
+            iHeaderWidth[1] = 100;
+            iHeaderWidth[2] = 150;
 
-            string strReturnString = "GRN Number";
-            string strWhere = "fldStatus LIKE '%'";
-            txtGRNNumber.Text = cCommonMethods.BrowsData("tbl_GRNDetails", strFieldList, strHeaderList, iHeaderWidth, strReturnString, strWhere, "fldGRNCode");
+            string strReturnString = "Good Recieve Code";
+            string strWhere = "fldLocationCode= '" + cGlobleVariable.LocationCode + "'";
+            txtGRNNumber.Text = cCommonMethods.BrowsData("tbl_GRNDetails", strFieldList, strHeaderList, iHeaderWidth, strReturnString, strWhere, "Good Recieve Code");
             if (txtGRNNumber.Text != "")
             {
-               // LoadGRNNumber();
+                LoadGRNDetails();
             }
         }
         #endregion
+
+        #region Load GRN Details
+        private void LoadGRNDetails()
+        {
+            dgvItemData.Rows.Clear();
+            oGoodReceiveNote = cGoodReceiveNote.GetGoodReceiveNoteData(cGlobleVariable.LocationCode, this.txtGRNNumber.Text);
+
+            cmbLocation.SetText(cSubLocation.GetSubLocationData(cGlobleVariable.LocationCode, oGoodReceiveNote.SubLocationCode).SubLocationName);
+            cmbSupplier.SetText(cSupplier.GetSupplierData(cGlobleVariable.LocationCode, oGoodReceiveNote.SupplierCode).SupplierName);
+
+            dtpDate.Value = oGoodReceiveNote.Date;
+            txtInvoiceNo.Text = oGoodReceiveNote.InvoiceNo;
+            txtGRNValue.Text = oGoodReceiveNote.GRNValue.ToString("###,###.00");
+
+            if (oGoodReceiveNote.VATPresentage != 0)
+            {
+                chkVat.Checked = true;
+                this.txtVatPrecentage.Text = oGoodReceiveNote.VATPresentage.ToString();
+                this.txtVatAmount.Text = oGoodReceiveNote.VATAmount.ToString();
+            }
+            this.txtDiscount.Text = oGoodReceiveNote.Discount.ToString();
+            this.txtNetAmount.Text = oGoodReceiveNote.NetAmount.ToString();
+
+
+            for (int i = 0; i < oGoodReceiveNote.dtItemList.Rows.Count; i++)
+            {
+                this.dgvItemData.Rows.Add();
+                dgvItemData.Rows[i].Cells["clmItemCode"].Value = oGoodReceiveNote.dtItemList.Rows[i]["fldItemCode"].ToString();
+                dgvItemData.Rows[i].Cells["clmItemDescription"].Value = cItemMaster.GetItemData(cGlobleVariable.LocationCode, oGoodReceiveNote.dtItemList.Rows[i]["fldItemCode"].ToString()).Description;
+                dgvItemData.Rows[i].Cells["clmUnit"].Value = cItemLocation.GetItemLocationData(cGlobleVariable.LocationCode, this.cmbLocation["fldSubLocationCode"].ToString(), Item).ShelfStock;
+                dgvItemData.Rows[i].Cells["clmUnitPrice"].Value = oGoodReceiveNote.dtItemList.Rows[i]["fldUnitPrice"].ToString();
+                dgvItemData.Rows[i].Cells["clmQuantity"].Value = oGoodReceiveNote.dtItemList.Rows[i]["fldQuantity"].ToString();
+
+                double a = Convert.ToDouble(oGoodReceiveNote.dtItemList.Rows[i]["fldTaxAmount"].ToString());
+                if (a > 0)
+                {
+                    dgvItemData.Rows[i].Cells["clmTax_chk"].Value = true;
+                }
+
+                dgvItemData.Rows[i].Cells["clmTaxAmount"].Value = oGoodReceiveNote.dtItemList.Rows[i]["fldTaxAmount"].ToString();
+
+                double qty = Convert.ToDouble(oGoodReceiveNote.dtItemList.Rows[i]["fldQuantity"]);
+                double UnitPrice = Convert.ToDouble(oGoodReceiveNote.dtItemList.Rows[i]["fldUnitPrice"]);
+                double TaxAmount = Convert.ToDouble(oGoodReceiveNote.dtItemList.Rows[i]["fldTaxAmount"]);
+                dgvItemData.Rows[i].Cells["clmTotalAmount"].Value = ((qty * UnitPrice) + TaxAmount);
+                //calculatAmounts();
+            }
+
+            EnableControls(false);
+            this.btnPrint.Enabled = true;
+        }
+        #endregion
+
 
         private void dataGridView1_KeyDown(object sender, KeyEventArgs e)
         {

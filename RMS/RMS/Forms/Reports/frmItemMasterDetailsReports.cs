@@ -46,22 +46,36 @@ namespace RMS.Forms.Reports
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (this.chkCategory.Checked == false && Convert.ToInt32(cmbCategory.SelectedIndex) == -1 && this.chkDepartment.Checked == false)
+            if (this.chkDepartment.Checked == false && this.cmbDepartment.SelectedIndex <= -1 && this.chkDepartment.Checked == false && this.cmbCategory.SelectedIndex <= -1)
             {
-                MessageBox.Show("Please select a category...!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Please check the fields...!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
 
-            else if (chkCategory.Checked)
-            {
-                ReportViewer(7);
-            }
             else
             {
-                if (cmbCategory.SelectedIndex > -1)
+                if (cmbDepartment.SelectedIndex > -1 && cmbCategory.SelectedIndex > -1)
                 {
                     ReportViewer(6);
                 }
+                else if (cmbDepartment.SelectedIndex > -1 && chkCategory.Checked)
+                {
+                ReportViewer(7);
             }
+                else if (chkDepartment.Checked && cmbCategory.SelectedIndex > -1)
+            {
+                    ReportViewer(8);
+                }
+                else if (chkDepartment.Checked && chkCategory.Checked)
+                {
+                    ReportViewer(9);
+                }
+
+                else 
+                {
+                    MessageBox.Show("Please check the fields...!", "Attention", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+
+        }
         }
 
 
@@ -82,9 +96,35 @@ namespace RMS.Forms.Reports
                 arrParameter[1, 0] = "strReportTitle";
                 arrParameter[1, 1] = oReportMaster.ReportTitle;
                 arrParameter[2, 0] = "strDepartment";
-                arrParameter[2, 1] = cmbDepartment["fldDepartmentName"].ToString();
+                arrParameter[2, 1] = cmbCategory["fldDepartmentCode"].ToString();
                 arrParameter[3, 0] = "strCategory";
-                arrParameter[3, 1] = cmbCategory["fldCategoryName"].ToString();
+                arrParameter[3, 1] = cmbCategory["fldCategoryCode"].ToString();
+                
+            }
+
+            else if (strReportID == 7)
+            {
+            arrParameter = new Object[(3), 2];
+
+            arrParameter[0, 0] = "strCopyRight";
+            arrParameter[0, 1] = cGlobleVariable.CopyRight;
+            arrParameter[1, 0] = "strReportTitle";
+            arrParameter[1, 1] = oReportMaster.ReportTitle;
+            arrParameter[2, 0] = "strDepartment";
+            arrParameter[2, 1] = cmbDepartment["fldDepartmentCode"].ToString();
+    
+            }
+            else if (strReportID == 8)
+            {
+                arrParameter = new Object[(3), 2];
+
+                arrParameter[0, 0] = "strCopyRight";
+                arrParameter[0, 1] = cGlobleVariable.CopyRight;
+                arrParameter[1, 0] = "strReportTitle";
+                arrParameter[1, 1] = oReportMaster.ReportTitle;
+                arrParameter[2, 0] = "strCategory";
+                arrParameter[2, 1] = cmbCategory["fldCategoryCode"].ToString();
+
             }
             else
             {
@@ -94,7 +134,10 @@ namespace RMS.Forms.Reports
                 arrParameter[0, 1] = cGlobleVariable.CopyRight;
                 arrParameter[1, 0] = "strReportTitle";
                 arrParameter[1, 1] = oReportMaster.ReportTitle;
+
             }
+
+
             frmReportViewer frmReportViever = new frmReportViewer(strReportID, cGlobleVariable.LocationCode, SelectionFormularValues(strReportID), arrParameter);
             frmReportViever.Show();
 
@@ -106,13 +149,28 @@ namespace RMS.Forms.Reports
         {
             string srtFormular = string.Empty;
 
-            if (iReportID == 4)
+            if (iReportID == 6)
             {
                 if (oReportMaster.SelectedTable.ToString() != string.Empty)
                 {
                     srtFormular += "{" + oReportMaster.SelectedTable + ".fldDepartmentCode}='" + this.cmbDepartment["fldDepartmentCode"].ToString() + "' and {" + oReportMaster.SelectedTable + ".fldCategoryCode}='" + this.cmbCategory["fldCategoryCode"].ToString() + "'"; // +"' AND {tbl_daily_in_out_details.fldAttendanceDate}=#" + Convert.ToDateTime(dFromDate).ToString("yyyy-MM-dd") + "# TO #" + Convert.ToDateTime(dToDate).ToString("yyyy-MM-dd") + "# ";
                 }
             }
+            else if (iReportID == 7)
+            {
+                if (oReportMaster.SelectedTable.ToString() != string.Empty)
+                {
+                    srtFormular += "{" + oReportMaster.SelectedTable + ".fldDepartmentCode}='" + this.cmbDepartment["fldDepartmentCode"].ToString() + "'"; // +"' AND {tbl_daily_in_out_details.fldAttendanceDate}=#" + Convert.ToDateTime(dFromDate).ToString("yyyy-MM-dd") + "# TO #" + Convert.ToDateTime(dToDate).ToString("yyyy-MM-dd") + "# ";
+                }
+            }
+            else if (iReportID == 8)
+            {
+                if (oReportMaster.SelectedTable.ToString() != string.Empty)
+                {
+                    srtFormular += "{" + oReportMaster.SelectedTable + ".fldCategoryCode}='" + this.cmbCategory["fldCategoryCode"].ToString() + "'"; // +"' AND {tbl_daily_in_out_details.fldAttendanceDate}=#" + Convert.ToDateTime(dFromDate).ToString("yyyy-MM-dd") + "# TO #" + Convert.ToDateTime(dToDate).ToString("yyyy-MM-dd") + "# ";
+                }
+            }
+            
             //else 
             //{
             //    if (oReportMaster.SelectedTable.ToString() != string.Empty)
@@ -153,10 +211,31 @@ namespace RMS.Forms.Reports
         }
         #endregion
 
-        private void cmbDepartment_SelectedIndexChanged(object sender, EventArgs e)
+        private void chkDepartment_CheckedChanged(object sender, EventArgs e)
         {
-            this.cmbCategory.SelectedIndex = -1;
-            cCommonMethods.loadComboRMS(cCategoryMaster.GetCategoryDataByDepartment(cGlobleVariable.LocationCode, this.cmbDepartment["fldDepartmentCode"].ToString()), cmbCategory, 3);
+            if (this.chkDepartment.Checked)
+            {
+               cmbDepartment.Enabled = false;
+
+            }
+            else
+            {
+                cmbDepartment.Enabled = true;
+            }
+
+        }
+
+        private void chkCategory_CheckedChanged(object sender, EventArgs e)
+        {
+            if (this.chkCategory.Checked)
+            {
+               cmbCategory.Enabled = false;
+
+            }
+            else
+            {
+                cmbCategory.Enabled = true;
+            }
         }
 
 
