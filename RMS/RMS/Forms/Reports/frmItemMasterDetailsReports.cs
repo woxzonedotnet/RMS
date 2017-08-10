@@ -240,7 +240,7 @@ namespace RMS.Forms.Reports
 
         private void cmbDepartment_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            cmbCategory.SelectedIndex = -1;
             cCommonMethods.loadComboRMS(cCategoryMaster.GetCategoryDataByDepartment(cGlobleVariable.LocationCode,this.cmbDepartment["fldDepartmentCode"].ToString()), cmbCategory, 3);
         }
 
