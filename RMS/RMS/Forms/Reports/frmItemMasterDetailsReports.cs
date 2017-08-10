@@ -41,14 +41,12 @@ namespace RMS.Forms.Reports
         public frmItemMasterDetailsReports()
         {
             InitializeComponent();
-            cCommonMethods.loadComboRMS(cDepartment.GetDepartment(), cmbSupplierDepartment, 2);
-            cCommonMethods.loadComboRMS(cCategoryMaster.GetItemCategory(), cmbSupplierCategory, 3);
-           
+            cCommonMethods.loadComboRMS(cDepartment.GetDepartment(), cmbDepartment, 2);
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (this.chkCategory.Checked == false && Convert.ToInt32(cmbSupplierCategory.SelectedIndex) == -1 && this.chkDepartment.Checked == false)
+            if (this.chkCategory.Checked == false && Convert.ToInt32(cmbCategory.SelectedIndex) == -1 && this.chkDepartment.Checked == false)
             {
                 MessageBox.Show("Please select a category...!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
@@ -59,7 +57,7 @@ namespace RMS.Forms.Reports
             }
             else
             {
-                if (cmbSupplierCategory.SelectedIndex > -1)
+                if (cmbCategory.SelectedIndex > -1)
                 {
                     ReportViewer(6);
                 }
@@ -84,9 +82,9 @@ namespace RMS.Forms.Reports
                 arrParameter[1, 0] = "strReportTitle";
                 arrParameter[1, 1] = oReportMaster.ReportTitle;
                 arrParameter[2, 0] = "strDepartment";
-                arrParameter[2, 1] = cmbSupplierCategory["fldDepartmentCode"].ToString();
+                arrParameter[2, 1] = cmbDepartment["fldDepartmentName"].ToString();
                 arrParameter[3, 0] = "strCategory";
-                arrParameter[3, 1] = cmbSupplierCategory["fldCategoryCode"].ToString();
+                arrParameter[3, 1] = cmbCategory["fldCategoryName"].ToString();
             }
             else
             {
@@ -112,7 +110,7 @@ namespace RMS.Forms.Reports
             {
                 if (oReportMaster.SelectedTable.ToString() != string.Empty)
                 {
-                    srtFormular += "{" + oReportMaster.SelectedTable + ".fldDepartmentCode}='" + this.cmbSupplierDepartment["fldDepartmentCode"].ToString() + "' and {" + oReportMaster.SelectedTable + ".fldCategoryCode}='" + this.cmbSupplierCategory["fldCategoryCode"].ToString() + "'"; // +"' AND {tbl_daily_in_out_details.fldAttendanceDate}=#" + Convert.ToDateTime(dFromDate).ToString("yyyy-MM-dd") + "# TO #" + Convert.ToDateTime(dToDate).ToString("yyyy-MM-dd") + "# ";
+                    srtFormular += "{" + oReportMaster.SelectedTable + ".fldDepartmentCode}='" + this.cmbDepartment["fldDepartmentCode"].ToString() + "' and {" + oReportMaster.SelectedTable + ".fldCategoryCode}='" + this.cmbCategory["fldCategoryCode"].ToString() + "'"; // +"' AND {tbl_daily_in_out_details.fldAttendanceDate}=#" + Convert.ToDateTime(dFromDate).ToString("yyyy-MM-dd") + "# TO #" + Convert.ToDateTime(dToDate).ToString("yyyy-MM-dd") + "# ";
                 }
             }
             //else 
@@ -154,6 +152,12 @@ namespace RMS.Forms.Reports
             return srtFormular;
         }
         #endregion
+
+        private void cmbDepartment_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            this.cmbCategory.SelectedIndex = -1;
+            cCommonMethods.loadComboRMS(cCategoryMaster.GetCategoryDataByDepartment(cGlobleVariable.LocationCode, this.cmbDepartment["fldDepartmentCode"].ToString()), cmbCategory, 3);
+        }
 
 
     }

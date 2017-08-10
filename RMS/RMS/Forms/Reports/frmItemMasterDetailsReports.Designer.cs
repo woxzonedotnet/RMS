@@ -35,8 +35,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
-            this.cmbSupplierCategory = new RMS.ColumnComboBox();
-            this.cmbSupplierDepartment = new RMS.ColumnComboBox();
+            this.cmbCategory = new RMS.ColumnComboBox();
+            this.cmbDepartment = new RMS.ColumnComboBox();
             this.SuspendLayout();
             // 
             // chkDepartment
@@ -96,27 +96,28 @@
             this.button2.Text = "Cancel";
             this.button2.UseVisualStyleBackColor = true;
             // 
-            // cmbSupplierCategory
+            // cmbCategory
             // 
-            this.cmbSupplierCategory.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
-            this.cmbSupplierCategory.DropDownWidth = 17;
-            this.cmbSupplierCategory.FormattingEnabled = true;
-            this.cmbSupplierCategory.Location = new System.Drawing.Point(74, 49);
-            this.cmbSupplierCategory.Name = "cmbSupplierCategory";
-            this.cmbSupplierCategory.Size = new System.Drawing.Size(121, 21);
-            this.cmbSupplierCategory.TabIndex = 1;
-            this.cmbSupplierCategory.ViewColumn = 0;
+            this.cmbCategory.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.cmbCategory.DropDownWidth = 17;
+            this.cmbCategory.FormattingEnabled = true;
+            this.cmbCategory.Location = new System.Drawing.Point(74, 49);
+            this.cmbCategory.Name = "cmbCategory";
+            this.cmbCategory.Size = new System.Drawing.Size(121, 21);
+            this.cmbCategory.TabIndex = 1;
+            this.cmbCategory.ViewColumn = 0;
             // 
-            // cmbSupplierDepartment
+            // cmbDepartment
             // 
-            this.cmbSupplierDepartment.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
-            this.cmbSupplierDepartment.DropDownWidth = 17;
-            this.cmbSupplierDepartment.FormattingEnabled = true;
-            this.cmbSupplierDepartment.Location = new System.Drawing.Point(74, 13);
-            this.cmbSupplierDepartment.Name = "cmbSupplierDepartment";
-            this.cmbSupplierDepartment.Size = new System.Drawing.Size(121, 21);
-            this.cmbSupplierDepartment.TabIndex = 0;
-            this.cmbSupplierDepartment.ViewColumn = 0;
+            this.cmbDepartment.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.cmbDepartment.DropDownWidth = 17;
+            this.cmbDepartment.FormattingEnabled = true;
+            this.cmbDepartment.Location = new System.Drawing.Point(74, 13);
+            this.cmbDepartment.Name = "cmbDepartment";
+            this.cmbDepartment.Size = new System.Drawing.Size(121, 21);
+            this.cmbDepartment.TabIndex = 0;
+            this.cmbDepartment.ViewColumn = 0;
+            this.cmbDepartment.SelectedIndexChanged += new System.EventHandler(this.cmbDepartment_SelectedIndexChanged);
             // 
             // frmItemMasterDetailsReports
             // 
@@ -129,8 +130,8 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.chkCategory);
             this.Controls.Add(this.chkDepartment);
-            this.Controls.Add(this.cmbSupplierCategory);
-            this.Controls.Add(this.cmbSupplierDepartment);
+            this.Controls.Add(this.cmbCategory);
+            this.Controls.Add(this.cmbDepartment);
             this.Name = "frmItemMasterDetailsReports";
             this.Text = "frmItemMasterDetailsReports";
             this.ResumeLayout(false);
@@ -140,8 +141,8 @@
 
         #endregion
 
-        private ColumnComboBox cmbSupplierDepartment;
-        private ColumnComboBox cmbSupplierCategory;
+        private ColumnComboBox cmbDepartment;
+        private ColumnComboBox cmbCategory;
         private System.Windows.Forms.CheckBox chkDepartment;
         private System.Windows.Forms.CheckBox chkCategory;
         private System.Windows.Forms.Button button1;
