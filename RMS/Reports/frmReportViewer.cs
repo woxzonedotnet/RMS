@@ -11,6 +11,7 @@ using BusinessLogic;
 using BusinessObject;
 using CrystalDecisions.CrystalReports.Engine;
 using CrystalDecisions.Shared;
+using DataAccess;
 
 
 namespace Reports
@@ -22,6 +23,7 @@ namespace Reports
         objReportMaster oReportMaster = new objReportMaster();
         clsReportMaster cReportMaster = new clsReportMaster();
         ReportDocument cReportDocument = new ReportDocument();
+        clsDBConnection cDBConnection = new clsDBConnection();
         #endregion
 
         #region Variables
@@ -106,9 +108,9 @@ namespace Reports
             cReportDocument.FileName = @"E:\WOXZONE RMS\RMS\RMS\Reports\" + oReportMaster.ReportName;
             cReportDocument.RecordSelectionFormula = strSelectionFormular;
             ConnectionInfo connectionInfo = new ConnectionInfo();
-            connectionInfo.DatabaseName = "RMS";
-            connectionInfo.UserID = "SQLRemote";
-            connectionInfo.Password = "12345";
+            connectionInfo.DatabaseName = cDBConnection.strDatabaseName;
+            connectionInfo.UserID = cDBConnection.strUsername;
+            connectionInfo.Password = cDBConnection.strPassword;
             SetDBLogonForReport(connectionInfo, cReportDocument);
             crystalReportViewer.ReportSource = cReportDocument;
         }

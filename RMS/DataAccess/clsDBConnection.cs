@@ -18,10 +18,10 @@ namespace DataAccess
         #region Variables
         string strConnectionString;
         private string strServerName;
-        private string strDatabaseName;
-        private string strUsername;
-        private string strPassword;
-        private string strSecurity;
+        public string strDatabaseName;
+        public string strUsername;
+        public string strPassword;
+        public string strSecurity;
         public string m_strFileName;
         public string reportLocation;
         #endregion

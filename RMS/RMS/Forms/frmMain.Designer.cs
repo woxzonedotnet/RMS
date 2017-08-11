@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
             this.menuStripMain = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.logoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -63,12 +64,12 @@
             this.reportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ddToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.supplierDetailsReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.itemDetailsReportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.userToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ffToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.btnExit = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnMinimize = new System.Windows.Forms.Button();
-            this.itemDetailsReportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStripMain.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -383,6 +384,13 @@
             this.supplierDetailsReportToolStripMenuItem.Text = "Supplier Details Reports";
             this.supplierDetailsReportToolStripMenuItem.Click += new System.EventHandler(this.supplierDetailsReportToolStripMenuItem_Click);
             // 
+            // itemDetailsReportsToolStripMenuItem
+            // 
+            this.itemDetailsReportsToolStripMenuItem.Name = "itemDetailsReportsToolStripMenuItem";
+            this.itemDetailsReportsToolStripMenuItem.Size = new System.Drawing.Size(198, 22);
+            this.itemDetailsReportsToolStripMenuItem.Text = "Item Details Reports";
+            this.itemDetailsReportsToolStripMenuItem.Click += new System.EventHandler(this.itemDetailsReportsToolStripMenuItem_Click);
+            // 
             // userToolStripMenuItem
             // 
             this.userToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -446,13 +454,6 @@
             this.btnMinimize.UseVisualStyleBackColor = false;
             this.btnMinimize.Click += new System.EventHandler(this.btnMinimize_Click);
             // 
-            // itemDetailsReportsToolStripMenuItem
-            // 
-            this.itemDetailsReportsToolStripMenuItem.Name = "itemDetailsReportsToolStripMenuItem";
-            this.itemDetailsReportsToolStripMenuItem.Size = new System.Drawing.Size(198, 22);
-            this.itemDetailsReportsToolStripMenuItem.Text = "Item Details Reports";
-            this.itemDetailsReportsToolStripMenuItem.Click += new System.EventHandler(this.itemDetailsReportsToolStripMenuItem_Click);
-            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -461,6 +462,7 @@
             this.ClientSize = new System.Drawing.Size(843, 447);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.IsMdiContainer = true;
             this.Name = "frmMain";
             this.Text = "Restaurants Management System";

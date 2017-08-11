@@ -24,7 +24,11 @@ namespace RMS
         private static string _CustomerEmail = "info@woxzone.com";
         private static string _ReportLocation = "";
 
-
+        public string strServerName { get; set; }
+        public string strDatabaseName { get; set; }
+        public string strUsername { get; set; }
+        public string strPassword { get; set; }
+        public string strSecurity { get; set; }
 
         public string User
         {

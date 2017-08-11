@@ -142,11 +142,12 @@ namespace RMS.Forms.Inventory
 
                 dgvItemData.Rows[i].Cells["clmTaxAmount"].Value = oGoodReceiveNote.dtItemList.Rows[i]["fldTaxAmount"].ToString();
 
-                double qty = Convert.ToDouble(oGoodReceiveNote.dtItemList.Rows[i]["fldQuantity"]);
-                double UnitPrice = Convert.ToDouble(oGoodReceiveNote.dtItemList.Rows[i]["fldUnitPrice"]);
-                double TaxAmount = Convert.ToDouble(oGoodReceiveNote.dtItemList.Rows[i]["fldTaxAmount"]);
-                dgvItemData.Rows[i].Cells["clmTotalAmount"].Value = ((qty * UnitPrice) + TaxAmount);
-                //calculatAmounts();
+                //double qty = Convert.ToDouble(oGoodReceiveNote.dtItemList.Rows[i]["fldQuantity"]);
+                //double UnitPrice = Convert.ToDouble(oGoodReceiveNote.dtItemList.Rows[i]["fldUnitPrice"]);
+                //dgvItemData.Rows[i].Cells["clmValue"].Value = qty * UnitPrice;
+                //double TaxAmount = Convert.ToDouble(oGoodReceiveNote.dtItemList.Rows[i]["fldTaxAmount"]);
+                //dgvItemData.Rows[i].Cells["clmTotalAmount"].Value = ((qty * UnitPrice) + TaxAmount);
+                calculatAmounts();
             }
 
             EnableControls(false);
@@ -236,7 +237,15 @@ namespace RMS.Forms.Inventory
 
         private void dgvItemData_CellValidated(object sender, DataGridViewCellEventArgs e)
         {
-            calculatAmounts();
+            //if (chkPONumber.Checked == true)
+            //{
+            //    calculatPOAmounts();
+            //}
+            //else
+            //{
+            //    calculatAmounts();
+            //}
+            
         }
 
         public void calculatAmounts()
@@ -259,13 +268,15 @@ namespace RMS.Forms.Inventory
 
 
                 TotalAmount = 0;
-                for (int i = 0; i < dgvItemData.Rows.Count; i++)
-                {
-                    if (this.dgvItemData.Rows[i].Cells["clmTotalAmount"].Value != null)
+                    for (int i = 0; i < dgvItemData.Rows.Count; i++)
                     {
-                        TotalAmount += Convert.ToDouble(this.dgvItemData.Rows[i].Cells["clmTotalAmount"].Value);
+                        if (this.dgvItemData.Rows[i].Cells["clmTotalAmount"].Value != null)
+                        {
+                            TotalAmount += Convert.ToDouble(this.dgvItemData.Rows[i].Cells["clmTotalAmount"].Value);
+                        }
                     }
-                }
+                
+
                 this.txtGRNValue.Text = Math.Round(TotalAmount,2).ToString();
                 if (txtVatPrecentage.Enabled == true)
                 {
@@ -305,6 +316,79 @@ namespace RMS.Forms.Inventory
 
         }
 
+        public void calculatPOAmounts()
+        {
+            try
+            {
+                double qty = Convert.ToDouble(this.dgvItemData.Rows[this.dgvItemData.CurrentCell.RowIndex].Cells["clmQuantity"].Value);
+                Value = Convert.ToDouble(this.dgvItemData.Rows[this.dgvItemData.CurrentCell.RowIndex].Cells["clmValue"].Value);
+                double tax = Convert.ToDouble(this.dgvItemData.Rows[this.dgvItemData.CurrentCell.RowIndex].Cells["clmTaxAmount"].Value);
+                unitPrice = (Value / qty);
+                this.dgvItemData.Rows[this.dgvItemData.CurrentCell.RowIndex].Cells["clmUnitPrice"].Value = Math.Round(unitPrice, 2);
+                if ((this.dgvItemData.Rows[this.dgvItemData.CurrentCell.RowIndex].Cells["clmTax_chk"].Value != null) && this.dgvItemData.Rows[this.dgvItemData.CurrentCell.RowIndex].Cells["clmTax_chk"].Value.ToString().Equals("True"))
+                {
+                    this.dgvItemData.Rows[this.dgvItemData.CurrentCell.RowIndex].Cells["clmTotalAmount"].Value = Math.Round(Value + tax, 2);
+                }
+                else
+                {
+                    this.dgvItemData.Rows[this.dgvItemData.CurrentCell.RowIndex].Cells["clmTotalAmount"].Value = Math.Round(Value, 2);
+                }
+
+
+                TotalAmount = 0;
+
+                if (this.chkPONumber.Checked == true)
+                {
+                    for (int i = 0; i < dgvItemData.Rows.Count; i++)
+                    {
+                        //MessageBox.Show(dgvItemData.Rows[i].Cells["clmSelectItem"].Value.ToString()+"dfff"+i);
+                        if (this.dgvItemData.Rows[i].Cells["clmTotalAmount"].Value != null && dgvItemData.Rows[i].Cells["clmSelectItem"].Value.ToString().Equals("True"))
+                        {
+                            //MessageBox.Show("gdfghdfhgf");
+                            TotalAmount += Convert.ToDouble(this.dgvItemData.Rows[i].Cells["clmTotalAmount"].Value);
+                        }
+                    }
+                }
+
+                this.txtGRNValue.Text = Math.Round(TotalAmount, 2).ToString();
+                if (txtVatPrecentage.Enabled == true)
+                {
+                    //VAT
+                    if (txtVatPrecentage.Text != "")
+                    {
+                        vat = (double.Parse(txtGRNValue.Text)) * (double.Parse(txtVatPrecentage.Text) / 100);
+                        txtVatAmount.Text = Math.Round(vat, 2).ToString();
+                        NetAmount = (TotalAmount + vat);
+                        txtNetAmount.Text = Math.Round(NetAmount, 2).ToString();
+                    }
+                    //discount
+                    if (txtDiscount.Text != "")
+                    {
+
+                        discount = Convert.ToDouble(txtDiscount.Text);
+                        NetAmount = (NetAmount - discount);
+                        if (NetAmount >= 0)
+                        {
+                            txtNetAmount.Text = Math.Round(NetAmount, 2).ToString();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Net Amount Can't be Nagetive..");
+                        }
+                    }
+                }
+                else
+                {
+                    txtNetAmount.Text = Math.Round(TotalAmount, 2).ToString();
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
+
+        }
+
         private void chkVat_CheckedChanged(object sender, EventArgs e)
         {
             if (chkVat.Checked == true)
@@ -319,12 +403,12 @@ namespace RMS.Forms.Inventory
 
         private void txtVatPrecentage_TextChanged(object sender, EventArgs e)
         {
-            calculatAmounts();
+            //calculatAmounts();
         }
 
         private void txtDiscount_TextChanged(object sender, EventArgs e)
         {
-            calculatAmounts();
+            //calculatAmounts();
         }
 
         private void dgvItemData_CurrentCellDirtyStateChanged(object sender, EventArgs e)
@@ -337,15 +421,11 @@ namespace RMS.Forms.Inventory
                     if ((this.dgvItemData.CurrentCell.Value != null) && this.dgvItemData.CurrentCell.Value.ToString().Equals("True"))
                     {
                         //tax calculate
-                        double taxPrecentage = Convert.ToDouble(cSetupSetting.GetSetupSettingData(cGlobleVariable.LocationCode).VAT);
-                        double totalTax = (Value * taxPrecentage) / 100;
-                        this.dgvItemData.Rows[this.dgvItemData.CurrentCell.RowIndex].Cells["clmTaxAmount"].Value = Math.Round(totalTax,2);
-                        calculatAmounts();
+                        taxCalculate();
                     }
                     else
                     {
                         this.dgvItemData.Rows[this.dgvItemData.CurrentCell.RowIndex].Cells["clmTaxAmount"].Value = "0.00";
-                        calculatAmounts();
                     }
                 }
 
@@ -364,11 +444,26 @@ namespace RMS.Forms.Inventory
                     }
 
                 }
+                if (chkPONumber.Checked == true)
+                {
+                    calculatPOAmounts();
+                }
+                else
+                {
+                    calculatAmounts();
+                }
             }
             catch (Exception ex)
             {
 
             }
+        }
+
+        public void taxCalculate()
+        {
+            double taxPrecentage = Convert.ToDouble(cSetupSetting.GetSetupSettingData(cGlobleVariable.LocationCode).VAT);
+            double totalTax = (Value * taxPrecentage) / 100;
+            this.dgvItemData.Rows[this.dgvItemData.CurrentCell.RowIndex].Cells["clmTaxAmount"].Value = Math.Round(totalTax, 2);
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -749,6 +844,22 @@ namespace RMS.Forms.Inventory
         private void btnPrint_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void dgvItemData_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                if (chkPONumber.Checked == true && dgvItemData.CurrentRow.Cells["clmTax_chk"].Value.ToString().Equals("True"))
+                {
+                    taxCalculate();
+                    //calculatPOAmounts();
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
         }
     }
 }
