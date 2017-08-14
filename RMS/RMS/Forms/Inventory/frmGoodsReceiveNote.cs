@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using DataAccess;
 using BusinessLogic;
 using BusinessObject;
+using Reports;
 
 namespace RMS.Forms.Inventory
 {
@@ -31,6 +32,8 @@ namespace RMS.Forms.Inventory
         objPurchaseOrder oPurchaseOrder = new objPurchaseOrder();
         clsPurchaseOrder cPurchaseOrder = new clsPurchaseOrder();
         clsSupplierMaster cSupplier = new clsSupplierMaster();
+        objReportMaster oReportMaster = new objReportMaster();
+        clsReportMaster cReportMaster = new clsReportMaster();
         #endregion
 
         #region Variable
@@ -130,7 +133,7 @@ namespace RMS.Forms.Inventory
                 this.dgvItemData.Rows.Add();
                 dgvItemData.Rows[i].Cells["clmItemCode"].Value = oGoodReceiveNote.dtItemList.Rows[i]["fldItemCode"].ToString();
                 dgvItemData.Rows[i].Cells["clmItemDescription"].Value = cItemMaster.GetItemData(cGlobleVariable.LocationCode, oGoodReceiveNote.dtItemList.Rows[i]["fldItemCode"].ToString()).Description;
-                dgvItemData.Rows[i].Cells["clmUnit"].Value = cItemLocation.GetItemLocationData(cGlobleVariable.LocationCode, this.cmbLocation["fldSubLocationCode"].ToString(), Item).ShelfStock;
+                dgvItemData.Rows[i].Cells["clmUnit"].Value = cItemLocation.GetItemLocationData(cGlobleVariable.LocationCode, this.cmbLocation["fldSubLocationCode"].ToString(), oGoodReceiveNote.dtItemList.Rows[i]["fldItemCode"].ToString()).ShelfStock;
                 dgvItemData.Rows[i].Cells["clmUnitPrice"].Value = oGoodReceiveNote.dtItemList.Rows[i]["fldUnitPrice"].ToString();
                 dgvItemData.Rows[i].Cells["clmQuantity"].Value = oGoodReceiveNote.dtItemList.Rows[i]["fldQuantity"].ToString();
 
@@ -142,12 +145,12 @@ namespace RMS.Forms.Inventory
 
                 dgvItemData.Rows[i].Cells["clmTaxAmount"].Value = oGoodReceiveNote.dtItemList.Rows[i]["fldTaxAmount"].ToString();
 
-                //double qty = Convert.ToDouble(oGoodReceiveNote.dtItemList.Rows[i]["fldQuantity"]);
-                //double UnitPrice = Convert.ToDouble(oGoodReceiveNote.dtItemList.Rows[i]["fldUnitPrice"]);
-                //dgvItemData.Rows[i].Cells["clmValue"].Value = qty * UnitPrice;
-                //double TaxAmount = Convert.ToDouble(oGoodReceiveNote.dtItemList.Rows[i]["fldTaxAmount"]);
-                //dgvItemData.Rows[i].Cells["clmTotalAmount"].Value = ((qty * UnitPrice) + TaxAmount);
-                calculatAmounts();
+                double qty = Convert.ToDouble(oGoodReceiveNote.dtItemList.Rows[i]["fldQuantity"]);
+                double UnitPrice = Convert.ToDouble(oGoodReceiveNote.dtItemList.Rows[i]["fldUnitPrice"]);
+                dgvItemData.Rows[i].Cells["clmValue"].Value = qty * UnitPrice;
+                double TaxAmount = Convert.ToDouble(oGoodReceiveNote.dtItemList.Rows[i]["fldTaxAmount"]);
+                dgvItemData.Rows[i].Cells["clmTotalAmount"].Value = ((qty * UnitPrice) + TaxAmount);
+                //calculatAmounts();
             }
 
             EnableControls(false);
@@ -237,14 +240,16 @@ namespace RMS.Forms.Inventory
 
         private void dgvItemData_CellValidated(object sender, DataGridViewCellEventArgs e)
         {
-            //if (chkPONumber.Checked == true)
-            //{
-            //    calculatPOAmounts();
-            //}
-            //else
-            //{
-            //    calculatAmounts();
-            //}
+
+            if (chkPONumber.Checked == true)
+            {
+                calculatPOAmounts();
+            }
+            else
+            {
+                calculatAmounts();
+            }
+            
             
         }
 
@@ -341,12 +346,20 @@ namespace RMS.Forms.Inventory
                 {
                     for (int i = 0; i < dgvItemData.Rows.Count; i++)
                     {
-                        //MessageBox.Show(dgvItemData.Rows[i].Cells["clmSelectItem"].Value.ToString()+"dfff"+i);
-                        if (this.dgvItemData.Rows[i].Cells["clmTotalAmount"].Value != null && dgvItemData.Rows[i].Cells["clmSelectItem"].Value.ToString().Equals("True"))
+                        try
                         {
-                            //MessageBox.Show("gdfghdfhgf");
-                            TotalAmount += Convert.ToDouble(this.dgvItemData.Rows[i].Cells["clmTotalAmount"].Value);
+                            string tempTotal = this.dgvItemData.Rows[i].Cells["clmTotalAmount"].Value.ToString();
+                            bool tempSelect = Convert.ToBoolean(dgvItemData.Rows[i].Cells["clmSelectItem"].Value);
+                            
+                            if (tempTotal != null && tempSelect)
+                            {
+                                TotalAmount += Convert.ToDouble(this.dgvItemData.Rows[i].Cells["clmTotalAmount"].Value);
+                            }
+                        }catch(Exception ex)
+                        {
+
                         }
+                        
                     }
                 }
 
@@ -403,12 +416,26 @@ namespace RMS.Forms.Inventory
 
         private void txtVatPrecentage_TextChanged(object sender, EventArgs e)
         {
-            //calculatAmounts();
+            if (chkPONumber.Checked == true)
+            {
+                calculatPOAmounts();
+            }
+            else
+            {
+                calculatAmounts();
+            }
         }
 
         private void txtDiscount_TextChanged(object sender, EventArgs e)
         {
-            //calculatAmounts();
+            if (chkPONumber.Checked == true)
+            {
+                calculatPOAmounts();
+            }
+            else
+            {
+                calculatAmounts();
+            }
         }
 
         private void dgvItemData_CurrentCellDirtyStateChanged(object sender, EventArgs e)
@@ -589,10 +616,18 @@ namespace RMS.Forms.Inventory
                     dRow["fldValue"] = row.Cells["clmValue"].Value.ToString();
                     dRow["fldTaxAmount"] = row.Cells["clmTaxAmount"].Value.ToString();
 
-                    if (Convert.ToBoolean(row.Cells["clmSelectItem"].Value))
+                    if (this.chkPONumber.Checked)
+                    {
+                        if (Convert.ToBoolean(row.Cells["clmSelectItem"].Value))
+                        {
+                            dt.Rows.Add(dRow);
+                        }
+                    }
+                    else
                     {
                         dt.Rows.Add(dRow);
                     }
+                    
                     
                 }
                 catch (Exception ex)
@@ -841,10 +876,68 @@ namespace RMS.Forms.Inventory
         }
         #endregion
 
+        #region Report Section
         private void btnPrint_Click(object sender, EventArgs e)
         {
-
+            ReportViewer(11);
         }
+
+        private void ReportViewer(int strReportID)
+        {
+            System.Object[,] arrParameter;
+            oReportMaster = cReportMaster.GetReports(strReportID);
+
+            arrParameter = new Object[(2), 2];
+
+            arrParameter[0, 0] = "strCopyRight";
+            arrParameter[0, 1] = cGlobleVariable.CopyRight;
+            arrParameter[1, 0] = "strReportTitle";
+            arrParameter[1, 1] = oReportMaster.ReportTitle;
+
+            frmReportViewer frmReportViever = new frmReportViewer(strReportID, cGlobleVariable.LocationCode, SelectionFormularValues(strReportID), arrParameter);
+            frmReportViever.Show();
+        }
+
+        private string SelectionFormularValues(int iReportID)
+        {
+            string srtFormular = string.Empty;
+
+            if (oReportMaster.SelectedTable.ToString() != string.Empty)
+            {
+                srtFormular += "{" + oReportMaster.SelectedTable + ".fldGRNCode}='" + this.txtGRNNumber.Text + "'"; // +"' AND {tbl_daily_in_out_details.fldAttendanceDate}=#" + Convert.ToDateTime(dFromDate).ToString("yyyy-MM-dd") + "# TO #" + Convert.ToDateTime(dToDate).ToString("yyyy-MM-dd") + "# ";
+            }
+
+            if (oReportMaster.SelectionFormular.ToString() != string.Empty)
+            {
+                srtFormular += " AND " + oReportMaster.SelectionFormular + " OR ";
+            }
+            else
+            {
+                srtFormular += " OR ";
+            }
+
+            if (srtFormular != string.Empty)
+            {
+                if (srtFormular.Substring(srtFormular.Length - 3, 2) == "OR")
+                {
+                    int n = srtFormular.LastIndexOf("OR");
+
+                    srtFormular = srtFormular.Substring(0, n - 1);
+                }
+            }
+
+            if (srtFormular != string.Empty)
+            {
+                if (srtFormular.Substring(srtFormular.Length - 3, 3) == "AND")
+                {
+                    int n = srtFormular.LastIndexOf("AND");
+
+                    srtFormular = srtFormular.Substring(0, n - 1);
+                }
+            }
+            return srtFormular;
+        }
+        #endregion
 
         private void dgvItemData_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {

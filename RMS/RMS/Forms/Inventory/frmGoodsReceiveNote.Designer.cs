@@ -217,6 +217,7 @@
             this.txtNetAmount.Name = "txtNetAmount";
             this.txtNetAmount.Size = new System.Drawing.Size(157, 20);
             this.txtNetAmount.TabIndex = 69;
+            this.txtNetAmount.Text = "0.00";
             // 
             // lblNetAmount
             // 
