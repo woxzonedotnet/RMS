@@ -67,6 +67,26 @@
       <DependentUpon>rptfrmItemMasterDetailsReports1.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="rptfrmItemMasterDetailsReports2.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptfrmItemMasterDetailsReports2.rpt</DependentUpon>
+    </Compile>
+    <Compile Include="rptfrmItemMasterDetailsReports3.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptfrmItemMasterDetailsReports3.rpt</DependentUpon>
+    </Compile>
+    <Compile Include="rptGoodRecieveNote.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptGoodRecieveNote.rpt</DependentUpon>
+    </Compile>
+    <Compile Include="rptMenuDetailsReport.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptMenuDetailsReport.rpt</DependentUpon>
+    </Compile>
     <Compile Include="rptPurchaseOrder.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
