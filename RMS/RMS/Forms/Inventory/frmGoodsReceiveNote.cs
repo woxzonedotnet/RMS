@@ -237,14 +237,16 @@ namespace RMS.Forms.Inventory
 
         private void dgvItemData_CellValidated(object sender, DataGridViewCellEventArgs e)
         {
-            //if (chkPONumber.Checked == true)
-            //{
-            //    calculatPOAmounts();
-            //}
-            //else
-            //{
-            //    calculatAmounts();
-            //}
+
+            if (chkPONumber.Checked == true)
+            {
+                calculatPOAmounts();
+            }
+            else
+            {
+                calculatAmounts();
+            }
+            
             
         }
 
@@ -341,12 +343,20 @@ namespace RMS.Forms.Inventory
                 {
                     for (int i = 0; i < dgvItemData.Rows.Count; i++)
                     {
-                        //MessageBox.Show(dgvItemData.Rows[i].Cells["clmSelectItem"].Value.ToString()+"dfff"+i);
-                        if (this.dgvItemData.Rows[i].Cells["clmTotalAmount"].Value != null && dgvItemData.Rows[i].Cells["clmSelectItem"].Value.ToString().Equals("True"))
+                        try
                         {
-                            //MessageBox.Show("gdfghdfhgf");
-                            TotalAmount += Convert.ToDouble(this.dgvItemData.Rows[i].Cells["clmTotalAmount"].Value);
+                            string tempTotal = this.dgvItemData.Rows[i].Cells["clmTotalAmount"].Value.ToString();
+                            bool tempSelect = Convert.ToBoolean(dgvItemData.Rows[i].Cells["clmSelectItem"].Value);
+                            
+                            if (tempTotal != null && tempSelect)
+                            {
+                                TotalAmount += Convert.ToDouble(this.dgvItemData.Rows[i].Cells["clmTotalAmount"].Value);
+                            }
+                        }catch(Exception ex)
+                        {
+
                         }
+                        
                     }
                 }
 
@@ -403,12 +413,26 @@ namespace RMS.Forms.Inventory
 
         private void txtVatPrecentage_TextChanged(object sender, EventArgs e)
         {
-            //calculatAmounts();
+            if (chkPONumber.Checked == true)
+            {
+                calculatPOAmounts();
+            }
+            else
+            {
+                calculatAmounts();
+            }
         }
 
         private void txtDiscount_TextChanged(object sender, EventArgs e)
         {
-            //calculatAmounts();
+            if (chkPONumber.Checked == true)
+            {
+                calculatPOAmounts();
+            }
+            else
+            {
+                calculatAmounts();
+            }
         }
 
         private void dgvItemData_CurrentCellDirtyStateChanged(object sender, EventArgs e)
@@ -589,10 +613,18 @@ namespace RMS.Forms.Inventory
                     dRow["fldValue"] = row.Cells["clmValue"].Value.ToString();
                     dRow["fldTaxAmount"] = row.Cells["clmTaxAmount"].Value.ToString();
 
-                    if (Convert.ToBoolean(row.Cells["clmSelectItem"].Value))
+                    if (this.chkPONumber.Checked)
+                    {
+                        if (Convert.ToBoolean(row.Cells["clmSelectItem"].Value))
+                        {
+                            dt.Rows.Add(dRow);
+                        }
+                    }
+                    else
                     {
                         dt.Rows.Add(dRow);
                     }
+                    
                     
                 }
                 catch (Exception ex)
