@@ -60,6 +60,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>rptfrmItemMasterDetailsReports.rpt</DependentUpon>
     </Compile>
+    <Compile Include="rptGoodRecieveNote.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptGoodRecieveNote.rpt</DependentUpon>
+    </Compile>
     <Compile Include="rptPurchaseOrder.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -94,6 +99,10 @@
     <EmbeddedResource Include="rptfrmItemMasterDetailsReports.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>rptfrmItemMasterDetailsReports.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rptGoodRecieveNote.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptGoodRecieveNote.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="rptPurchaseOrder.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
