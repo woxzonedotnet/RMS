@@ -135,7 +135,7 @@
             this.Controls.Add(this.cmbCategory);
             this.Controls.Add(this.cmbDepartment);
             this.Name = "frmItemMasterDetailsReports";
-            this.Text = "frmItemMasterDetailsReports";
+            this.Text = "Item Master Details Reports";
             this.ResumeLayout(false);
             this.PerformLayout();
 

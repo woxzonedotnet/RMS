@@ -59,11 +59,33 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>rptfrmItemMasterDetailsReports.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="rptfrmItemMasterDetailsReports1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptfrmItemMasterDetailsReports1.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="rptfrmItemMasterDetailsReports2.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptfrmItemMasterDetailsReports2.rpt</DependentUpon>
+    </Compile>
+    <Compile Include="rptfrmItemMasterDetailsReports3.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptfrmItemMasterDetailsReports3.rpt</DependentUpon>
     </Compile>
     <Compile Include="rptGoodRecieveNote.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>rptGoodRecieveNote.rpt</DependentUpon>
+    </Compile>
+    <Compile Include="rptMenuDetailsReport.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptMenuDetailsReport.rpt</DependentUpon>
     </Compile>
     <Compile Include="rptPurchaseOrder.cs">
       <AutoGen>True</AutoGen>
@@ -75,21 +97,25 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>rptStockAjustmentNote.rpt</DependentUpon>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="rptIssueNote.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>rptIssueNote.rpt</DependentUpon>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="rptSupplierDetails.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>rptSupplierDetails.rpt</DependentUpon>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="rptSupplierDetails2.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>rptSupplierDetails2.rpt</DependentUpon>
+      <SubType>Component</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -99,6 +125,22 @@
     <EmbeddedResource Include="rptfrmItemMasterDetailsReports.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>rptfrmItemMasterDetailsReports.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rptfrmItemMasterDetailsReports1.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptfrmItemMasterDetailsReports1.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rptfrmItemMasterDetailsReports2.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptfrmItemMasterDetailsReports2.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rptfrmItemMasterDetailsReports3.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptfrmItemMasterDetailsReports3.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rptMenuDetailsReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptMenuDetailsReport.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="rptGoodRecieveNote.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>

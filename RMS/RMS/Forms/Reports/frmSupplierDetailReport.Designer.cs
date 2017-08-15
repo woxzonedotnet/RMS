@@ -97,7 +97,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.cmbSupplierCategory);
             this.Name = "frmSupplierDetailReport";
-            this.Text = "frmSupplierDetailReport";
+            this.Text = "Supplier Detail Report";
             this.ResumeLayout(false);
             this.PerformLayout();
 

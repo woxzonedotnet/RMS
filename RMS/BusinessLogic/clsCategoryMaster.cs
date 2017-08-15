@@ -24,7 +24,13 @@ namespace BusinessLogic
         }
         #endregion
 
-
+        #region  GetCategory
+        public DataTable GetCategory()
+        {
+            DataTable dtCategory = cDBConnection.SearchData("tbl_CategoryMaster");
+            return dtCategory;
+        }
+        #endregion
 
         #region GetCategory Data Using CategoryCode
         public objCategoryMaster GetCategoryData(string strLocationCode, string strDepartmentCode,string strCategoryCode)

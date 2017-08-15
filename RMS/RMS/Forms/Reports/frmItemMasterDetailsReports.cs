@@ -42,6 +42,7 @@ namespace RMS.Forms.Reports
         {
             InitializeComponent();
             cCommonMethods.loadComboRMS(cDepartment.GetDepartment(), cmbDepartment, 2);
+            cCommonMethods.loadComboRMS(cCategoryMaster.GetCategory(), cmbCategory, 3);
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -216,6 +217,7 @@ namespace RMS.Forms.Reports
             if (this.chkDepartment.Checked)
             {
                cmbDepartment.Enabled = false;
+
 
             }
             else

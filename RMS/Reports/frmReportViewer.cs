@@ -12,6 +12,14 @@ using BusinessObject;
 using CrystalDecisions.CrystalReports.Engine;
 using CrystalDecisions.Shared;
 using DataAccess;
+using System.Data.SqlClient;
+using System.Data;
+using System.Windows.Forms;
+using System.Xml;
+using System.Data.SqlClient;
+using System.Data;
+using System.Windows.Forms;
+
 
 
 namespace Reports
@@ -33,6 +41,7 @@ namespace Reports
         private string strSelectionFormular = string.Empty;
         private string strLocationCode;
         private int iReportID;
+        public string d, a ,c;
         #endregion
 
         #region Constructor
@@ -106,6 +115,7 @@ namespace Reports
             this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
             //cReportDocument.FileName = Application.StartupPath + "\\Reports\\" + oReportMaster.ReportName;
             cReportDocument.FileName = @"E:\WOXZONE RMS\RMS\RMS\Reports\" + oReportMaster.ReportName;
+
             cReportDocument.RecordSelectionFormula = strSelectionFormular;
             ConnectionInfo connectionInfo = new ConnectionInfo();
             connectionInfo.DatabaseName = cDBConnection.strDatabaseName;
