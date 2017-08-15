@@ -47,17 +47,14 @@ namespace RMS.Forms.Inventory
         double Value = 0;
         double NetAmount = 0;
         int result = 0;
+        Point lastClick;
         #endregion
 
         public frmGoodsReceiveNote()
         {
             InitializeComponent();
+            this.lblTitle.Text = this.Text;
             Location = cGlobleVariable.LocationCode.ToString();
-        }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
         }
 
         private void frmGoodsReceiveNote_Load(object sender, EventArgs e)
@@ -158,7 +155,6 @@ namespace RMS.Forms.Inventory
         }
         #endregion
 
-
         private void dataGridView1_KeyDown(object sender, KeyEventArgs e)
         {
             if ((e.KeyCode == Keys.Space) && this.dgvItemData.CurrentCell.OwningColumn.Name.Equals("clmItemCode"))
@@ -173,7 +169,6 @@ namespace RMS.Forms.Inventory
                         cmbSupplier.Enabled = false;
                     }
                 }
-
             }
         }
 
@@ -240,7 +235,6 @@ namespace RMS.Forms.Inventory
 
         private void dgvItemData_CellValidated(object sender, DataGridViewCellEventArgs e)
         {
-
             if (chkPONumber.Checked == true)
             {
                 calculatPOAmounts();
@@ -249,8 +243,6 @@ namespace RMS.Forms.Inventory
             {
                 calculatAmounts();
             }
-            
-            
         }
 
         public void calculatAmounts()
@@ -318,7 +310,6 @@ namespace RMS.Forms.Inventory
             {
 
             }
-
         }
 
         public void calculatPOAmounts()
@@ -399,7 +390,6 @@ namespace RMS.Forms.Inventory
             {
 
             }
-
         }
 
         private void chkVat_CheckedChanged(object sender, EventArgs e)
@@ -525,7 +515,6 @@ namespace RMS.Forms.Inventory
                 }
             }
         }
-
 
         #region Validate Purchase Order Data
         private bool ValidateData()
@@ -953,6 +942,32 @@ namespace RMS.Forms.Inventory
             {
 
             }
+        }
+
+        #region From Move
+        private void panel3_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                this.Left += e.X - lastClick.X;
+                this.Top += e.Y - lastClick.Y;
+            }
+        }
+
+        private void panel3_MouseDown(object sender, MouseEventArgs e)
+        {
+            lastClick = e.Location;
+        }
+        #endregion
+
+        private void frmGoodsReceiveNote_Activated(object sender, EventArgs e)
+        {
+            //this.panel3.BackColor = Color.FromArgb(45, 45, 48);
+        }
+
+        private void frmGoodsReceiveNote_Deactivate(object sender, EventArgs e)
+        {
+            //this.panel3.BackColor = Color.FromArgb(36, 41, 46);
         }
     }
 }
