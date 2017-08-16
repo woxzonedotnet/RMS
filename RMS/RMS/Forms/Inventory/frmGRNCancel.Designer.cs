@@ -28,12 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmGRNCancel));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnGRNCancel = new System.Windows.Forms.Button();
             this.txtInvoiceNo = new System.Windows.Forms.TextBox();
             this.lblInvoiceNo = new System.Windows.Forms.Label();
@@ -42,7 +42,9 @@
             this.lblGRNNo = new System.Windows.Forms.Label();
             this.dtpDate = new System.Windows.Forms.DateTimePicker();
             this.lblDate = new System.Windows.Forms.Label();
+            this.cmbSupplier = new RMS.ColumnComboBox();
             this.lblSupplier = new System.Windows.Forms.Label();
+            this.cmbLocation = new RMS.ColumnComboBox();
             this.txtGRNCancelNo = new System.Windows.Forms.TextBox();
             this.btnSearch = new System.Windows.Forms.Button();
             this.lblLocation = new System.Windows.Forms.Label();
@@ -72,8 +74,6 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
-            this.cmbSupplier = new RMS.ColumnComboBox();
-            this.cmbLocation = new RMS.ColumnComboBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvItemData)).BeginInit();
@@ -94,6 +94,7 @@
             this.btnGRNCancel.TabIndex = 77;
             this.btnGRNCancel.Text = "GRN Cancel";
             this.btnGRNCancel.UseVisualStyleBackColor = false;
+            this.btnGRNCancel.Click += new System.EventHandler(this.btnGRNCancel_Click);
             // 
             // txtInvoiceNo
             // 
@@ -173,6 +174,20 @@
             this.lblDate.TabIndex = 65;
             this.lblDate.Text = "Date";
             // 
+            // cmbSupplier
+            // 
+            this.cmbSupplier.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.cmbSupplier.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cmbSupplier.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.cmbSupplier.DropDownWidth = 17;
+            this.cmbSupplier.Enabled = false;
+            this.cmbSupplier.FormattingEnabled = true;
+            this.cmbSupplier.Location = new System.Drawing.Point(122, 129);
+            this.cmbSupplier.Name = "cmbSupplier";
+            this.cmbSupplier.Size = new System.Drawing.Size(177, 21);
+            this.cmbSupplier.TabIndex = 64;
+            this.cmbSupplier.ViewColumn = 0;
+            // 
             // lblSupplier
             // 
             this.lblSupplier.AutoSize = true;
@@ -182,6 +197,20 @@
             this.lblSupplier.Size = new System.Drawing.Size(58, 16);
             this.lblSupplier.TabIndex = 63;
             this.lblSupplier.Text = "Supplier";
+            // 
+            // cmbLocation
+            // 
+            this.cmbLocation.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.cmbLocation.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cmbLocation.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.cmbLocation.DropDownWidth = 17;
+            this.cmbLocation.Enabled = false;
+            this.cmbLocation.FormattingEnabled = true;
+            this.cmbLocation.Location = new System.Drawing.Point(122, 91);
+            this.cmbLocation.Name = "cmbLocation";
+            this.cmbLocation.Size = new System.Drawing.Size(177, 21);
+            this.cmbLocation.TabIndex = 62;
+            this.cmbLocation.ViewColumn = 0;
             // 
             // txtGRNCancelNo
             // 
@@ -387,8 +416,8 @@
             // 
             // clmItemCode
             // 
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.clmItemCode.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.clmItemCode.DefaultCellStyle = dataGridViewCellStyle1;
             this.clmItemCode.HeaderText = "Item Code";
             this.clmItemCode.Name = "clmItemCode";
             this.clmItemCode.ReadOnly = true;
@@ -403,10 +432,10 @@
             // 
             // clmUnitPrice
             // 
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle7.Format = "###,###.00";
-            dataGridViewCellStyle7.NullValue = "0.00";
-            this.clmUnitPrice.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle2.Format = "###,###.00";
+            dataGridViewCellStyle2.NullValue = "0.00";
+            this.clmUnitPrice.DefaultCellStyle = dataGridViewCellStyle2;
             this.clmUnitPrice.HeaderText = "Unit Price";
             this.clmUnitPrice.Name = "clmUnitPrice";
             this.clmUnitPrice.ReadOnly = true;
@@ -414,10 +443,10 @@
             // 
             // clmQty
             // 
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle8.Format = "N2";
-            dataGridViewCellStyle8.NullValue = "0.00";
-            this.clmQty.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.Format = "N2";
+            dataGridViewCellStyle3.NullValue = "0.00";
+            this.clmQty.DefaultCellStyle = dataGridViewCellStyle3;
             this.clmQty.HeaderText = "Qty";
             this.clmQty.Name = "clmQty";
             this.clmQty.ReadOnly = true;
@@ -425,20 +454,20 @@
             // 
             // clmTaxAmount
             // 
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle9.Format = "###,###.00";
-            dataGridViewCellStyle9.NullValue = "0.00";
-            this.clmTaxAmount.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle4.Format = "###,###.00";
+            dataGridViewCellStyle4.NullValue = "0.00";
+            this.clmTaxAmount.DefaultCellStyle = dataGridViewCellStyle4;
             this.clmTaxAmount.HeaderText = "Tax Amount";
             this.clmTaxAmount.Name = "clmTaxAmount";
             this.clmTaxAmount.ReadOnly = true;
             // 
             // clmTotal
             // 
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle10.Format = "###,###.00";
-            dataGridViewCellStyle10.NullValue = "0.00";
-            this.clmTotal.DefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle5.Format = "###,###.00";
+            dataGridViewCellStyle5.NullValue = "0.00";
+            this.clmTotal.DefaultCellStyle = dataGridViewCellStyle5;
             this.clmTotal.HeaderText = "Total Value";
             this.clmTotal.Name = "clmTotal";
             this.clmTotal.ReadOnly = true;
@@ -509,34 +538,6 @@
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(984, 10);
             this.panel6.TabIndex = 84;
-            // 
-            // cmbSupplier
-            // 
-            this.cmbSupplier.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.cmbSupplier.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.cmbSupplier.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
-            this.cmbSupplier.DropDownWidth = 17;
-            this.cmbSupplier.Enabled = false;
-            this.cmbSupplier.FormattingEnabled = true;
-            this.cmbSupplier.Location = new System.Drawing.Point(122, 129);
-            this.cmbSupplier.Name = "cmbSupplier";
-            this.cmbSupplier.Size = new System.Drawing.Size(177, 21);
-            this.cmbSupplier.TabIndex = 64;
-            this.cmbSupplier.ViewColumn = 0;
-            // 
-            // cmbLocation
-            // 
-            this.cmbLocation.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.cmbLocation.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.cmbLocation.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
-            this.cmbLocation.DropDownWidth = 17;
-            this.cmbLocation.Enabled = false;
-            this.cmbLocation.FormattingEnabled = true;
-            this.cmbLocation.Location = new System.Drawing.Point(122, 91);
-            this.cmbLocation.Name = "cmbLocation";
-            this.cmbLocation.Size = new System.Drawing.Size(177, 21);
-            this.cmbLocation.TabIndex = 62;
-            this.cmbLocation.ViewColumn = 0;
             // 
             // frmGRNCancel
             // 
