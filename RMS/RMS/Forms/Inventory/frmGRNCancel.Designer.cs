@@ -28,13 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmGRNCancel));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.btnSave = new System.Windows.Forms.Button();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmGRNCancel));
+            this.btnGRNCancel = new System.Windows.Forms.Button();
             this.txtInvoiceNo = new System.Windows.Forms.TextBox();
             this.lblInvoiceNo = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -42,9 +42,7 @@
             this.lblGRNNo = new System.Windows.Forms.Label();
             this.dtpDate = new System.Windows.Forms.DateTimePicker();
             this.lblDate = new System.Windows.Forms.Label();
-            this.cmbSupplier = new RMS.ColumnComboBox();
             this.lblSupplier = new System.Windows.Forms.Label();
-            this.cmbLocation = new RMS.ColumnComboBox();
             this.txtGRNCancelNo = new System.Windows.Forms.TextBox();
             this.btnSearch = new System.Windows.Forms.Button();
             this.lblLocation = new System.Windows.Forms.Label();
@@ -61,7 +59,7 @@
             this.txtVatAmount = new System.Windows.Forms.TextBox();
             this.txtGrossTotal = new System.Windows.Forms.TextBox();
             this.lblGrossTotal = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvItemData = new System.Windows.Forms.DataGridView();
             this.clmItemCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmUnitPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -74,26 +72,28 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
+            this.cmbSupplier = new RMS.ColumnComboBox();
+            this.cmbLocation = new RMS.ColumnComboBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvItemData)).BeginInit();
             this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
-            // btnSave
+            // btnGRNCancel
             // 
-            this.btnSave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(41)))), ((int)(((byte)(46)))));
-            this.btnSave.FlatAppearance.BorderSize = 0;
-            this.btnSave.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Maroon;
-            this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
-            this.btnSave.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnSave.Location = new System.Drawing.Point(655, 437);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(93, 36);
-            this.btnSave.TabIndex = 77;
-            this.btnSave.Text = "GRN Cancel";
-            this.btnSave.UseVisualStyleBackColor = false;
+            this.btnGRNCancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(41)))), ((int)(((byte)(46)))));
+            this.btnGRNCancel.FlatAppearance.BorderSize = 0;
+            this.btnGRNCancel.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Maroon;
+            this.btnGRNCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGRNCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
+            this.btnGRNCancel.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnGRNCancel.Location = new System.Drawing.Point(655, 437);
+            this.btnGRNCancel.Name = "btnGRNCancel";
+            this.btnGRNCancel.Size = new System.Drawing.Size(93, 36);
+            this.btnGRNCancel.TabIndex = 77;
+            this.btnGRNCancel.Text = "GRN Cancel";
+            this.btnGRNCancel.UseVisualStyleBackColor = false;
             // 
             // txtInvoiceNo
             // 
@@ -173,20 +173,6 @@
             this.lblDate.TabIndex = 65;
             this.lblDate.Text = "Date";
             // 
-            // cmbSupplier
-            // 
-            this.cmbSupplier.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.cmbSupplier.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.cmbSupplier.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
-            this.cmbSupplier.DropDownWidth = 17;
-            this.cmbSupplier.Enabled = false;
-            this.cmbSupplier.FormattingEnabled = true;
-            this.cmbSupplier.Location = new System.Drawing.Point(122, 129);
-            this.cmbSupplier.Name = "cmbSupplier";
-            this.cmbSupplier.Size = new System.Drawing.Size(177, 21);
-            this.cmbSupplier.TabIndex = 64;
-            this.cmbSupplier.ViewColumn = 0;
-            // 
             // lblSupplier
             // 
             this.lblSupplier.AutoSize = true;
@@ -196,20 +182,6 @@
             this.lblSupplier.Size = new System.Drawing.Size(58, 16);
             this.lblSupplier.TabIndex = 63;
             this.lblSupplier.Text = "Supplier";
-            // 
-            // cmbLocation
-            // 
-            this.cmbLocation.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.cmbLocation.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.cmbLocation.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
-            this.cmbLocation.DropDownWidth = 17;
-            this.cmbLocation.Enabled = false;
-            this.cmbLocation.FormattingEnabled = true;
-            this.cmbLocation.Location = new System.Drawing.Point(122, 91);
-            this.cmbLocation.Name = "cmbLocation";
-            this.cmbLocation.Size = new System.Drawing.Size(177, 21);
-            this.cmbLocation.TabIndex = 62;
-            this.cmbLocation.ViewColumn = 0;
             // 
             // txtGRNCancelNo
             // 
@@ -398,20 +370,20 @@
             this.lblGrossTotal.TabIndex = 62;
             this.lblGrossTotal.Text = "Gross Total";
             // 
-            // dataGridView1
+            // dgvItemData
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvItemData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvItemData.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.clmItemCode,
             this.clmDescription,
             this.clmUnitPrice,
             this.clmQty,
             this.clmTaxAmount,
             this.clmTotal});
-            this.dataGridView1.Location = new System.Drawing.Point(6, 37);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(644, 436);
-            this.dataGridView1.TabIndex = 0;
+            this.dgvItemData.Location = new System.Drawing.Point(6, 37);
+            this.dgvItemData.Name = "dgvItemData";
+            this.dgvItemData.Size = new System.Drawing.Size(644, 436);
+            this.dgvItemData.TabIndex = 0;
             // 
             // clmItemCode
             // 
@@ -538,6 +510,34 @@
             this.panel6.Size = new System.Drawing.Size(984, 10);
             this.panel6.TabIndex = 84;
             // 
+            // cmbSupplier
+            // 
+            this.cmbSupplier.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.cmbSupplier.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cmbSupplier.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.cmbSupplier.DropDownWidth = 17;
+            this.cmbSupplier.Enabled = false;
+            this.cmbSupplier.FormattingEnabled = true;
+            this.cmbSupplier.Location = new System.Drawing.Point(122, 129);
+            this.cmbSupplier.Name = "cmbSupplier";
+            this.cmbSupplier.Size = new System.Drawing.Size(177, 21);
+            this.cmbSupplier.TabIndex = 64;
+            this.cmbSupplier.ViewColumn = 0;
+            // 
+            // cmbLocation
+            // 
+            this.cmbLocation.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.cmbLocation.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cmbLocation.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.cmbLocation.DropDownWidth = 17;
+            this.cmbLocation.Enabled = false;
+            this.cmbLocation.FormattingEnabled = true;
+            this.cmbLocation.Location = new System.Drawing.Point(122, 91);
+            this.cmbLocation.Name = "cmbLocation";
+            this.cmbLocation.Size = new System.Drawing.Size(177, 21);
+            this.cmbLocation.TabIndex = 62;
+            this.cmbLocation.ViewColumn = 0;
+            // 
             // frmGRNCancel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -547,8 +547,8 @@
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel3);
-            this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.btnSave);
+            this.Controls.Add(this.dgvItemData);
+            this.Controls.Add(this.btnGRNCancel);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.btnClear);
@@ -558,11 +558,12 @@
             this.Name = "frmGRNCancel";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "GRN Cancel";
+            this.Load += new System.EventHandler(this.frmGRNCancel_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvItemData)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.ResumeLayout(false);
@@ -571,7 +572,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Button btnSave;
+        private System.Windows.Forms.Button btnGRNCancel;
         private System.Windows.Forms.TextBox txtInvoiceNo;
         private System.Windows.Forms.Label lblInvoiceNo;
         private System.Windows.Forms.Panel panel1;
@@ -596,7 +597,7 @@
         private System.Windows.Forms.TextBox txtVatAmount;
         private System.Windows.Forms.TextBox txtGrossTotal;
         private System.Windows.Forms.Label lblGrossTotal;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvItemData;
         private System.Windows.Forms.TextBox txtGRNNo;
         private System.Windows.Forms.Label lblGRNNo;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmItemCode;

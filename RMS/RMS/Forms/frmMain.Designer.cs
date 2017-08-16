@@ -296,6 +296,7 @@
             // 
             // goodsReciveNoteGRNToolStripMenuItem
             // 
+            this.goodsReciveNoteGRNToolStripMenuItem.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.goodsReciveNoteGRNToolStripMenuItem.Name = "goodsReciveNoteGRNToolStripMenuItem";
             this.goodsReciveNoteGRNToolStripMenuItem.Size = new System.Drawing.Size(217, 22);
             this.goodsReciveNoteGRNToolStripMenuItem.Text = "Goods Receive Note (GRN)";

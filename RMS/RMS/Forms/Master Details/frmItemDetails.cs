@@ -24,7 +24,7 @@ namespace RMS.Forms
         clsCategoryMaster cCategory = new clsCategoryMaster();
         clsSupplierMaster cSupplier = new clsSupplierMaster();
         clsMenuCategory cMenuCategory = new clsMenuCategory();
-        clsCapacityType cCapacityType = new clsCapacityType();
+        clsUnit cUnit = new clsUnit();
         objSubLocation oSubLocation = new objSubLocation();
         clsSubLocation cSubLocation = new clsSubLocation();
         objItemLocation oItemLocation = new objItemLocation();
@@ -88,7 +88,8 @@ namespace RMS.Forms
             cCommonMethods.loadComboRMS(cDepartment.GetDepartmentData(cGlobleVariable.LocationCode), cmbDepartment, 2);
             cCommonMethods.loadComboRMS(cSupplier.GetSupplierData(cGlobleVariable.LocationCode), cmbSupplier, 2);
             cCommonMethods.loadComboRMS(cMenuCategory.GetMenuCategoryData(cGlobleVariable.LocationCode), cmbMenuCategory, 3);
-            cCommonMethods.loadComboRMS(cCapacityType.GetCapacityData(), cmbCapacityType, 2);
+            cCommonMethods.loadComboRMS(cUnit.GetUnitData(), cmbUnit, 2);
+            cCommonMethods.loadComboRMS(cUnit.GetUnitSize(), cmbCapacity, 1);
         }
 
         private void cmbDepartment_SelectedIndexChanged(object sender, EventArgs e)
@@ -199,14 +200,14 @@ namespace RMS.Forms
                 errItem.SetError(txtMinimumGP, "");
             }
 
-            if (txtCapacity.Text == "")
+            if (cmbCapacity.Text == "")
             {
-                errItem.SetError(txtCapacity, "Please Enter Capacity");
+                errItem.SetError(cmbCapacity, "Please Enter Capacity");
                 isValidate = false;
             }
             else
             {
-                errItem.SetError(txtCapacity, "");
+                errItem.SetError(cmbCapacity, "");
             }
 
             if (txtCost.Text == "")
@@ -331,14 +332,14 @@ namespace RMS.Forms
                 errItem.SetError(cmbMenuCategory, "");
             }
 
-            if (cmbCapacityType.SelectedIndex == -1)
+            if (cmbUnit.SelectedIndex == -1)
             {
-                errItem.SetError(cmbCapacityType, "Please Select Capacity Type");
+                errItem.SetError(cmbUnit, "Please Select Capacity Type");
                 isValidate = false;
             }
             else
             {
-                errItem.SetError(cmbCapacityType, "");
+                errItem.SetError(cmbUnit, "");
             }
 
             if (cmbStatus.SelectedIndex == -1)
@@ -397,14 +398,16 @@ namespace RMS.Forms
             oItemMaster.Weighted = Convert.ToBoolean(cmbWeighted.SelectedItem.ToString());
             oItemMaster.Department = cmbDepartment["fldDepartmentCode"].ToString();
             oItemMaster.Category = cmbCategory["fldCategoryCode"].ToString();
-            //oItemMaster.SubCategory = cmbSubCategory["fldSubCategoryCode"].ToString();
             oItemMaster.Supplier = cmbSupplier["fldSupplierCode"].ToString();
             oItemMaster.MenuCategory = cmbMenuCategory["fldMenuCategoryCode"].ToString();
-            //oItemMaster.Unit = Convert.ToInt32(this.txtUnit.Text);
+            
             oItemMaster.MinimumGP = Convert.ToDouble(this.txtMinimumGP.Text);
             oItemMaster.PackageSize = Convert.ToDouble(this.txtPackageSize.Text);
-            oItemMaster.Capacity = Convert.ToDouble(this.txtCapacity.Text);
-            oItemMaster.CapacityType = cmbCapacityType["fldCapacityCode"].ToString();
+
+            oItemMaster.Capacity = Convert.ToDouble(this.cmbCapacity.Text);
+
+            oItemMaster.Unit = this.cmbUnit.Text;
+
             oItemMaster.CostPrice = Convert.ToDouble(this.txtCost.Text);
             oItemMaster.WholeSalePrice = Convert.ToDouble(this.txtWholeSale.Text);
             oItemMaster.SellingPrice = Convert.ToDouble(this.txtSelling.Text);
@@ -457,7 +460,7 @@ namespace RMS.Forms
             txtPackageSize.Text = oItemMaster.PackageSize.ToString("N2");
             txtDescription.Text = oItemMaster.Description;
             txtMinimumGP.Text = oItemMaster.MinimumGP.ToString("N2");
-            txtCapacity.Text = oItemMaster.Capacity.ToString();
+            cmbCapacity.Text = oItemMaster.Capacity.ToString("N2");
             txtCost.Text = oItemMaster.CostPrice.ToString("###,###.00");
             txtWholeSale.Text = oItemMaster.WholeSalePrice.ToString("###,###.00");
             txtSelling.Text = oItemMaster.SellingPrice.ToString("###,###.00");
@@ -470,7 +473,8 @@ namespace RMS.Forms
             cmbCategory.SetText(cCategory.GetCategoryData(cGlobleVariable.LocationCode, oItemMaster.Department,oItemMaster.Category).CategoryName);
             cmbSupplier.SetText(cSupplier.GetSupplierData(cGlobleVariable.LocationCode, oItemMaster.Supplier).SupplierName);
             cmbMenuCategory.SetText(cMenuCategory.GetMenuCategoryData(cGlobleVariable.LocationCode,"%",oItemMaster.MenuCategory).MenuCategoryName);
-            cmbCapacityType.SetText(cCapacityType.GetCapacityDataByCode(oItemMaster.CapacityType).CapacitySymbol);
+
+            cmbUnit.SetText(cUnit.GetUnitDataByCode(oItemMaster.Unit).UnitSymbol);
 
             cmbWeighted.SelectedItem = oItemMaster.Weighted.ToString();
             cmbStatus.SetText(cStatusMaster.GetStatusByCode(oItemMaster.Status));

@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmItemDetails));
             this.btnClose = new System.Windows.Forms.Button();
             this.btnClear = new System.Windows.Forms.Button();
@@ -59,7 +59,6 @@
             this.clmMonthOpenQty = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtPackageSize = new System.Windows.Forms.TextBox();
             this.txtMinimumGP = new System.Windows.Forms.TextBox();
-            this.txtCapacity = new System.Windows.Forms.TextBox();
             this.txtDescription = new System.Windows.Forms.TextBox();
             this.txtBarCode = new System.Windows.Forms.TextBox();
             this.txtItemCode = new System.Windows.Forms.TextBox();
@@ -89,11 +88,12 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.cmbStatus = new RMS.ColumnComboBox();
-            this.cmbCapacityType = new RMS.ColumnComboBox();
+            this.cmbUnit = new RMS.ColumnComboBox();
             this.cmbSupplier = new RMS.ColumnComboBox();
             this.cmbMenuCategory = new RMS.ColumnComboBox();
             this.cmbCategory = new RMS.ColumnComboBox();
             this.cmbDepartment = new RMS.ColumnComboBox();
+            this.cmbCapacity = new RMS.ColumnComboBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLocationData)).BeginInit();
@@ -337,10 +337,10 @@
             // clmShelfQty
             // 
             this.clmShelfQty.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle1.Format = "N2";
-            dataGridViewCellStyle1.NullValue = "0.00";
-            this.clmShelfQty.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle4.Format = "N2";
+            dataGridViewCellStyle4.NullValue = "0.00";
+            this.clmShelfQty.DefaultCellStyle = dataGridViewCellStyle4;
             this.clmShelfQty.FillWeight = 84.71056F;
             this.clmShelfQty.HeaderText = "Shelf Quantity";
             this.clmShelfQty.Name = "clmShelfQty";
@@ -349,10 +349,10 @@
             // clmDamageQty
             // 
             this.clmDamageQty.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle2.Format = "N2";
-            dataGridViewCellStyle2.NullValue = "0.00";
-            this.clmDamageQty.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle5.Format = "N2";
+            dataGridViewCellStyle5.NullValue = "0.00";
+            this.clmDamageQty.DefaultCellStyle = dataGridViewCellStyle5;
             this.clmDamageQty.FillWeight = 102.7407F;
             this.clmDamageQty.HeaderText = "Damage Quantity";
             this.clmDamageQty.Name = "clmDamageQty";
@@ -361,10 +361,10 @@
             // clmMonthOpenQty
             // 
             this.clmMonthOpenQty.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle3.Format = "N2";
-            dataGridViewCellStyle3.NullValue = "0.00";
-            this.clmMonthOpenQty.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle6.Format = "N2";
+            dataGridViewCellStyle6.NullValue = "0.00";
+            this.clmMonthOpenQty.DefaultCellStyle = dataGridViewCellStyle6;
             this.clmMonthOpenQty.FillWeight = 126.9036F;
             this.clmMonthOpenQty.HeaderText = "Month Open Quantity";
             this.clmMonthOpenQty.Name = "clmMonthOpenQty";
@@ -384,13 +384,6 @@
             this.txtMinimumGP.Name = "txtMinimumGP";
             this.txtMinimumGP.Size = new System.Drawing.Size(157, 20);
             this.txtMinimumGP.TabIndex = 74;
-            // 
-            // txtCapacity
-            // 
-            this.txtCapacity.Location = new System.Drawing.Point(104, 279);
-            this.txtCapacity.Name = "txtCapacity";
-            this.txtCapacity.Size = new System.Drawing.Size(115, 20);
-            this.txtCapacity.TabIndex = 69;
             // 
             // txtDescription
             // 
@@ -430,9 +423,9 @@
             this.lblCapacityML.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
             this.lblCapacityML.Location = new System.Drawing.Point(6, 279);
             this.lblCapacityML.Name = "lblCapacityML";
-            this.lblCapacityML.Size = new System.Drawing.Size(94, 16);
+            this.lblCapacityML.Size = new System.Drawing.Size(61, 16);
             this.lblCapacityML.TabIndex = 61;
-            this.lblCapacityML.Text = "Capacity (kg/l)";
+            this.lblCapacityML.Text = "Capacity";
             // 
             // lblMinimumGP
             // 
@@ -673,16 +666,16 @@
             this.cmbStatus.TabIndex = 94;
             this.cmbStatus.ViewColumn = 0;
             // 
-            // cmbCapacityType
+            // cmbUnit
             // 
-            this.cmbCapacityType.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
-            this.cmbCapacityType.DropDownWidth = 17;
-            this.cmbCapacityType.FormattingEnabled = true;
-            this.cmbCapacityType.Location = new System.Drawing.Point(225, 278);
-            this.cmbCapacityType.Name = "cmbCapacityType";
-            this.cmbCapacityType.Size = new System.Drawing.Size(36, 21);
-            this.cmbCapacityType.TabIndex = 93;
-            this.cmbCapacityType.ViewColumn = 0;
+            this.cmbUnit.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.cmbUnit.DropDownWidth = 17;
+            this.cmbUnit.FormattingEnabled = true;
+            this.cmbUnit.Location = new System.Drawing.Point(208, 278);
+            this.cmbUnit.Name = "cmbUnit";
+            this.cmbUnit.Size = new System.Drawing.Size(53, 21);
+            this.cmbUnit.TabIndex = 93;
+            this.cmbUnit.ViewColumn = 0;
             // 
             // cmbSupplier
             // 
@@ -729,12 +722,24 @@
             this.cmbDepartment.ViewColumn = 0;
             this.cmbDepartment.SelectedIndexChanged += new System.EventHandler(this.cmbDepartment_SelectedIndexChanged);
             // 
+            // cmbCapacity
+            // 
+            this.cmbCapacity.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.cmbCapacity.DropDownWidth = 17;
+            this.cmbCapacity.FormattingEnabled = true;
+            this.cmbCapacity.Location = new System.Drawing.Point(103, 278);
+            this.cmbCapacity.Name = "cmbCapacity";
+            this.cmbCapacity.Size = new System.Drawing.Size(99, 21);
+            this.cmbCapacity.TabIndex = 102;
+            this.cmbCapacity.ViewColumn = 0;
+            // 
             // frmItemDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnExit;
             this.ClientSize = new System.Drawing.Size(679, 525);
+            this.Controls.Add(this.cmbCapacity);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
@@ -744,7 +749,7 @@
             this.Controls.Add(this.cmbWeighted);
             this.Controls.Add(this.cmbConsignm);
             this.Controls.Add(this.cmbStatus);
-            this.Controls.Add(this.cmbCapacityType);
+            this.Controls.Add(this.cmbUnit);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.btnClear);
             this.Controls.Add(this.btnUpdate);
@@ -758,7 +763,6 @@
             this.Controls.Add(this.cmbMenuCategory);
             this.Controls.Add(this.cmbCategory);
             this.Controls.Add(this.cmbDepartment);
-            this.Controls.Add(this.txtCapacity);
             this.Controls.Add(this.txtDescription);
             this.Controls.Add(this.txtBarCode);
             this.Controls.Add(this.txtItemCode);
@@ -819,7 +823,6 @@
         private ColumnComboBox cmbMenuCategory;
         private ColumnComboBox cmbCategory;
         private ColumnComboBox cmbDepartment;
-        private System.Windows.Forms.TextBox txtCapacity;
         private System.Windows.Forms.TextBox txtDescription;
         private System.Windows.Forms.TextBox txtBarCode;
         private System.Windows.Forms.TextBox txtItemCode;
@@ -835,7 +838,7 @@
         private System.Windows.Forms.Label lblDescription;
         private System.Windows.Forms.Label lblBarCode;
         private System.Windows.Forms.Label lblItemCode;
-        private ColumnComboBox cmbCapacityType;
+        private ColumnComboBox cmbUnit;
         private ColumnComboBox cmbStatus;
         private System.Windows.Forms.ErrorProvider errItem;
         private System.Data.DataColumn fldBoolName;
@@ -855,5 +858,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn clmShelfQty;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmDamageQty;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmMonthOpenQty;
+        private ColumnComboBox cmbCapacity;
     }
 }

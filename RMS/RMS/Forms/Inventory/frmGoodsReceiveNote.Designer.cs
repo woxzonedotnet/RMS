@@ -29,20 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmGoodsReceiveNote));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvItemData = new System.Windows.Forms.DataGridView();
-            this.clmSelectItem = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.clmItemCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmItemDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmUnit = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmOrderQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmUnitPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmValue = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmTax_chk = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.clmTaxAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmTotalAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.chkVat = new System.Windows.Forms.CheckBox();
             this.txtNetAmount = new System.Windows.Forms.TextBox();
             this.lblNetAmount = new System.Windows.Forms.Label();
@@ -70,6 +59,8 @@
             this.btnPOSesrch = new System.Windows.Forms.Button();
             this.txtInvoiceNo = new System.Windows.Forms.TextBox();
             this.lblInvoiceNo = new System.Windows.Forms.Label();
+            this.cmbSupplier = new RMS.ColumnComboBox();
+            this.cmbLocation = new RMS.ColumnComboBox();
             this.btnSearch = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.errGRN = new System.Windows.Forms.ErrorProvider(this.components);
@@ -79,8 +70,17 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
-            this.cmbSupplier = new RMS.ColumnComboBox();
-            this.cmbLocation = new RMS.ColumnComboBox();
+            this.clmSelectItem = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.clmItemCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmItemDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmUnit = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmOrderQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmUnitPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmValue = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmTax_chk = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.clmTaxAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmTotalAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvItemData)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -112,87 +112,6 @@
             this.dgvItemData.CurrentCellDirtyStateChanged += new System.EventHandler(this.dgvItemData_CurrentCellDirtyStateChanged);
             this.dgvItemData.RowsRemoved += new System.Windows.Forms.DataGridViewRowsRemovedEventHandler(this.dgvItemData_RowsRemoved);
             this.dgvItemData.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dataGridView1_KeyDown);
-            // 
-            // clmSelectItem
-            // 
-            this.clmSelectItem.HeaderText = "";
-            this.clmSelectItem.Name = "clmSelectItem";
-            this.clmSelectItem.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.clmSelectItem.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.clmSelectItem.Visible = false;
-            this.clmSelectItem.Width = 20;
-            // 
-            // clmItemCode
-            // 
-            this.clmItemCode.HeaderText = "Item Code";
-            this.clmItemCode.Name = "clmItemCode";
-            this.clmItemCode.ReadOnly = true;
-            this.clmItemCode.Width = 70;
-            // 
-            // clmItemDescription
-            // 
-            this.clmItemDescription.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.clmItemDescription.HeaderText = "Description";
-            this.clmItemDescription.Name = "clmItemDescription";
-            this.clmItemDescription.ReadOnly = true;
-            // 
-            // clmUnit
-            // 
-            this.clmUnit.HeaderText = "Unit";
-            this.clmUnit.Name = "clmUnit";
-            this.clmUnit.ReadOnly = true;
-            this.clmUnit.Width = 60;
-            // 
-            // clmOrderQuantity
-            // 
-            this.clmOrderQuantity.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.clmOrderQuantity.HeaderText = "Order Qty";
-            this.clmOrderQuantity.Name = "clmOrderQuantity";
-            this.clmOrderQuantity.ReadOnly = true;
-            this.clmOrderQuantity.Visible = false;
-            // 
-            // clmUnitPrice
-            // 
-            this.clmUnitPrice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.clmUnitPrice.HeaderText = "UnitPrice";
-            this.clmUnitPrice.Name = "clmUnitPrice";
-            this.clmUnitPrice.ReadOnly = true;
-            // 
-            // clmQuantity
-            // 
-            this.clmQuantity.HeaderText = "Qty";
-            this.clmQuantity.Name = "clmQuantity";
-            this.clmQuantity.Width = 60;
-            // 
-            // clmValue
-            // 
-            this.clmValue.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.clmValue.HeaderText = "Value";
-            this.clmValue.Name = "clmValue";
-            // 
-            // clmTax_chk
-            // 
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle2.NullValue = false;
-            this.clmTax_chk.DefaultCellStyle = dataGridViewCellStyle2;
-            this.clmTax_chk.HeaderText = "Tax";
-            this.clmTax_chk.Name = "clmTax_chk";
-            this.clmTax_chk.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.clmTax_chk.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.clmTax_chk.Width = 40;
-            // 
-            // clmTaxAmount
-            // 
-            this.clmTaxAmount.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.clmTaxAmount.HeaderText = "Tax Amount";
-            this.clmTaxAmount.Name = "clmTaxAmount";
-            // 
-            // clmTotalAmount
-            // 
-            this.clmTotalAmount.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.clmTotalAmount.HeaderText = "Total Amount";
-            this.clmTotalAmount.Name = "clmTotalAmount";
             // 
             // chkVat
             // 
@@ -506,6 +425,32 @@
             this.lblInvoiceNo.TabIndex = 67;
             this.lblInvoiceNo.Text = "Invoice No";
             // 
+            // cmbSupplier
+            // 
+            this.cmbSupplier.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.cmbSupplier.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cmbSupplier.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.cmbSupplier.DropDownWidth = 17;
+            this.cmbSupplier.FormattingEnabled = true;
+            this.cmbSupplier.Location = new System.Drawing.Point(121, 128);
+            this.cmbSupplier.Name = "cmbSupplier";
+            this.cmbSupplier.Size = new System.Drawing.Size(185, 21);
+            this.cmbSupplier.TabIndex = 64;
+            this.cmbSupplier.ViewColumn = 0;
+            // 
+            // cmbLocation
+            // 
+            this.cmbLocation.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.cmbLocation.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cmbLocation.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.cmbLocation.DropDownWidth = 17;
+            this.cmbLocation.FormattingEnabled = true;
+            this.cmbLocation.Location = new System.Drawing.Point(121, 91);
+            this.cmbLocation.Name = "cmbLocation";
+            this.cmbLocation.Size = new System.Drawing.Size(185, 21);
+            this.cmbLocation.TabIndex = 62;
+            this.cmbLocation.ViewColumn = 0;
+            // 
             // btnSearch
             // 
             this.btnSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(41)))), ((int)(((byte)(46)))));
@@ -609,31 +554,86 @@
             this.panel6.Size = new System.Drawing.Size(973, 10);
             this.panel6.TabIndex = 77;
             // 
-            // cmbSupplier
+            // clmSelectItem
             // 
-            this.cmbSupplier.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.cmbSupplier.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.cmbSupplier.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
-            this.cmbSupplier.DropDownWidth = 17;
-            this.cmbSupplier.FormattingEnabled = true;
-            this.cmbSupplier.Location = new System.Drawing.Point(121, 128);
-            this.cmbSupplier.Name = "cmbSupplier";
-            this.cmbSupplier.Size = new System.Drawing.Size(185, 21);
-            this.cmbSupplier.TabIndex = 64;
-            this.cmbSupplier.ViewColumn = 0;
+            this.clmSelectItem.HeaderText = "";
+            this.clmSelectItem.Name = "clmSelectItem";
+            this.clmSelectItem.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.clmSelectItem.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.clmSelectItem.Visible = false;
+            this.clmSelectItem.Width = 20;
             // 
-            // cmbLocation
+            // clmItemCode
             // 
-            this.cmbLocation.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.cmbLocation.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.cmbLocation.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
-            this.cmbLocation.DropDownWidth = 17;
-            this.cmbLocation.FormattingEnabled = true;
-            this.cmbLocation.Location = new System.Drawing.Point(121, 91);
-            this.cmbLocation.Name = "cmbLocation";
-            this.cmbLocation.Size = new System.Drawing.Size(185, 21);
-            this.cmbLocation.TabIndex = 62;
-            this.cmbLocation.ViewColumn = 0;
+            this.clmItemCode.HeaderText = "Item Code";
+            this.clmItemCode.Name = "clmItemCode";
+            this.clmItemCode.ReadOnly = true;
+            this.clmItemCode.Width = 60;
+            // 
+            // clmItemDescription
+            // 
+            this.clmItemDescription.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.clmItemDescription.HeaderText = "Description";
+            this.clmItemDescription.Name = "clmItemDescription";
+            this.clmItemDescription.ReadOnly = true;
+            // 
+            // clmUnit
+            // 
+            this.clmUnit.HeaderText = "Unit";
+            this.clmUnit.Name = "clmUnit";
+            this.clmUnit.ReadOnly = true;
+            this.clmUnit.Width = 35;
+            // 
+            // clmOrderQuantity
+            // 
+            this.clmOrderQuantity.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.clmOrderQuantity.HeaderText = "Order Qty";
+            this.clmOrderQuantity.Name = "clmOrderQuantity";
+            this.clmOrderQuantity.ReadOnly = true;
+            this.clmOrderQuantity.Visible = false;
+            // 
+            // clmUnitPrice
+            // 
+            this.clmUnitPrice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.clmUnitPrice.HeaderText = "UnitPrice";
+            this.clmUnitPrice.Name = "clmUnitPrice";
+            this.clmUnitPrice.ReadOnly = true;
+            // 
+            // clmQuantity
+            // 
+            this.clmQuantity.HeaderText = "Qty";
+            this.clmQuantity.Name = "clmQuantity";
+            this.clmQuantity.Width = 50;
+            // 
+            // clmValue
+            // 
+            this.clmValue.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.clmValue.HeaderText = "Value";
+            this.clmValue.Name = "clmValue";
+            // 
+            // clmTax_chk
+            // 
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle1.NullValue = false;
+            this.clmTax_chk.DefaultCellStyle = dataGridViewCellStyle1;
+            this.clmTax_chk.HeaderText = "Tax";
+            this.clmTax_chk.Name = "clmTax_chk";
+            this.clmTax_chk.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.clmTax_chk.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.clmTax_chk.Width = 40;
+            // 
+            // clmTaxAmount
+            // 
+            this.clmTaxAmount.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.clmTaxAmount.HeaderText = "Tax Amount";
+            this.clmTaxAmount.Name = "clmTaxAmount";
+            // 
+            // clmTotalAmount
+            // 
+            this.clmTotalAmount.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.clmTotalAmount.HeaderText = "Total Amount";
+            this.clmTotalAmount.Name = "clmTotalAmount";
             // 
             // frmGoodsReceiveNote
             // 
@@ -705,6 +705,12 @@
         private System.Windows.Forms.TextBox txtPONumber;
         private System.Windows.Forms.Button btnPOSesrch;
         private System.Windows.Forms.CheckBox chkPONumber;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Label lblTitle;
+        private System.Windows.Forms.Button btnExit;
+        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.DataGridViewCheckBoxColumn clmSelectItem;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmItemCode;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmItemDescription;
@@ -716,11 +722,5 @@
         private System.Windows.Forms.DataGridViewCheckBoxColumn clmTax_chk;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmTaxAmount;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmTotalAmount;
-        private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Label lblTitle;
-        private System.Windows.Forms.Button btnExit;
-        private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.Panel panel6;
     }
 }

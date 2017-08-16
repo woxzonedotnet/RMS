@@ -62,6 +62,7 @@ namespace RMS.Forms.Inventory
             LoadDocumentNumber();
             cCommonMethods.loadComboRMS(cSubLocation.GetSubLocationData(), cmbLocation, 2);
             cCommonMethods.loadComboRMS(cSupplierMaster.GetSupplierData(), cmbSupplier, 2);
+            clear();
         }
 
         public void LoadDocumentNumber()
@@ -223,7 +224,7 @@ namespace RMS.Forms.Inventory
                 this.dgvItemData.Rows.Add();
                 this.dgvItemData.Rows[this.dgvItemData.CurrentCell.RowIndex - 1].Cells["clmItemCode"].Value = oItemMaster.ItemCode;
                 this.dgvItemData.Rows[this.dgvItemData.CurrentCell.RowIndex - 1].Cells["clmItemDescription"].Value = oItemMaster.Description;
-                this.dgvItemData.Rows[this.dgvItemData.CurrentCell.RowIndex - 1].Cells["clmUnit"].Value = oItemLocation.ShelfStock;
+                this.dgvItemData.Rows[this.dgvItemData.CurrentCell.RowIndex - 1].Cells["clmUnit"].Value = cItemMaster.GetItemData(cGlobleVariable.LocationCode, Item).Unit;
                 this.dgvItemData.Rows[this.dgvItemData.CurrentCell.RowIndex - 1].Cells["clmUnitPrice"].Value = oItemMaster.CostPrice;
                 this.dgvItemData.Rows[this.dgvItemData.CurrentCell.RowIndex - 1].Cells["clmQuantity"].Value = "0.00";
                 this.dgvItemData.Rows[this.dgvItemData.CurrentCell.RowIndex - 1].Cells["clmValue"].Value = "0.00";
@@ -453,11 +454,16 @@ namespace RMS.Forms.Inventory
                     {
                         dgvItemData.CurrentCell.Style.BackColor = Color.LightGreen;
                         dgvItemData.CurrentRow.Cells["clmItemCode"].Style.BackColor = Color.LightGreen;
+                        dgvItemData.CurrentRow.Cells["clmQuantity"].Style.BackColor = Color.LightGreen;
+                        dgvItemData.CurrentRow.Cells["clmValue"].Style.BackColor = Color.LightGreen;
+                        //this.dgvItemData.CurrentCell = this.dgvItemData.Rows[].Cells[3];
                     }
                     else
                     {
                         dgvItemData.CurrentCell.Style.BackColor = Color.White;
                         dgvItemData.CurrentRow.Cells["clmItemCode"].Style.BackColor = Color.White;
+                        dgvItemData.CurrentRow.Cells["clmQuantity"].Style.BackColor = Color.White;
+                        dgvItemData.CurrentRow.Cells["clmValue"].Style.BackColor = Color.White;
                     }
 
                 }
@@ -757,7 +763,7 @@ namespace RMS.Forms.Inventory
                     this.dgvItemData.Rows.Add();
                     dgvItemData.Rows[i].Cells["clmItemCode"].Value = oPurchaseOrder.dtItemList.Rows[i]["fldItemCode"].ToString();
                     dgvItemData.Rows[i].Cells["clmItemDescription"].Value = cItemMaster.GetItemData(cGlobleVariable.LocationCode, oPurchaseOrder.dtItemList.Rows[i]["fldItemCode"].ToString()).Description;
-                    dgvItemData.Rows[i].Cells["clmUnit"].Value = cItemLocation.GetItemLocationData(cGlobleVariable.LocationCode, oPurchaseOrder.SubLocationCode, oPurchaseOrder.dtItemList.Rows[i]["fldItemCode"].ToString()).ShelfStock;
+                    dgvItemData.Rows[i].Cells["clmUnit"].Value = cItemMaster.GetItemData(cGlobleVariable.LocationCode,oPurchaseOrder.dtItemList.Rows[i]["fldItemCode"].ToString()).Unit;
                     dgvItemData.Rows[i].Cells["clmUnitPrice"].Value = oPurchaseOrder.dtItemList.Rows[i]["fldUnitPrice"].ToString();
                     dgvItemData.Rows[i].Cells["clmOrderQuantity"].Value = oPurchaseOrder.dtItemList.Rows[i]["fldQuantity"].ToString();
                     dgvItemData.Rows[i].Cells["clmQuantity"].Value = oPurchaseOrder.dtItemList.Rows[i]["fldQuantity"].ToString();

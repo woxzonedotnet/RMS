@@ -6,11 +6,12 @@ using System.Threading.Tasks;
 
 namespace BusinessObject
 {
-    public class objCapacityType
+    public class objUnit
     {
-        public string CapacityCode { get; set; }
-        public string CapacityName { get; set; }
-        public string CapacitySymbol { get; set; }
+        public string UnitCode { get; set; }
+        public string UnitName { get; set; }
+        public string UnitSymbol { get; set; }
+        public double CapacitySize { get; set; }
         public int Status { get; set; }
         public bool IsExists { get; set; }
     }

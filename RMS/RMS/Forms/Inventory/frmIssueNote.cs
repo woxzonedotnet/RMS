@@ -182,7 +182,9 @@ namespace RMS.Forms.Inventory
                 this.dgvTransferNote.Rows.Add();
                 this.dgvTransferNote.Rows[this.dgvTransferNote.CurrentCell.RowIndex - 1].Cells["clmItemCode"].Value = oItemMaster.ItemCode;
                 this.dgvTransferNote.Rows[this.dgvTransferNote.CurrentCell.RowIndex - 1].Cells["clmDescription"].Value = oItemMaster.Description;
-                this.dgvTransferNote.Rows[this.dgvTransferNote.CurrentCell.RowIndex - 1].Cells["clmUnit"].Value = cItemLocation.GetItemLocationData(cGlobleVariable.LocationCode, this.cmbLocationFrom["fldSubLocationCode"].ToString(), ItemCode).ShelfStock;
+
+                this.dgvTransferNote.Rows[this.dgvTransferNote.CurrentCell.RowIndex - 1].Cells["clmUnit"].Value = cItemMaster.GetItemData(cGlobleVariable.LocationCode, oItemMaster.ItemCode).Unit;
+                this.dgvTransferNote.Rows[this.dgvTransferNote.CurrentCell.RowIndex - 1].Cells["clmAvailableUnit"].Value = cItemLocation.GetItemLocationData(cGlobleVariable.LocationCode, this.cmbLocationFrom["fldSubLocationCode"].ToString(), ItemCode).ShelfStock;
                 this.dgvTransferNote.Rows[this.dgvTransferNote.CurrentCell.RowIndex - 1].Cells["clmCostPrice"].Value = oItemMaster.CostPrice;
                 this.dgvTransferNote.CurrentCell = this.dgvTransferNote.Rows[row].Cells["clmQuantity"];
             }
@@ -481,7 +483,8 @@ namespace RMS.Forms.Inventory
                 this.dgvTransferNote.Rows.Add();
                 dgvTransferNote.Rows[i].Cells["clmItemCode"].Value = oTransferNote.dtTransferNote.Rows[i]["fldItemCode"].ToString();
                 dgvTransferNote.Rows[i].Cells["clmDescription"].Value = cItemMaster.GetItemData(cGlobleVariable.LocationCode, oTransferNote.dtTransferNote.Rows[i]["fldItemCode"].ToString()).Description;
-                dgvTransferNote.Rows[i].Cells["clmUnit"].Value = cItemLocation.GetItemLocationData(cGlobleVariable.LocationCode, oTransferNote.dtTransferNote.Rows[i]["fldItemCode"].ToString()).ShelfStock;
+                dgvTransferNote.Rows[i].Cells["clmUnit"].Value = cItemMaster.GetItemData(cGlobleVariable.LocationCode, oItemMaster.ItemCode).Unit;
+                dgvTransferNote.Rows[i].Cells["clmAvailableUnit"].Value = cItemLocation.GetItemLocationData(cGlobleVariable.LocationCode, oTransferNote.dtTransferNote.Rows[i]["fldItemCode"].ToString()).ShelfStock;
                 dgvTransferNote.Rows[i].Cells["clmCostPrice"].Value = oTransferNote.dtTransferNote.Rows[i]["fldUnitCost"].ToString();
                 dgvTransferNote.Rows[i].Cells["clmQuantity"].Value = oTransferNote.dtTransferNote.Rows[i]["fldQty"].ToString();
                 dgvTransferNote.Rows[i].Cells["clmValue"].Value = oTransferNote.dtTransferNote.Rows[i]["fldItemTotalCost"].ToString();

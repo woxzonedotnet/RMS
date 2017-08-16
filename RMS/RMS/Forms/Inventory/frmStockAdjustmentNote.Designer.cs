@@ -29,23 +29,28 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmStockAdjustmentNote));
             this.dtpDate = new System.Windows.Forms.DateTimePicker();
             this.lblLocation = new System.Windows.Forms.Label();
             this.dgvItem = new System.Windows.Forms.DataGridView();
+            this.clmItemCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmPhyQty = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmSysStock = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmCost = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmTotalCost = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lblDate = new System.Windows.Forms.Label();
             this.txtSANNumber = new System.Windows.Forms.TextBox();
             this.btnClear = new System.Windows.Forms.Button();
             this.btnPrint = new System.Windows.Forms.Button();
             this.txtTotalCost = new System.Windows.Forms.TextBox();
             this.lblTotalCost = new System.Windows.Forms.Label();
-            this.btnSearch = new System.Windows.Forms.Button();
             this.lblSANNumber = new System.Windows.Forms.Label();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
@@ -56,12 +61,6 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.clmItemCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmPhyQty = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmSysStock = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmCost = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmTotalCost = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cmbLocation = new RMS.ColumnComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvItem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errStockAdjusment)).BeginInit();
@@ -104,6 +103,69 @@
             this.dgvItem.CellValidated += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvItem_CellValidated);
             this.dgvItem.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dgvItem_KeyDown);
             // 
+            // clmItemCode
+            // 
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.clmItemCode.DefaultCellStyle = dataGridViewCellStyle7;
+            this.clmItemCode.HeaderText = "Item Code";
+            this.clmItemCode.Name = "clmItemCode";
+            this.clmItemCode.ReadOnly = true;
+            this.clmItemCode.Width = 60;
+            // 
+            // clmDescription
+            // 
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.clmDescription.DefaultCellStyle = dataGridViewCellStyle8;
+            this.clmDescription.HeaderText = "Description";
+            this.clmDescription.Name = "clmDescription";
+            this.clmDescription.ReadOnly = true;
+            this.clmDescription.Width = 187;
+            // 
+            // clmPhyQty
+            // 
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle9.Format = "N2";
+            dataGridViewCellStyle9.NullValue = "0.0";
+            this.clmPhyQty.DefaultCellStyle = dataGridViewCellStyle9;
+            this.clmPhyQty.HeaderText = "Phy.Qty";
+            this.clmPhyQty.Name = "clmPhyQty";
+            this.clmPhyQty.Width = 60;
+            // 
+            // clmSysStock
+            // 
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle10.Format = "N2";
+            dataGridViewCellStyle10.NullValue = "0.0";
+            this.clmSysStock.DefaultCellStyle = dataGridViewCellStyle10;
+            this.clmSysStock.HeaderText = "Sys.Stock";
+            this.clmSysStock.Name = "clmSysStock";
+            this.clmSysStock.ReadOnly = true;
+            this.clmSysStock.Width = 60;
+            // 
+            // clmCost
+            // 
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle11.Format = "###,###.00";
+            dataGridViewCellStyle11.NullValue = "0.0";
+            this.clmCost.DefaultCellStyle = dataGridViewCellStyle11;
+            this.clmCost.HeaderText = "Cost";
+            this.clmCost.Name = "clmCost";
+            this.clmCost.ReadOnly = true;
+            this.clmCost.Width = 115;
+            // 
+            // clmTotalCost
+            // 
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle12.Format = "###,###.00";
+            dataGridViewCellStyle12.NullValue = "0.0";
+            this.clmTotalCost.DefaultCellStyle = dataGridViewCellStyle12;
+            this.clmTotalCost.HeaderText = "Total Cost";
+            this.clmTotalCost.Name = "clmTotalCost";
+            this.clmTotalCost.ReadOnly = true;
+            this.clmTotalCost.Width = 115;
+            // 
             // lblDate
             // 
             this.lblDate.AutoSize = true;
@@ -119,7 +181,7 @@
             this.txtSANNumber.Location = new System.Drawing.Point(105, 56);
             this.txtSANNumber.Name = "txtSANNumber";
             this.txtSANNumber.ReadOnly = true;
-            this.txtSANNumber.Size = new System.Drawing.Size(143, 20);
+            this.txtSANNumber.Size = new System.Drawing.Size(188, 20);
             this.txtSANNumber.TabIndex = 61;
             // 
             // btnClear
@@ -172,21 +234,6 @@
             this.lblTotalCost.Size = new System.Drawing.Size(69, 16);
             this.lblTotalCost.TabIndex = 69;
             this.lblTotalCost.Text = "Total Cost";
-            // 
-            // btnSearch
-            // 
-            this.btnSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(41)))), ((int)(((byte)(46)))));
-            this.btnSearch.FlatAppearance.BorderSize = 0;
-            this.btnSearch.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Maroon;
-            this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSearch.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnSearch.Image = global::RMS.Properties.Resources.search25;
-            this.btnSearch.Location = new System.Drawing.Point(258, 49);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(35, 31);
-            this.btnSearch.TabIndex = 60;
-            this.btnSearch.UseVisualStyleBackColor = false;
             // 
             // lblSANNumber
             // 
@@ -254,9 +301,9 @@
             this.lblTitle.ForeColor = System.Drawing.SystemColors.Control;
             this.lblTitle.Location = new System.Drawing.Point(9, 9);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(143, 16);
+            this.lblTitle.Size = new System.Drawing.Size(182, 16);
             this.lblTitle.TabIndex = 4;
-            this.lblTitle.Text = "Stock Adjustment Note";
+            this.lblTitle.Text = "Stock Adjustment Note (SAN)";
             // 
             // btnExit
             // 
@@ -301,69 +348,6 @@
             this.panel4.Size = new System.Drawing.Size(663, 10);
             this.panel4.TabIndex = 98;
             // 
-            // clmItemCode
-            // 
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.clmItemCode.DefaultCellStyle = dataGridViewCellStyle1;
-            this.clmItemCode.HeaderText = "Item Code";
-            this.clmItemCode.Name = "clmItemCode";
-            this.clmItemCode.ReadOnly = true;
-            this.clmItemCode.Width = 60;
-            // 
-            // clmDescription
-            // 
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.clmDescription.DefaultCellStyle = dataGridViewCellStyle2;
-            this.clmDescription.HeaderText = "Description";
-            this.clmDescription.Name = "clmDescription";
-            this.clmDescription.ReadOnly = true;
-            this.clmDescription.Width = 187;
-            // 
-            // clmPhyQty
-            // 
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            dataGridViewCellStyle3.Format = "N2";
-            dataGridViewCellStyle3.NullValue = "0.0";
-            this.clmPhyQty.DefaultCellStyle = dataGridViewCellStyle3;
-            this.clmPhyQty.HeaderText = "Phy.Qty";
-            this.clmPhyQty.Name = "clmPhyQty";
-            this.clmPhyQty.Width = 60;
-            // 
-            // clmSysStock
-            // 
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.Format = "N2";
-            dataGridViewCellStyle4.NullValue = "0.0";
-            this.clmSysStock.DefaultCellStyle = dataGridViewCellStyle4;
-            this.clmSysStock.HeaderText = "Sys.Stock";
-            this.clmSysStock.Name = "clmSysStock";
-            this.clmSysStock.ReadOnly = true;
-            this.clmSysStock.Width = 60;
-            // 
-            // clmCost
-            // 
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle5.Format = "###,###.00";
-            dataGridViewCellStyle5.NullValue = "0.0";
-            this.clmCost.DefaultCellStyle = dataGridViewCellStyle5;
-            this.clmCost.HeaderText = "Cost";
-            this.clmCost.Name = "clmCost";
-            this.clmCost.ReadOnly = true;
-            this.clmCost.Width = 115;
-            // 
-            // clmTotalCost
-            // 
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle6.Format = "###,###.00";
-            dataGridViewCellStyle6.NullValue = "0.0";
-            this.clmTotalCost.DefaultCellStyle = dataGridViewCellStyle6;
-            this.clmTotalCost.HeaderText = "Total Cost";
-            this.clmTotalCost.Name = "clmTotalCost";
-            this.clmTotalCost.ReadOnly = true;
-            this.clmTotalCost.Width = 115;
-            // 
             // cmbLocation
             // 
             this.cmbLocation.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
@@ -397,14 +381,13 @@
             this.Controls.Add(this.btnClear);
             this.Controls.Add(this.txtSANNumber);
             this.Controls.Add(this.btnPrint);
-            this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.lblSANNumber);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnClose);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmStockAdjustmentNote";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Stock Adjustment Note";
+            this.Text = "Stock Adjustment Note (SAN)";
             this.Load += new System.EventHandler(this.frmStockAdjustmentNote_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvItem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errStockAdjusment)).EndInit();
@@ -427,7 +410,6 @@
         private System.Windows.Forms.Button btnPrint;
         private System.Windows.Forms.TextBox txtTotalCost;
         private System.Windows.Forms.Label lblTotalCost;
-        private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.Label lblSANNumber;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnClose;

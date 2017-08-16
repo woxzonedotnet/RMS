@@ -44,16 +44,16 @@ namespace BusinessLogic
             arrParameter[8, 1] = oItemMaster.Supplier;
             arrParameter[9, 0] = "@mfldMenuCategoryCode";
             arrParameter[9, 1] = oItemMaster.MenuCategory;
-            //arrParameter[10, 0] = "@mfldUnit";
-            //arrParameter[10, 1] = oItemMaster.Unit;
-            arrParameter[10, 0] = "@mfldMinimumGP";
-            arrParameter[10, 1] = oItemMaster.MinimumGP;
-            arrParameter[11, 0] = "@mfldPackageSize";
-            arrParameter[11, 1] = oItemMaster.PackageSize;
-            arrParameter[12, 0] = "@mfldCapacity";
-            arrParameter[12, 1] = oItemMaster.Capacity;
-            arrParameter[13, 0] = "@mfldCapacityCode";
-            arrParameter[13, 1] = oItemMaster.CapacityType;
+            arrParameter[10, 0] = "@mfldUnit";
+            arrParameter[10, 1] = oItemMaster.Unit;
+            arrParameter[11, 0] = "@mfldMinimumGP";
+            arrParameter[11, 1] = oItemMaster.MinimumGP;
+            arrParameter[12, 0] = "@mfldPackageSize";
+            arrParameter[12, 1] = oItemMaster.PackageSize;
+            arrParameter[13, 0] = "@mfldCapacity";
+            arrParameter[13, 1] = oItemMaster.Capacity;
+            //arrParameter[14, 0] = "@mfldCapacityCode";
+            //arrParameter[14, 1] = oItemMaster.CapacityType;
             arrParameter[14, 0] = "@mfldCostPrice";
             arrParameter[14, 1] = oItemMaster.CostPrice;
             arrParameter[15, 0] = "@mfldWholeSalePrice";
@@ -115,12 +115,12 @@ namespace BusinessLogic
                 oItemMaster.Weighted = Convert.ToBoolean(dtItemMaster.Rows[0]["fldWeighted"].ToString());
                 oItemMaster.Department = dtItemMaster.Rows[0]["fldDepartmentCode"].ToString();
                 oItemMaster.Category = dtItemMaster.Rows[0]["fldCategoryCode"].ToString();
+                oItemMaster.Unit = dtItemMaster.Rows[0]["fldUnit"].ToString();
                 oItemMaster.Supplier = dtItemMaster.Rows[0]["fldSupplierCode"].ToString();
                 oItemMaster.MenuCategory = dtItemMaster.Rows[0]["fldMenuCategoryCode"].ToString();
                 oItemMaster.MinimumGP = Convert.ToDouble(dtItemMaster.Rows[0]["fldMinimumGP"].ToString());
                 oItemMaster.PackageSize = Convert.ToDouble(dtItemMaster.Rows[0]["fldPackageSize"].ToString());
                 oItemMaster.Capacity = Convert.ToDouble(dtItemMaster.Rows[0]["fldCapacity"].ToString());
-                oItemMaster.CapacityType = dtItemMaster.Rows[0]["fldCapacityCode"].ToString();
                 oItemMaster.Status = Convert.ToInt16(dtItemMaster.Rows[0]["fldStatus"]);
 
                 //Price Table

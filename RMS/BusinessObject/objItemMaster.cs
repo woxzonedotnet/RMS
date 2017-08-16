@@ -21,10 +21,11 @@ namespace BusinessObject
         public string Description { get; set; }
         public bool Weighted { get; set; }
         public string SubCategory { get; set; }
+        public string Unit { get; set; }
         public string MenuCategory { get; set; }
         public double MinimumGP { get; set; }
         public double Capacity { get; set; }
-        public string CapacityType { get; set; }
+        //public string CapacityType { get; set; }
         public double CostPrice { get; set; }
         public double WholeSalePrice { get; set; }
         public double SellingPrice { get; set; }
