@@ -23,6 +23,26 @@ namespace BusinessLogic
 
 
         #region InsertUpdateData
+        public int InsertUpdateGRNCancel(objGoodReceiveNote oGoodReceiveNote)
+        {
+            System.Object[,] arrParameter = new Object[4, 2];
+
+            arrParameter[0, 0] = "@mfldGRNCancelCode";
+            arrParameter[0, 1] = oGoodReceiveNote.GRNCancelCode;
+            arrParameter[1, 0] = "@mfldGRNCode";
+            arrParameter[1, 1] = oGoodReceiveNote.GRNCode;
+            arrParameter[2, 0] = "@mflddtItemList";
+            arrParameter[2, 1] = oGoodReceiveNote.dtItemList;
+            arrParameter[3, 0] = "@mfldSubLocationCode";
+            arrParameter[3, 1] = oGoodReceiveNote.SubLocationCode;
+
+
+            return cDBConnection.Insert("SP_INSERT_GRN_CANCEL", arrParameter);
+        }
+        #endregion
+
+
+        #region InsertUpdateData
         public int InsertUpdateData(objGoodReceiveNote oGoodReceiveNote)
         {
             System.Object[,] arrParameter = new Object[13, 2];

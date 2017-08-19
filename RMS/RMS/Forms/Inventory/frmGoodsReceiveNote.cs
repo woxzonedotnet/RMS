@@ -59,10 +59,10 @@ namespace RMS.Forms.Inventory
 
         private void frmGoodsReceiveNote_Load(object sender, EventArgs e)
         {
-            LoadDocumentNumber();
+            clear();
             cCommonMethods.loadComboRMS(cSubLocation.GetSubLocationData(), cmbLocation, 2);
             cCommonMethods.loadComboRMS(cSupplierMaster.GetSupplierData(), cmbSupplier, 2);
-            clear();
+            
         }
 
         public void LoadDocumentNumber()
@@ -456,7 +456,6 @@ namespace RMS.Forms.Inventory
                         dgvItemData.CurrentRow.Cells["clmItemCode"].Style.BackColor = Color.LightGreen;
                         dgvItemData.CurrentRow.Cells["clmQuantity"].Style.BackColor = Color.LightGreen;
                         dgvItemData.CurrentRow.Cells["clmValue"].Style.BackColor = Color.LightGreen;
-                        //this.dgvItemData.CurrentCell = this.dgvItemData.Rows[].Cells[3];
                     }
                     else
                     {
@@ -500,24 +499,24 @@ namespace RMS.Forms.Inventory
                     result = InsertUpdateData();
                     if (result == -5)
                     {
-                        MessageBox.Show("Data Not Changed...!", "Purchase Order", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("Data Not Changed...!", "GRN", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     else if (result != -1)
                     {
-                        
-                        MessageBox.Show("Successfully Saved...!", "Purchase Order", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        MessageBox.Show("Successfully Saved...!", "GRN", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         cDocumentNumber.DeleteDocumentNumber(cGlobleVariable.UniqID, DocumentCode, txtGRNNumber.Text);
                         EnableControls(false);
                         this.btnPrint.Enabled = true;
                     }
                     else
                     {
-                        MessageBox.Show("Item Data Not Saved...!", "Purchase Order", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Item Data Not Saved...!", "GRN", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
                 else
                 {
-                    MessageBox.Show("Record already exist...!", "Purchase Order", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Record already exist...!", "GRN", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
         }
@@ -662,7 +661,6 @@ namespace RMS.Forms.Inventory
             {
                 return cGoodReceiveNote.InsertUpdateData(oGoodReceiveNote);
             }
-            
         }
         #endregion
 
@@ -806,11 +804,8 @@ namespace RMS.Forms.Inventory
             }
             #endregion
 
-            //this.dgvItemData.Enabled = false;
-            //this.chkVat.Enabled = false;
-            //this.dtpDate.Enabled = false;
-            //this.btnSave.Enabled = false;
-            //this.btnPrint.Enabled = true;
+            this.cmbLocation.Enabled = false;
+            this.cmbSupplier.Enabled = false;
         }
         #endregion
 
@@ -827,6 +822,7 @@ namespace RMS.Forms.Inventory
             this.txtVatPrecentage.Text = "0";
             this.txtVatAmount.Text = "0";
             LoadDocumentNumber();
+            this.txtGRNNumber.ReadOnly = true;
             EnableControls(true);
             this.btnPrint.Enabled = false;
             this.btnPOSesrch.Enabled = false;
@@ -840,7 +836,6 @@ namespace RMS.Forms.Inventory
             if (Command)
             {
                 result = true;
-                this.txtGRNNumber.ReadOnly = false;
                 this.txtPONumber.ReadOnly = true;
                 this.txtInvoiceNo.ReadOnly = false;
                 this.txtGRNValue.ReadOnly = false;

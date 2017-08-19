@@ -168,5 +168,65 @@ namespace RMS.Forms.Inventory
             this.btnPrint.Enabled = false;
         }
         #endregion
+
+        private void btnGRNCancel_Click(object sender, EventArgs e)
+        {
+            if (txtGRNNo.Text != null) 
+            {
+                oGoodReceiveNote = cGoodReceiveNote.GetGoodReceiveNoteData(cGlobleVariable.LocationCode, this.txtGRNNo.Text);
+
+                if (oGoodReceiveNote.IsExists == true)
+                {
+                    if (InsertUpdateData()!=-1)
+                    {
+                        MessageBox.Show("Successfully Saved...!", "GRN Cancel", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        this.btnGRNCancel.Enabled = false;
+                        this.btnPrint.Enabled = true;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Data Not Saved...!", "GRN Cancel", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+        }
+
+        #region DataGrid To DataTable
+        public DataTable DataGridToDataTable(DataGridView dgv, string strGRNCode)
+        {
+            DataTable dt = new DataTable();
+
+            dt.Columns.Add("fldGRNCode");
+            dt.Columns.Add("fldItemCode");
+            dt.Columns.Add("fldQuantity");
+
+
+            foreach (DataGridViewRow row in dgv.Rows)
+            {
+                DataRow dRow = dt.NewRow();
+                try
+                {
+                    dRow["fldGRNCode"] = strGRNCode;
+                    dRow["fldItemCode"] = row.Cells["clmItemCode"].Value.ToString();
+                    dRow["fldQuantity"] = row.Cells["clmQty"].Value.ToString();
+                }
+                catch (Exception ex){}
+            }
+            return dt;
+        }
+        #endregion
+
+        #region InsertUpdate Good Receive Note Data
+        private int InsertUpdateData()
+        {
+            oGoodReceiveNote.GRNCode = this.txtGRNNo.Text;
+            oGoodReceiveNote.GRNCancelCode = this.txtGRNCancelNo.Text;
+
+            oGoodReceiveNote.dtItemList = DataGridToDataTable(dgvItemData, oGoodReceiveNote.GRNCode);
+
+            return cGoodReceiveNote.InsertUpdateGRNCancel(oGoodReceiveNote);
+        }
+        #endregion
+
     }
 }

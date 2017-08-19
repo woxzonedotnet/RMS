@@ -480,10 +480,10 @@ namespace RMS.Forms.Inventory
             if (oPurchaseOrder.VAT != 0) 
             {
                 chkVat.Checked = true;
-                this.txtVat.Text = oPurchaseOrder.VAT.ToString();
+                this.txtVat.Text = oPurchaseOrder.VAT.ToString("###,###.00");
             }
 
-            this.txtNetAmount.Text = oPurchaseOrder.NetAmount.ToString();
+            this.txtNetAmount.Text = oPurchaseOrder.NetAmount.ToString("###,###.00");
             this.txtRemark.Text = oPurchaseOrder.Remarks;
 
 
