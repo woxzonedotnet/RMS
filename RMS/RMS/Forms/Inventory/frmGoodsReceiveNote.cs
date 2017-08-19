@@ -686,6 +686,9 @@ namespace RMS.Forms.Inventory
             {
                 txtPONumber.Enabled = true;
                 btnPOSesrch.Enabled = true;
+                this.txtDiscount.Text = "0";
+                this.txtVatPrecentage.Text = "0";
+                this.txtVatAmount.Text = "0";
                 dgvItemData.Rows.Clear();
                 dgvItemData.Columns["clmOrderQuantity"].Visible = true;
                 dgvItemData.Columns["clmSelectItem"].Visible = true;
@@ -938,7 +941,7 @@ namespace RMS.Forms.Inventory
         {
             try
             {
-                if (chkPONumber.Checked == true && dgvItemData.CurrentRow.Cells["clmTax_chk"].Value.ToString().Equals("True"))
+                if (dgvItemData.CurrentRow.Cells["clmTax_chk"].Value.ToString().Equals("True"))
                 {
                     taxCalculate();
                     //calculatPOAmounts();
