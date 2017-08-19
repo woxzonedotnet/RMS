@@ -192,7 +192,7 @@ namespace RMS.Forms.Inventory
             iHeaderWidth[3] = 150;
 
             string strReturnString = "Good Recieve Code";
-            string strWhere = "fldLocationCode= '" + cGlobleVariable.LocationCode + "'";
+            string strWhere = "fldLocationCode= '" + cGlobleVariable.LocationCode + "'AND fldIsCancelGRN = 0";
             txtGRNNumber.Text = cCommonMethods.BrowsData("tbl_GRNDetails", strFieldList, strHeaderList, iHeaderWidth, strReturnString, strWhere, "Good Recieve Code");
             if (txtGRNNumber.Text != "")
             {
@@ -232,37 +232,84 @@ namespace RMS.Forms.Inventory
             for (int i = 0; i < oGoodReceiveNote.dtItemList.Rows.Count; i++)
             {
                 this.dgvItemData.Rows.Add();
-                dgvItemData.Rows[i].Cells["clmSelectItem"].Value = true;
-                dgvItemData.Rows[i].Cells["clmSelectItem"].Style.BackColor = Color.LightGreen;
-                dgvItemData.Rows[i].Cells["clmItemCode"].Style.BackColor = Color.LightGreen;
-                dgvItemData.Rows[i].Cells["clmQuantity"].Style.BackColor = Color.LightGreen;
-                dgvItemData.Rows[i].Cells["clmValue"].Style.BackColor = Color.LightGreen;
-                dgvItemData.Rows[i].Cells["clmItemCode"].Value = oGoodReceiveNote.dtItemList.Rows[i]["fldItemCode"].ToString();
-                dgvItemData.Rows[i].Cells["clmItemDescription"].Value = cItemMaster.GetItemData(cGlobleVariable.LocationCode, oGoodReceiveNote.dtItemList.Rows[i]["fldItemCode"].ToString()).Description;
-                dgvItemData.Rows[i].Cells["clmUnit"].Value = cItemLocation.GetItemLocationData(cGlobleVariable.LocationCode, this.cmbLocation["fldSubLocationCode"].ToString(), oGoodReceiveNote.dtItemList.Rows[i]["fldItemCode"].ToString()).ShelfStock;
-                dgvItemData.Rows[i].Cells["clmUnitPrice"].Value = oGoodReceiveNote.dtItemList.Rows[i]["fldUnitPrice"].ToString();
-                dgvItemData.Rows[i].Cells["clmQuantity"].Value = oGoodReceiveNote.dtItemList.Rows[i]["fldQuantity"].ToString();
 
-                double a = Convert.ToDouble(oGoodReceiveNote.dtItemList.Rows[i]["fldTaxAmount"].ToString());
-                if (a > 0)
+                double GRNqty = Convert.ToDouble(oGoodReceiveNote.dtItemList.Rows[i]["fldQuantity"]);
+                double returnQty = Convert.ToDouble(oGoodReceiveNote.dtItemList.Rows[i]["fldReturnQty"]);
+                double qty = GRNqty - returnQty;
+
+                if (qty > 0)
                 {
-                    dgvItemData.Rows[i].Cells["clmTax_chk"].Value = true;
+                    dgvItemData.Rows[i].Cells["clmSelectItem"].Value = true;
+                    dgvItemData.Rows[i].Cells["clmSelectItem"].Style.BackColor = Color.LightGreen;
+                    dgvItemData.Rows[i].Cells["clmItemCode"].Style.BackColor = Color.LightGreen;
+                    dgvItemData.Rows[i].Cells["clmQuantity"].Style.BackColor = Color.LightGreen;
+                    dgvItemData.Rows[i].Cells["clmValue"].Style.BackColor = Color.LightGreen;
+                    dgvItemData.Rows[i].Cells["clmItemCode"].Value = oGoodReceiveNote.dtItemList.Rows[i]["fldItemCode"].ToString();
+                    dgvItemData.Rows[i].Cells["clmItemDescription"].Value = cItemMaster.GetItemData(cGlobleVariable.LocationCode, oGoodReceiveNote.dtItemList.Rows[i]["fldItemCode"].ToString()).Description;
+                    dgvItemData.Rows[i].Cells["clmUnit"].Value = cItemLocation.GetItemLocationData(cGlobleVariable.LocationCode, this.cmbLocation["fldSubLocationCode"].ToString(), oGoodReceiveNote.dtItemList.Rows[i]["fldItemCode"].ToString()).ShelfStock;
+                    dgvItemData.Rows[i].Cells["clmUnitPrice"].Value = oGoodReceiveNote.dtItemList.Rows[i]["fldUnitPrice"].ToString();
+
+                    dgvItemData.Rows[i].Cells["clmQuantity"].Value = qty;
+
+                    double a = Convert.ToDouble(oGoodReceiveNote.dtItemList.Rows[i]["fldTaxAmount"].ToString());
+                    if (a > 0)
+                    {
+                        dgvItemData.Rows[i].Cells["clmTax_chk"].Value = true;
+                    }
+
+                    dgvItemData.Rows[i].Cells["clmTaxAmount"].Value = oGoodReceiveNote.dtItemList.Rows[i]["fldTaxAmount"].ToString();
+
+                    double UnitPrice = Convert.ToDouble(oGoodReceiveNote.dtItemList.Rows[i]["fldUnitPrice"]);
+                    dgvItemData.Rows[i].Cells["clmValue"].Value = qty * UnitPrice;
+                    double TaxAmount = Convert.ToDouble(oGoodReceiveNote.dtItemList.Rows[i]["fldTaxAmount"]);
+                    dgvItemData.Rows[i].Cells["clmTotalAmount"].Value = ((qty * UnitPrice) + TaxAmount);
+                }
+                else
+                {
+                    txtVatPrecentage.Text = "0.00";
+                    txtVatAmount.Text = "0.00";
+                    txtDiscount.Text = "0.00";
+
                 }
 
-                dgvItemData.Rows[i].Cells["clmTaxAmount"].Value = oGoodReceiveNote.dtItemList.Rows[i]["fldTaxAmount"].ToString();
-
-                double qty = Convert.ToDouble(oGoodReceiveNote.dtItemList.Rows[i]["fldQuantity"]);
-                double UnitPrice = Convert.ToDouble(oGoodReceiveNote.dtItemList.Rows[i]["fldUnitPrice"]);
-                dgvItemData.Rows[i].Cells["clmValue"].Value = qty * UnitPrice;
-                double TaxAmount = Convert.ToDouble(oGoodReceiveNote.dtItemList.Rows[i]["fldTaxAmount"]);
-                dgvItemData.Rows[i].Cells["clmTotalAmount"].Value = ((qty * UnitPrice) + TaxAmount);
+                
             }
             EnableControls(false);
             dgvItemData.Enabled = true;
             dtpDate.Enabled = true;
+            btnSave.Enabled = true;
+
+            #region Empty Row Cleaner
+            try
+            {
+                for (int i = 0; i < dgvItemData.Rows.Count; i++)
+                {
+                    //MessageBox.Show(dgvItemData.Rows[i].Cells["clmItemCode"].Value.ToString());
+                    if (dgvItemData.Rows[i].Cells["clmItemCode"].Value == null)
+                    {
+                        dgvItemData.Rows.RemoveAt(i);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
+            #endregion
+
+            if (chkGRNNumber.Checked == true)
+            {
+                calculatGRNAmounts();
+            }
+            else
+            {
+                calculatAmounts();
+            }
         }
         #endregion
         #endregion
+
+
         private void dgvItemData_CurrentCellDirtyStateChanged(object sender, EventArgs e)
         {
             try
@@ -296,9 +343,9 @@ namespace RMS.Forms.Inventory
                     else
                     {
                         dgvItemData.CurrentCell.Style.BackColor = Color.White;
-                        dgvItemData.CurrentRow.Cells["clmItemCode"].Style.BackColor = Color.White;
-                        dgvItemData.CurrentRow.Cells["clmQuantity"].Style.BackColor = Color.White;
-                        dgvItemData.CurrentRow.Cells["clmValue"].Style.BackColor = Color.White;
+                        dgvItemData.CurrentRow.Cells["clmItemCode"].Style.BackColor = Color.LightPink;
+                        dgvItemData.CurrentRow.Cells["clmQuantity"].Style.BackColor = Color.LightPink;
+                        dgvItemData.CurrentRow.Cells["clmValue"].Style.BackColor = Color.LightPink;
                     }
                 }
 
