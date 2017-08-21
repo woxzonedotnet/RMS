@@ -127,6 +127,11 @@
       <DependentUpon>rptSupplierDetails2.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="rptSupplierReturnNote.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptSupplierReturnNote.rpt</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="frmReportViewer.resx">
@@ -183,6 +188,10 @@
     <EmbeddedResource Include="rptSupplierDetails2.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>rptSupplierDetails2.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rptSupplierReturnNote.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptSupplierReturnNote.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
