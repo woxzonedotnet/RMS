@@ -82,10 +82,20 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>rptGoodRecieveNote.rpt</DependentUpon>
     </Compile>
+    <Compile Include="rptGRNListingReport.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptGRNListingReport.rpt</DependentUpon>
+    </Compile>
     <Compile Include="rptMenuDetailsReport.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>rptMenuDetailsReport.rpt</DependentUpon>
+    </Compile>
+    <Compile Include="rptPOListingReport.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptPOListingReport.rpt</DependentUpon>
     </Compile>
     <Compile Include="rptPurchaseOrder.cs">
       <AutoGen>True</AutoGen>
@@ -138,6 +148,10 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>rptfrmItemMasterDetailsReports3.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="rptGRNListingReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptGRNListingReport.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="rptMenuDetailsReport.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>rptMenuDetailsReport.cs</LastGenOutput>
@@ -145,6 +159,10 @@
     <EmbeddedResource Include="rptGoodRecieveNote.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>rptGoodRecieveNote.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rptPOListingReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptPOListingReport.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="rptPurchaseOrder.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>

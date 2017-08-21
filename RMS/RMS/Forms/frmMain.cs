@@ -784,9 +784,9 @@ namespace RMS.Forms
                 Inventory.frmStockInitialize open = Application.OpenForms["frmStockInitialize"] as Inventory.frmStockInitialize;
                 if (open == null)
                 {
-                    Inventory.frmStockInitialize childfrmStockInitialize = new Inventory.frmStockInitialize();
-                    childfrmStockInitialize.MdiParent = this;
-                    childfrmStockInitialize.Show();
+                    Inventory.frmStockInitialize childStockInitialize = new Inventory.frmStockInitialize();
+                    childStockInitialize.MdiParent = this;
+                    childStockInitialize.Show();
                 }
                 else
                 {
@@ -806,16 +806,16 @@ namespace RMS.Forms
             }
         }
 
-        private void supplierDetailsReportToolStripMenuItem_Click(object sender, EventArgs e)
+        private void supplierDetailsReportToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             try
             {
                 Reports.frmSupplierDetailReport open = Application.OpenForms["frmSupplierDetailReport"] as Reports.frmSupplierDetailReport;
                 if (open == null)
                 {
-                    Reports.frmSupplierDetailReport childfrmStockInitialize = new Reports.frmSupplierDetailReport();
-                    childfrmStockInitialize.MdiParent = this;
-                    childfrmStockInitialize.Show();
+                    Reports.frmSupplierDetailReport childStockInitialize = new Reports.frmSupplierDetailReport();
+                    childStockInitialize.MdiParent = this;
+                    childStockInitialize.Show();
                 }
                 else
                 {
@@ -835,17 +835,16 @@ namespace RMS.Forms
             }
         }
 
-        private void itemDetailsReportsToolStripMenuItem_Click(object sender, EventArgs e)
+        private void itemDetailsReportToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
             try
             {
                 Reports.frmItemMasterDetailsReports open = Application.OpenForms["frmItemMasterDetailsReports"] as Reports.frmItemMasterDetailsReports;
                 if (open == null)
                 {
-                    Reports.frmItemMasterDetailsReports childfrmStockInitialize = new Reports.frmItemMasterDetailsReports();
-                    childfrmStockInitialize.MdiParent = this;
-                    childfrmStockInitialize.Show();
+                    Reports.frmItemMasterDetailsReports childStockInitialize = new Reports.frmItemMasterDetailsReports();
+                    childStockInitialize.MdiParent = this;
+                    childStockInitialize.Show();
                 }
                 else
                 {
@@ -863,7 +862,35 @@ namespace RMS.Forms
             {
                 MessageBox.Show(ex.Message);
             }
+        }
 
+        private void pOListingReportToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Reports.frmPOListingReport open = Application.OpenForms["frmPOListingReport"] as Reports.frmPOListingReport;
+                if (open == null)
+                {
+                    Reports.frmPOListingReport childPOListingReport = new Reports.frmPOListingReport();
+                    childPOListingReport.MdiParent = this;
+                    childPOListingReport.Show();
+                }
+                else
+                {
+                    if (open.WindowState == FormWindowState.Minimized)
+                    {
+                        open.WindowState = FormWindowState.Normal;
+                    }
+                    else
+                    {
+                        open.Activate();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

@@ -237,11 +237,23 @@
     <Compile Include="Forms\Inventory\frmIssueNote.Designer.cs">
       <DependentUpon>frmIssueNote.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Reports\frmGRNListingReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Reports\frmGRNListingReport.Designer.cs">
+      <DependentUpon>frmGRNListingReport.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Reports\frmItemMasterDetailsReports.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\Reports\frmItemMasterDetailsReports.Designer.cs">
       <DependentUpon>frmItemMasterDetailsReports.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Reports\frmPOListingReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Reports\frmPOListingReport.Designer.cs">
+      <DependentUpon>frmPOListingReport.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Reports\frmSupplierDetailReport.cs">
       <SubType>Form</SubType>
@@ -347,8 +359,14 @@
     <EmbeddedResource Include="Forms\Inventory\frmIssueNote.resx">
       <DependentUpon>frmIssueNote.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Reports\frmGRNListingReport.resx">
+      <DependentUpon>frmGRNListingReport.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Reports\frmItemMasterDetailsReports.resx">
       <DependentUpon>frmItemMasterDetailsReports.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Reports\frmPOListingReport.resx">
+      <DependentUpon>frmPOListingReport.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Reports\frmSupplierDetailReport.resx">
       <DependentUpon>frmSupplierDetailReport.cs</DependentUpon>
