@@ -66,18 +66,25 @@
             this.lblInvoiceNo = new System.Windows.Forms.Label();
             this.dtpDate = new System.Windows.Forms.DateTimePicker();
             this.lblDate = new System.Windows.Forms.Label();
-            this.cmbSupplier = new RMS.ColumnComboBox();
             this.lblSupplier = new System.Windows.Forms.Label();
-            this.cmbLocation = new RMS.ColumnComboBox();
             this.txtSRNNumber = new System.Windows.Forms.TextBox();
             this.btnSRNSearch = new System.Windows.Forms.Button();
             this.lblLocation = new System.Windows.Forms.Label();
             this.lblSRNNumber = new System.Windows.Forms.Label();
             this.errSRN = new System.Windows.Forms.ErrorProvider(this.components);
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.lblTitle = new System.Windows.Forms.Label();
+            this.btnExit = new System.Windows.Forms.Button();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.cmbSupplier = new RMS.ColumnComboBox();
+            this.cmbLocation = new RMS.ColumnComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvItemData)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errSRN)).BeginInit();
+            this.panel4.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnClose
@@ -88,7 +95,7 @@
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
             this.btnClose.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnClose.Location = new System.Drawing.Point(557, 454);
+            this.btnClose.Location = new System.Drawing.Point(892, 482);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(75, 36);
             this.btnClose.TabIndex = 80;
@@ -104,7 +111,7 @@
             this.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
             this.btnClear.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnClear.Location = new System.Drawing.Point(476, 454);
+            this.btnClear.Location = new System.Drawing.Point(811, 482);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(75, 36);
             this.btnClear.TabIndex = 79;
@@ -120,7 +127,7 @@
             this.btnPrint.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPrint.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
             this.btnPrint.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnPrint.Location = new System.Drawing.Point(395, 454);
+            this.btnPrint.Location = new System.Drawing.Point(730, 482);
             this.btnPrint.Name = "btnPrint";
             this.btnPrint.Size = new System.Drawing.Size(75, 36);
             this.btnPrint.TabIndex = 78;
@@ -136,7 +143,7 @@
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
             this.btnSave.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnSave.Location = new System.Drawing.Point(314, 454);
+            this.btnSave.Location = new System.Drawing.Point(649, 482);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 36);
             this.btnSave.TabIndex = 77;
@@ -158,9 +165,9 @@
             this.clmTax_chk,
             this.clmTaxAmount,
             this.clmTotalAmount});
-            this.dgvItemData.Location = new System.Drawing.Point(12, 12);
+            this.dgvItemData.Location = new System.Drawing.Point(11, 41);
             this.dgvItemData.Name = "dgvItemData";
-            this.dgvItemData.Size = new System.Drawing.Size(631, 432);
+            this.dgvItemData.Size = new System.Drawing.Size(631, 477);
             this.dgvItemData.TabIndex = 81;
             this.dgvItemData.CellValidated += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvItemData_CellValidated);
             this.dgvItemData.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvItemData_CellValueChanged);
@@ -257,7 +264,7 @@
             this.panel2.Controls.Add(this.txtVatAmount);
             this.panel2.Controls.Add(this.txtSRNValue);
             this.panel2.Controls.Add(this.lblSRNValue);
-            this.panel2.Location = new System.Drawing.Point(649, 254);
+            this.panel2.Location = new System.Drawing.Point(649, 286);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(317, 190);
             this.panel2.TabIndex = 83;
@@ -390,7 +397,7 @@
             this.panel1.Controls.Add(this.btnSRNSearch);
             this.panel1.Controls.Add(this.lblLocation);
             this.panel1.Controls.Add(this.lblSRNNumber);
-            this.panel1.Location = new System.Drawing.Point(649, 12);
+            this.panel1.Location = new System.Drawing.Point(648, 41);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(317, 236);
             this.panel1.TabIndex = 82;
@@ -470,19 +477,6 @@
             this.lblDate.TabIndex = 65;
             this.lblDate.Text = "Date";
             // 
-            // cmbSupplier
-            // 
-            this.cmbSupplier.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.cmbSupplier.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.cmbSupplier.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
-            this.cmbSupplier.DropDownWidth = 17;
-            this.cmbSupplier.FormattingEnabled = true;
-            this.cmbSupplier.Location = new System.Drawing.Point(121, 128);
-            this.cmbSupplier.Name = "cmbSupplier";
-            this.cmbSupplier.Size = new System.Drawing.Size(185, 21);
-            this.cmbSupplier.TabIndex = 64;
-            this.cmbSupplier.ViewColumn = 0;
-            // 
             // lblSupplier
             // 
             this.lblSupplier.AutoSize = true;
@@ -492,19 +486,6 @@
             this.lblSupplier.Size = new System.Drawing.Size(58, 16);
             this.lblSupplier.TabIndex = 63;
             this.lblSupplier.Text = "Supplier";
-            // 
-            // cmbLocation
-            // 
-            this.cmbLocation.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.cmbLocation.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.cmbLocation.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
-            this.cmbLocation.DropDownWidth = 17;
-            this.cmbLocation.FormattingEnabled = true;
-            this.cmbLocation.Location = new System.Drawing.Point(121, 91);
-            this.cmbLocation.Name = "cmbLocation";
-            this.cmbLocation.Size = new System.Drawing.Size(185, 21);
-            this.cmbLocation.TabIndex = 62;
-            this.cmbLocation.ViewColumn = 0;
             // 
             // txtSRNNumber
             // 
@@ -554,11 +535,108 @@
             // 
             this.errSRN.ContainerControl = this;
             // 
+            // panel5
+            // 
+            this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(41)))), ((int)(((byte)(46)))));
+            this.panel5.Location = new System.Drawing.Point(977, 12);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(10, 518);
+            this.panel5.TabIndex = 84;
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(41)))), ((int)(((byte)(46)))));
+            this.panel3.Location = new System.Drawing.Point(-9, 12);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(10, 523);
+            this.panel3.TabIndex = 85;
+            // 
+            // lblTitle
+            // 
+            this.lblTitle.AutoSize = true;
+            this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitle.ForeColor = System.Drawing.SystemColors.Control;
+            this.lblTitle.Location = new System.Drawing.Point(13, 9);
+            this.lblTitle.Name = "lblTitle";
+            this.lblTitle.Size = new System.Drawing.Size(178, 16);
+            this.lblTitle.TabIndex = 4;
+            this.lblTitle.Text = "Supplier Return Note [ SRN ]";
+            // 
+            // btnExit
+            // 
+            this.btnExit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(41)))), ((int)(((byte)(46)))));
+            this.btnExit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnExit.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnExit.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnExit.FlatAppearance.BorderSize = 0;
+            this.btnExit.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(41)))), ((int)(((byte)(46)))));
+            this.btnExit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Maroon;
+            this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnExit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(146)))), ((int)(((byte)(150)))), ((int)(((byte)(153)))));
+            this.btnExit.Location = new System.Drawing.Point(941, 0);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(37, 31);
+            this.btnExit.TabIndex = 3;
+            this.btnExit.Text = "X";
+            this.btnExit.UseVisualStyleBackColor = false;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
+            // 
+            // panel4
+            // 
+            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(41)))), ((int)(((byte)(46)))));
+            this.panel4.Controls.Add(this.lblTitle);
+            this.panel4.Controls.Add(this.btnExit);
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel4.Location = new System.Drawing.Point(0, 0);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(978, 31);
+            this.panel4.TabIndex = 86;
+            this.panel4.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel4_MouseDown);
+            this.panel4.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel4_MouseMove);
+            // 
+            // panel6
+            // 
+            this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(41)))), ((int)(((byte)(46)))));
+            this.panel6.Location = new System.Drawing.Point(-12, 528);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(1004, 10);
+            this.panel6.TabIndex = 87;
+            // 
+            // cmbSupplier
+            // 
+            this.cmbSupplier.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.cmbSupplier.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cmbSupplier.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.cmbSupplier.DropDownWidth = 17;
+            this.cmbSupplier.FormattingEnabled = true;
+            this.cmbSupplier.Location = new System.Drawing.Point(121, 128);
+            this.cmbSupplier.Name = "cmbSupplier";
+            this.cmbSupplier.Size = new System.Drawing.Size(185, 21);
+            this.cmbSupplier.TabIndex = 64;
+            this.cmbSupplier.ViewColumn = 0;
+            // 
+            // cmbLocation
+            // 
+            this.cmbLocation.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.cmbLocation.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cmbLocation.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.cmbLocation.DropDownWidth = 17;
+            this.cmbLocation.FormattingEnabled = true;
+            this.cmbLocation.Location = new System.Drawing.Point(121, 91);
+            this.cmbLocation.Name = "cmbLocation";
+            this.cmbLocation.Size = new System.Drawing.Size(185, 21);
+            this.cmbLocation.TabIndex = 62;
+            this.cmbLocation.ViewColumn = 0;
+            // 
             // frmSupplierReturnNote
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(976, 500);
+            this.ClientSize = new System.Drawing.Size(978, 529);
+            this.Controls.Add(this.panel6);
+            this.Controls.Add(this.panel4);
+            this.Controls.Add(this.panel3);
+            this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.dgvItemData);
@@ -566,7 +644,9 @@
             this.Controls.Add(this.btnClear);
             this.Controls.Add(this.btnPrint);
             this.Controls.Add(this.btnSave);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmSupplierReturnNote";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Supplier Return Note (SRN)";
             this.Load += new System.EventHandler(this.frmSupplierReturnNote_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvItemData)).EndInit();
@@ -575,6 +655,8 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errSRN)).EndInit();
+            this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -624,5 +706,11 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn clmTaxAmount;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmTotalAmount;
         private System.Windows.Forms.ErrorProvider errSRN;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Label lblTitle;
+        private System.Windows.Forms.Button btnExit;
+        private System.Windows.Forms.Panel panel6;
     }
 }
