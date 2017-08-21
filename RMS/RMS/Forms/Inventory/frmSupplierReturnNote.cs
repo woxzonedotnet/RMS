@@ -839,5 +839,91 @@ namespace RMS.Forms.Inventory
 
         }
         #endregion
+
+        private void btnSRNSearch_Click(object sender, EventArgs e)
+        {
+            LoadSearch();
+        }
+
+        public void LoadSearch()
+        {
+            string[] strFieldList = new string[3];
+            strFieldList[0] = "fldSRNCode";
+            strFieldList[1] = "fldSupplierCode";
+            strFieldList[2] = "fldDate";
+
+            string[] strHeaderList = new string[3];
+            strHeaderList[0] = "Supplier Return Code";
+            strHeaderList[1] = "Supplier Code";
+            strHeaderList[2] = "Supplier Return Date";
+
+            int[] iHeaderWidth = new int[3];
+            iHeaderWidth[0] = 150;
+            iHeaderWidth[1] = 100;
+            iHeaderWidth[2] = 150;
+
+            string strReturnString = "Supplier Return Code";
+            string strWhere = "fldLocationCode= '" + cGlobleVariable.LocationCode + "'";
+            txtSRNNumber.Text = cCommonMethods.BrowsData("tbl_SRNDetails", strFieldList, strHeaderList, iHeaderWidth, strReturnString, strWhere, "Supplier Return Code");
+            if (txtSRNNumber.Text != "")
+            {
+                LoadSRNDetails();
+            }
+        }
+
+        #region Load SRN Details
+        private void LoadSRNDetails()
+        {
+            dgvItemData.Rows.Clear();
+            oSupplierReturnNote = cSupplierReturnNote.GetSupplierReturnNoteData(cGlobleVariable.LocationCode, this.txtSRNNumber.Text);
+
+            cmbLocation.SetText(cSubLocation.GetSubLocationData(cGlobleVariable.LocationCode, oSupplierReturnNote.SubLocationCode).SubLocationName);
+            cmbSupplier.SetText(cSupplierMaster.GetSupplierData(cGlobleVariable.LocationCode, oSupplierReturnNote.SupplierCode).SupplierName);
+
+            dtpDate.Value = oSupplierReturnNote.Date;
+            txtInvoiceNo.Text = oSupplierReturnNote.InvoiceNo;
+            txtSRNValue.Text = oSupplierReturnNote.SRNValue.ToString("###,###.00");
+            txtGRNNumber.Text = oSupplierReturnNote.GRNCode;
+
+            if (oSupplierReturnNote.VATPresentage != 0)
+            {
+                chkVat.Checked = true;
+                this.txtVatPrecentage.Text = oSupplierReturnNote.VATPresentage.ToString();
+                this.txtVatAmount.Text = oSupplierReturnNote.VATAmount.ToString();
+            }
+            this.txtDiscount.Text = oSupplierReturnNote.Discount.ToString();
+            this.txtNetAmount.Text = oSupplierReturnNote.NetAmount.ToString();
+
+
+
+            for (int i = 0; i < oSupplierReturnNote.dtItemList.Rows.Count; i++)
+            {
+                this.dgvItemData.Rows.Add();
+                dgvItemData.Rows[i].Cells["clmItemCode"].Value = oSupplierReturnNote.dtItemList.Rows[i]["fldItemCode"].ToString();
+                dgvItemData.Rows[i].Cells["clmItemDescription"].Value = cItemMaster.GetItemData(cGlobleVariable.LocationCode, oSupplierReturnNote.dtItemList.Rows[i]["fldItemCode"].ToString()).Description;
+                dgvItemData.Rows[i].Cells["clmUnit"].Value = cItemMaster.GetItemData(cGlobleVariable.LocationCode, oSupplierReturnNote.dtItemList.Rows[i]["fldItemCode"].ToString()).Unit;
+                dgvItemData.Rows[i].Cells["clmUnitPrice"].Value = oSupplierReturnNote.dtItemList.Rows[i]["fldUnitPrice"].ToString();
+                dgvItemData.Rows[i].Cells["clmQuantity"].Value = oSupplierReturnNote.dtItemList.Rows[i]["fldQuantity"].ToString();
+
+                double a = Convert.ToDouble(oSupplierReturnNote.dtItemList.Rows[i]["fldTaxAmount"].ToString());
+                if (a > 0)
+                {
+                    dgvItemData.Rows[i].Cells["clmTax_chk"].Value = true;
+                }
+
+                dgvItemData.Rows[i].Cells["clmTaxAmount"].Value = oSupplierReturnNote.dtItemList.Rows[i]["fldTaxAmount"].ToString();
+
+                double qty = Convert.ToDouble(oSupplierReturnNote.dtItemList.Rows[i]["fldQuantity"]);
+                double UnitPrice = Convert.ToDouble(oSupplierReturnNote.dtItemList.Rows[i]["fldUnitPrice"]);
+                dgvItemData.Rows[i].Cells["clmValue"].Value = qty * UnitPrice;
+                double TaxAmount = Convert.ToDouble(oSupplierReturnNote.dtItemList.Rows[i]["fldTaxAmount"]);
+                dgvItemData.Rows[i].Cells["clmTotalAmount"].Value = ((qty * UnitPrice) + TaxAmount);
+            }
+
+            EnableControls(false);
+            this.btnPrint.Enabled = true;
+            this.chkGRNNumber.Enabled = false;
+        }
+        #endregion
     }
 }
