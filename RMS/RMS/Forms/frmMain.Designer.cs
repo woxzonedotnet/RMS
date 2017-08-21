@@ -63,13 +63,18 @@
             this.ssToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ddToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.supplierDetailsReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.itemDetailsReportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.itemDetailsReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.supplierDetailsReportToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.recipeDetailsReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuDetailsReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.userToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ffToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.btnExit = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnMinimize = new System.Windows.Forms.Button();
+            this.gRNListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pOListingReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.issueNoteListingReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStripMain.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -358,15 +363,16 @@
             // ssToolStripMenuItem
             // 
             this.ssToolStripMenuItem.Name = "ssToolStripMenuItem";
-            this.ssToolStripMenuItem.Size = new System.Drawing.Size(84, 22);
+            this.ssToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.ssToolStripMenuItem.Text = "ss";
             // 
             // reportsToolStripMenuItem
             // 
             this.reportsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.ddToolStripMenuItem,
-            this.supplierDetailsReportToolStripMenuItem,
-            this.itemDetailsReportsToolStripMenuItem});
+            this.gRNListToolStripMenuItem,
+            this.pOListingReportToolStripMenuItem,
+            this.issueNoteListingReportToolStripMenuItem});
             this.reportsToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(146)))), ((int)(((byte)(150)))), ((int)(((byte)(153)))));
             this.reportsToolStripMenuItem.Name = "reportsToolStripMenuItem";
             this.reportsToolStripMenuItem.Size = new System.Drawing.Size(59, 31);
@@ -374,23 +380,40 @@
             // 
             // ddToolStripMenuItem
             // 
+            this.ddToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.itemDetailsReportToolStripMenuItem,
+            this.supplierDetailsReportToolStripMenuItem1,
+            this.recipeDetailsReportToolStripMenuItem,
+            this.menuDetailsReportToolStripMenuItem});
             this.ddToolStripMenuItem.Name = "ddToolStripMenuItem";
-            this.ddToolStripMenuItem.Size = new System.Drawing.Size(198, 22);
-            this.ddToolStripMenuItem.Text = "dd";
+            this.ddToolStripMenuItem.Size = new System.Drawing.Size(205, 22);
+            this.ddToolStripMenuItem.Text = "Master Report";
             // 
-            // supplierDetailsReportToolStripMenuItem
+            // itemDetailsReportToolStripMenuItem
             // 
-            this.supplierDetailsReportToolStripMenuItem.Name = "supplierDetailsReportToolStripMenuItem";
-            this.supplierDetailsReportToolStripMenuItem.Size = new System.Drawing.Size(198, 22);
-            this.supplierDetailsReportToolStripMenuItem.Text = "Supplier Details Reports";
-            this.supplierDetailsReportToolStripMenuItem.Click += new System.EventHandler(this.supplierDetailsReportToolStripMenuItem_Click);
+            this.itemDetailsReportToolStripMenuItem.Name = "itemDetailsReportToolStripMenuItem";
+            this.itemDetailsReportToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
+            this.itemDetailsReportToolStripMenuItem.Text = "Item Details Report";
+            this.itemDetailsReportToolStripMenuItem.Click += new System.EventHandler(this.itemDetailsReportToolStripMenuItem_Click);
             // 
-            // itemDetailsReportsToolStripMenuItem
+            // supplierDetailsReportToolStripMenuItem1
             // 
-            this.itemDetailsReportsToolStripMenuItem.Name = "itemDetailsReportsToolStripMenuItem";
-            this.itemDetailsReportsToolStripMenuItem.Size = new System.Drawing.Size(198, 22);
-            this.itemDetailsReportsToolStripMenuItem.Text = "Item Details Reports";
-            this.itemDetailsReportsToolStripMenuItem.Click += new System.EventHandler(this.itemDetailsReportsToolStripMenuItem_Click);
+            this.supplierDetailsReportToolStripMenuItem1.Name = "supplierDetailsReportToolStripMenuItem1";
+            this.supplierDetailsReportToolStripMenuItem1.Size = new System.Drawing.Size(193, 22);
+            this.supplierDetailsReportToolStripMenuItem1.Text = "Supplier Details Report";
+            this.supplierDetailsReportToolStripMenuItem1.Click += new System.EventHandler(this.supplierDetailsReportToolStripMenuItem1_Click);
+            // 
+            // recipeDetailsReportToolStripMenuItem
+            // 
+            this.recipeDetailsReportToolStripMenuItem.Name = "recipeDetailsReportToolStripMenuItem";
+            this.recipeDetailsReportToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
+            this.recipeDetailsReportToolStripMenuItem.Text = "Recipe Details Report";
+            // 
+            // menuDetailsReportToolStripMenuItem
+            // 
+            this.menuDetailsReportToolStripMenuItem.Name = "menuDetailsReportToolStripMenuItem";
+            this.menuDetailsReportToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
+            this.menuDetailsReportToolStripMenuItem.Text = "Menu Details Report";
             // 
             // userToolStripMenuItem
             // 
@@ -455,6 +478,25 @@
             this.btnMinimize.UseVisualStyleBackColor = false;
             this.btnMinimize.Click += new System.EventHandler(this.btnMinimize_Click);
             // 
+            // gRNListToolStripMenuItem
+            // 
+            this.gRNListToolStripMenuItem.Name = "gRNListToolStripMenuItem";
+            this.gRNListToolStripMenuItem.Size = new System.Drawing.Size(205, 22);
+            this.gRNListToolStripMenuItem.Text = "GRN Listing Report";
+            // 
+            // pOListingReportToolStripMenuItem
+            // 
+            this.pOListingReportToolStripMenuItem.Name = "pOListingReportToolStripMenuItem";
+            this.pOListingReportToolStripMenuItem.Size = new System.Drawing.Size(205, 22);
+            this.pOListingReportToolStripMenuItem.Text = "PO Listing Report";
+            this.pOListingReportToolStripMenuItem.Click += new System.EventHandler(this.pOListingReportToolStripMenuItem_Click);
+            // 
+            // issueNoteListingReportToolStripMenuItem
+            // 
+            this.issueNoteListingReportToolStripMenuItem.Name = "issueNoteListingReportToolStripMenuItem";
+            this.issueNoteListingReportToolStripMenuItem.Size = new System.Drawing.Size(205, 22);
+            this.issueNoteListingReportToolStripMenuItem.Text = "Issue Note Listing Report";
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -517,7 +559,12 @@
         private System.Windows.Forms.ToolStripMenuItem gRNCancelToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem issuToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem stockInitializeToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem supplierDetailsReportToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem itemDetailsReportsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem itemDetailsReportToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem supplierDetailsReportToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem recipeDetailsReportToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem menuDetailsReportToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem gRNListToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem pOListingReportToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem issueNoteListingReportToolStripMenuItem;
     }
 }

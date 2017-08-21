@@ -179,6 +179,7 @@ namespace RMS.Forms.Inventory
                 {
                     if (InsertUpdateData()!=-1)
                     {
+                        cDocumentNumber.DeleteDocumentNumber(cGlobleVariable.UniqID, DocumentCode, this.txtGRNCancelNo.Text);
                         MessageBox.Show("Successfully Saved...!", "GRN Cancel", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         this.btnGRNCancel.Enabled = false;
                         this.btnPrint.Enabled = true;
