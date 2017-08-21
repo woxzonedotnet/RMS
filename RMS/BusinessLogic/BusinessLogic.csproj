@@ -44,6 +44,7 @@
     <Compile Include="clsBankCardType.cs" />
     <Compile Include="clsBankDetails.cs" />
     <Compile Include="clsBrowsData.cs" />
+    <Compile Include="clsSupplierReturnNote.cs" />
     <Compile Include="clsUnit.cs" />
     <Compile Include="clsCategoryMaster.cs" />
     <Compile Include="clsCurrencyMaster.cs" />
