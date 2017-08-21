@@ -49,14 +49,17 @@ namespace RMS.Forms.Inventory
         public frmSupplierReturnNote()
         {
             InitializeComponent();
+            this.lblTitle.Text = this.Text;
+            Location = cGlobleVariable.LocationCode.ToString();
         }
 
         private void frmSupplierReturnNote_Load(object sender, EventArgs e)
         {
+            clear();
             LoadDocumentNumber();
             cCommonMethods.loadComboRMS(cSubLocation.GetSubLocationData(), cmbLocation, 2);
             cCommonMethods.loadComboRMS(cSupplierMaster.GetSupplierData(), cmbSupplier, 2);
-            clear();
+            
         }
 
         public void LoadDocumentNumber()
@@ -923,6 +926,27 @@ namespace RMS.Forms.Inventory
             EnableControls(false);
             this.btnPrint.Enabled = true;
             this.chkGRNNumber.Enabled = false;
+        }
+        #endregion
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
+        }
+
+        #region From Move
+        private void panel4_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                this.Left += e.X - lastClick.X;
+                this.Top += e.Y - lastClick.Y;
+            }
+        }
+
+        private void panel4_MouseDown(object sender, MouseEventArgs e)
+        {
+            lastClick = e.Location;
         }
         #endregion
     }
