@@ -117,7 +117,7 @@ namespace RMS.Forms.Inventory
             iHeaderWidth[2] = 150;
 
             string strReturnString = "Good Recieve Code";
-            string strWhere = "fldLocationCode= '" + cGlobleVariable.LocationCode + "'";
+            string strWhere = "fldLocationCode= '" + cGlobleVariable.LocationCode + "'AND fldIsCancelGRN=0";
             txtGRNNo.Text = cCommonMethods.BrowsData("tbl_GRNDetails", strFieldList, strHeaderList, iHeaderWidth, strReturnString, strWhere, "Good Recieve Code");
             if (txtGRNNo.Text != "")
             {
@@ -213,6 +213,7 @@ namespace RMS.Forms.Inventory
                     dRow["fldGRNCode"] = strGRNCode;
                     dRow["fldItemCode"] = row.Cells["clmItemCode"].Value.ToString();
                     dRow["fldQuantity"] = row.Cells["clmQty"].Value.ToString();
+                    dt.Rows.Add(dRow);
                 }
                 catch (Exception ex){}
             }
@@ -234,7 +235,7 @@ namespace RMS.Forms.Inventory
 
         private void btnPrint_Click(object sender, EventArgs e)
         {
-            ReportViewer(1);
+            ReportViewer(14);
         }
 
         private void ReportViewer(int strReportID)
