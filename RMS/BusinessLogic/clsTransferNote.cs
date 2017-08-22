@@ -19,7 +19,7 @@ namespace BusinessLogic
         #region InsertUpdateData
         public int InsertUpdateData(objTransferNote oTransferNote)
         {
-            System.Object[,] arrParameter = new Object[8, 2];
+            System.Object[,] arrParameter = new Object[7, 2];
 
             arrParameter[0, 0] = "@mfldLocationCode";
             arrParameter[0, 1] = oTransferNote.LocationCode;
@@ -27,7 +27,7 @@ namespace BusinessLogic
             arrParameter[1, 1] = oTransferNote.TransferNumber;
             arrParameter[2, 0] = "@mfldFromSubLocationCode";
             arrParameter[2, 1] = oTransferNote.FromSubLocation;
-            arrParameter[3, 0] = "@mfldTransferDate";
+            arrParameter[3, 0] = "@mfldDate";
             arrParameter[3, 1] = oTransferNote.TransferDate;
             arrParameter[4, 0] = "@mfldTransferValue";
             arrParameter[4, 1] = oTransferNote.TransferValue;
@@ -36,7 +36,7 @@ namespace BusinessLogic
             arrParameter[6, 0] = "@mflddtItemList";
             arrParameter[6, 1] = oTransferNote.dtTransferNote;
 
-            return cDBConnection.Insert("SP_INSERT_TRANSFER_NOTE", arrParameter);
+            return cDBConnection.Insert("sp_insert_Transfer_Note", arrParameter);
         }
         #endregion
 

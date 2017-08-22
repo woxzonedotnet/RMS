@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmTransferNote));
             this.btnClose = new System.Windows.Forms.Button();
             this.lblDate = new System.Windows.Forms.Label();
@@ -48,7 +48,7 @@
             this.lblLocationFrom = new System.Windows.Forms.Label();
             this.lblIssuesNumber = new System.Windows.Forms.Label();
             this.btnSave = new System.Windows.Forms.Button();
-            this.dgvItem = new System.Windows.Forms.DataGridView();
+            this.dgvItemData = new System.Windows.Forms.DataGridView();
             this.clmItemCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmUnit = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -62,8 +62,8 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.cmbLocationFrom = new RMS.ColumnComboBox();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvItem)).BeginInit();
+            this.cmbLocation = new RMS.ColumnComboBox();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvItemData)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errIssue)).BeginInit();
             this.panel3.SuspendLayout();
             this.SuspendLayout();
@@ -108,6 +108,7 @@
             this.btnClear.TabIndex = 93;
             this.btnClear.Text = "Clear";
             this.btnClear.UseVisualStyleBackColor = false;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
             // btnPrint
             // 
@@ -171,6 +172,7 @@
             this.btnSearch.Size = new System.Drawing.Size(35, 31);
             this.btnSearch.TabIndex = 60;
             this.btnSearch.UseVisualStyleBackColor = false;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // lblLocationFrom
             // 
@@ -208,26 +210,28 @@
             this.btnSave.UseVisualStyleBackColor = false;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
-            // dgvItem
+            // dgvItemData
             // 
-            this.dgvItem.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvItem.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvItemData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvItemData.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.clmItemCode,
             this.clmDescription,
             this.clmUnit,
             this.clmCostPrice,
             this.clmQuantity,
             this.clmValue});
-            this.dgvItem.Location = new System.Drawing.Point(8, 166);
-            this.dgvItem.Name = "dgvItem";
-            this.dgvItem.Size = new System.Drawing.Size(640, 243);
-            this.dgvItem.TabIndex = 0;
+            this.dgvItemData.Location = new System.Drawing.Point(8, 166);
+            this.dgvItemData.Name = "dgvItemData";
+            this.dgvItemData.Size = new System.Drawing.Size(640, 243);
+            this.dgvItemData.TabIndex = 0;
+            this.dgvItemData.CellValidated += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvItemData_CellValidated);
+            this.dgvItemData.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dgvItemData_KeyDown);
             // 
             // clmItemCode
             // 
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.clmItemCode.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.clmItemCode.DefaultCellStyle = dataGridViewCellStyle1;
             this.clmItemCode.HeaderText = "Item Code";
             this.clmItemCode.Name = "clmItemCode";
             this.clmItemCode.ReadOnly = true;
@@ -235,8 +239,8 @@
             // 
             // clmDescription
             // 
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.clmDescription.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.clmDescription.DefaultCellStyle = dataGridViewCellStyle2;
             this.clmDescription.HeaderText = "Description";
             this.clmDescription.Name = "clmDescription";
             this.clmDescription.ReadOnly = true;
@@ -244,10 +248,10 @@
             // 
             // clmUnit
             // 
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle9.Format = "N2";
-            dataGridViewCellStyle9.NullValue = "0.00";
-            this.clmUnit.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.Format = "N2";
+            dataGridViewCellStyle3.NullValue = "0.00";
+            this.clmUnit.DefaultCellStyle = dataGridViewCellStyle3;
             this.clmUnit.HeaderText = "Unit";
             this.clmUnit.Name = "clmUnit";
             this.clmUnit.ReadOnly = true;
@@ -255,31 +259,31 @@
             // 
             // clmCostPrice
             // 
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle10.Format = "###,###.00";
-            dataGridViewCellStyle10.NullValue = "0.00";
-            this.clmCostPrice.DefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle4.Format = "###,###.00";
+            dataGridViewCellStyle4.NullValue = "0.00";
+            this.clmCostPrice.DefaultCellStyle = dataGridViewCellStyle4;
             this.clmCostPrice.HeaderText = "Cost Price";
             this.clmCostPrice.Name = "clmCostPrice";
             this.clmCostPrice.ReadOnly = true;
             // 
             // clmQuantity
             // 
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            dataGridViewCellStyle11.Format = "N2";
-            dataGridViewCellStyle11.NullValue = "0.00";
-            this.clmQuantity.DefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle5.Format = "N2";
+            dataGridViewCellStyle5.NullValue = "0.00";
+            this.clmQuantity.DefaultCellStyle = dataGridViewCellStyle5;
             this.clmQuantity.HeaderText = "Quantity";
             this.clmQuantity.Name = "clmQuantity";
             this.clmQuantity.Width = 50;
             // 
             // clmValue
             // 
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle12.Format = "###,###.00";
-            dataGridViewCellStyle12.NullValue = "0.00";
-            this.clmValue.DefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle6.Format = "###,###.00";
+            dataGridViewCellStyle6.NullValue = "0.00";
+            this.clmValue.DefaultCellStyle = dataGridViewCellStyle6;
             this.clmValue.HeaderText = "Value";
             this.clmValue.Name = "clmValue";
             this.clmValue.ReadOnly = true;
@@ -355,18 +359,18 @@
             this.panel2.Size = new System.Drawing.Size(667, 10);
             this.panel2.TabIndex = 98;
             // 
-            // cmbLocationFrom
+            // cmbLocation
             // 
-            this.cmbLocationFrom.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.cmbLocationFrom.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.cmbLocationFrom.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
-            this.cmbLocationFrom.DropDownWidth = 17;
-            this.cmbLocationFrom.FormattingEnabled = true;
-            this.cmbLocationFrom.Location = new System.Drawing.Point(120, 99);
-            this.cmbLocationFrom.Name = "cmbLocationFrom";
-            this.cmbLocationFrom.Size = new System.Drawing.Size(188, 21);
-            this.cmbLocationFrom.TabIndex = 62;
-            this.cmbLocationFrom.ViewColumn = 0;
+            this.cmbLocation.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.cmbLocation.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cmbLocation.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.cmbLocation.DropDownWidth = 17;
+            this.cmbLocation.FormattingEnabled = true;
+            this.cmbLocation.Location = new System.Drawing.Point(120, 99);
+            this.cmbLocation.Name = "cmbLocation";
+            this.cmbLocation.Size = new System.Drawing.Size(188, 21);
+            this.cmbLocation.TabIndex = 62;
+            this.cmbLocation.ViewColumn = 0;
             // 
             // frmTransferNote
             // 
@@ -381,12 +385,12 @@
             this.Controls.Add(this.txtTotal);
             this.Controls.Add(this.lblTotal);
             this.Controls.Add(this.lblDate);
-            this.Controls.Add(this.dgvItem);
+            this.Controls.Add(this.dgvItemData);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.btnClear);
             this.Controls.Add(this.dtpDate);
             this.Controls.Add(this.btnPrint);
-            this.Controls.Add(this.cmbLocationFrom);
+            this.Controls.Add(this.cmbLocation);
             this.Controls.Add(this.lblLocationFrom);
             this.Controls.Add(this.txtTransferNumber);
             this.Controls.Add(this.btnSave);
@@ -396,7 +400,8 @@
             this.Name = "frmTransferNote";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Transfer Note";
-            ((System.ComponentModel.ISupportInitialize)(this.dgvItem)).EndInit();
+            this.Load += new System.EventHandler(this.frmTransferNote_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvItemData)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errIssue)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
@@ -414,13 +419,13 @@
         private System.Windows.Forms.TextBox txtTotal;
         private System.Windows.Forms.Label lblTotal;
         private System.Windows.Forms.DateTimePicker dtpDate;
-        private ColumnComboBox cmbLocationFrom;
+        private ColumnComboBox cmbLocation;
         private System.Windows.Forms.TextBox txtTransferNumber;
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.Label lblLocationFrom;
         private System.Windows.Forms.Label lblIssuesNumber;
         private System.Windows.Forms.Button btnSave;
-        private System.Windows.Forms.DataGridView dgvItem;
+        private System.Windows.Forms.DataGridView dgvItemData;
         private System.Windows.Forms.ErrorProvider errIssue;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label lblTitle;
