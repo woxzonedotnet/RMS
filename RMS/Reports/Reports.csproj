@@ -85,6 +85,12 @@
       <DesignTime>True</DesignTime>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="rptGoodsRecieveNoteCancelReport.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptGoodsRecieveNoteCancelReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="rptGRNListingReport.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -163,6 +169,10 @@
     <EmbeddedResource Include="rptGoodRecieveNote.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>rptGoodRecieveNote.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rptGoodsRecieveNoteCancelReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptGoodsRecieveNoteCancelReport.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="rptGRNListingReport.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
