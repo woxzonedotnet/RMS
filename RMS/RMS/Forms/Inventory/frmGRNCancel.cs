@@ -135,7 +135,7 @@ namespace RMS.Forms.Inventory
             cmbLocation.SetText(cSubLocation.GetSubLocationData(cGlobleVariable.LocationCode, oGoodReceiveNote.SubLocationCode).SubLocationName);
             cmbSupplier.SetText(cSupplierMaster.GetSupplierData(cGlobleVariable.LocationCode, oGoodReceiveNote.SupplierCode).SupplierName);
 
-            dtpDate.Value = oGoodReceiveNote.Date;
+            //dtpDate.Value = oGoodReceiveNote.Date;
             txtInvoiceNo.Text = oGoodReceiveNote.InvoiceNo;
             txtGrossTotal.Text = oGoodReceiveNote.GRNValue.ToString("###,###.00");
 
@@ -169,6 +169,7 @@ namespace RMS.Forms.Inventory
             }
 
             this.btnPrint.Enabled = false;
+            this.dtpDate.Enabled = true;
         }
         #endregion
 
@@ -226,6 +227,9 @@ namespace RMS.Forms.Inventory
         {
             oGoodReceiveNote.GRNCode = this.txtGRNNo.Text;
             oGoodReceiveNote.GRNCancelCode = this.txtGRNCancelNo.Text;
+            oGoodReceiveNote.Date = this.dtpDate.Value;
+            oGoodReceiveNote.User = cGlobleVariable.User;
+            oGoodReceiveNote.Reason = "";
 
             oGoodReceiveNote.dtItemList = DataGridToDataTable(dgvItemData, oGoodReceiveNote.GRNCode);
 
