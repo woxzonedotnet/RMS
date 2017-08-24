@@ -892,5 +892,63 @@ namespace RMS.Forms
                 MessageBox.Show(ex.Message);
             }
         }
+
+        private void ffToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Security.frmUser open = Application.OpenForms["frmUser"] as Security.frmUser;
+                if (open == null)
+                {
+                    Security.frmUser childUser = new Security.frmUser();
+                    childUser.MdiParent = this;
+                    childUser.Show();
+                }
+                else
+                {
+                    if (open.WindowState == FormWindowState.Minimized)
+                    {
+                        open.WindowState = FormWindowState.Normal;
+                    }
+                    else
+                    {
+                        open.Activate();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void userRolesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Security.frmUserLevel open = Application.OpenForms["frmUserLevel"] as Security.frmUserLevel;
+                if (open == null)
+                {
+                    Security.frmUserLevel childUserLevel = new Security.frmUserLevel();
+                    childUserLevel.MdiParent = this;
+                    childUserLevel.Show();
+                }
+                else
+                {
+                    if (open.WindowState == FormWindowState.Minimized)
+                    {
+                        open.WindowState = FormWindowState.Normal;
+                    }
+                    else
+                    {
+                        open.Activate();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
     }
 }

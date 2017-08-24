@@ -71,10 +71,11 @@
             this.pOListingReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.issueNoteListingReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.userToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ffToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.frmUserToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.btnExit = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnMinimize = new System.Windows.Forms.Button();
+            this.userRolesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStripMain.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -438,18 +439,20 @@
             // userToolStripMenuItem
             // 
             this.userToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.ffToolStripMenuItem});
+            this.frmUserToolStripMenuItem,
+            this.userRolesToolStripMenuItem});
             this.userToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(146)))), ((int)(((byte)(150)))), ((int)(((byte)(153)))));
             this.userToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(54)))), ((int)(((byte)(61)))));
             this.userToolStripMenuItem.Name = "userToolStripMenuItem";
             this.userToolStripMenuItem.Size = new System.Drawing.Size(42, 31);
             this.userToolStripMenuItem.Text = "User";
             // 
-            // ffToolStripMenuItem
+            // frmUserToolStripMenuItem
             // 
-            this.ffToolStripMenuItem.Name = "ffToolStripMenuItem";
-            this.ffToolStripMenuItem.Size = new System.Drawing.Size(82, 22);
-            this.ffToolStripMenuItem.Text = "ff";
+            this.frmUserToolStripMenuItem.Name = "frmUserToolStripMenuItem";
+            this.frmUserToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.frmUserToolStripMenuItem.Text = "User Master";
+            this.frmUserToolStripMenuItem.Click += new System.EventHandler(this.ffToolStripMenuItem_Click);
             // 
             // btnExit
             // 
@@ -497,6 +500,13 @@
             this.btnMinimize.Text = "_";
             this.btnMinimize.UseVisualStyleBackColor = false;
             this.btnMinimize.Click += new System.EventHandler(this.btnMinimize_Click);
+            // 
+            // userRolesToolStripMenuItem
+            // 
+            this.userRolesToolStripMenuItem.Name = "userRolesToolStripMenuItem";
+            this.userRolesToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.userRolesToolStripMenuItem.Text = "User Roles";
+            this.userRolesToolStripMenuItem.Click += new System.EventHandler(this.userRolesToolStripMenuItem_Click);
             // 
             // frmMain
             // 
@@ -551,7 +561,7 @@
         private System.Windows.Forms.ToolStripMenuItem aaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ssToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ddToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem ffToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem frmUserToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem bankToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem goodsReciveNoteGRNToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem supplierReturnNoteSRNToolStripMenuItem;
@@ -567,5 +577,6 @@
         private System.Windows.Forms.ToolStripMenuItem gRNListToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem pOListingReportToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem issueNoteListingReportToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem userRolesToolStripMenuItem;
     }
 }
