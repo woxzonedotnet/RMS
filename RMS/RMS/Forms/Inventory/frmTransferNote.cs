@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using BusinessLogic;
 using BusinessObject;
+using Reports;
 
 
 namespace RMS.Forms.Inventory
@@ -24,6 +25,8 @@ namespace RMS.Forms.Inventory
         clsTransferNote cTransferNote = new clsTransferNote();
         clsItemMaster cItemMaster = new clsItemMaster();
         objItemMaster oItemMaster = new objItemMaster();
+        objReportMaster oReportMaster = new objReportMaster();
+        clsReportMaster cReportMaster = new clsReportMaster();
         #endregion
 
         #region Variables
@@ -391,5 +394,71 @@ namespace RMS.Forms.Inventory
             this.dtpDate.Enabled = result;
             
         }
+
+        private void btnPrint_Click(object sender, EventArgs e)
+        {
+            ReportViewer(15);
+        }
+
+        private void ReportViewer(int strReportID)
+        {
+            System.Object[,] arrParameter;
+            oReportMaster = cReportMaster.GetReports(strReportID);
+
+            arrParameter = new Object[(3), 2];
+
+            arrParameter[0, 0] = "strCopyRight";
+            arrParameter[0, 1] = cGlobleVariable.CopyRight;
+            arrParameter[1, 0] = "strReportTitle";
+            arrParameter[1, 1] = oReportMaster.ReportTitle;
+            arrParameter[2, 0] = "strFromLocation";
+            arrParameter[2, 1] = this.cmbLocation["fldSubLocationName"];
+           
+
+            frmReportViewer frmReportViever = new frmReportViewer(strReportID, cGlobleVariable.LocationCode, SelectionFormularValues(strReportID), arrParameter);
+            frmReportViever.Show();
+        }
+
+          private string SelectionFormularValues(int iReportID)
+        {
+            string srtFormular = string.Empty;
+
+            if (oReportMaster.SelectedTable.ToString() != string.Empty)
+            {
+                srtFormular += "{" + oReportMaster.SelectedTable + ".fldTransferNumber}='" + this.txtTransferNumber.Text + "'"; // +"' AND {tbl_daily_in_out_details.fldAttendanceDate}=#" + Convert.ToDateTime(dFromDate).ToString("yyyy-MM-dd") + "# TO #" + Convert.ToDateTime(dToDate).ToString("yyyy-MM-dd") + "# ";
+            }
+
+            if (oReportMaster.SelectionFormular.ToString() != string.Empty)
+            {
+                srtFormular += " AND " + oReportMaster.SelectionFormular + " OR ";
+            }
+            else
+            {
+                srtFormular += " OR ";
+            }
+
+            if (srtFormular != string.Empty)
+            {
+                if (srtFormular.Substring(srtFormular.Length - 3, 2) == "OR")
+                {
+                    int n = srtFormular.LastIndexOf("OR");
+
+                    srtFormular = srtFormular.Substring(0, n - 1);
+                }
+            }
+
+            if (srtFormular != string.Empty)
+            {
+                if (srtFormular.Substring(srtFormular.Length - 3, 3) == "AND")
+                {
+                    int n = srtFormular.LastIndexOf("AND");
+
+                    srtFormular = srtFormular.Substring(0, n - 1);
+                }
+            }
+            return srtFormular;
+        }
+       
+
     }
 }
