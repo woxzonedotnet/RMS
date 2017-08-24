@@ -98,7 +98,7 @@
             // 
             // txtInvoiceNo
             // 
-            this.txtInvoiceNo.Location = new System.Drawing.Point(122, 201);
+            this.txtInvoiceNo.Location = new System.Drawing.Point(122, 166);
             this.txtInvoiceNo.Name = "txtInvoiceNo";
             this.txtInvoiceNo.ReadOnly = true;
             this.txtInvoiceNo.Size = new System.Drawing.Size(177, 20);
@@ -108,7 +108,7 @@
             // 
             this.lblInvoiceNo.AutoSize = true;
             this.lblInvoiceNo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
-            this.lblInvoiceNo.Location = new System.Drawing.Point(15, 202);
+            this.lblInvoiceNo.Location = new System.Drawing.Point(15, 167);
             this.lblInvoiceNo.Name = "lblInvoiceNo";
             this.lblInvoiceNo.Size = new System.Drawing.Size(72, 16);
             this.lblInvoiceNo.TabIndex = 67;
@@ -159,7 +159,7 @@
             this.dtpDate.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
             this.dtpDate.Enabled = false;
             this.dtpDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpDate.Location = new System.Drawing.Point(122, 165);
+            this.dtpDate.Location = new System.Drawing.Point(122, 202);
             this.dtpDate.Name = "dtpDate";
             this.dtpDate.Size = new System.Drawing.Size(177, 20);
             this.dtpDate.TabIndex = 66;
@@ -168,7 +168,7 @@
             // 
             this.lblDate.AutoSize = true;
             this.lblDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
-            this.lblDate.Location = new System.Drawing.Point(15, 169);
+            this.lblDate.Location = new System.Drawing.Point(15, 206);
             this.lblDate.Name = "lblDate";
             this.lblDate.Size = new System.Drawing.Size(37, 16);
             this.lblDate.TabIndex = 65;

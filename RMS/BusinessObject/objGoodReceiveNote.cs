@@ -23,6 +23,8 @@ namespace BusinessObject
         public string POCode { get; set; }
         public string GRNCancelCode { get; set; }
         public bool IsGRNCancel { get; set; }
+        public string User { get; set; }
+        public string Reason { get; set; }
         public DataTable dtItemList { get; set; }
         public int Status { get; set; }
         public bool IsExists { get; set; }
