@@ -111,7 +111,7 @@
             // logoutToolStripMenuItem
             // 
             this.logoutToolStripMenuItem.Name = "logoutToolStripMenuItem";
-            this.logoutToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
+            this.logoutToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.logoutToolStripMenuItem.Text = "Logout";
             // 
             // masterDataToolStripMenuItem
@@ -334,6 +334,7 @@
             // 
             // gRNCancelToolStripMenuItem
             // 
+            this.gRNCancelToolStripMenuItem.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.gRNCancelToolStripMenuItem.Name = "gRNCancelToolStripMenuItem";
             this.gRNCancelToolStripMenuItem.Size = new System.Drawing.Size(217, 22);
             this.gRNCancelToolStripMenuItem.Text = "GRN Cancel";
@@ -341,6 +342,7 @@
             // 
             // issuToolStripMenuItem
             // 
+            this.issuToolStripMenuItem.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.issuToolStripMenuItem.Name = "issuToolStripMenuItem";
             this.issuToolStripMenuItem.Size = new System.Drawing.Size(217, 22);
             this.issuToolStripMenuItem.Text = "Transfer Note";
