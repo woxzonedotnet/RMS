@@ -30,7 +30,7 @@ namespace RMS
         private void btnLogin_Click(object sender, EventArgs e)
         {
             this.Hide();
-            RMS.Forms.frmMain Main = new Forms.frmMain();
+            RMS.Forms.frmMain Main = new Forms.frmMain("");
             Main.Visible = true;
         }
 
