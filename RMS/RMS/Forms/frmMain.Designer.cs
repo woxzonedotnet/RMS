@@ -75,6 +75,7 @@
             this.btnExit = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnMinimize = new System.Windows.Forms.Button();
+            this.recipeDetailsReportToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStripMain.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -364,7 +365,7 @@
             // ssToolStripMenuItem
             // 
             this.ssToolStripMenuItem.Name = "ssToolStripMenuItem";
-            this.ssToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.ssToolStripMenuItem.Size = new System.Drawing.Size(84, 22);
             this.ssToolStripMenuItem.Text = "ss";
             // 
             // reportsToolStripMenuItem
@@ -373,7 +374,8 @@
             this.ddToolStripMenuItem,
             this.gRNListToolStripMenuItem,
             this.pOListingReportToolStripMenuItem,
-            this.issueNoteListingReportToolStripMenuItem});
+            this.issueNoteListingReportToolStripMenuItem,
+            this.recipeDetailsReportToolStripMenuItem1});
             this.reportsToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(146)))), ((int)(((byte)(150)))), ((int)(((byte)(153)))));
             this.reportsToolStripMenuItem.Name = "reportsToolStripMenuItem";
             this.reportsToolStripMenuItem.Size = new System.Drawing.Size(59, 31);
@@ -498,6 +500,13 @@
             this.btnMinimize.UseVisualStyleBackColor = false;
             this.btnMinimize.Click += new System.EventHandler(this.btnMinimize_Click);
             // 
+            // recipeDetailsReportToolStripMenuItem1
+            // 
+            this.recipeDetailsReportToolStripMenuItem1.Name = "recipeDetailsReportToolStripMenuItem1";
+            this.recipeDetailsReportToolStripMenuItem1.Size = new System.Drawing.Size(205, 22);
+            this.recipeDetailsReportToolStripMenuItem1.Text = "Recipe Details Report";
+            this.recipeDetailsReportToolStripMenuItem1.Click += new System.EventHandler(this.recipeDetailsReportToolStripMenuItem1_Click);
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -567,5 +576,6 @@
         private System.Windows.Forms.ToolStripMenuItem gRNListToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem pOListingReportToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem issueNoteListingReportToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem recipeDetailsReportToolStripMenuItem1;
     }
 }

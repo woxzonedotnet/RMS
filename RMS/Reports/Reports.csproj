@@ -79,6 +79,30 @@
       <DependentUpon>rptfrmItemMasterDetailsReports3.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="rptfrmRecipeDetailsRepot4.cs">
+      <DependentUpon>rptfrmRecipeDetailsRepot4.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="rptfrmRecipeDetailsRepot3.cs">
+      <DependentUpon>rptfrmRecipeDetailsRepot3.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="rptfrmRecipeDetailsRepot2.cs">
+      <DependentUpon>rptfrmRecipeDetailsRepot2.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="rptfrmRecipeDetailsRepot1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptfrmRecipeDetailsRepot1.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="rptGoodRecieveNote.cs">
       <DependentUpon>rptGoodRecieveNote.rpt</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -171,6 +195,22 @@
     <EmbeddedResource Include="rptfrmItemMasterDetailsReports3.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>rptfrmItemMasterDetailsReports3.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rptfrmRecipeDetailsRepot4.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptfrmRecipeDetailsRepot4.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rptfrmRecipeDetailsRepot3.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptfrmRecipeDetailsRepot3.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rptfrmRecipeDetailsRepot2.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptfrmRecipeDetailsRepot2.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rptfrmRecipeDetailsRepot1.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptfrmRecipeDetailsRepot1.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="rptGoodRecieveNote.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>

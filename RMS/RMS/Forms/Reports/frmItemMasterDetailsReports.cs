@@ -51,35 +51,35 @@ namespace RMS.Forms.Reports
         private void button1_Click(object sender, EventArgs e)
         {
             if (this.chkDepartment.Checked == false && this.cmbDepartment.SelectedIndex <= -1 && this.chkDepartment.Checked == false && this.cmbCategory.SelectedIndex <= -1)
-            {
-                MessageBox.Show("Please check the fields...!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
+                {
+                    MessageBox.Show("Please check the fields...!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
 
             else
             {
                 if (cmbDepartment.SelectedIndex > -1 && cmbCategory.SelectedIndex > -1)
-                {
-                    ReportViewer(6);
-                }
+                    {
+                        ReportViewer(6);
+                    }
                 else if (cmbDepartment.SelectedIndex > -1 && chkCategory.Checked)
-                {
-                ReportViewer(7);
-            }
+                    {
+                         ReportViewer(7);
+                    }
                 else if (chkDepartment.Checked && cmbCategory.SelectedIndex > -1)
-            {
-                    ReportViewer(8);
-                }
+                    {
+                        ReportViewer(8);
+                    }
                 else if (chkDepartment.Checked && chkCategory.Checked)
-                {
-                    ReportViewer(9);
-                }
+                    {
+                        ReportViewer(9);
+                    }
 
                 else 
-                {
-                    MessageBox.Show("Please check the fields...!", "Attention", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            }
+                    {
+                        MessageBox.Show("Please check the fields...!", "Attention", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    }
 
-        }
+             }
         }
 
 

@@ -57,11 +57,11 @@
             this.btnClose = new System.Windows.Forms.Button();
             this.btnClear = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
-            this.btnSearch = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.errRecipe = new System.Windows.Forms.ErrorProvider(this.components);
+            this.btnSearch = new System.Windows.Forms.Button();
             this.cmbLocation = new RMS.ColumnComboBox();
             this.cmbOrderType = new RMS.ColumnComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvItemDetails)).BeginInit();
@@ -310,22 +310,6 @@
             this.btnSave.UseVisualStyleBackColor = false;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
-            // btnSearch
-            // 
-            this.btnSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(41)))), ((int)(((byte)(46)))));
-            this.btnSearch.FlatAppearance.BorderSize = 0;
-            this.btnSearch.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Maroon;
-            this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSearch.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnSearch.Image = global::RMS.Properties.Resources.search25;
-            this.btnSearch.Location = new System.Drawing.Point(270, 42);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(35, 31);
-            this.btnSearch.TabIndex = 70;
-            this.btnSearch.UseVisualStyleBackColor = false;
-            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
-            // 
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(41)))), ((int)(((byte)(46)))));
@@ -353,6 +337,22 @@
             // errRecipe
             // 
             this.errRecipe.ContainerControl = this;
+            // 
+            // btnSearch
+            // 
+            this.btnSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(41)))), ((int)(((byte)(46)))));
+            this.btnSearch.FlatAppearance.BorderSize = 0;
+            this.btnSearch.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Maroon;
+            this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSearch.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnSearch.Image = global::RMS.Properties.Resources.search25;
+            this.btnSearch.Location = new System.Drawing.Point(270, 42);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(35, 31);
+            this.btnSearch.TabIndex = 70;
+            this.btnSearch.UseVisualStyleBackColor = false;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // cmbLocation
             // 
@@ -405,6 +405,7 @@
             this.Name = "frmRecipeDetails";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Recipe Details";
+            this.Load += new System.EventHandler(this.frmRecipeDetails_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvItemDetails)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
