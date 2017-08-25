@@ -255,6 +255,12 @@
     <Compile Include="Forms\Reports\frmPOListingReport.Designer.cs">
       <DependentUpon>frmPOListingReport.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Reports\frmRecipeDetailsRepot.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Reports\frmRecipeDetailsRepot.Designer.cs">
+      <DependentUpon>frmRecipeDetailsRepot.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Reports\frmSupplierDetailReport.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -379,6 +385,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Reports\frmPOListingReport.resx">
       <DependentUpon>frmPOListingReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Reports\frmRecipeDetailsRepot.resx">
+      <DependentUpon>frmRecipeDetailsRepot.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Reports\frmSupplierDetailReport.resx">
       <DependentUpon>frmSupplierDetailReport.cs</DependentUpon>

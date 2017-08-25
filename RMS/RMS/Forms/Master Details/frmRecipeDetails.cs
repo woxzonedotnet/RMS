@@ -362,5 +362,10 @@ namespace RMS.Forms
         }
         #endregion
 
+        private void frmRecipeDetails_Load(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }
