@@ -979,5 +979,47 @@ namespace RMS.Forms
                 MessageBox.Show(ex.Message);
             }
         }
+
+        private void recipeDetailsRepotToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            //frmRecipeDetailsRepot
+           
+        }
+
+        private void supplierDetailReportToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //frmSupplierDetailReport
+           
+        }
+
+        private void recipeDetailsReportToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Reports.frmRecipeDetailsRepot open = Application.OpenForms["frmRecipeDetailsRepot"] as Reports.frmRecipeDetailsRepot;
+                if (open == null)
+                {
+                    Reports.frmRecipeDetailsRepot childPOListingReport = new Reports.frmRecipeDetailsRepot();
+                    childPOListingReport.MdiParent = this;
+                    childPOListingReport.Show();
+                }
+                else
+                {
+                    if (open.WindowState == FormWindowState.Minimized)
+                    {
+                        open.WindowState = FormWindowState.Normal;
+                    }
+                    else
+                    {
+                        open.Activate();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
     }
 }
