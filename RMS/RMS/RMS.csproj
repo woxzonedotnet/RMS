@@ -267,6 +267,18 @@
     <Compile Include="Forms\Reports\frmSupplierDetailReport.Designer.cs">
       <DependentUpon>frmSupplierDetailReport.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Security\frmUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Security\frmUser.Designer.cs">
+      <DependentUpon>frmUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Security\frmUserLevel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Security\frmUserLevel.Designer.cs">
+      <DependentUpon>frmUserLevel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
@@ -379,6 +391,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Reports\frmSupplierDetailReport.resx">
       <DependentUpon>frmSupplierDetailReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Security\frmUser.resx">
+      <DependentUpon>frmUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Security\frmUserLevel.resx">
+      <DependentUpon>frmUserLevel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
