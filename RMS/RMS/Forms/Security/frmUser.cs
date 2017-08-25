@@ -7,11 +7,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BusinessObject;
+using BusinessLogic;
 
 namespace RMS.Forms.Security
 {
     public partial class frmUser : Form
     {
+        #region Objects
+        clsGlobleVariable cGlobleVariable = new clsGlobleVariable();
+        clsCommonMethods cCommonMethods = new clsCommonMethods();
+        clsStatusMaster cStatusMaster = new clsStatusMaster();
+        clsUserLevel cUserLevel = new clsUserLevel();
+        #endregion
+
         #region Variables
         Point lastClick;
         #endregion
@@ -33,7 +42,8 @@ namespace RMS.Forms.Security
 
         private void frmUser_Load(object sender, EventArgs e)
         {
-
+            cCommonMethods.loadComboRMS(cStatusMaster.GetStatusDetails(), cmbActiveState, 1);
+            cCommonMethods.loadComboRMS(cUserLevel.GetUserLevelData(), cmbUserLevel, 2);
         }
 
         #region Form Move

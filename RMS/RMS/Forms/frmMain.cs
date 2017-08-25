@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BusinessObject;
+using BusinessLogic;
 
 namespace RMS.Forms
 {
@@ -14,12 +16,45 @@ namespace RMS.Forms
     {
         #region Object
         clsCommonMethods cCommonMethods = new clsCommonMethods();
+        clsUserLevel cUserLevel = new clsUserLevel();
         #endregion
 
         #region Variables
         MdiClient ctlMDI;
         #endregion
 
+        public frmMain(String userLevel)
+        {
+            InitializeComponent();
+            menuStripMain.Renderer = new MyRenderer();
+            this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
+            foreach (Control ctl in this.Controls)
+            {
+                try
+                {
+                    ctlMDI = (MdiClient)ctl;
+                    ctlMDI.BackColor = this.BackColor;
+                }
+                catch (InvalidCastException exc)
+                {
+                    //MessageBox.Show(exc.Message);
+                }
+            }
+            cCommonMethods.UniqID();
+
+            DataTable dt = cUserLevel.GetUserLevelData("ULLOC01170008");
+
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                var m = menuStripMain.Items.Find(dt.Rows[i]["fldControlName"].ToString(), true);
+                var o = m.ToList();
+                foreach (var p in o)
+                {
+                    p.Enabled = false;
+                }
+            }
+
+        }
         public frmMain()
         {
             InitializeComponent();

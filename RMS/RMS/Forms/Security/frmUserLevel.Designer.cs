@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmUserLevel));
             this.panel3 = new System.Windows.Forms.Panel();
             this.lblTitle = new System.Windows.Forms.Label();
@@ -39,7 +40,6 @@
             this.lblUserLevelCode = new System.Windows.Forms.Label();
             this.txtUserLevel = new System.Windows.Forms.TextBox();
             this.lblUserLevel = new System.Windows.Forms.Label();
-            this.cmbActiveState = new RMS.ColumnComboBox();
             this.lblActiveState = new System.Windows.Forms.Label();
             this.btnClose = new System.Windows.Forms.Button();
             this.btnClear = new System.Windows.Forms.Button();
@@ -47,12 +47,16 @@
             this.btnSave = new System.Windows.Forms.Button();
             this.btnSearch = new System.Windows.Forms.Button();
             this.dgvRoleList = new System.Windows.Forms.DataGridView();
-            this.clmUserRole = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmRoleState = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.btnSelectAll = new System.Windows.Forms.Button();
             this.btnClearAll = new System.Windows.Forms.Button();
+            this.clmUserRole = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmControlName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmRoleState = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.errUL = new System.Windows.Forms.ErrorProvider(this.components);
+            this.cmbActiveState = new RMS.ColumnComboBox();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRoleList)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errUL)).BeginInit();
             this.SuspendLayout();
             // 
             // panel3
@@ -126,6 +130,7 @@
             // 
             this.txtUserLevelCode.Location = new System.Drawing.Point(126, 57);
             this.txtUserLevelCode.Name = "txtUserLevelCode";
+            this.txtUserLevelCode.ReadOnly = true;
             this.txtUserLevelCode.Size = new System.Drawing.Size(152, 20);
             this.txtUserLevelCode.TabIndex = 76;
             // 
@@ -155,19 +160,6 @@
             this.lblUserLevel.Size = new System.Drawing.Size(73, 16);
             this.lblUserLevel.TabIndex = 77;
             this.lblUserLevel.Text = "User Level";
-            // 
-            // cmbActiveState
-            // 
-            this.cmbActiveState.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.cmbActiveState.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.cmbActiveState.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
-            this.cmbActiveState.DropDownWidth = 17;
-            this.cmbActiveState.FormattingEnabled = true;
-            this.cmbActiveState.Location = new System.Drawing.Point(333, 407);
-            this.cmbActiveState.Name = "cmbActiveState";
-            this.cmbActiveState.Size = new System.Drawing.Size(135, 21);
-            this.cmbActiveState.TabIndex = 80;
-            this.cmbActiveState.ViewColumn = 0;
             // 
             // lblActiveState
             // 
@@ -209,6 +201,7 @@
             this.btnClear.TabIndex = 83;
             this.btnClear.Text = "Clear";
             this.btnClear.UseVisualStyleBackColor = false;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
             // btnUpdate
             // 
@@ -224,6 +217,7 @@
             this.btnUpdate.TabIndex = 82;
             this.btnUpdate.Text = "Update";
             this.btnUpdate.UseVisualStyleBackColor = false;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // btnSave
             // 
@@ -239,6 +233,7 @@
             this.btnSave.TabIndex = 81;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = false;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // btnSearch
             // 
@@ -254,31 +249,19 @@
             this.btnSearch.Size = new System.Drawing.Size(35, 31);
             this.btnSearch.TabIndex = 75;
             this.btnSearch.UseVisualStyleBackColor = false;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // dgvRoleList
             // 
             this.dgvRoleList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvRoleList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.clmUserRole,
+            this.clmControlName,
             this.clmRoleState});
             this.dgvRoleList.Location = new System.Drawing.Point(16, 130);
             this.dgvRoleList.Name = "dgvRoleList";
             this.dgvRoleList.Size = new System.Drawing.Size(452, 264);
             this.dgvRoleList.TabIndex = 85;
-            // 
-            // clmUserRole
-            // 
-            this.clmUserRole.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.clmUserRole.HeaderText = "User Role";
-            this.clmUserRole.Name = "clmUserRole";
-            // 
-            // clmRoleState
-            // 
-            this.clmRoleState.HeaderText = "State";
-            this.clmRoleState.Name = "clmRoleState";
-            this.clmRoleState.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.clmRoleState.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.clmRoleState.Width = 80;
             // 
             // btnSelectAll
             // 
@@ -294,6 +277,7 @@
             this.btnSelectAll.TabIndex = 86;
             this.btnSelectAll.Text = "Select All";
             this.btnSelectAll.UseVisualStyleBackColor = false;
+            this.btnSelectAll.Click += new System.EventHandler(this.btnSelectAll_Click);
             // 
             // btnClearAll
             // 
@@ -309,6 +293,44 @@
             this.btnClearAll.TabIndex = 87;
             this.btnClearAll.Text = "Clear All";
             this.btnClearAll.UseVisualStyleBackColor = false;
+            this.btnClearAll.Click += new System.EventHandler(this.btnClearAll_Click);
+            // 
+            // clmUserRole
+            // 
+            this.clmUserRole.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.clmUserRole.HeaderText = "User Role";
+            this.clmUserRole.Name = "clmUserRole";
+            // 
+            // clmControlName
+            // 
+            this.clmControlName.HeaderText = "Control Name";
+            this.clmControlName.Name = "clmControlName";
+            this.clmControlName.Visible = false;
+            // 
+            // clmRoleState
+            // 
+            this.clmRoleState.HeaderText = "State";
+            this.clmRoleState.Name = "clmRoleState";
+            this.clmRoleState.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.clmRoleState.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.clmRoleState.Width = 80;
+            // 
+            // errUL
+            // 
+            this.errUL.ContainerControl = this;
+            // 
+            // cmbActiveState
+            // 
+            this.cmbActiveState.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.cmbActiveState.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cmbActiveState.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.cmbActiveState.DropDownWidth = 17;
+            this.cmbActiveState.FormattingEnabled = true;
+            this.cmbActiveState.Location = new System.Drawing.Point(333, 407);
+            this.cmbActiveState.Name = "cmbActiveState";
+            this.cmbActiveState.Size = new System.Drawing.Size(135, 21);
+            this.cmbActiveState.TabIndex = 80;
+            this.cmbActiveState.ViewColumn = 0;
             // 
             // frmUserLevel
             // 
@@ -341,6 +363,7 @@
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRoleList)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errUL)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -366,9 +389,11 @@
         private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.DataGridView dgvRoleList;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clmUserRole;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn clmRoleState;
         private System.Windows.Forms.Button btnSelectAll;
         private System.Windows.Forms.Button btnClearAll;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmUserRole;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmControlName;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn clmRoleState;
+        private System.Windows.Forms.ErrorProvider errUL;
     }
 }
