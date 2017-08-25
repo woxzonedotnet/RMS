@@ -96,16 +96,17 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(22, 129);
+            this.button1.Location = new System.Drawing.Point(16, 129);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 6;
             this.button1.Text = "Preview";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(103, 129);
+            this.button2.Location = new System.Drawing.Point(108, 129);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 7;
@@ -143,6 +144,7 @@
             this.button3.TabIndex = 10;
             this.button3.Text = "Search";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // chkAll
             // 
@@ -153,6 +155,7 @@
             this.chkAll.TabIndex = 11;
             this.chkAll.Text = "All";
             this.chkAll.UseVisualStyleBackColor = true;
+            this.chkAll.CheckedChanged += new System.EventHandler(this.chkAll_CheckedChanged);
             // 
             // groupBox1
             // 
@@ -168,7 +171,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(323, 173);
+            this.ClientSize = new System.Drawing.Size(323, 175);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.chkAll);
             this.Controls.Add(this.button3);

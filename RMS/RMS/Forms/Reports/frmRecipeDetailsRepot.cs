@@ -1,4 +1,7 @@
-﻿using System;
+﻿using BusinessLogic;
+using BusinessObject;
+using Reports;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,110 +10,87 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using BusinessObject;
-using BusinessLogic;
-using Reports;
 
 namespace RMS.Forms.Reports
 {
-    public partial class frmGRNListingReport : Form
+    public partial class frmRecipeDetailsRepot : Form
     {
-        #region Object
+
+        #region Objects
         clsCommonMethods cCommonMethods = new clsCommonMethods();
-        objSupplierMaster oSupplierMaster = new objSupplierMaster();
-        clsSupplierMaster cSupplierMaster = new clsSupplierMaster();
+        clsSubLocation cSubLocation = new clsSubLocation();
         clsGlobleVariable cGlobleVariable = new clsGlobleVariable();
+        clsOrderType cOrderType = new clsOrderType();
         objReportMaster oReportMaster = new objReportMaster();
         clsReportMaster cReportMaster = new clsReportMaster();
         #endregion
 
-        #region Variables
-        public string suppliercode;
-        #endregion
-        public frmGRNListingReport()
+
+        public frmRecipeDetailsRepot()
         {
             InitializeComponent();
         }
 
-        private void radioButton2_CheckedChanged(object sender, EventArgs e)
+        private void frmRecipeDetailsRepot_Load(object sender, EventArgs e)
         {
-
+            cCommonMethods.loadComboRMS(cSubLocation.GetSubLocationData(cGlobleVariable.LocationCode), cmbLocation, 2);
+            cCommonMethods.loadComboRMS(cOrderType.GetOrderType(cGlobleVariable.LocationCode), cmbOrderType, 2);
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void chkOrderType_CheckedChanged(object sender, EventArgs e)
         {
-            LoadSearch();
-        }
-
-        public void LoadSearch()
-        {
-            string[] strFieldList = new string[3];
-            strFieldList[0] = "fldSupplierCode";
-            strFieldList[1] = "fldSupplierName";
-            strFieldList[2] = "fldContactPerson";
-
-            string[] strHeaderList = new string[3];
-            strHeaderList[0] = "Supplier Code";
-            strHeaderList[1] = "Supplier Name";
-            strHeaderList[2] = "Contact Person";
-
-            int[] iHeaderWidth = new int[3];
-            iHeaderWidth[0] = 150;
-            iHeaderWidth[1] = 320;
-            iHeaderWidth[2] = 150;
-
-            string strReturnString = "Supplier Code";
-            string strWhere = "fldLocationCode= '" + cGlobleVariable.LocationCode + "'";
-            txtSupplier.Text = cCommonMethods.BrowsData("tbl_SupplierMaster", strFieldList, strHeaderList, iHeaderWidth, strReturnString, strWhere, "Supplier Master");
-            if (txtSupplier.Text != "")
+            if (this.chkOrderType.Checked)
             {
-                LoadSupplierCategoryDetails();
-            }
-        }
+                cmbOrderType.Enabled = false;
 
-        #region Load Supplier Details
-        private void LoadSupplierCategoryDetails()
-        {
-            oSupplierMaster = cSupplierMaster.GetSupplierData(cGlobleVariable.LocationCode, this.txtSupplier.Text);
 
-            txtSupplier.Text = oSupplierMaster.SupplierName;
-            suppliercode = oSupplierMaster.SupplierCode;
-
-           
-        }
-        #endregion
-
-        private void chkAll_CheckedChanged(object sender, EventArgs e)
-        {
-            if (chkAll.Checked == true)
-            {
-                txtSupplier.Enabled = false;
-                txtSupplier.Clear();
             }
             else
             {
-                txtSupplier.Enabled = true;
+                cmbOrderType.Enabled = true;
+            }
+        }
+
+        private void chkLocation_CheckedChanged(object sender, EventArgs e)
+        {
+            if (this.chkLocation.Checked)
+            {
+                cmbLocation.Enabled = false;
+
+
+            }
+            else
+            {
+                cmbLocation.Enabled = true;
             }
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (this.chkAll.Checked == false && this.txtSupplier.Equals(null))
+            if (this.chkOrderType.Checked == false && this.cmbOrderType.SelectedIndex <= -1 && this.chkLocation.Checked == false && this.cmbLocation.SelectedIndex <= -1)
             {
                 MessageBox.Show("Please check the fields...!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
 
             else
             {
-                if (chkAll.Checked == false )
+                if (cmbOrderType.SelectedIndex > -1 && cmbLocation.SelectedIndex > -1)
                 {
-                    ReportViewer(21);
+                    ReportViewer(16);
                 }
-                else if (chkAll.Checked == true) 
+                else if (cmbOrderType.SelectedIndex > -1 && chkLocation.Checked)
                 {
-                    ReportViewer(22);
+                    ReportViewer(17);
                 }
-                
+                else if (chkOrderType.Checked && cmbLocation.SelectedIndex > -1)
+                {
+                    ReportViewer(18);
+                }
+                else if (chkOrderType.Checked && chkLocation.Checked)
+                {
+                    ReportViewer(19);
+                }
+
                 else
                 {
                     MessageBox.Show("Please check the fields...!", "Attention", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
@@ -127,23 +107,7 @@ namespace RMS.Forms.Reports
             System.Object[,] arrParameter;
             oReportMaster = cReportMaster.GetReports(strReportID);
 
-            if (strReportID == 21)
-            {
-                arrParameter = new Object[(5), 2];
-
-                arrParameter[0, 0] = "strCopyRight";
-                arrParameter[0, 1] = cGlobleVariable.CopyRight;
-                arrParameter[1, 0] = "strReportTitle";
-                arrParameter[1, 1] = oReportMaster.ReportTitle;
-                arrParameter[2, 0] = "strFrom";
-                arrParameter[2, 1] = dtpDateFrom.Value.Date.ToString("yyyy-MM-dd");
-                arrParameter[3, 0] = "strto";
-                arrParameter[3, 1] = dtpDateTo.Value.Date.ToString("yyyy-MM-dd");
-                arrParameter[4, 0] = "strsupplier";
-                arrParameter[4, 1] = txtSupplier.Text;
-
-            }
-            else if (strReportID == 22)
+            if (strReportID == 16)
             {
                 arrParameter = new Object[(4), 2];
 
@@ -151,11 +115,36 @@ namespace RMS.Forms.Reports
                 arrParameter[0, 1] = cGlobleVariable.CopyRight;
                 arrParameter[1, 0] = "strReportTitle";
                 arrParameter[1, 1] = oReportMaster.ReportTitle;
-                arrParameter[2, 0] = "strFrom";
-                arrParameter[2, 1] = dtpDateFrom.Value.Date.ToString("yyyy-MM-dd");
-                arrParameter[3, 0] = "strto";
-                arrParameter[3, 1] = dtpDateTo.Value.Date.ToString("yyyy-MM-dd");
+                arrParameter[2, 0] = "strOrderType";
+                arrParameter[2, 1] = cmbOrderType["fldOrderTypeCode"].ToString();
+                arrParameter[3, 0] = "strLocation";
+                arrParameter[3, 1] = cmbLocation["fldSubLocationCode"].ToString();
 
+            }
+
+            else if (strReportID == 17)
+            {
+                arrParameter = new Object[(3), 2];
+
+                arrParameter[0, 0] = "strCopyRight";
+                arrParameter[0, 1] = cGlobleVariable.CopyRight;
+                arrParameter[1, 0] = "strReportTitle";
+                arrParameter[1, 1] = oReportMaster.ReportTitle;
+                arrParameter[2, 0] = "strOrderType";
+                arrParameter[2, 1] = cmbOrderType["fldOrderTypeCode"].ToString();
+
+            }
+            else if (strReportID == 18)
+            {
+                arrParameter = new Object[(3), 2];
+
+                arrParameter[0, 0] = "strCopyRight";
+                arrParameter[0, 1] = cGlobleVariable.CopyRight;
+                arrParameter[1, 0] = "strReportTitle";
+                arrParameter[1, 1] = oReportMaster.ReportTitle;
+                arrParameter[2, 0] = "strLocation";
+                arrParameter[2, 1] = cmbLocation["fldSubLocationCode"].ToString();
+                
             }
             else
             {
@@ -175,25 +164,34 @@ namespace RMS.Forms.Reports
 
         }
 
+
         #region SelectionFormularValues
         private string SelectionFormularValues(int iReportID)
         {
             string srtFormular = string.Empty;
 
-            if (iReportID == 20)
+            if (iReportID == 16)
             {
                 if (oReportMaster.SelectedTable.ToString() != string.Empty)
                 {
-                    srtFormular += "{" + oReportMaster.SelectedTable + ".fldDate}='" + this.dtpDateFrom.Value.Date.ToString("yyyy-MM-dd") + "' and {" + oReportMaster.SelectedTable + ".fldDate}='" + this.dtpDateTo.Value.Date.ToString("yyyy-MM-dd") + "'and {" + oReportMaster.SelectedTable + ".fldSupplierCode}='" + suppliercode + "' "; // +"' AND {tbl_daily_in_out_details.fldAttendanceDate}=#" + Convert.ToDateTime(dFromDate).ToString("yyyy-MM-dd") + "# TO #" + Convert.ToDateTime(dToDate).ToString("yyyy-MM-dd") + "# ";
+                    srtFormular += "{" + oReportMaster.SelectedTable + ".fldSubLocationCode}='" + this.cmbLocation["fldSubLocationCode"].ToString() + "' and {" + oReportMaster.SelectedTable + ".fldOrderTypeCode}='" + this.cmbOrderType["fldOrderTypeCode"].ToString() + "'"; // +"' AND {tbl_daily_in_out_details.fldAttendanceDate}=#" + Convert.ToDateTime(dFromDate).ToString("yyyy-MM-dd") + "# TO #" + Convert.ToDateTime(dToDate).ToString("yyyy-MM-dd") + "# ";
                 }
             }
-            else if (iReportID == 22)
+            else if (iReportID == 17)
             {
                 if (oReportMaster.SelectedTable.ToString() != string.Empty)
                 {
-                    srtFormular += "{" + oReportMaster.SelectedTable + ".fldDate}='" + this.dtpDateFrom.Value.Date.ToString("yyyy-MM-dd") + "' and {" + oReportMaster.SelectedTable + ".fldDate}='" + this.dtpDateTo.Value.Date.ToString("yyyy-MM-dd") + "'"; // +"' AND {tbl_daily_in_out_details.fldAttendanceDate}=#" + Convert.ToDateTime(dFromDate).ToString("yyyy-MM-dd") + "# TO #" + Convert.ToDateTime(dToDate).ToString("yyyy-MM-dd") + "# ";
+                    srtFormular += "{" + oReportMaster.SelectedTable + ".fldOrderTypeCode}='" + this.cmbOrderType["fldOrderTypeCode"].ToString() + "'"; // +"' AND {tbl_daily_in_out_details.fldAttendanceDate}=#" + Convert.ToDateTime(dFromDate).ToString("yyyy-MM-dd") + "# TO #" + Convert.ToDateTime(dToDate).ToString("yyyy-MM-dd") + "# ";
                 }
             }
+            else if (iReportID == 18)
+            {
+                if (oReportMaster.SelectedTable.ToString() != string.Empty)
+                {
+                    srtFormular += "{" + oReportMaster.SelectedTable + ".fldSubLocationCode}='" + this.cmbLocation["fldSubLocationCode"].ToString() + "'"; // +"' AND {tbl_daily_in_out_details.fldAttendanceDate}=#" + Convert.ToDateTime(dFromDate).ToString("yyyy-MM-dd") + "# TO #" + Convert.ToDateTime(dToDate).ToString("yyyy-MM-dd") + "# ";
+                }
+            }
+
 
             //else 
             //{
@@ -234,6 +232,15 @@ namespace RMS.Forms.Reports
             return srtFormular;
         }
         #endregion
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+
+
+     
 
 
     }

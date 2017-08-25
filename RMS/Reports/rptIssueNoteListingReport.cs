@@ -16,14 +16,14 @@ namespace Reports {
     using CrystalDecisions.CrystalReports.Engine;
     
     
-    public class rptfrmItemMasterDetailsReports1 : ReportClass {
+    public class rptIssueNoteListingReport : ReportClass {
         
-        public rptfrmItemMasterDetailsReports1() {
+        public rptIssueNoteListingReport() {
         }
         
         public override string ResourceName {
             get {
-                return "rptfrmItemMasterDetailsReports1.rpt";
+                return "rptIssueNoteListingReport.rpt";
             }
             set {
                 // Do nothing
@@ -41,7 +41,7 @@ namespace Reports {
         
         public override string FullResourceName {
             get {
-                return "Reports.rptfrmItemMasterDetailsReports1.rpt";
+                return "Reports.rptIssueNoteListingReport.rpt";
             }
             set {
                 // Do nothing
@@ -66,7 +66,7 @@ namespace Reports {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.CrystalReports.Engine.Section GroupHeaderSection1 {
+        public CrystalDecisions.CrystalReports.Engine.Section Section3 {
             get {
                 return this.ReportDefinition.Sections[2];
             }
@@ -74,7 +74,7 @@ namespace Reports {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.CrystalReports.Engine.Section Section3 {
+        public CrystalDecisions.CrystalReports.Engine.Section Section4 {
             get {
                 return this.ReportDefinition.Sections[3];
             }
@@ -82,25 +82,9 @@ namespace Reports {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.CrystalReports.Engine.Section GroupFooterSection1 {
-            get {
-                return this.ReportDefinition.Sections[4];
-            }
-        }
-        
-        [Browsable(false)]
-        [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.CrystalReports.Engine.Section Section4 {
-            get {
-                return this.ReportDefinition.Sections[5];
-            }
-        }
-        
-        [Browsable(false)]
-        [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
         public CrystalDecisions.CrystalReports.Engine.Section Section5 {
             get {
-                return this.ReportDefinition.Sections[6];
+                return this.ReportDefinition.Sections[4];
             }
         }
         
@@ -122,7 +106,7 @@ namespace Reports {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.Shared.IParameterField Parameter_strCategory {
+        public CrystalDecisions.Shared.IParameterField Parameter_strFrom {
             get {
                 return this.DataDefinition.ParameterFields[2];
             }
@@ -130,7 +114,7 @@ namespace Reports {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.Shared.IParameterField Parameter_strDepartment {
+        public CrystalDecisions.Shared.IParameterField Parameter_strto {
             get {
                 return this.DataDefinition.ParameterFields[3];
             }
@@ -138,9 +122,9 @@ namespace Reports {
     }
     
     [System.Drawing.ToolboxBitmapAttribute(typeof(CrystalDecisions.Shared.ExportOptions), "report.bmp")]
-    public class CachedrptfrmItemMasterDetailsReports1 : Component, ICachedReport {
+    public class CachedrptIssueNoteListingReport : Component, ICachedReport {
         
-        public CachedrptfrmItemMasterDetailsReports1() {
+        public CachedrptIssueNoteListingReport() {
         }
         
         [Browsable(false)]
@@ -177,7 +161,7 @@ namespace Reports {
         }
         
         public virtual CrystalDecisions.CrystalReports.Engine.ReportDocument CreateReport() {
-            rptfrmItemMasterDetailsReports1 rpt = new rptfrmItemMasterDetailsReports1();
+            rptIssueNoteListingReport rpt = new rptIssueNoteListingReport();
             rpt.Site = this.Site;
             return rpt;
         }

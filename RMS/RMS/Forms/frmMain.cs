@@ -1021,5 +1021,64 @@ namespace RMS.Forms
                 MessageBox.Show(ex.Message);
             }
         }
+
+        private void issueNoteListingReportToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Reports.frmIssueNoteListing open = Application.OpenForms["frmIssueNoteListing"] as Reports.frmIssueNoteListing;
+                if (open == null)
+                {
+                    Reports.frmIssueNoteListing childPOListingReport = new Reports.frmIssueNoteListing();
+                    childPOListingReport.MdiParent = this;
+                    childPOListingReport.Show();
+                }
+                else
+                {
+                    if (open.WindowState == FormWindowState.Minimized)
+                    {
+                        open.WindowState = FormWindowState.Normal;
+                    }
+                    else
+                    {
+                        open.Activate();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+        }
+
+        private void gRNListToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Reports.frmGRNListingReport open = Application.OpenForms["frmGRNListingReport"] as Reports.frmGRNListingReport;
+                if (open == null)
+                {
+                    Reports.frmGRNListingReport childPOListingReport = new Reports.frmGRNListingReport();
+                    childPOListingReport.MdiParent = this;
+                    childPOListingReport.Show();
+                }
+                else
+                {
+                    if (open.WindowState == FormWindowState.Minimized)
+                    {
+                        open.WindowState = FormWindowState.Normal;
+                    }
+                    else
+                    {
+                        open.Activate();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }//frmIssueNoteListing
     }
 }
