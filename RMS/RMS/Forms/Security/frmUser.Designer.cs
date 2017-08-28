@@ -132,9 +132,11 @@
             // 
             // txtPassword
             // 
+            this.txtPassword.Font = new System.Drawing.Font("Arial Black", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPassword.Location = new System.Drawing.Point(152, 125);
             this.txtPassword.Name = "txtPassword";
-            this.txtPassword.Size = new System.Drawing.Size(193, 20);
+            this.txtPassword.PasswordChar = '•';
+            this.txtPassword.Size = new System.Drawing.Size(193, 23);
             this.txtPassword.TabIndex = 90;
             // 
             // lblPassword
@@ -149,9 +151,11 @@
             // 
             // txtConfirmPassword
             // 
+            this.txtConfirmPassword.Font = new System.Drawing.Font("Arial Black", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtConfirmPassword.Location = new System.Drawing.Point(152, 161);
             this.txtConfirmPassword.Name = "txtConfirmPassword";
-            this.txtConfirmPassword.Size = new System.Drawing.Size(193, 20);
+            this.txtConfirmPassword.PasswordChar = '•';
+            this.txtConfirmPassword.Size = new System.Drawing.Size(193, 23);
             this.txtConfirmPassword.TabIndex = 92;
             this.txtConfirmPassword.Validated += new System.EventHandler(this.txtConfirmPassword_Validated);
             // 

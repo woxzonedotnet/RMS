@@ -268,10 +268,22 @@ namespace RMS.Forms.Security
             if (!oUserLevel.Changeable)
             {
                 cmbActiveState.Enabled = false;
+                if (txtUserLevel.Text.Equals("Woxzone Admin"))
+                {
+                    dgvRoleList.ReadOnly = true;
+                    btnClearAll.Enabled = false;
+                    btnSelectAll.Enabled = false;
+                    txtUserLevel.Enabled = false;
+
+                }
             }
             else
             {
                 cmbActiveState.Enabled = true;
+                dgvRoleList.ReadOnly = false;
+                btnClearAll.Enabled = true;
+                btnSelectAll.Enabled = true;
+                txtUserLevel.Enabled = true;
             }
             LoadDataGrid();
                 for (int i = 0; i < oUserLevel.dtItemList.Rows.Count; i++)
