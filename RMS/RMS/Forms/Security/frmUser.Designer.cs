@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmUser));
             this.lblUserLevel = new System.Windows.Forms.Label();
             this.txtUserName = new System.Windows.Forms.TextBox();
@@ -50,16 +51,20 @@
             this.btnUpdate = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.panel6 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.errU = new System.Windows.Forms.ErrorProvider(this.components);
+            this.cmbLocation = new RMS.ColumnComboBox();
             this.cmbActiveState = new RMS.ColumnComboBox();
             this.cmbUserLevel = new RMS.ColumnComboBox();
             this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errU)).BeginInit();
             this.SuspendLayout();
             // 
             // lblUserLevel
             // 
             this.lblUserLevel.AutoSize = true;
             this.lblUserLevel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
-            this.lblUserLevel.Location = new System.Drawing.Point(26, 198);
+            this.lblUserLevel.Location = new System.Drawing.Point(26, 233);
             this.lblUserLevel.Name = "lblUserLevel";
             this.lblUserLevel.Size = new System.Drawing.Size(73, 16);
             this.lblUserLevel.TabIndex = 86;
@@ -148,6 +153,7 @@
             this.txtConfirmPassword.Name = "txtConfirmPassword";
             this.txtConfirmPassword.Size = new System.Drawing.Size(193, 20);
             this.txtConfirmPassword.TabIndex = 92;
+            this.txtConfirmPassword.Validated += new System.EventHandler(this.txtConfirmPassword_Validated);
             // 
             // lblConfirmPassword
             // 
@@ -163,7 +169,7 @@
             // 
             this.lblActiveState.AutoSize = true;
             this.lblActiveState.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
-            this.lblActiveState.Location = new System.Drawing.Point(26, 235);
+            this.lblActiveState.Location = new System.Drawing.Point(26, 270);
             this.lblActiveState.Name = "lblActiveState";
             this.lblActiveState.Size = new System.Drawing.Size(85, 16);
             this.lblActiveState.TabIndex = 93;
@@ -171,6 +177,7 @@
             // 
             // txtUserCode
             // 
+            this.txtUserCode.Enabled = false;
             this.txtUserCode.Location = new System.Drawing.Point(152, 51);
             this.txtUserCode.Name = "txtUserCode";
             this.txtUserCode.Size = new System.Drawing.Size(152, 20);
@@ -190,6 +197,7 @@
             this.btnSearch.Size = new System.Drawing.Size(35, 31);
             this.btnSearch.TabIndex = 96;
             this.btnSearch.UseVisualStyleBackColor = false;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // lblUserCode
             // 
@@ -225,7 +233,7 @@
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
             this.btnClose.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnClose.Location = new System.Drawing.Point(270, 273);
+            this.btnClose.Location = new System.Drawing.Point(270, 310);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(75, 36);
             this.btnClose.TabIndex = 103;
@@ -241,12 +249,13 @@
             this.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
             this.btnClear.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnClear.Location = new System.Drawing.Point(189, 273);
+            this.btnClear.Location = new System.Drawing.Point(189, 310);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(75, 36);
             this.btnClear.TabIndex = 102;
             this.btnClear.Text = "Clear";
             this.btnClear.UseVisualStyleBackColor = false;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
             // btnUpdate
             // 
@@ -256,12 +265,13 @@
             this.btnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
             this.btnUpdate.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnUpdate.Location = new System.Drawing.Point(108, 273);
+            this.btnUpdate.Location = new System.Drawing.Point(108, 310);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(75, 36);
             this.btnUpdate.TabIndex = 101;
             this.btnUpdate.Text = "Update";
             this.btnUpdate.UseVisualStyleBackColor = false;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // btnSave
             // 
@@ -271,20 +281,48 @@
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
             this.btnSave.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnSave.Location = new System.Drawing.Point(27, 273);
+            this.btnSave.Location = new System.Drawing.Point(27, 310);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 36);
             this.btnSave.TabIndex = 100;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = false;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // panel6
             // 
             this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(41)))), ((int)(((byte)(46)))));
-            this.panel6.Location = new System.Drawing.Point(-291, 328);
+            this.panel6.Location = new System.Drawing.Point(-291, 363);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(696, 10);
             this.panel6.TabIndex = 104;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
+            this.label1.Location = new System.Drawing.Point(26, 197);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(59, 16);
+            this.label1.TabIndex = 105;
+            this.label1.Text = "Location";
+            // 
+            // errU
+            // 
+            this.errU.ContainerControl = this;
+            // 
+            // cmbLocation
+            // 
+            this.cmbLocation.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.cmbLocation.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cmbLocation.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.cmbLocation.DropDownWidth = 17;
+            this.cmbLocation.FormattingEnabled = true;
+            this.cmbLocation.Location = new System.Drawing.Point(152, 196);
+            this.cmbLocation.Name = "cmbLocation";
+            this.cmbLocation.Size = new System.Drawing.Size(193, 21);
+            this.cmbLocation.TabIndex = 106;
+            this.cmbLocation.ViewColumn = 0;
             // 
             // cmbActiveState
             // 
@@ -293,7 +331,7 @@
             this.cmbActiveState.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
             this.cmbActiveState.DropDownWidth = 17;
             this.cmbActiveState.FormattingEnabled = true;
-            this.cmbActiveState.Location = new System.Drawing.Point(152, 234);
+            this.cmbActiveState.Location = new System.Drawing.Point(152, 269);
             this.cmbActiveState.Name = "cmbActiveState";
             this.cmbActiveState.Size = new System.Drawing.Size(193, 21);
             this.cmbActiveState.TabIndex = 94;
@@ -306,7 +344,7 @@
             this.cmbUserLevel.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
             this.cmbUserLevel.DropDownWidth = 17;
             this.cmbUserLevel.FormattingEnabled = true;
-            this.cmbUserLevel.Location = new System.Drawing.Point(152, 197);
+            this.cmbUserLevel.Location = new System.Drawing.Point(152, 232);
             this.cmbUserLevel.Name = "cmbUserLevel";
             this.cmbUserLevel.Size = new System.Drawing.Size(193, 21);
             this.cmbUserLevel.TabIndex = 87;
@@ -316,7 +354,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(373, 329);
+            this.ClientSize = new System.Drawing.Size(373, 364);
+            this.Controls.Add(this.cmbLocation);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.panel6);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.btnClear);
@@ -345,6 +385,7 @@
             this.Load += new System.EventHandler(this.frmUser_Load);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errU)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -375,5 +416,8 @@
         private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Panel panel6;
+        private ColumnComboBox cmbLocation;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ErrorProvider errU;
     }
 }

@@ -74,6 +74,7 @@
     <Compile Include="clsIssueNote.cs" />
     <Compile Include="clsTransferNote.cs" />
     <Compile Include="clsUserLevel.cs" />
+    <Compile Include="clsUserMaster.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
