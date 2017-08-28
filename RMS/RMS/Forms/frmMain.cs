@@ -42,7 +42,7 @@ namespace RMS.Forms
             }
             cCommonMethods.UniqID();
 
-            DataTable dt = cUserLevel.GetUserLevelData("ULLOC01170008");
+            DataTable dt = cUserLevel.GetUserLevelData(userLevel);
 
             for (int i = 0; i < dt.Rows.Count; i++)
             {
@@ -50,7 +50,7 @@ namespace RMS.Forms
                 var o = m.ToList();
                 foreach (var p in o)
                 {
-                    p.Enabled = false;
+                    p.Enabled = true;
                 }
             }
 
@@ -602,7 +602,9 @@ namespace RMS.Forms
         
         private void btnExit_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            this.Hide();
+            frmLogin login = new frmLogin();
+            login.Show();
         }
         private void btnMinimize_Click(object sender, EventArgs e)
         {
@@ -1114,6 +1116,18 @@ namespace RMS.Forms
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void logoutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            frmLogin login = new frmLogin();
+            login.Show();
+        }
+
+        private void frmMain_Load(object sender, EventArgs e)
+        {
+
         }//frmIssueNoteListing
     }
 }

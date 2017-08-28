@@ -85,5 +85,37 @@ namespace BusinessLogic
             return cDBConnection.Insert("sp_insert_update_UserMaster", arrParameter);
         }
         #endregion
+
+        #region Login
+        public objUserMaster GetUserData(string strLocationCode, string strUserName,string strPassword)
+        {
+            string strWhere1 = "fldUserName='" + strUserName + "' AND fldPassword='"+ strPassword +"' AND fldLocationCode='" + strLocationCode + "' AND fldStatus='1'";
+            //string strWhere2 = "fldUserCode='" + strUserCode + "'";
+
+            DataTable dtUDetails = cDBConnection.SearchData("tbl_UserMaster", strWhere1);
+
+            if (dtUDetails.Rows.Count > 0)
+            {
+
+                oUserMaster.LocationCode = dtUDetails.Rows[0]["fldLocationCode"].ToString();
+                oUserMaster.UserCode = dtUDetails.Rows[0]["fldUserCode"].ToString();
+                oUserMaster.UserName = dtUDetails.Rows[0]["fldUserName"].ToString();
+                oUserMaster.Password = dtUDetails.Rows[0]["fldPassword"].ToString();
+                oUserMaster.UserLevel = dtUDetails.Rows[0]["fldUserLevelCode"].ToString();
+                oUserMaster.Status = Convert.ToInt16(dtUDetails.Rows[0]["fldStatus"]);
+                oUserMaster.Changeable = Convert.ToBoolean(dtUDetails.Rows[0]["fldChangeable"]);
+
+
+                oUserMaster.IsExists = true;
+            }
+            else
+            {
+                oUserMaster.IsExists = false;
+            }
+
+
+            return oUserMaster;
+        }
+        #endregion
     }
 }

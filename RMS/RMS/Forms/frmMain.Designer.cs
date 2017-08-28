@@ -113,6 +113,7 @@
             this.logoutToolStripMenuItem.Name = "logoutToolStripMenuItem";
             this.logoutToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
             this.logoutToolStripMenuItem.Text = "Logout";
+            this.logoutToolStripMenuItem.Click += new System.EventHandler(this.logoutToolStripMenuItem_Click);
             // 
             // masterDataToolStripMenuItem
             // 
@@ -143,6 +144,7 @@
             // supplierCategoryToolStripMenuItem
             // 
             this.supplierCategoryToolStripMenuItem.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.supplierCategoryToolStripMenuItem.Enabled = false;
             this.supplierCategoryToolStripMenuItem.Name = "supplierCategoryToolStripMenuItem";
             this.supplierCategoryToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F1;
             this.supplierCategoryToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
@@ -152,6 +154,7 @@
             // supplierDetailsToolStripMenuItem
             // 
             this.supplierDetailsToolStripMenuItem.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.supplierDetailsToolStripMenuItem.Enabled = false;
             this.supplierDetailsToolStripMenuItem.Name = "supplierDetailsToolStripMenuItem";
             this.supplierDetailsToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
             this.supplierDetailsToolStripMenuItem.Text = "Supplier Details";
@@ -160,6 +163,7 @@
             // departmentDetailsToolStripMenuItem
             // 
             this.departmentDetailsToolStripMenuItem.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.departmentDetailsToolStripMenuItem.Enabled = false;
             this.departmentDetailsToolStripMenuItem.Name = "departmentDetailsToolStripMenuItem";
             this.departmentDetailsToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
             this.departmentDetailsToolStripMenuItem.Text = "Department Details";
@@ -168,6 +172,7 @@
             // categoryDetailsToolStripMenuItem
             // 
             this.categoryDetailsToolStripMenuItem.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.categoryDetailsToolStripMenuItem.Enabled = false;
             this.categoryDetailsToolStripMenuItem.Name = "categoryDetailsToolStripMenuItem";
             this.categoryDetailsToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
             this.categoryDetailsToolStripMenuItem.Text = "Category Details";
@@ -176,6 +181,7 @@
             // locationDetailsToolStripMenuItem
             // 
             this.locationDetailsToolStripMenuItem.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.locationDetailsToolStripMenuItem.Enabled = false;
             this.locationDetailsToolStripMenuItem.Name = "locationDetailsToolStripMenuItem";
             this.locationDetailsToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
             this.locationDetailsToolStripMenuItem.Text = "Location Details";
@@ -184,6 +190,7 @@
             // itemDetailsToolStripMenuItem
             // 
             this.itemDetailsToolStripMenuItem.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.itemDetailsToolStripMenuItem.Enabled = false;
             this.itemDetailsToolStripMenuItem.Name = "itemDetailsToolStripMenuItem";
             this.itemDetailsToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
             this.itemDetailsToolStripMenuItem.Text = "Item Details";
@@ -192,6 +199,7 @@
             // addStewardToolStripMenuItem
             // 
             this.addStewardToolStripMenuItem.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.addStewardToolStripMenuItem.Enabled = false;
             this.addStewardToolStripMenuItem.Name = "addStewardToolStripMenuItem";
             this.addStewardToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
             this.addStewardToolStripMenuItem.Text = "Add Steward";
@@ -200,6 +208,7 @@
             // customerDetailsToolStripMenuItem
             // 
             this.customerDetailsToolStripMenuItem.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.customerDetailsToolStripMenuItem.Enabled = false;
             this.customerDetailsToolStripMenuItem.Name = "customerDetailsToolStripMenuItem";
             this.customerDetailsToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
             this.customerDetailsToolStripMenuItem.Text = "Customer Details";
@@ -208,6 +217,7 @@
             // menuDepartmentToolStripMenuItem
             // 
             this.menuDepartmentToolStripMenuItem.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.menuDepartmentToolStripMenuItem.Enabled = false;
             this.menuDepartmentToolStripMenuItem.Name = "menuDepartmentToolStripMenuItem";
             this.menuDepartmentToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
             this.menuDepartmentToolStripMenuItem.Text = "Menu Department";
@@ -216,6 +226,7 @@
             // menuCategoryDetailsToolStripMenuItem
             // 
             this.menuCategoryDetailsToolStripMenuItem.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.menuCategoryDetailsToolStripMenuItem.Enabled = false;
             this.menuCategoryDetailsToolStripMenuItem.Name = "menuCategoryDetailsToolStripMenuItem";
             this.menuCategoryDetailsToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
             this.menuCategoryDetailsToolStripMenuItem.Text = "Menu Category Details";
@@ -224,6 +235,7 @@
             // recipeDetailsToolStripMenuItem
             // 
             this.recipeDetailsToolStripMenuItem.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.recipeDetailsToolStripMenuItem.Enabled = false;
             this.recipeDetailsToolStripMenuItem.Name = "recipeDetailsToolStripMenuItem";
             this.recipeDetailsToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
             this.recipeDetailsToolStripMenuItem.Text = "Recipe Details";
@@ -231,6 +243,7 @@
             // 
             // menuDetailsToolStripMenuItem
             // 
+            this.menuDetailsToolStripMenuItem.Enabled = false;
             this.menuDetailsToolStripMenuItem.Name = "menuDetailsToolStripMenuItem";
             this.menuDetailsToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
             this.menuDetailsToolStripMenuItem.Text = "Menu Details";
@@ -239,6 +252,7 @@
             // tableCategoryDetailsToolStripMenuItem
             // 
             this.tableCategoryDetailsToolStripMenuItem.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.tableCategoryDetailsToolStripMenuItem.Enabled = false;
             this.tableCategoryDetailsToolStripMenuItem.Name = "tableCategoryDetailsToolStripMenuItem";
             this.tableCategoryDetailsToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
             this.tableCategoryDetailsToolStripMenuItem.Text = "Table Category Details";
@@ -247,6 +261,7 @@
             // tableDetailsToolStripMenuItem
             // 
             this.tableDetailsToolStripMenuItem.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.tableDetailsToolStripMenuItem.Enabled = false;
             this.tableDetailsToolStripMenuItem.Name = "tableDetailsToolStripMenuItem";
             this.tableDetailsToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
             this.tableDetailsToolStripMenuItem.Text = "Table Details";
@@ -255,6 +270,7 @@
             // bankToolStripMenuItem
             // 
             this.bankToolStripMenuItem.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.bankToolStripMenuItem.Enabled = false;
             this.bankToolStripMenuItem.Name = "bankToolStripMenuItem";
             this.bankToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
             this.bankToolStripMenuItem.Text = "Bank Details";
@@ -263,6 +279,7 @@
             // bankCardsToolStripMenuItem
             // 
             this.bankCardsToolStripMenuItem.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.bankCardsToolStripMenuItem.Enabled = false;
             this.bankCardsToolStripMenuItem.Name = "bankCardsToolStripMenuItem";
             this.bankCardsToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
             this.bankCardsToolStripMenuItem.Text = "Bank Cards";
@@ -271,6 +288,7 @@
             // setupSettingsToolStripMenuItem
             // 
             this.setupSettingsToolStripMenuItem.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.setupSettingsToolStripMenuItem.Enabled = false;
             this.setupSettingsToolStripMenuItem.Name = "setupSettingsToolStripMenuItem";
             this.setupSettingsToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
             this.setupSettingsToolStripMenuItem.Text = "Setup Settings";
@@ -295,6 +313,7 @@
             // aaToolStripMenuItem
             // 
             this.aaToolStripMenuItem.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.aaToolStripMenuItem.Enabled = false;
             this.aaToolStripMenuItem.Name = "aaToolStripMenuItem";
             this.aaToolStripMenuItem.Size = new System.Drawing.Size(217, 22);
             this.aaToolStripMenuItem.Text = "Purchase Order (PO)";
@@ -303,6 +322,7 @@
             // goodsReciveNoteGRNToolStripMenuItem
             // 
             this.goodsReciveNoteGRNToolStripMenuItem.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.goodsReciveNoteGRNToolStripMenuItem.Enabled = false;
             this.goodsReciveNoteGRNToolStripMenuItem.Name = "goodsReciveNoteGRNToolStripMenuItem";
             this.goodsReciveNoteGRNToolStripMenuItem.Size = new System.Drawing.Size(217, 22);
             this.goodsReciveNoteGRNToolStripMenuItem.Text = "Goods Receive Note (GRN)";
@@ -311,6 +331,7 @@
             // supplierReturnNoteSRNToolStripMenuItem
             // 
             this.supplierReturnNoteSRNToolStripMenuItem.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.supplierReturnNoteSRNToolStripMenuItem.Enabled = false;
             this.supplierReturnNoteSRNToolStripMenuItem.Name = "supplierReturnNoteSRNToolStripMenuItem";
             this.supplierReturnNoteSRNToolStripMenuItem.Size = new System.Drawing.Size(217, 22);
             this.supplierReturnNoteSRNToolStripMenuItem.Text = "Supplier Return Note (SRN)";
@@ -319,6 +340,7 @@
             // transferNoteToolStripMenuItem
             // 
             this.transferNoteToolStripMenuItem.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.transferNoteToolStripMenuItem.Enabled = false;
             this.transferNoteToolStripMenuItem.Name = "transferNoteToolStripMenuItem";
             this.transferNoteToolStripMenuItem.Size = new System.Drawing.Size(217, 22);
             this.transferNoteToolStripMenuItem.Text = "Issue Note";
@@ -327,6 +349,7 @@
             // stockAjestmentToolStripMenuItem
             // 
             this.stockAjestmentToolStripMenuItem.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.stockAjestmentToolStripMenuItem.Enabled = false;
             this.stockAjestmentToolStripMenuItem.Name = "stockAjestmentToolStripMenuItem";
             this.stockAjestmentToolStripMenuItem.Size = new System.Drawing.Size(217, 22);
             this.stockAjestmentToolStripMenuItem.Text = "Stock Ajustment Note";
@@ -335,6 +358,7 @@
             // gRNCancelToolStripMenuItem
             // 
             this.gRNCancelToolStripMenuItem.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.gRNCancelToolStripMenuItem.Enabled = false;
             this.gRNCancelToolStripMenuItem.Name = "gRNCancelToolStripMenuItem";
             this.gRNCancelToolStripMenuItem.Size = new System.Drawing.Size(217, 22);
             this.gRNCancelToolStripMenuItem.Text = "GRN Cancel";
@@ -343,6 +367,7 @@
             // issuToolStripMenuItem
             // 
             this.issuToolStripMenuItem.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.issuToolStripMenuItem.Enabled = false;
             this.issuToolStripMenuItem.Name = "issuToolStripMenuItem";
             this.issuToolStripMenuItem.Size = new System.Drawing.Size(217, 22);
             this.issuToolStripMenuItem.Text = "Transfer Note";
@@ -350,6 +375,7 @@
             // 
             // stockInitializeToolStripMenuItem
             // 
+            this.stockInitializeToolStripMenuItem.Enabled = false;
             this.stockInitializeToolStripMenuItem.Name = "stockInitializeToolStripMenuItem";
             this.stockInitializeToolStripMenuItem.Size = new System.Drawing.Size(217, 22);
             this.stockInitializeToolStripMenuItem.Text = "Stock Initialize";
@@ -389,12 +415,14 @@
             this.supplierDetailsReportToolStripMenuItem1,
             this.recipeDetailsReportToolStripMenuItem,
             this.menuDetailsReportToolStripMenuItem});
+            this.ddToolStripMenuItem.Enabled = false;
             this.ddToolStripMenuItem.Name = "ddToolStripMenuItem";
             this.ddToolStripMenuItem.Size = new System.Drawing.Size(205, 22);
             this.ddToolStripMenuItem.Text = "Master Report";
             // 
             // itemDetailsReportToolStripMenuItem
             // 
+            this.itemDetailsReportToolStripMenuItem.Enabled = false;
             this.itemDetailsReportToolStripMenuItem.Name = "itemDetailsReportToolStripMenuItem";
             this.itemDetailsReportToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
             this.itemDetailsReportToolStripMenuItem.Text = "Item Details Report";
@@ -402,6 +430,7 @@
             // 
             // supplierDetailsReportToolStripMenuItem1
             // 
+            this.supplierDetailsReportToolStripMenuItem1.Enabled = false;
             this.supplierDetailsReportToolStripMenuItem1.Name = "supplierDetailsReportToolStripMenuItem1";
             this.supplierDetailsReportToolStripMenuItem1.Size = new System.Drawing.Size(193, 22);
             this.supplierDetailsReportToolStripMenuItem1.Text = "Supplier Details Report";
@@ -409,6 +438,7 @@
             // 
             // recipeDetailsReportToolStripMenuItem
             // 
+            this.recipeDetailsReportToolStripMenuItem.Enabled = false;
             this.recipeDetailsReportToolStripMenuItem.Name = "recipeDetailsReportToolStripMenuItem";
             this.recipeDetailsReportToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
             this.recipeDetailsReportToolStripMenuItem.Text = "Recipe Details Report";
@@ -416,12 +446,14 @@
             // 
             // menuDetailsReportToolStripMenuItem
             // 
+            this.menuDetailsReportToolStripMenuItem.Enabled = false;
             this.menuDetailsReportToolStripMenuItem.Name = "menuDetailsReportToolStripMenuItem";
             this.menuDetailsReportToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
             this.menuDetailsReportToolStripMenuItem.Text = "Menu Details Report";
             // 
             // gRNListToolStripMenuItem
             // 
+            this.gRNListToolStripMenuItem.Enabled = false;
             this.gRNListToolStripMenuItem.Name = "gRNListToolStripMenuItem";
             this.gRNListToolStripMenuItem.Size = new System.Drawing.Size(205, 22);
             this.gRNListToolStripMenuItem.Text = "GRN Listing Report";
@@ -429,6 +461,7 @@
             // 
             // pOListingReportToolStripMenuItem
             // 
+            this.pOListingReportToolStripMenuItem.Enabled = false;
             this.pOListingReportToolStripMenuItem.Name = "pOListingReportToolStripMenuItem";
             this.pOListingReportToolStripMenuItem.Size = new System.Drawing.Size(205, 22);
             this.pOListingReportToolStripMenuItem.Text = "PO Listing Report";
@@ -436,6 +469,7 @@
             // 
             // issueNoteListingReportToolStripMenuItem
             // 
+            this.issueNoteListingReportToolStripMenuItem.Enabled = false;
             this.issueNoteListingReportToolStripMenuItem.Name = "issueNoteListingReportToolStripMenuItem";
             this.issueNoteListingReportToolStripMenuItem.Size = new System.Drawing.Size(205, 22);
             this.issueNoteListingReportToolStripMenuItem.Text = "Issue Note Listing Report";
@@ -455,14 +489,14 @@
             // frmUserToolStripMenuItem
             // 
             this.frmUserToolStripMenuItem.Name = "frmUserToolStripMenuItem";
-            this.frmUserToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+            this.frmUserToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.frmUserToolStripMenuItem.Text = "User Master";
             this.frmUserToolStripMenuItem.Click += new System.EventHandler(this.ffToolStripMenuItem_Click);
             // 
             // userRolesToolStripMenuItem
             // 
             this.userRolesToolStripMenuItem.Name = "userRolesToolStripMenuItem";
-            this.userRolesToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+            this.userRolesToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.userRolesToolStripMenuItem.Text = "User Roles";
             this.userRolesToolStripMenuItem.Click += new System.EventHandler(this.userRolesToolStripMenuItem_Click);
             // 
@@ -526,6 +560,7 @@
             this.Name = "frmMain";
             this.Text = "Restaurants Management System";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.frmMain_Load);
             this.menuStripMain.ResumeLayout(false);
             this.menuStripMain.PerformLayout();
             this.panel1.ResumeLayout(false);

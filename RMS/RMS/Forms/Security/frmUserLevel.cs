@@ -57,6 +57,7 @@ namespace RMS.Forms.Security
                 dgvRoleList.Rows[i].Cells["clmUserRole"].Value = dtRollList.Rows[i]["fldRollName"].ToString();
                 dgvRoleList.Rows[i].Cells["clmControlName"].Value = dtRollList.Rows[i]["fldControlName"].ToString();
             }
+            dgvRoleList.Sort(dgvRoleList.Columns["clmUserRole"], ListSortDirection.Ascending);
         }
 
         private void btnExit_Click(object sender, EventArgs e)
