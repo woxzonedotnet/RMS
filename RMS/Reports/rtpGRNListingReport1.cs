@@ -90,7 +90,7 @@ namespace Reports {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.Shared.IParameterField Parameter_strCopyRight {
+        public CrystalDecisions.Shared.IParameterField Parameter_strReportTitle {
             get {
                 return this.DataDefinition.ParameterFields[0];
             }
@@ -98,7 +98,7 @@ namespace Reports {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.Shared.IParameterField Parameter_strReportTitle {
+        public CrystalDecisions.Shared.IParameterField Parameter_strCopyRight {
             get {
                 return this.DataDefinition.ParameterFields[1];
             }

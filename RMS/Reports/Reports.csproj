@@ -115,12 +115,6 @@
       <DependentUpon>rptGoodsRecieveNoteCancelReport.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="rptGRNListingReport.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>rptGRNListingReport.rpt</DependentUpon>
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Include="rptIssueNoteListingReport.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -185,7 +179,11 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>rtpGRNListingReport1.rpt</DependentUpon>
-      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="rtpGRNListingReport2.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rtpGRNListingReport2.rpt</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -232,10 +230,6 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>rptGoodsRecieveNoteCancelReport.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="rptGRNListingReport.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>rptGRNListingReport.cs</LastGenOutput>
-    </EmbeddedResource>
     <EmbeddedResource Include="rptIssueNoteListingReport.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>rptIssueNoteListingReport.cs</LastGenOutput>
@@ -279,6 +273,10 @@
     <EmbeddedResource Include="rtpGRNListingReport1.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>rtpGRNListingReport1.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rtpGRNListingReport2.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rtpGRNListingReport2.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

@@ -136,9 +136,9 @@ namespace RMS.Forms.Reports
                 arrParameter[1, 0] = "strReportTitle";
                 arrParameter[1, 1] = oReportMaster.ReportTitle;
                 arrParameter[2, 0] = "strFrom";
-                arrParameter[2, 1] = dtpDateFrom.Value.Date.ToString("yyyy-MM-dd");
+                arrParameter[2, 1] = dtpFrom.Value.Date.ToString("yyyy-MM-dd");
                 arrParameter[3, 0] = "strto";
-                arrParameter[3, 1] = dtpDateTo.Value.Date.ToString("yyyy-MM-dd");
+                arrParameter[3, 1] = dtpTo.Value.Date.ToString("yyyy-MM-dd");
                 arrParameter[4, 0] = "strsupplier";
                 arrParameter[4, 1] = txtSupplier.Text;
 
@@ -152,9 +152,9 @@ namespace RMS.Forms.Reports
                 arrParameter[1, 0] = "strReportTitle";
                 arrParameter[1, 1] = oReportMaster.ReportTitle;
                 arrParameter[2, 0] = "strFrom";
-                arrParameter[2, 1] = dtpDateFrom.Value.Date.ToString("yyyy-MM-dd");
+                arrParameter[2, 1] = dtpFrom.Value.Date.ToString("yyyy-MM-dd");
                 arrParameter[3, 0] = "strto";
-                arrParameter[3, 1] = dtpDateTo.Value.Date.ToString("yyyy-MM-dd");
+                arrParameter[3, 1] = dtpTo.Value.Date.ToString("yyyy-MM-dd");
 
             }
             else
@@ -180,18 +180,18 @@ namespace RMS.Forms.Reports
         {
             string srtFormular = string.Empty;
 
-            if (iReportID == 20)
+            if (iReportID == 21)
             {
                 if (oReportMaster.SelectedTable.ToString() != string.Empty)
                 {
-                    srtFormular += "{" + oReportMaster.SelectedTable + ".fldDate}='" + this.dtpDateFrom.Value.Date.ToString("yyyy-MM-dd") + "' and {" + oReportMaster.SelectedTable + ".fldDate}='" + this.dtpDateTo.Value.Date.ToString("yyyy-MM-dd") + "'and {" + oReportMaster.SelectedTable + ".fldSupplierCode}='" + suppliercode + "' "; // +"' AND {tbl_daily_in_out_details.fldAttendanceDate}=#" + Convert.ToDateTime(dFromDate).ToString("yyyy-MM-dd") + "# TO #" + Convert.ToDateTime(dToDate).ToString("yyyy-MM-dd") + "# ";
+                    srtFormular += "{" + oReportMaster.SelectedTable + ".fldDate}='" + this.dtpFrom.Value.Date.ToString("yyyy-MM-dd") + "' and {" + oReportMaster.SelectedTable + ".fldDate}='" + this.dtpTo.Value.Date.ToString("yyyy-MM-dd") + "'and {" + oReportMaster.SelectedTable + ".fldSupplierCode}='" + suppliercode + "' "; // +"' AND {tbl_daily_in_out_details.fldAttendanceDate}=#" + Convert.ToDateTime(dFromDate).ToString("yyyy-MM-dd") + "# TO #" + Convert.ToDateTime(dToDate).ToString("yyyy-MM-dd") + "# ";
                 }
             }
             else if (iReportID == 22)
             {
                 if (oReportMaster.SelectedTable.ToString() != string.Empty)
                 {
-                    srtFormular += "{" + oReportMaster.SelectedTable + ".fldDate}='" + this.dtpDateFrom.Value.Date.ToString("yyyy-MM-dd") + "' and {" + oReportMaster.SelectedTable + ".fldDate}='" + this.dtpDateTo.Value.Date.ToString("yyyy-MM-dd") + "'"; // +"' AND {tbl_daily_in_out_details.fldAttendanceDate}=#" + Convert.ToDateTime(dFromDate).ToString("yyyy-MM-dd") + "# TO #" + Convert.ToDateTime(dToDate).ToString("yyyy-MM-dd") + "# ";
+                    srtFormular += "{" + oReportMaster.SelectedTable + ".fldDate}='" + this.dtpFrom.Value.Date.ToString("yyyy-MM-dd") + "' and {" + oReportMaster.SelectedTable + ".fldDate}='" + this.dtpTo.Value.Date.ToString("yyyy-MM-dd") + "'"; // +"' AND {tbl_daily_in_out_details.fldAttendanceDate}=#" + Convert.ToDateTime(dFromDate).ToString("yyyy-MM-dd") + "# TO #" + Convert.ToDateTime(dToDate).ToString("yyyy-MM-dd") + "# ";
                 }
             }
 
