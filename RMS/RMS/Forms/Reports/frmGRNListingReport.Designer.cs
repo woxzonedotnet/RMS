@@ -32,8 +32,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.txtSupplier = new System.Windows.Forms.TextBox();
-            this.dtpDateFrom = new System.Windows.Forms.DateTimePicker();
-            this.dtpDateTo = new System.Windows.Forms.DateTimePicker();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.rbSummert = new System.Windows.Forms.RadioButton();
@@ -41,6 +39,8 @@
             this.button3 = new System.Windows.Forms.Button();
             this.chkAll = new System.Windows.Forms.CheckBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.dtpTo = new System.Windows.Forms.DateTimePicker();
+            this.dtpFrom = new System.Windows.Forms.DateTimePicker();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -77,22 +77,6 @@
             this.txtSupplier.Name = "txtSupplier";
             this.txtSupplier.Size = new System.Drawing.Size(123, 20);
             this.txtSupplier.TabIndex = 3;
-            // 
-            // dtpDateFrom
-            // 
-            this.dtpDateFrom.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpDateFrom.Location = new System.Drawing.Point(65, 20);
-            this.dtpDateFrom.Name = "dtpDateFrom";
-            this.dtpDateFrom.Size = new System.Drawing.Size(123, 20);
-            this.dtpDateFrom.TabIndex = 4;
-            // 
-            // dtpDateTo
-            // 
-            this.dtpDateTo.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpDateTo.Location = new System.Drawing.Point(64, 46);
-            this.dtpDateTo.Name = "dtpDateTo";
-            this.dtpDateTo.Size = new System.Drawing.Size(124, 20);
-            this.dtpDateTo.TabIndex = 5;
             // 
             // button1
             // 
@@ -167,6 +151,22 @@
             this.groupBox1.TabIndex = 12;
             this.groupBox1.TabStop = false;
             // 
+            // dtpTo
+            // 
+            this.dtpTo.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpTo.Location = new System.Drawing.Point(64, 46);
+            this.dtpTo.Name = "dtpTo";
+            this.dtpTo.Size = new System.Drawing.Size(124, 20);
+            this.dtpTo.TabIndex = 5;
+            // 
+            // dtpFrom
+            // 
+            this.dtpFrom.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpFrom.Location = new System.Drawing.Point(65, 20);
+            this.dtpFrom.Name = "dtpFrom";
+            this.dtpFrom.Size = new System.Drawing.Size(123, 20);
+            this.dtpFrom.TabIndex = 4;
+            // 
             // frmGRNListingReport
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -177,8 +177,8 @@
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.dtpDateTo);
-            this.Controls.Add(this.dtpDateFrom);
+            this.Controls.Add(this.dtpTo);
+            this.Controls.Add(this.dtpFrom);
             this.Controls.Add(this.txtSupplier);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -198,8 +198,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtSupplier;
-        private System.Windows.Forms.DateTimePicker dtpDateFrom;
-        private System.Windows.Forms.DateTimePicker dtpDateTo;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.RadioButton rbSummert;
@@ -207,5 +205,7 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.CheckBox chkAll;
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.DateTimePicker dtpTo;
+        private System.Windows.Forms.DateTimePicker dtpFrom;
     }
 }
