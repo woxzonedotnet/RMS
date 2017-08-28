@@ -73,6 +73,7 @@
     <Compile Include="objIssueNote.cs" />
     <Compile Include="objTransferNote.cs" />
     <Compile Include="objUserLevel.cs" />
+    <Compile Include="objUserMaster.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
