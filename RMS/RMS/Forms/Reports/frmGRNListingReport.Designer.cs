@@ -34,14 +34,10 @@
             this.txtSupplier = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.rbSummert = new System.Windows.Forms.RadioButton();
-            this.rbDetail = new System.Windows.Forms.RadioButton();
             this.button3 = new System.Windows.Forms.Button();
             this.chkAll = new System.Windows.Forms.CheckBox();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dtpTo = new System.Windows.Forms.DateTimePicker();
             this.dtpFrom = new System.Windows.Forms.DateTimePicker();
-            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -80,7 +76,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(16, 129);
+            this.button1.Location = new System.Drawing.Point(20, 112);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 6;
@@ -90,35 +86,12 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(108, 129);
+            this.button2.Location = new System.Drawing.Point(112, 112);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 7;
             this.button2.Text = "Detail";
             this.button2.UseVisualStyleBackColor = true;
-            // 
-            // rbSummert
-            // 
-            this.rbSummert.AutoSize = true;
-            this.rbSummert.Location = new System.Drawing.Point(14, 10);
-            this.rbSummert.Name = "rbSummert";
-            this.rbSummert.Size = new System.Drawing.Size(68, 17);
-            this.rbSummert.TabIndex = 8;
-            this.rbSummert.TabStop = true;
-            this.rbSummert.Text = "Summery";
-            this.rbSummert.UseVisualStyleBackColor = true;
-            // 
-            // rbDetail
-            // 
-            this.rbDetail.AutoSize = true;
-            this.rbDetail.Location = new System.Drawing.Point(104, 10);
-            this.rbDetail.Name = "rbDetail";
-            this.rbDetail.Size = new System.Drawing.Size(52, 17);
-            this.rbDetail.TabIndex = 9;
-            this.rbDetail.TabStop = true;
-            this.rbDetail.Text = "Detail";
-            this.rbDetail.UseVisualStyleBackColor = true;
-            this.rbDetail.CheckedChanged += new System.EventHandler(this.radioButton2_CheckedChanged);
             // 
             // button3
             // 
@@ -141,16 +114,6 @@
             this.chkAll.UseVisualStyleBackColor = true;
             this.chkAll.CheckedChanged += new System.EventHandler(this.chkAll_CheckedChanged);
             // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.rbDetail);
-            this.groupBox1.Controls.Add(this.rbSummert);
-            this.groupBox1.Location = new System.Drawing.Point(21, 93);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(162, 30);
-            this.groupBox1.TabIndex = 12;
-            this.groupBox1.TabStop = false;
-            // 
             // dtpTo
             // 
             this.dtpTo.Format = System.Windows.Forms.DateTimePickerFormat.Short;
@@ -171,8 +134,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(323, 175);
-            this.Controls.Add(this.groupBox1);
+            this.ClientSize = new System.Drawing.Size(323, 146);
             this.Controls.Add(this.chkAll);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
@@ -185,8 +147,6 @@
             this.Controls.Add(this.label1);
             this.Name = "frmGRNListingReport";
             this.Text = "GRN Listing";
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -200,11 +160,8 @@
         private System.Windows.Forms.TextBox txtSupplier;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.RadioButton rbSummert;
-        private System.Windows.Forms.RadioButton rbDetail;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.CheckBox chkAll;
-        private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.DateTimePicker dtpTo;
         private System.Windows.Forms.DateTimePicker dtpFrom;
     }
