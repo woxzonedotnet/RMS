@@ -71,6 +71,7 @@
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(41)))), ((int)(((byte)(46)))));
+            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Maroon;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
             this.button1.ForeColor = System.Drawing.SystemColors.Control;
@@ -103,6 +104,7 @@
             // button2
             // 
             this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(41)))), ((int)(((byte)(46)))));
+            this.button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Maroon;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
             this.button2.ForeColor = System.Drawing.SystemColors.Control;

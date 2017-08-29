@@ -33,13 +33,13 @@
             this.chkCategory = new System.Windows.Forms.CheckBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.cmbSupplierCategory = new RMS.ColumnComboBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.lblTitle = new System.Windows.Forms.Label();
             this.btnExit = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.cmbSupplierCategory = new RMS.ColumnComboBox();
             this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -66,6 +66,7 @@
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(41)))), ((int)(((byte)(46)))));
+            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Maroon;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
             this.button1.ForeColor = System.Drawing.SystemColors.Control;
@@ -80,6 +81,7 @@
             // button2
             // 
             this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(41)))), ((int)(((byte)(46)))));
+            this.button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Maroon;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
             this.button2.ForeColor = System.Drawing.SystemColors.Control;
@@ -90,17 +92,6 @@
             this.button2.Text = "Close";
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // cmbSupplierCategory
-            // 
-            this.cmbSupplierCategory.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
-            this.cmbSupplierCategory.DropDownWidth = 17;
-            this.cmbSupplierCategory.FormattingEnabled = true;
-            this.cmbSupplierCategory.Location = new System.Drawing.Point(77, 52);
-            this.cmbSupplierCategory.Name = "cmbSupplierCategory";
-            this.cmbSupplierCategory.Size = new System.Drawing.Size(133, 21);
-            this.cmbSupplierCategory.TabIndex = 0;
-            this.cmbSupplierCategory.ViewColumn = 0;
             // 
             // panel3
             // 
@@ -120,9 +111,9 @@
             this.lblTitle.ForeColor = System.Drawing.SystemColors.Control;
             this.lblTitle.Location = new System.Drawing.Point(13, 9);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(112, 16);
+            this.lblTitle.Size = new System.Drawing.Size(140, 16);
             this.lblTitle.TabIndex = 4;
-            this.lblTitle.Text = "PO Listing Report";
+            this.lblTitle.Text = "Supplier Detail Report";
             // 
             // btnExit
             // 
@@ -166,6 +157,17 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(308, 10);
             this.panel4.TabIndex = 80;
+            // 
+            // cmbSupplierCategory
+            // 
+            this.cmbSupplierCategory.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.cmbSupplierCategory.DropDownWidth = 17;
+            this.cmbSupplierCategory.FormattingEnabled = true;
+            this.cmbSupplierCategory.Location = new System.Drawing.Point(77, 52);
+            this.cmbSupplierCategory.Name = "cmbSupplierCategory";
+            this.cmbSupplierCategory.Size = new System.Drawing.Size(133, 21);
+            this.cmbSupplierCategory.TabIndex = 0;
+            this.cmbSupplierCategory.ViewColumn = 0;
             // 
             // frmSupplierDetailReport
             // 
