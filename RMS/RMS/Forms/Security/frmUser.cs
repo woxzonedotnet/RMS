@@ -84,6 +84,8 @@ namespace RMS.Forms.Security
         private void btnClear_Click(object sender, EventArgs e)
         {
             clear();
+            cmbActiveState.Enabled = true;
+            cmbUserLevel.Enabled = true;
         }
 
         #region Clear

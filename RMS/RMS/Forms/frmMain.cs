@@ -21,6 +21,7 @@ namespace RMS.Forms
 
         #region Variables
         MdiClient ctlMDI;
+        clsGlobleVariable cGlobleVariable = new clsGlobleVariable();
         #endregion
 
         public frmMain(String userLevel)

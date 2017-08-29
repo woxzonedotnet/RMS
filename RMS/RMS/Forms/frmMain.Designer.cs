@@ -488,6 +488,7 @@
             // 
             // frmUserToolStripMenuItem
             // 
+            this.frmUserToolStripMenuItem.Enabled = false;
             this.frmUserToolStripMenuItem.Name = "frmUserToolStripMenuItem";
             this.frmUserToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.frmUserToolStripMenuItem.Text = "User Master";
@@ -495,6 +496,7 @@
             // 
             // userRolesToolStripMenuItem
             // 
+            this.userRolesToolStripMenuItem.Enabled = false;
             this.userRolesToolStripMenuItem.Name = "userRolesToolStripMenuItem";
             this.userRolesToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.userRolesToolStripMenuItem.Text = "User Roles";

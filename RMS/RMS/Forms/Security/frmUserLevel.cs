@@ -314,6 +314,11 @@ namespace RMS.Forms.Security
         private void btnClear_Click(object sender, EventArgs e)
         {
             clear();
+            txtUserLevel.Enabled = true;
+            dgvRoleList.ReadOnly = false;
+            cmbActiveState.Enabled = true;
+            btnSelectAll.Enabled = true;
+            btnClearAll.Enabled = true;
         }
 
         #region Clear
