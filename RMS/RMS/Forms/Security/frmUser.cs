@@ -56,7 +56,7 @@ namespace RMS.Forms.Security
             save = btnSave.Enabled;
             update = btnUpdate.Enabled;
             cCommonMethods.loadComboRMS(cStatusMaster.GetStatusDetails(), cmbActiveState, 1);
-            cCommonMethods.loadComboRMS(cUserLevel.GetUserLevelData(), cmbUserLevel, 2);
+            cCommonMethods.loadComboRMS(cUserLevel.GetActiveUserLevelData(), cmbUserLevel, 2);
             cCommonMethods.loadComboRMS(cMainLocation.GetMainLocationDetails(), cmbLocation, 2);
         }
 

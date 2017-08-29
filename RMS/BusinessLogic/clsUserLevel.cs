@@ -71,6 +71,15 @@ namespace BusinessLogic
         }
         #endregion
 
+        #region Get User Level Data
+        public DataTable GetActiveUserLevelData()
+        {
+            DataTable dtULDetails = cDBConnection.SearchData("tbl_UserLevelHeader", "fldStatus=1");
+            return dtULDetails;
+        }
+        #endregion
+
+
         #region Get User Level Access
         public DataTable GetUserLevelData(string Level)
         {
