@@ -148,6 +148,8 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(303, 31);
             this.panel3.TabIndex = 70;
+            this.panel3.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel3_MouseDown);
+            this.panel3.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel3_MouseMove);
             // 
             // lblTitle
             // 

@@ -175,6 +175,11 @@ namespace RMS.Forms.Reports
         }
 
         #region Form Move
+        private void panel3_MouseDown(object sender, MouseEventArgs e)
+        {
+            lastClick = e.Location;
+        }
+
         private void panel3_MouseMove(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
@@ -183,12 +188,8 @@ namespace RMS.Forms.Reports
                 this.Top += e.Y - lastClick.Y;
             }
         }
-
-        private void panel3_MouseDown(object sender, MouseEventArgs e)
-        {
-            lastClick = e.Location;
-        }
         #endregion
+
 
     }
 }

@@ -240,7 +240,7 @@ namespace RMS.Forms.Reports
         {
             this.Dispose();
         }
-
+        #region Form Move
         private void panel3_MouseMove(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
@@ -254,7 +254,7 @@ namespace RMS.Forms.Reports
         {
             lastClick = e.Location;
         }
-
+        #endregion
         private void btnExit_Click(object sender, EventArgs e)
         {
             this.Dispose();

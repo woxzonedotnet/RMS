@@ -249,6 +249,13 @@ namespace RMS.Forms.Reports
             cCommonMethods.loadComboRMS(cCategoryMaster.GetCategoryDataByDepartment(cGlobleVariable.LocationCode,this.cmbDepartment["fldDepartmentCode"].ToString()), cmbCategory, 3);
         }
 
+        
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
+        }
+
         #region Form Move
         private void panel3_MouseMove(object sender, MouseEventArgs e)
         {
@@ -264,12 +271,6 @@ namespace RMS.Forms.Reports
             lastClick = e.Location;
         }
         #endregion
-
-        private void btnExit_Click(object sender, EventArgs e)
-        {
-            this.Dispose();
-        }
-
 
     }
 }
