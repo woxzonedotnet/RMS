@@ -95,8 +95,6 @@ namespace RMS
             {
                 errL.SetError(cmbLocation, "");
             }
-
-
             return isValidate;
         }
         #endregion
@@ -119,7 +117,37 @@ namespace RMS
 
         private void frmLogin_Load(object sender, EventArgs e)
         {
-            cCommonMethods.loadComboRMS(cMainLocation.GetMainLocationDetails(), cmbLocation, 2);
+            LoadCompany();
+        }
+
+        private void LoadCompany()
+        {
+            DataTable dt = cMainLocation.GetMainLocationDetails();
+            if (dt == null)
+            {
+                if (DialogResult.Yes == this.ShowSettingsDialog())
+                {
+                    this.LoadCompany();
+                }
+            }
+            else
+            {
+                cCommonMethods.loadComboRMS(cMainLocation.GetMainLocationDetails(), cmbLocation, 2);
+            }
+        }
+
+        private DialogResult ShowSettingsDialog()
+        {
+            frmServerConfig settings = new frmServerConfig();
+            return settings.ShowDialog();
+        }
+
+        private void llblServerSettings_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            if (DialogResult.Yes == this.ShowSettingsDialog())
+            {
+                this.LoadCompany();
+            }
         }
     }
 }

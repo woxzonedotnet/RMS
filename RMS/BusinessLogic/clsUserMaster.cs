@@ -112,8 +112,6 @@ namespace BusinessLogic
             {
                 oUserMaster.IsExists = false;
             }
-
-
             return oUserMaster;
         }
         #endregion

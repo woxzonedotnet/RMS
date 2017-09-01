@@ -38,15 +38,14 @@
             this.gboxLogin = new System.Windows.Forms.GroupBox();
             this.btnLogin = new System.Windows.Forms.Button();
             this.lblLocation = new System.Windows.Forms.Label();
-            this.cmbLocation = new RMS.ColumnComboBox();
-            this.panel2 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lblTitle = new System.Windows.Forms.Label();
             this.btnExit = new System.Windows.Forms.Button();
             this.errL = new System.Windows.Forms.ErrorProvider(this.components);
+            this.llblServerSettings = new System.Windows.Forms.LinkLabel();
+            this.cmbLocation = new RMS.ColumnComboBox();
             this.gboxLogin.SuspendLayout();
-            this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errL)).BeginInit();
@@ -79,7 +78,7 @@
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClose.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnClose.Location = new System.Drawing.Point(242, 128);
+            this.btnClose.Location = new System.Drawing.Point(242, 143);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(75, 31);
             this.btnClose.TabIndex = 5;
@@ -111,6 +110,8 @@
             // 
             // gboxLogin
             // 
+            this.gboxLogin.Controls.Add(this.pictureBox1);
+            this.gboxLogin.Controls.Add(this.llblServerSettings);
             this.gboxLogin.Controls.Add(this.btnLogin);
             this.gboxLogin.Controls.Add(this.lblLocation);
             this.gboxLogin.Controls.Add(this.btnClose);
@@ -123,7 +124,7 @@
             this.gboxLogin.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(41)))), ((int)(((byte)(46)))));
             this.gboxLogin.Location = new System.Drawing.Point(8, 41);
             this.gboxLogin.Name = "gboxLogin";
-            this.gboxLogin.Size = new System.Drawing.Size(339, 175);
+            this.gboxLogin.Size = new System.Drawing.Size(339, 216);
             this.gboxLogin.TabIndex = 7;
             this.gboxLogin.TabStop = false;
             this.gboxLogin.Text = "User Login";
@@ -138,7 +139,7 @@
             this.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLogin.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnLogin.Location = new System.Drawing.Point(156, 128);
+            this.btnLogin.Location = new System.Drawing.Point(156, 143);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(75, 31);
             this.btnLogin.TabIndex = 4;
@@ -157,31 +158,11 @@
             this.lblLocation.TabIndex = 8;
             this.lblLocation.Text = "Location";
             // 
-            // cmbLocation
-            // 
-            this.cmbLocation.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
-            this.cmbLocation.DropDownWidth = 17;
-            this.cmbLocation.FormattingEnabled = true;
-            this.cmbLocation.Location = new System.Drawing.Point(113, 87);
-            this.cmbLocation.Name = "cmbLocation";
-            this.cmbLocation.Size = new System.Drawing.Size(204, 25);
-            this.cmbLocation.TabIndex = 3;
-            this.cmbLocation.ViewColumn = 0;
-            // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.SystemColors.Control;
-            this.panel2.Controls.Add(this.pictureBox1);
-            this.panel2.Location = new System.Drawing.Point(8, 214);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(339, 28);
-            this.panel2.TabIndex = 9;
-            // 
             // pictureBox1
             // 
             this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
-            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pictureBox1.Location = new System.Drawing.Point(105, 0);
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox1.Location = new System.Drawing.Point(91, 181);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(234, 28);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -233,13 +214,35 @@
             // 
             this.errL.ContainerControl = this;
             // 
+            // llblServerSettings
+            // 
+            this.llblServerSettings.AutoSize = true;
+            this.llblServerSettings.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.llblServerSettings.Location = new System.Drawing.Point(110, 115);
+            this.llblServerSettings.Name = "llblServerSettings";
+            this.llblServerSettings.Size = new System.Drawing.Size(114, 16);
+            this.llblServerSettings.TabIndex = 9;
+            this.llblServerSettings.TabStop = true;
+            this.llblServerSettings.Text = "Server Settings";
+            this.llblServerSettings.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.llblServerSettings_LinkClicked);
+            // 
+            // cmbLocation
+            // 
+            this.cmbLocation.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.cmbLocation.DropDownWidth = 17;
+            this.cmbLocation.FormattingEnabled = true;
+            this.cmbLocation.Location = new System.Drawing.Point(113, 87);
+            this.cmbLocation.Name = "cmbLocation";
+            this.cmbLocation.Size = new System.Drawing.Size(204, 25);
+            this.cmbLocation.TabIndex = 3;
+            this.cmbLocation.ViewColumn = 0;
+            // 
             // frmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(355, 250);
+            this.ClientSize = new System.Drawing.Size(355, 262);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.panel2);
             this.Controls.Add(this.gboxLogin);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmLogin";
@@ -248,7 +251,6 @@
             this.Load += new System.EventHandler(this.frmLogin_Load);
             this.gboxLogin.ResumeLayout(false);
             this.gboxLogin.PerformLayout();
-            this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -268,12 +270,12 @@
         private System.Windows.Forms.GroupBox gboxLogin;
         private System.Windows.Forms.Label lblLocation;
         private System.Windows.Forms.Button btnLogin;
-        private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.ErrorProvider errL;
+        private System.Windows.Forms.LinkLabel llblServerSettings;
     }
 }
 

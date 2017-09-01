@@ -33,36 +33,46 @@ namespace DataAccess
             XmlTextReader bankReader = null;
 
             bankReader = new XmlTextReader(m_strFileName);
-
-            while (bankReader.Read())
+            try
             {
-                if (bankReader.NodeType == XmlNodeType.Element)
+                while (bankReader.Read())
                 {
-                    if (bankReader.LocalName.Equals("ServerName"))
+                    if (bankReader.NodeType == XmlNodeType.Element)
                     {
-                        strServerName = bankReader.ReadString();
-                    }
+                        if (bankReader.LocalName.Equals("ServerName"))
+                        {
+                            strServerName = bankReader.ReadString();
+                        }
 
-                    if (bankReader.LocalName.Equals("DatabaseName"))
-                    {
-                        strDatabaseName = bankReader.ReadString();
-                    }
+                        if (bankReader.LocalName.Equals("DatabaseName"))
+                        {
+                            strDatabaseName = bankReader.ReadString();
+                        }
 
-                    if (bankReader.LocalName.Equals("username"))
-                    {
-                        strUsername = bankReader.ReadString();
-                    }
+                        if (bankReader.LocalName.Equals("username"))
+                        {
+                            strUsername = bankReader.ReadString();
+                        }
 
-                    if (bankReader.LocalName.Equals("password"))
-                    {
-                        strPassword = bankReader.ReadString();
-                    }
+                        if (bankReader.LocalName.Equals("password"))
+                        {
+                            strPassword = bankReader.ReadString();
+                        }
 
-                    if (bankReader.LocalName.Equals("security"))
-                    {
-                        strSecurity = bankReader.ReadString();
+                        if (bankReader.LocalName.Equals("security"))
+                        {
+                            strSecurity = bankReader.ReadString();
+                        }
                     }
                 }
+            }
+            catch (Exception ex)
+            {
+
+            }
+            finally
+            {
+                bankReader.Close();
             }
         }
         #endregion
@@ -90,7 +100,7 @@ namespace DataAccess
             }
             catch (Exception ex)
             {
-                System.Windows.Forms.MessageBox.Show(ex.ToString());
+               // System.Windows.Forms.MessageBox.Show(ex.ToString());
                 dbConn.Close();
             }
             
@@ -176,7 +186,7 @@ namespace DataAccess
             }
             catch (Exception ex)
             {
-                System.Windows.Forms.MessageBox.Show(ex.Message);
+                //System.Windows.Forms.MessageBox.Show(ex.Message);
                 return null;
             }
             finally
