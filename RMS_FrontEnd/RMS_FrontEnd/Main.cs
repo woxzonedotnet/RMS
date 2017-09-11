@@ -30,7 +30,7 @@ namespace RMS_FrontEnd
             screenWidth = this.Width;
             screenHeight = this.Height;
 
-            btnClose.Location = new Point(screenWidth - 45, 10);
+            btnClose.Location = new Point(screenWidth - 45, 8);
 
             //panel Header
             pnlHeader.BackColor = Color.FromArgb(0, 154, 199);
