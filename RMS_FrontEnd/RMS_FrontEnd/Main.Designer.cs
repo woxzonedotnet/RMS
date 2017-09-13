@@ -28,38 +28,40 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle25 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnlHeader = new System.Windows.Forms.Panel();
             this.btnClose = new System.Windows.Forms.Button();
             this.pnlMenu = new System.Windows.Forms.Panel();
-            this.pnlBill = new System.Windows.Forms.Panel();
-            this.dgvItem = new MetroFramework.Controls.MetroGrid();
-            this.pnlShortCut = new System.Windows.Forms.Panel();
             this.tbMenu = new MetroFramework.Controls.MetroTabControl();
             this.tbDrinks = new MetroFramework.Controls.MetroTabPage();
+            this.gbItems = new System.Windows.Forms.GroupBox();
+            this.gbSubCategory = new System.Windows.Forms.GroupBox();
+            this.pnlSubCategory = new MetroFramework.Controls.MetroPanel();
             this.tbBreakfast = new MetroFramework.Controls.MetroTabPage();
             this.tbLunch = new MetroFramework.Controls.MetroTabPage();
             this.tbDinner = new MetroFramework.Controls.MetroTabPage();
-            this.metroPanel1 = new MetroFramework.Controls.MetroPanel();
+            this.pnlBill = new System.Windows.Forms.Panel();
+            this.dgvItem = new MetroFramework.Controls.MetroGrid();
             this.clmName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmMinus = new System.Windows.Forms.DataGridViewButtonColumn();
             this.clmQty = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnPlus = new System.Windows.Forms.DataGridViewButtonColumn();
             this.clmEach = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.pnlShortCut = new System.Windows.Forms.Panel();
+            this.btnSubCategoryPrevious = new System.Windows.Forms.Button();
+            this.btnSubCategoryNext = new System.Windows.Forms.Button();
             this.pnlHeader.SuspendLayout();
             this.pnlMenu.SuspendLayout();
-            this.pnlBill.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvItem)).BeginInit();
             this.tbMenu.SuspendLayout();
             this.tbDrinks.SuspendLayout();
-            this.groupBox1.SuspendLayout();
+            this.gbSubCategory.SuspendLayout();
+            this.pnlBill.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvItem)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlHeader
@@ -96,80 +98,6 @@
             this.pnlMenu.Size = new System.Drawing.Size(540, 376);
             this.pnlMenu.TabIndex = 1;
             // 
-            // pnlBill
-            // 
-            this.pnlBill.BackColor = System.Drawing.Color.White;
-            this.pnlBill.Controls.Add(this.dgvItem);
-            this.pnlBill.Location = new System.Drawing.Point(547, 58);
-            this.pnlBill.Name = "pnlBill";
-            this.pnlBill.Size = new System.Drawing.Size(325, 376);
-            this.pnlBill.TabIndex = 2;
-            // 
-            // dgvItem
-            // 
-            this.dgvItem.AllowUserToResizeRows = false;
-            this.dgvItem.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.dgvItem.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dgvItem.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            this.dgvItem.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle21.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle21.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle21.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle21.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle21.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle21.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvItem.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle21;
-            this.dgvItem.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvItem.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.clmName,
-            this.clmMinus,
-            this.clmQty,
-            this.btnPlus,
-            this.clmEach,
-            this.clmTotal});
-            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle23.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle23.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle23.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
-            dataGridViewCellStyle23.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle23.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle23.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvItem.DefaultCellStyle = dataGridViewCellStyle23;
-            this.dgvItem.EnableHeadersVisualStyles = false;
-            this.dgvItem.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.dgvItem.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.dgvItem.Location = new System.Drawing.Point(3, 13);
-            this.dgvItem.Name = "dgvItem";
-            this.dgvItem.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle24.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle24.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle24.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle24.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle24.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle24.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvItem.RowHeadersDefaultCellStyle = dataGridViewCellStyle24;
-            this.dgvItem.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle25.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle25.ForeColor = System.Drawing.Color.DarkRed;
-            this.dgvItem.RowsDefaultCellStyle = dataGridViewCellStyle25;
-            this.dgvItem.RowTemplate.DefaultCellStyle.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
-            this.dgvItem.RowTemplate.Height = 45;
-            this.dgvItem.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvItem.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
-            this.dgvItem.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvItem.Size = new System.Drawing.Size(316, 189);
-            this.dgvItem.TabIndex = 0;
-            // 
-            // pnlShortCut
-            // 
-            this.pnlShortCut.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(199)))), ((int)(((byte)(255)))));
-            this.pnlShortCut.Location = new System.Drawing.Point(872, 58);
-            this.pnlShortCut.Name = "pnlShortCut";
-            this.pnlShortCut.Size = new System.Drawing.Size(90, 376);
-            this.pnlShortCut.TabIndex = 3;
-            // 
             // tbMenu
             // 
             this.tbMenu.Controls.Add(this.tbDrinks);
@@ -188,8 +116,8 @@
             // 
             // tbDrinks
             // 
-            this.tbDrinks.Controls.Add(this.groupBox2);
-            this.tbDrinks.Controls.Add(this.groupBox1);
+            this.tbDrinks.Controls.Add(this.gbItems);
+            this.tbDrinks.Controls.Add(this.gbSubCategory);
             this.tbDrinks.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbDrinks.ForeColor = System.Drawing.Color.DarkRed;
             this.tbDrinks.HorizontalScrollbarBarColor = true;
@@ -204,6 +132,44 @@
             this.tbDrinks.VerticalScrollbarHighlightOnWheel = false;
             this.tbDrinks.VerticalScrollbarSize = 10;
             // 
+            // gbItems
+            // 
+            this.gbItems.BackColor = System.Drawing.Color.White;
+            this.gbItems.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbItems.Location = new System.Drawing.Point(13, 147);
+            this.gbItems.Name = "gbItems";
+            this.gbItems.Size = new System.Drawing.Size(490, 130);
+            this.gbItems.TabIndex = 4;
+            this.gbItems.TabStop = false;
+            this.gbItems.Text = "ITEM";
+            // 
+            // gbSubCategory
+            // 
+            this.gbSubCategory.BackColor = System.Drawing.Color.White;
+            this.gbSubCategory.Controls.Add(this.btnSubCategoryNext);
+            this.gbSubCategory.Controls.Add(this.btnSubCategoryPrevious);
+            this.gbSubCategory.Controls.Add(this.pnlSubCategory);
+            this.gbSubCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbSubCategory.Location = new System.Drawing.Point(13, 15);
+            this.gbSubCategory.Name = "gbSubCategory";
+            this.gbSubCategory.Size = new System.Drawing.Size(490, 117);
+            this.gbSubCategory.TabIndex = 3;
+            this.gbSubCategory.TabStop = false;
+            this.gbSubCategory.Text = "SUB CATEGORY";
+            // 
+            // pnlSubCategory
+            // 
+            this.pnlSubCategory.HorizontalScrollbarBarColor = true;
+            this.pnlSubCategory.HorizontalScrollbarHighlightOnWheel = false;
+            this.pnlSubCategory.HorizontalScrollbarSize = 10;
+            this.pnlSubCategory.Location = new System.Drawing.Point(57, 29);
+            this.pnlSubCategory.Name = "pnlSubCategory";
+            this.pnlSubCategory.Size = new System.Drawing.Size(376, 65);
+            this.pnlSubCategory.TabIndex = 2;
+            this.pnlSubCategory.VerticalScrollbarBarColor = true;
+            this.pnlSubCategory.VerticalScrollbarHighlightOnWheel = false;
+            this.pnlSubCategory.VerticalScrollbarSize = 10;
+            // 
             // tbBreakfast
             // 
             this.tbBreakfast.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -212,7 +178,7 @@
             this.tbBreakfast.HorizontalScrollbarSize = 10;
             this.tbBreakfast.Location = new System.Drawing.Point(4, 44);
             this.tbBreakfast.Name = "tbBreakfast";
-            this.tbBreakfast.Size = new System.Drawing.Size(506, 229);
+            this.tbBreakfast.Size = new System.Drawing.Size(506, 302);
             this.tbBreakfast.TabIndex = 1;
             this.tbBreakfast.Text = "BREAKFAST";
             this.tbBreakfast.VerticalScrollbarBarColor = true;
@@ -227,7 +193,7 @@
             this.tbLunch.HorizontalScrollbarSize = 10;
             this.tbLunch.Location = new System.Drawing.Point(4, 44);
             this.tbLunch.Name = "tbLunch";
-            this.tbLunch.Size = new System.Drawing.Size(506, 229);
+            this.tbLunch.Size = new System.Drawing.Size(506, 302);
             this.tbLunch.TabIndex = 2;
             this.tbLunch.Text = "LUNCH";
             this.tbLunch.VerticalScrollbarBarColor = true;
@@ -242,25 +208,78 @@
             this.tbDinner.HorizontalScrollbarSize = 10;
             this.tbDinner.Location = new System.Drawing.Point(4, 44);
             this.tbDinner.Name = "tbDinner";
-            this.tbDinner.Size = new System.Drawing.Size(506, 229);
+            this.tbDinner.Size = new System.Drawing.Size(506, 302);
             this.tbDinner.TabIndex = 3;
             this.tbDinner.Text = "DINNER";
             this.tbDinner.VerticalScrollbarBarColor = true;
             this.tbDinner.VerticalScrollbarHighlightOnWheel = false;
             this.tbDinner.VerticalScrollbarSize = 10;
             // 
-            // metroPanel1
+            // pnlBill
             // 
-            this.metroPanel1.HorizontalScrollbarBarColor = true;
-            this.metroPanel1.HorizontalScrollbarHighlightOnWheel = false;
-            this.metroPanel1.HorizontalScrollbarSize = 10;
-            this.metroPanel1.Location = new System.Drawing.Point(73, 29);
-            this.metroPanel1.Name = "metroPanel1";
-            this.metroPanel1.Size = new System.Drawing.Size(390, 65);
-            this.metroPanel1.TabIndex = 2;
-            this.metroPanel1.VerticalScrollbarBarColor = true;
-            this.metroPanel1.VerticalScrollbarHighlightOnWheel = false;
-            this.metroPanel1.VerticalScrollbarSize = 10;
+            this.pnlBill.BackColor = System.Drawing.Color.White;
+            this.pnlBill.Controls.Add(this.dgvItem);
+            this.pnlBill.Location = new System.Drawing.Point(547, 58);
+            this.pnlBill.Name = "pnlBill";
+            this.pnlBill.Size = new System.Drawing.Size(325, 376);
+            this.pnlBill.TabIndex = 2;
+            // 
+            // dgvItem
+            // 
+            this.dgvItem.AllowUserToResizeRows = false;
+            this.dgvItem.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.dgvItem.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvItem.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.dgvItem.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvItem.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            this.dgvItem.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvItem.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.clmName,
+            this.clmMinus,
+            this.clmQty,
+            this.btnPlus,
+            this.clmEach,
+            this.clmTotal});
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvItem.DefaultCellStyle = dataGridViewCellStyle8;
+            this.dgvItem.EnableHeadersVisualStyles = false;
+            this.dgvItem.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.dgvItem.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.dgvItem.Location = new System.Drawing.Point(3, 13);
+            this.dgvItem.Name = "dgvItem";
+            this.dgvItem.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvItem.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            this.dgvItem.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.DarkRed;
+            this.dgvItem.RowsDefaultCellStyle = dataGridViewCellStyle10;
+            this.dgvItem.RowTemplate.DefaultCellStyle.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
+            this.dgvItem.RowTemplate.Height = 45;
+            this.dgvItem.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvItem.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
+            this.dgvItem.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvItem.Size = new System.Drawing.Size(316, 189);
+            this.dgvItem.TabIndex = 0;
             // 
             // clmName
             // 
@@ -281,8 +300,8 @@
             // 
             // clmQty
             // 
-            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.clmQty.DefaultCellStyle = dataGridViewCellStyle22;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.clmQty.DefaultCellStyle = dataGridViewCellStyle7;
             this.clmQty.HeaderText = "Qty";
             this.clmQty.MinimumWidth = 40;
             this.clmQty.Name = "clmQty";
@@ -311,28 +330,33 @@
             this.clmTotal.Name = "clmTotal";
             this.clmTotal.ReadOnly = true;
             // 
-            // groupBox1
+            // pnlShortCut
             // 
-            this.groupBox1.BackColor = System.Drawing.Color.White;
-            this.groupBox1.Controls.Add(this.metroPanel1);
-            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(13, 15);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(490, 130);
-            this.groupBox1.TabIndex = 3;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "SUB CATEGORY";
+            this.pnlShortCut.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(199)))), ((int)(((byte)(255)))));
+            this.pnlShortCut.Location = new System.Drawing.Point(872, 58);
+            this.pnlShortCut.Name = "pnlShortCut";
+            this.pnlShortCut.Size = new System.Drawing.Size(90, 376);
+            this.pnlShortCut.TabIndex = 3;
             // 
-            // groupBox2
+            // btnSubCategoryPrevious
             // 
-            this.groupBox2.BackColor = System.Drawing.Color.White;
-            this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(13, 151);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(490, 130);
-            this.groupBox2.TabIndex = 4;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "ITEM";
+            this.btnSubCategoryPrevious.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSubCategoryPrevious.Location = new System.Drawing.Point(6, 29);
+            this.btnSubCategoryPrevious.Name = "btnSubCategoryPrevious";
+            this.btnSubCategoryPrevious.Size = new System.Drawing.Size(45, 65);
+            this.btnSubCategoryPrevious.TabIndex = 3;
+            this.btnSubCategoryPrevious.Text = "<";
+            this.btnSubCategoryPrevious.UseVisualStyleBackColor = true;
+            // 
+            // btnSubCategoryNext
+            // 
+            this.btnSubCategoryNext.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSubCategoryNext.Location = new System.Drawing.Point(439, 29);
+            this.btnSubCategoryNext.Name = "btnSubCategoryNext";
+            this.btnSubCategoryNext.Size = new System.Drawing.Size(45, 65);
+            this.btnSubCategoryNext.TabIndex = 4;
+            this.btnSubCategoryNext.Text = ">";
+            this.btnSubCategoryNext.UseVisualStyleBackColor = true;
             // 
             // Main
             // 
@@ -352,11 +376,11 @@
             this.Load += new System.EventHandler(this.Main_Load);
             this.pnlHeader.ResumeLayout(false);
             this.pnlMenu.ResumeLayout(false);
-            this.pnlBill.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvItem)).EndInit();
             this.tbMenu.ResumeLayout(false);
             this.tbDrinks.ResumeLayout(false);
-            this.groupBox1.ResumeLayout(false);
+            this.gbSubCategory.ResumeLayout(false);
+            this.pnlBill.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvItem)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -371,7 +395,7 @@
         private MetroFramework.Controls.MetroGrid dgvItem;
         private MetroFramework.Controls.MetroTabControl tbMenu;
         private MetroFramework.Controls.MetroTabPage tbDrinks;
-        private MetroFramework.Controls.MetroPanel metroPanel1;
+        private MetroFramework.Controls.MetroPanel pnlSubCategory;
         private MetroFramework.Controls.MetroTabPage tbBreakfast;
         private MetroFramework.Controls.MetroTabPage tbLunch;
         private MetroFramework.Controls.MetroTabPage tbDinner;
@@ -381,7 +405,9 @@
         private System.Windows.Forms.DataGridViewButtonColumn btnPlus;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmEach;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmTotal;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox gbItems;
+        private System.Windows.Forms.GroupBox gbSubCategory;
+        private System.Windows.Forms.Button btnSubCategoryNext;
+        private System.Windows.Forms.Button btnSubCategoryPrevious;
     }
 }
