@@ -135,7 +135,7 @@
             // gbItems
             // 
             this.gbItems.BackColor = System.Drawing.Color.White;
-            this.gbItems.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbItems.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbItems.Location = new System.Drawing.Point(13, 147);
             this.gbItems.Name = "gbItems";
             this.gbItems.Size = new System.Drawing.Size(490, 130);
@@ -340,7 +340,7 @@
             // 
             // btnSubCategoryPrevious
             // 
-            this.btnSubCategoryPrevious.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSubCategoryPrevious.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSubCategoryPrevious.Location = new System.Drawing.Point(6, 29);
             this.btnSubCategoryPrevious.Name = "btnSubCategoryPrevious";
             this.btnSubCategoryPrevious.Size = new System.Drawing.Size(45, 65);
@@ -350,7 +350,7 @@
             // 
             // btnSubCategoryNext
             // 
-            this.btnSubCategoryNext.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSubCategoryNext.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSubCategoryNext.Location = new System.Drawing.Point(439, 29);
             this.btnSubCategoryNext.Name = "btnSubCategoryNext";
             this.btnSubCategoryNext.Size = new System.Drawing.Size(45, 65);

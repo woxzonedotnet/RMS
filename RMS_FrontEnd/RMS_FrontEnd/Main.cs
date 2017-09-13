@@ -66,12 +66,19 @@ namespace RMS_FrontEnd
             gbSubCategory.Width = tbMenu.Width - 30;
             gbSubCategory.Height = (tbMenu.Height * 18) / 100;
             gbSubCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 10, FontStyle.Bold);
+            tbDrinks.Controls.Add(gbSubCategory);
 
             //Button Previous
             //Button btnSubCategoryPrevious = new Button();
             btnSubCategoryPrevious.Location = new Point(10,30);
             btnSubCategoryPrevious.Height = gbSubCategory.Height - 50;
             btnSubCategoryPrevious.Width = (gbSubCategory.Width * 7) / 100;
+            btnSubCategoryPrevious.Font = new System.Drawing.Font("Microsoft Sans Serif", 20, FontStyle.Bold);
+            btnSubCategoryPrevious.ForeColor = Color.DarkRed;
+            btnSubCategoryPrevious.Text = "<";
+            btnSubCategoryPrevious.BackColor = Color.FromArgb(6, 199, 255);
+            btnSubCategoryPrevious.FlatStyle = FlatStyle.Flat;
+            gbSubCategory.Controls.Add(btnSubCategoryPrevious);
 
             //Button Panel
             //MetroFramework.Controls.MetroPanel pnlSubCategory = new MetroFramework.Controls.MetroPanel();
@@ -80,19 +87,31 @@ namespace RMS_FrontEnd
             pnlSubCategory.Width = (gbSubCategory.Width * 81) / 100;
             pnlSubCategory.UseCustomBackColor = true;
             pnlSubCategory.BackColor = Color.FromArgb(0, 75, 98);
+            gbSubCategory.Controls.Add(pnlSubCategory);
 
             //Button Next
             //Button btnSubCategoryNext = new Button();
             btnSubCategoryNext.Location = new Point(pnlSubCategory.Location.X+pnlSubCategory.Width+5, 30);
             btnSubCategoryNext.Height = gbSubCategory.Height - 50;
             btnSubCategoryNext.Width = (gbSubCategory.Width * 7) / 100;
+            btnSubCategoryNext.Font = new System.Drawing.Font("Microsoft Sans Serif", 20, FontStyle.Bold);
+            btnSubCategoryNext.ForeColor = Color.DarkRed;
+            btnSubCategoryNext.Text = ">";
+            btnSubCategoryNext.BackColor = Color.FromArgb(6, 199, 255);
+            btnSubCategoryNext.FlatStyle = FlatStyle.Flat;
+            gbSubCategory.Controls.Add(btnSubCategoryNext);
 
 
             #endregion
 
             #region Item List
             //Item List
-
+            //GroupBox gbItems = new GroupBox();
+            gbItems.Location = new Point(10, gbSubCategory.Location.Y+gbSubCategory.Height+20);
+            gbItems.Width = tbMenu.Width - 30;
+            gbItems.Height = (tbMenu.Height * 70) / 100;
+            gbItems.Font = new System.Drawing.Font("Microsoft Sans Serif", 10, FontStyle.Bold);
+            tbDrinks.Controls.Add(gbItems);
             #endregion
 
             #endregion
