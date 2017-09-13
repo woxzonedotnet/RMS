@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DataAccess;
 
 namespace RMS_FrontEnd
 {
@@ -20,6 +21,10 @@ namespace RMS_FrontEnd
         Point menuscroll;
         #endregion
 
+        #region Object
+        clsDBConnection cDBConnection = new clsDBConnection();
+        #endregion
+
         public Main()
         {
             InitializeComponent();
@@ -29,7 +34,10 @@ namespace RMS_FrontEnd
         {
             screenWidth = this.Width;
             screenHeight = this.Height;
-
+            DataTable dtMenu = new DataTable();
+            string code = "MD002";
+            string where = "fldMenuDepartmentCode = '"+code+"'";
+            dtMenu = cDBConnection.SearchData("tbl_MenuCategory",where);
             
             #region Header
             //panel Header
@@ -59,18 +67,26 @@ namespace RMS_FrontEnd
             tbMenu.SizeMode = TabSizeMode.FillToRight;
             #endregion
 
+            #region TAB_Page
+            for (int i = 0; i < dtMenu.Rows.Count; i++)
+            {
+                MetroFramework.Controls.MetroTabPage tb = new MetroFramework.Controls.MetroTabPage();
+                tb.Text = dtMenu.Rows[i]["fldMenuCategoryName"].ToString();
+                tb.Name = dtMenu.Rows[i]["fldMenuCategoryName"].ToString();
             #region SubCategory
             //Sub Category
-            //GroupBox gbSubCategory = new GroupBox();
-            gbSubCategory.Location = new Point(10,10);
+            GroupBox gbSubCategory = new GroupBox();
+            gbSubCategory.Location = new Point(10, 10);
             gbSubCategory.Width = tbMenu.Width - 30;
             gbSubCategory.Height = (tbMenu.Height * 18) / 100;
+            gbSubCategory.BackColor = Color.White;
+            gbSubCategory.Text = "SUB CATEGORY";
             gbSubCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 10, FontStyle.Bold);
-            tbDrinks.Controls.Add(gbSubCategory);
+            tb.Controls.Add(gbSubCategory);
 
             //Button Previous
-            //Button btnSubCategoryPrevious = new Button();
-            btnSubCategoryPrevious.Location = new Point(10,30);
+            Button btnSubCategoryPrevious = new Button();
+            btnSubCategoryPrevious.Location = new Point(10, 30);
             btnSubCategoryPrevious.Height = gbSubCategory.Height - 50;
             btnSubCategoryPrevious.Width = (gbSubCategory.Width * 7) / 100;
             btnSubCategoryPrevious.Font = new System.Drawing.Font("Microsoft Sans Serif", 20, FontStyle.Bold);
@@ -81,17 +97,18 @@ namespace RMS_FrontEnd
             gbSubCategory.Controls.Add(btnSubCategoryPrevious);
 
             //Button Panel
-            //MetroFramework.Controls.MetroPanel pnlSubCategory = new MetroFramework.Controls.MetroPanel();
-            pnlSubCategory.Location = new Point(btnSubCategoryPrevious.Location.X+ btnSubCategoryPrevious.Width + 5,30);
+            MetroFramework.Controls.MetroPanel pnlSubCategory = new MetroFramework.Controls.MetroPanel();
+            pnlSubCategory.Location = new Point(btnSubCategoryPrevious.Location.X + btnSubCategoryPrevious.Width + 5, 30);
             pnlSubCategory.Height = gbSubCategory.Height - 50;
             pnlSubCategory.Width = (gbSubCategory.Width * 81) / 100;
             pnlSubCategory.UseCustomBackColor = true;
             pnlSubCategory.BackColor = Color.FromArgb(0, 75, 98);
             gbSubCategory.Controls.Add(pnlSubCategory);
+            buttonConfig(pnlSubCategory);
 
             //Button Next
-            //Button btnSubCategoryNext = new Button();
-            btnSubCategoryNext.Location = new Point(pnlSubCategory.Location.X+pnlSubCategory.Width+5, 30);
+            Button btnSubCategoryNext = new Button();
+            btnSubCategoryNext.Location = new Point(pnlSubCategory.Location.X + pnlSubCategory.Width + 5, 30);
             btnSubCategoryNext.Height = gbSubCategory.Height - 50;
             btnSubCategoryNext.Width = (gbSubCategory.Width * 7) / 100;
             btnSubCategoryNext.Font = new System.Drawing.Font("Microsoft Sans Serif", 20, FontStyle.Bold);
@@ -106,13 +123,21 @@ namespace RMS_FrontEnd
 
             #region Item List
             //Item List
-            //GroupBox gbItems = new GroupBox();
-            gbItems.Location = new Point(10, gbSubCategory.Location.Y+gbSubCategory.Height+20);
+            GroupBox gbItems = new GroupBox();
+            gbItems.Location = new Point(10, gbSubCategory.Location.Y + gbSubCategory.Height + 20);
             gbItems.Width = tbMenu.Width - 30;
             gbItems.Height = (tbMenu.Height * 70) / 100;
+            gbItems.BackColor = Color.White;
+            gbItems.Text = "ITEMS";
             gbItems.Font = new System.Drawing.Font("Microsoft Sans Serif", 10, FontStyle.Bold);
-            tbDrinks.Controls.Add(gbItems);
+            tb.Controls.Add(gbItems);
             #endregion
+                tbMenu.TabPages.Add(tb);
+            }
+
+            #endregion
+
+            
 
             #endregion
 
@@ -173,7 +198,7 @@ namespace RMS_FrontEnd
             return color;
         }
 
-        public void buttonConfig()
+        public void buttonConfig(MetroFramework.Controls.MetroPanel pnlSubCategory)
         {
             //metroPanel1.Controls.Clear();
             //metroPanel1.VerticalScrollbar = true;
