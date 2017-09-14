@@ -22,6 +22,10 @@ namespace RMS_FrontEnd
         #endregion
 
         #region Object
+        #region UI
+        
+        #endregion
+
         clsDBConnection cDBConnection = new clsDBConnection();
         #endregion
 
@@ -65,6 +69,7 @@ namespace RMS_FrontEnd
             tbMenu.FontSize = MetroFramework.MetroTabControlSize.Tall;
             tbMenu.FontWeight = MetroFramework.MetroTabControlWeight.Bold;
             tbMenu.SizeMode = TabSizeMode.FillToRight;
+            tbMenu.Appearance = TabAppearance.Normal;
             #endregion
 
             #region TAB_Page
@@ -95,6 +100,7 @@ namespace RMS_FrontEnd
             btnSubCategoryPrevious.BackColor = Color.FromArgb(6, 199, 255);
             btnSubCategoryPrevious.FlatStyle = FlatStyle.Flat;
             gbSubCategory.Controls.Add(btnSubCategoryPrevious);
+            
 
             //Button Panel
             MetroFramework.Controls.MetroPanel pnlSubCategory = new MetroFramework.Controls.MetroPanel();
@@ -102,9 +108,12 @@ namespace RMS_FrontEnd
             pnlSubCategory.Height = gbSubCategory.Height - 50;
             pnlSubCategory.Width = (gbSubCategory.Width * 81) / 100;
             pnlSubCategory.UseCustomBackColor = true;
-            pnlSubCategory.BackColor = Color.FromArgb(0, 75, 98);
+            pnlSubCategory.BackColor = Color.FromArgb(255, 255, 255);
+            pnlSubCategory.AutoScroll = true;
+            pnlSubCategory.AutoScrollPosition = new Point(10,10);
             gbSubCategory.Controls.Add(pnlSubCategory);
-            buttonConfig(pnlSubCategory);
+            buttonConfig(pnlSubCategory,tb.Name);
+
 
             //Button Next
             Button btnSubCategoryNext = new Button();
@@ -118,6 +127,24 @@ namespace RMS_FrontEnd
             btnSubCategoryNext.FlatStyle = FlatStyle.Flat;
             gbSubCategory.Controls.Add(btnSubCategoryNext);
 
+            //previous button click event
+            btnSubCategoryPrevious.Click += delegate
+            {
+                try
+                {
+                    pnlSubCategory.HorizontalScroll.Value -= 110;
+                }
+                catch (Exception ex)
+                {
+                    pnlSubCategory.AutoScrollPosition = new Point(0, 0);
+                }
+            };
+
+            //next button click event
+            btnSubCategoryNext.Click += delegate
+            {
+                pnlSubCategory.HorizontalScroll.Value += 110;
+            };
 
             #endregion
 
@@ -198,11 +225,11 @@ namespace RMS_FrontEnd
             return color;
         }
 
-        public void buttonConfig(MetroFramework.Controls.MetroPanel pnlSubCategory)
+        public void buttonConfig(MetroFramework.Controls.MetroPanel pnlSubCategory,string tabName)
         {
             //metroPanel1.Controls.Clear();
             //metroPanel1.VerticalScrollbar = true;
-
+            MessageBox.Show(tabName);
             string[] btnName = new string[] { "ADD", "Cancel", "CuT", "Put", "lol", "ADD", "Cancel", "CuT", "Put", "lol" };
             string[] btnBackColor = new string[] { "6,199,255", "0,255,0", "0,0,255", "125,24,156", "200,100,50", "6,199,255", "0,255,0", "0,0,255", "125,24,156", "200,100,50" };
 
@@ -228,38 +255,6 @@ namespace RMS_FrontEnd
                 newLoc = new Point(x += 100, y);
             }
         }
-
-        //private void metroPanel1_MouseHover(object sender, EventArgs e)
-        //{
-        //    startPoint = MousePosition;
-        //    menuscroll = metroPanel1.AutoScrollPosition;
-        //}
-
-        //private void metroPanel1_MouseMove(object sender, MouseEventArgs e)
-        //{
-        //    //int x = MousePosition.X;
-        //    ////int px = metroPanel1.AutoScrollPosition.X;
-        //    //label1.Text = x.ToString();
-        //    ////Point scroll = new Point(menuscroll.X,0);
-        //    //label2.Text = metroPanel1.AutoScrollPosition.X.ToString();
-        //    ////metroPanel1.AutoScrollPosition = MousePosition;
-        //    //int v = startPoint.X - x;
-        //    //menuscroll.X += v;
-        //    //metroPanel1.AutoScrollPosition = menuscroll;
-
-        //    ////if (x > startPoint.X)
-        //    ////{
-        //    ////    int v = startPoint.X - x;
-        //    ////    scroll.X -= v;
-        //    ////    metroPanel1.AutoScrollPosition = scroll;
-        //    ////}
-        //    ////else
-        //    ////{
-        //    ////    int v = startPoint.X - x;
-        //    ////    scroll.X -= v;
-        //    ////    metroPanel1.AutoScrollPosition = scroll;
-        //    ////}
-        //}
 
     }
 }
