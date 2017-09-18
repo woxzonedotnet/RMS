@@ -17,7 +17,7 @@ namespace DataAccess
 
         #region Variables
         string strConnectionString;
-        private string strServerName;
+        public string strServerName;
         public string strDatabaseName;
         public string strUsername;
         public string strPassword;

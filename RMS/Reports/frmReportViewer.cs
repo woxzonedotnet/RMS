@@ -9,16 +9,11 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using BusinessLogic;
 using BusinessObject;
-using CrystalDecisions.CrystalReports.Engine;
-using CrystalDecisions.Shared;
 using DataAccess;
 using System.Data.SqlClient;
-using System.Data;
-using System.Windows.Forms;
 using System.Xml;
-using System.Data.SqlClient;
-using System.Data;
-using System.Windows.Forms;
+using CrystalDecisions.CrystalReports.Engine;
+using CrystalDecisions.Shared;
 
 
 
@@ -118,10 +113,12 @@ namespace Reports
 
             cReportDocument.RecordSelectionFormula = strSelectionFormular;
             ConnectionInfo connectionInfo = new ConnectionInfo();
+            connectionInfo.ServerName = cDBConnection.strServerName;
             connectionInfo.DatabaseName = cDBConnection.strDatabaseName;
             connectionInfo.UserID = cDBConnection.strUsername;
             connectionInfo.Password = cDBConnection.strPassword;
             SetDBLogonForReport(connectionInfo, cReportDocument);
+            //cReportDocument.SetDatabaseLogon(cDBConnection.strUsername, cDBConnection.strPassword,);
             crystalReportViewer.ReportSource = cReportDocument;
         }
 
