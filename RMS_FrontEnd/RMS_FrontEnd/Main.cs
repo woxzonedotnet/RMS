@@ -144,7 +144,15 @@ namespace RMS_FrontEnd
             //next button click event
             btnSubCategoryNext.Click += delegate
             {
-                pnlSubCategory.HorizontalScroll.Value += 110;
+                try
+                {
+                    pnlSubCategory.HorizontalScroll.Value += 110;
+                }
+                catch (Exception ex)
+                {
+                    //pnlSubCategory.AutoScrollPosition = new Point(0, 0);
+                }
+                
             };
 
             #endregion
@@ -184,10 +192,13 @@ namespace RMS_FrontEnd
 
             //Item Grid
             dgvItem.Location = new Point(5, 5);
-            dgvItem.Height = 400;
+            dgvItem.Height = (pnlBill.Height*50)/100;
             dgvItem.Width = pnlBill.Width - 10;
             dgvItem.Columns["clmName"].Width = (dgvItem.Width * 40) / 100;
-            //pnlBill.Controls.Add(dgvItem);
+            pnlBill.Controls.Add(dgvItem);
+
+            //Bill Amounts
+
 
             #endregion
 
@@ -214,7 +225,7 @@ namespace RMS_FrontEnd
 
 
 
-
+        #region String to Color
         public Color[] convertToColorArray(string[] colorList)
         {
             Color[] color = new Color[colorList.Length];
@@ -231,6 +242,22 @@ namespace RMS_FrontEnd
             return color;
         }
 
+        public Color convertToColorArray(string strcolor)
+        {
+            Color color = new Color();
+
+            var splitString = strcolor.Split(',');
+            int red, green, blue;
+            red = int.Parse(splitString[0]);
+            green = int.Parse(splitString[1]);
+            blue = int.Parse(splitString[2]);
+            color = Color.FromArgb(red, green, blue);
+
+            return color;
+        }
+        #endregion
+
+        #region Category List Button Adding
         public void btnCategoryConfig(GroupBox gbItems,MetroFramework.Controls.MetroPanel pnlSubCategory,string tabName)
         {
             //metroPanel1.Controls.Clear();
@@ -296,6 +323,7 @@ namespace RMS_FrontEnd
             //    newLoc = new Point(x += 100, y);
             //}
         }
+        #endregion
 
         #region Item List Button Adding
         public void btnItemConfig(GroupBox gbItems, string tabName)
