@@ -271,13 +271,14 @@
             // 
             // btnSample
             // 
+            this.btnSample.BackColor = System.Drawing.Color.White;
             this.btnSample.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSample.Location = new System.Drawing.Point(651, 105);
             this.btnSample.Name = "btnSample";
             this.btnSample.Size = new System.Drawing.Size(129, 51);
             this.btnSample.TabIndex = 28;
             this.btnSample.Text = "Sample";
-            this.btnSample.UseVisualStyleBackColor = true;
+            this.btnSample.UseVisualStyleBackColor = false;
             // 
             // dataGridView1
             // 
@@ -421,6 +422,8 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(868, 31);
             this.panel1.TabIndex = 60;
+            this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
+            this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseMove);
             // 
             // lblTitle
             // 
@@ -566,6 +569,7 @@
             this.Name = "frmMenuDetails";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmMenuDetails";
+            this.Load += new System.EventHandler(this.frmMenuDetails_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.panel1.ResumeLayout(false);
