@@ -39,9 +39,9 @@ namespace RMS_FrontEnd
             screenWidth = this.Width;
             screenHeight = this.Height;
             DataTable dtMenu = new DataTable();
-            string code = "MD002";
-            string where = "fldMenuDepartmentCode = '"+code+"'";
-            dtMenu = cDBConnection.SearchData("tbl_MenuCategory",where);
+            string code = "LOC01";
+            string where = "fldLocationCode = '"+code+"'";
+            dtMenu = cDBConnection.SearchData("tbl_MenuDepartment",where);
             
             #region Header
             //panel Header
@@ -76,16 +76,17 @@ namespace RMS_FrontEnd
             for (int i = 0; i < dtMenu.Rows.Count; i++)
             {
                 MetroFramework.Controls.MetroTabPage tb = new MetroFramework.Controls.MetroTabPage();
-                tb.Text = dtMenu.Rows[i]["fldMenuCategoryName"].ToString();
-                tb.Name = dtMenu.Rows[i]["fldMenuCategoryName"].ToString();
-            #region SubCategory
+                tb.Text = dtMenu.Rows[i]["fldMenuDepartmentName"].ToString();
+                tb.Name = dtMenu.Rows[i]["fldMenuDepartmentCode"].ToString();
+
+            #region Category
             //Sub Category
             GroupBox gbSubCategory = new GroupBox();
             gbSubCategory.Location = new Point(10, 10);
             gbSubCategory.Width = tbMenu.Width - 30;
             gbSubCategory.Height = (tbMenu.Height * 18) / 100;
             gbSubCategory.BackColor = Color.White;
-            gbSubCategory.Text = "SUB CATEGORY";
+            gbSubCategory.Text = "CATEGORY";
             gbSubCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 10, FontStyle.Bold);
             tb.Controls.Add(gbSubCategory);
 
@@ -112,7 +113,7 @@ namespace RMS_FrontEnd
             pnlSubCategory.AutoScroll = true;
             pnlSubCategory.AutoScrollPosition = new Point(10,10);
             gbSubCategory.Controls.Add(pnlSubCategory);
-            buttonConfig(pnlSubCategory,tb.Name);
+            
 
 
             //Button Next
@@ -159,8 +160,13 @@ namespace RMS_FrontEnd
             gbItems.Font = new System.Drawing.Font("Microsoft Sans Serif", 10, FontStyle.Bold);
             tb.Controls.Add(gbItems);
             #endregion
+
+            btnCategoryConfig(gbItems,pnlSubCategory, tb.Name);
+
+
+
                 tbMenu.TabPages.Add(tb);
-            }
+            }//Tab Page End
 
             #endregion
 
@@ -225,36 +231,123 @@ namespace RMS_FrontEnd
             return color;
         }
 
-        public void buttonConfig(MetroFramework.Controls.MetroPanel pnlSubCategory,string tabName)
+        public void btnCategoryConfig(GroupBox gbItems,MetroFramework.Controls.MetroPanel pnlSubCategory,string tabName)
         {
             //metroPanel1.Controls.Clear();
             //metroPanel1.VerticalScrollbar = true;
-            MessageBox.Show(tabName);
-            string[] btnName = new string[] { "ADD", "Cancel", "CuT", "Put", "lol", "ADD", "Cancel", "CuT", "Put", "lol" };
+
+            DataTable dtCategory = new DataTable();
+            string code = tabName;
+            string where = "fldMenuDepartmentCode = '" + code + "'";
+            dtCategory = cDBConnection.SearchData("tbl_MenuCategory", where);
+
+            //string[] btnName = new string[] { "ADD", "Cancel", "CuT", "Put", "lol", "ADD", "Cancel", "CuT", "Put", "lol" };
             string[] btnBackColor = new string[] { "6,199,255", "0,255,0", "0,0,255", "125,24,156", "200,100,50", "6,199,255", "0,255,0", "0,0,255", "125,24,156", "200,100,50" };
 
             Color[] backColor = convertToColorArray(btnBackColor);
             int x = 30;
             int y = 5;
             Point newLoc = new Point(x, y); // Set whatever you want for initial location
-            for (int j = 0; j < 10; j++)
+
+            for (int i = 0; i < dtCategory.Rows.Count; i++)
             {
-                //for (int i = 0; i < 1; ++i)
-                //{
                 Button b = new Button();
                 b.FlatStyle = FlatStyle.Flat;
                 b.FlatAppearance.BorderColor = Color.FromArgb(0, 154, 199);
-                b.Size = new Size(80, 50);
-                b.Text = btnName[j];
-                b.BackColor = backColor[j];
+                b.Size = new Size(110, 50);
+                b.Text = dtCategory.Rows[i]["fldMenuCategoryName"].ToString();
+                b.Name = dtCategory.Rows[i]["fldMenuCategoryCode"].ToString();
+                b.BackColor = backColor[i];
                 b.ForeColor = Color.White;
                 b.Location = newLoc;
                 newLoc.Offset(0, b.Height + 10);
                 pnlSubCategory.Controls.Add(b);
-                //}
-                newLoc = new Point(x += 100, y);
+                newLoc = new Point(x += 140, y);
+
+                b.Click += delegate
+                {
+                    try
+                    {
+                        MessageBox.Show(b.Text+ "   Clicked");
+                        btnItemConfig(gbItems, tabName);
+                    }
+                    catch (Exception ex)
+                    {
+                        
+                    }
+                };
+            }
+
+            //for (int j = 0; j < 10; j++)
+            //{
+            //    //for (int i = 0; i < 1; ++i)
+            //    //{
+            //    Button b = new Button();
+            //    b.FlatStyle = FlatStyle.Flat;
+            //    b.FlatAppearance.BorderColor = Color.FromArgb(0, 154, 199);
+            //    b.Size = new Size(80, 50);
+            //    b.Text = btnName[j];
+            //    b.BackColor = backColor[j];
+            //    b.ForeColor = Color.White;
+            //    b.Location = newLoc;
+            //    newLoc.Offset(0, b.Height + 10);
+            //    pnlSubCategory.Controls.Add(b);
+            //    //}
+            //    newLoc = new Point(x += 100, y);
+            //}
+        }
+
+        #region Item List Button Adding
+        public void btnItemConfig(GroupBox gbItems, string tabName)
+        {
+            //metroPanel1.Controls.Clear();
+            //metroPanel1.VerticalScrollbar = true;
+
+            DataTable dtCategory = new DataTable();
+            string code = tabName;
+            string where = "fldMenuDepartmentCode = '" + code + "'";
+            dtCategory = cDBConnection.SearchData("tbl_MenuCategory", where);
+
+            //string[] btnName = new string[] { "ADD", "Cancel", "CuT", "Put", "lol", "ADD", "Cancel", "CuT", "Put", "lol" };
+            string[] btnBackColor = new string[] { "6,199,255", "0,255,0", "0,0,255", "125,24,156", "200,100,50", "6,199,255", "0,255,0", "0,0,255", "125,24,156", "200,100,50" };
+
+            Color[] backColor = convertToColorArray(btnBackColor);
+            int x = 30;
+            int y = 30;
+            Point newLoc = new Point(x, y); // Set whatever you want for initial location
+
+            int DataCount = dtCategory.Rows.Count;
+            int count = 0;
+
+            for (int j=0; j < Math.Abs(DataCount/4)+1; j++)
+            {
+                for (int i = 0; i < 4; i++)
+                {
+                    try
+                    {
+                        Button b = new Button();
+                        b.FlatStyle = FlatStyle.Flat;
+                        b.FlatAppearance.BorderColor = Color.FromArgb(0, 154, 199);
+                        b.Size = new Size(110, 50);
+                        b.Text = dtCategory.Rows[count]["fldMenuCategoryName"].ToString();
+                        b.Name = dtCategory.Rows[count]["fldMenuCategoryCode"].ToString();
+                        b.BackColor = backColor[count];
+                        b.ForeColor = Color.White;
+                        b.Location = newLoc;
+                        newLoc.Offset(0, b.Height + 10);
+                        gbItems.Controls.Add(b);
+                        newLoc = new Point(x += 140, y);
+                        count++;
+                    }
+                    catch (Exception ex)
+                    {
+
+                    }
+                }
+                newLoc = new Point(x=30, y += 70);
             }
         }
+        #endregion
 
     }
 }
