@@ -73,6 +73,14 @@
             this.cmbPrintLocation = new RMS.ColumnComboBox();
             this.cmbStatus = new RMS.ColumnComboBox();
             this.label11 = new System.Windows.Forms.Label();
+            this.clmRecipeCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmRecipeDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmUnitPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmTotalCost = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmLocation = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmSalePrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmServiceChargePresentage = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.panel1.SuspendLayout();
@@ -283,6 +291,12 @@
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.clmRecipeCode,
+            this.clmRecipeDescription,
+            this.clmUnitPrice,
+            this.clmQuantity,
+            this.clmTotalCost});
             this.dataGridView1.Location = new System.Drawing.Point(12, 226);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(512, 253);
@@ -291,6 +305,10 @@
             // dataGridView2
             // 
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.clmLocation,
+            this.clmSalePrice,
+            this.clmServiceChargePresentage});
             this.dataGridView2.Location = new System.Drawing.Point(537, 226);
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.Size = new System.Drawing.Size(318, 171);
@@ -520,6 +538,54 @@
             this.label11.TabIndex = 62;
             this.label11.Text = "Status";
             // 
+            // clmRecipeCode
+            // 
+            this.clmRecipeCode.HeaderText = "Recipe Code";
+            this.clmRecipeCode.Name = "clmRecipeCode";
+            this.clmRecipeCode.Width = 80;
+            // 
+            // clmRecipeDescription
+            // 
+            this.clmRecipeDescription.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.clmRecipeDescription.HeaderText = "Recipe Description";
+            this.clmRecipeDescription.Name = "clmRecipeDescription";
+            // 
+            // clmUnitPrice
+            // 
+            this.clmUnitPrice.HeaderText = "Unit Price";
+            this.clmUnitPrice.Name = "clmUnitPrice";
+            this.clmUnitPrice.Width = 80;
+            // 
+            // clmQuantity
+            // 
+            this.clmQuantity.HeaderText = "Quantity";
+            this.clmQuantity.Name = "clmQuantity";
+            this.clmQuantity.Width = 60;
+            // 
+            // clmTotalCost
+            // 
+            this.clmTotalCost.HeaderText = "Total Cost";
+            this.clmTotalCost.Name = "clmTotalCost";
+            this.clmTotalCost.Width = 80;
+            // 
+            // clmLocation
+            // 
+            this.clmLocation.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.clmLocation.HeaderText = "Location";
+            this.clmLocation.Name = "clmLocation";
+            // 
+            // clmSalePrice
+            // 
+            this.clmSalePrice.HeaderText = "Sale Price";
+            this.clmSalePrice.Name = "clmSalePrice";
+            this.clmSalePrice.Width = 80;
+            // 
+            // clmServiceChargePresentage
+            // 
+            this.clmServiceChargePresentage.HeaderText = "Service Charge Presentage %";
+            this.clmServiceChargePresentage.Name = "clmServiceChargePresentage";
+            this.clmServiceChargePresentage.Width = 80;
+            // 
             // frmMenuDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -625,5 +691,13 @@
         private System.Windows.Forms.ColorDialog colorForground;
         private ColumnComboBox cmbStatus;
         private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmRecipeCode;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmRecipeDescription;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmUnitPrice;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmQuantity;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmTotalCost;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmLocation;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmSalePrice;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmServiceChargePresentage;
     }
 }
