@@ -270,7 +270,58 @@ namespace RMS_FrontEnd
             gbBillInfo.Text = "BILL INFORMATION";
             gbBillInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10, FontStyle.Bold);
             pnlBill.Controls.Add(gbBillInfo);
-            
+
+            int gbBillWidth = gbBillInfo.Width;
+            int gbBillHeight = gbBillInfo.Height;
+
+            lblSubTotal.Location = new Point(5,25);
+            lblSubTotal.Width = (gbBillWidth * 8) / 100;
+            lblSubTotal.Height = (gbBillHeight * 2) / 100;
+
+            txtSubTotal.Location = new Point(lblSubTotal.Location.X+lblSubTotal.Width, 25);
+            txtSubTotal.Width = (gbBillWidth * 35) / 100;
+            txtSubTotal.Height = (gbBillHeight * 2) / 100;
+
+            lblTotal.Location = new Point(txtSubTotal.Location.X + txtSubTotal.Width+15, 25);
+            lblTotal.Width = (gbBillWidth * 20) / 100;
+            lblTotal.Height = (gbBillHeight * 2) / 100;
+
+            txtTotal.Location = new Point(lblTotal.Location.X + lblTotal.Width + 2, 25);
+            txtTotal.Width = (gbBillWidth * 34) / 100;
+            txtTotal.Height = (gbBillHeight * 2) / 100;
+
+            lblDiscount.Location = new Point(5, lblSubTotal.Location.Y+lblSubTotal.Height+15);
+            lblDiscount.Width = (gbBillWidth * 8) / 100;
+            lblDiscount.Height = (gbBillHeight * 2) / 100;
+
+            txtDiscount.Location = new Point(lblSubTotal.Location.X + lblSubTotal.Width, txtSubTotal.Location.Y + txtSubTotal.Height + 5);
+            txtDiscount.Width = (gbBillWidth * 35) / 100;
+            txtDiscount.Height = (gbBillHeight * 2) / 100;
+
+            lblTax.Location = new Point(5, lblDiscount.Location.Y + lblDiscount.Height + 15);
+            lblTax.Width = (gbBillWidth * 8) / 100;
+            lblTax.Height = (gbBillHeight * 2) / 100;
+
+            txtTax.Location = new Point(lblSubTotal.Location.X + lblSubTotal.Width, txtDiscount.Location.Y + txtDiscount.Height + 5);
+            txtTax.Width = (gbBillWidth * 35) / 100;
+            txtTax.Height = (gbBillHeight * 2) / 100;
+
+            //Buttons
+            btnTakeaway.Location = new Point(10,lblTax.Location.Y+lblTax.Height+10);
+            btnTakeaway.Width = (gbBillWidth * 22) / 100;
+            btnTakeaway.Height = (gbBillHeight * 15) / 100;
+
+            btnTable.Location = new Point(btnTakeaway.Location.X + btnTakeaway.Width+20, lblTax.Location.Y + lblTax.Height + 10);
+            btnTable.Width = (gbBillWidth * 22) / 100;
+            btnTable.Height = (gbBillHeight * 15) / 100;
+
+            btnRoom.Location = new Point(btnTable.Location.X + btnTable.Width + 20, lblTax.Location.Y + lblTax.Height + 10);
+            btnRoom.Width = (gbBillWidth * 22) / 100;
+            btnRoom.Height = (gbBillHeight * 15) / 100;
+
+            btnPayBill.Location = new Point(btnRoom.Location.X + btnRoom.Width + 20, lblTax.Location.Y + lblTax.Height + 10);
+            btnPayBill.Width = (gbBillWidth * 22) / 100;
+            btnPayBill.Height = (gbBillHeight * 15) / 100;
 
             #endregion
 
@@ -462,6 +513,12 @@ namespace RMS_FrontEnd
         private void button6_Click(object sender, EventArgs e)
         {
             frmCalculator Calculator = new frmCalculator();
+            Calculator.Show();
+        }
+
+        private void txtTotal_DoubleClick(object sender, EventArgs e)
+        {
+            frmCalculator Calculator = new frmCalculator(this.txtTotal);
             Calculator.Show();
         }
 
