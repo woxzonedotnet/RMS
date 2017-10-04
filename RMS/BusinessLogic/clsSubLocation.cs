@@ -68,10 +68,21 @@ namespace BusinessLogic
         }
         #endregion
 
+       
+
+
         #region GetSubLocation Data using LocationCode
         public DataTable GetSubLocationData(string strLocationCode)
         {
             string strWhere = "fldLocationCode='" + strLocationCode + "' and fldActiveStatus=1";
+            DataTable dtSubLocation = cDBConnection.SearchData("tbl_SubLocation", strWhere);
+            return dtSubLocation;
+        }
+        #endregion
+        #region GetPrinterLocation
+        public DataTable GetPrinterLocation(string strLocationCode)
+        {
+            string strWhere = "fldLocationCode='" + strLocationCode + "' and fldShowInFrontEnd='True'";
             DataTable dtSubLocation = cDBConnection.SearchData("tbl_SubLocation", strWhere);
             return dtSubLocation;
         }

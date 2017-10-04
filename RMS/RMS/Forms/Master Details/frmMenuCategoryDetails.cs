@@ -238,5 +238,10 @@ namespace RMS.Forms
                 }
             }
         }
+
+        private void frmMenuCategoryDetails_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

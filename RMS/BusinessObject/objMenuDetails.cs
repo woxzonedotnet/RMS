@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -25,6 +26,8 @@ namespace BusinessObject
         public double TotalCost { get; set; }
         public int Status { get; set; }
         public bool IsExists { get; set; }
-
+        public DataTable dtRecipeDetails { get; set; }
+        public DataTable dtLocation { get; set; }
+       // public DataTable dtMenuDetails { get; set; }
     }
 }

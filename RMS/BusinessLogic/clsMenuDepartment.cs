@@ -50,6 +50,7 @@ namespace BusinessLogic
         }
         #endregion
 
+
         #region InsertUpdateData
         public int InsertUpdateData(objMenuDepartment oMenuDepartment)
         {

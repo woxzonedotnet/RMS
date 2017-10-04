@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMenuDetails));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -48,10 +49,18 @@
             this.txtPrepareTime = new System.Windows.Forms.TextBox();
             this.btBackColor = new System.Windows.Forms.Button();
             this.btnTextColor = new System.Windows.Forms.Button();
-            this.cmbServiceCharge = new System.Windows.Forms.CheckBox();
+            this.chkServiceCharge = new System.Windows.Forms.CheckBox();
             this.btnSample = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.dgvRecipe = new System.Windows.Forms.DataGridView();
+            this.clmRecipeCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmRecipeDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmUnitPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmTotalCost = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvLocation = new System.Windows.Forms.DataGridView();
+            this.clmLocation = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmSalePrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmServiceChargePresentage = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtTotalMenuCost = new System.Windows.Forms.TextBox();
             this.btnSearch = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
@@ -67,23 +76,17 @@
             this.btnExit = new System.Windows.Forms.Button();
             this.colorBacground = new System.Windows.Forms.ColorDialog();
             this.colorForground = new System.Windows.Forms.ColorDialog();
+            this.label11 = new System.Windows.Forms.Label();
+            this.errSRN = new System.Windows.Forms.ErrorProvider(this.components);
+            this.cmbStatus = new RMS.ColumnComboBox();
             this.cmbMenuDepartment = new RMS.ColumnComboBox();
             this.cmbMenuCategory = new RMS.ColumnComboBox();
             this.cmbLocation = new RMS.ColumnComboBox();
             this.cmbPrintLocation = new RMS.ColumnComboBox();
-            this.cmbStatus = new RMS.ColumnComboBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.clmRecipeCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmRecipeDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmUnitPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmTotalCost = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmLocation = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmSalePrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmServiceChargePresentage = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvRecipe)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvLocation)).BeginInit();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errSRN)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -266,16 +269,17 @@
             this.btnTextColor.UseVisualStyleBackColor = false;
             this.btnTextColor.Click += new System.EventHandler(this.btnTextColor_Click);
             // 
-            // cmbServiceCharge
+            // chkServiceCharge
             // 
-            this.cmbServiceCharge.AutoSize = true;
-            this.cmbServiceCharge.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
-            this.cmbServiceCharge.Location = new System.Drawing.Point(547, 168);
-            this.cmbServiceCharge.Name = "cmbServiceCharge";
-            this.cmbServiceCharge.Size = new System.Drawing.Size(120, 20);
-            this.cmbServiceCharge.TabIndex = 26;
-            this.cmbServiceCharge.Text = "Service Charge";
-            this.cmbServiceCharge.UseVisualStyleBackColor = true;
+            this.chkServiceCharge.AutoSize = true;
+            this.chkServiceCharge.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
+            this.chkServiceCharge.Location = new System.Drawing.Point(547, 168);
+            this.chkServiceCharge.Name = "chkServiceCharge";
+            this.chkServiceCharge.Size = new System.Drawing.Size(120, 20);
+            this.chkServiceCharge.TabIndex = 26;
+            this.chkServiceCharge.Text = "Service Charge";
+            this.chkServiceCharge.UseVisualStyleBackColor = true;
+            this.chkServiceCharge.CheckedChanged += new System.EventHandler(this.chkServiceCharge_CheckedChanged);
             // 
             // btnSample
             // 
@@ -288,31 +292,87 @@
             this.btnSample.Text = "Sample";
             this.btnSample.UseVisualStyleBackColor = false;
             // 
-            // dataGridView1
+            // dgvRecipe
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvRecipe.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvRecipe.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.clmRecipeCode,
             this.clmRecipeDescription,
             this.clmUnitPrice,
             this.clmQuantity,
             this.clmTotalCost});
-            this.dataGridView1.Location = new System.Drawing.Point(12, 226);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(512, 253);
-            this.dataGridView1.TabIndex = 29;
+            this.dgvRecipe.Location = new System.Drawing.Point(16, 225);
+            this.dgvRecipe.Name = "dgvRecipe";
+            this.dgvRecipe.Size = new System.Drawing.Size(512, 253);
+            this.dgvRecipe.TabIndex = 29;
+            this.dgvRecipe.CellValidated += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvRecipe_CellValidated);
+            this.dgvRecipe.CurrentCellDirtyStateChanged += new System.EventHandler(this.dgvRecipe_CurrentCellDirtyStateChanged);
+            this.dgvRecipe.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dgvRecipe_KeyDown);
+            this.dgvRecipe.Leave += new System.EventHandler(this.dgvRecipe_Leave);
             // 
-            // dataGridView2
+            // clmRecipeCode
             // 
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.clmRecipeCode.HeaderText = "Recipe Code";
+            this.clmRecipeCode.Name = "clmRecipeCode";
+            this.clmRecipeCode.ReadOnly = true;
+            this.clmRecipeCode.Width = 80;
+            // 
+            // clmRecipeDescription
+            // 
+            this.clmRecipeDescription.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.clmRecipeDescription.HeaderText = "Recipe Description";
+            this.clmRecipeDescription.Name = "clmRecipeDescription";
+            // 
+            // clmUnitPrice
+            // 
+            this.clmUnitPrice.HeaderText = "Unit Price";
+            this.clmUnitPrice.Name = "clmUnitPrice";
+            this.clmUnitPrice.Width = 80;
+            // 
+            // clmQuantity
+            // 
+            this.clmQuantity.HeaderText = "Quantity";
+            this.clmQuantity.Name = "clmQuantity";
+            this.clmQuantity.Width = 60;
+            // 
+            // clmTotalCost
+            // 
+            this.clmTotalCost.HeaderText = "Total Cost";
+            this.clmTotalCost.Name = "clmTotalCost";
+            this.clmTotalCost.ReadOnly = true;
+            this.clmTotalCost.Width = 80;
+            // 
+            // dgvLocation
+            // 
+            this.dgvLocation.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvLocation.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.clmLocation,
             this.clmSalePrice,
             this.clmServiceChargePresentage});
-            this.dataGridView2.Location = new System.Drawing.Point(537, 226);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(318, 171);
-            this.dataGridView2.TabIndex = 30;
+            this.dgvLocation.Location = new System.Drawing.Point(537, 226);
+            this.dgvLocation.Name = "dgvLocation";
+            this.dgvLocation.Size = new System.Drawing.Size(318, 171);
+            this.dgvLocation.TabIndex = 30;
+            this.dgvLocation.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dgvLocation_KeyDown);
+            // 
+            // clmLocation
+            // 
+            this.clmLocation.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.clmLocation.HeaderText = "Location";
+            this.clmLocation.Name = "clmLocation";
+            this.clmLocation.ReadOnly = true;
+            // 
+            // clmSalePrice
+            // 
+            this.clmSalePrice.HeaderText = "Sale Price";
+            this.clmSalePrice.Name = "clmSalePrice";
+            this.clmSalePrice.Width = 80;
+            // 
+            // clmServiceChargePresentage
+            // 
+            this.clmServiceChargePresentage.HeaderText = "Service Charge Presentage %";
+            this.clmServiceChargePresentage.Name = "clmServiceChargePresentage";
+            this.clmServiceChargePresentage.Width = 80;
             // 
             // txtTotalMenuCost
             // 
@@ -334,6 +394,7 @@
             this.btnSearch.Size = new System.Drawing.Size(35, 31);
             this.btnSearch.TabIndex = 59;
             this.btnSearch.UseVisualStyleBackColor = false;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // panel4
             // 
@@ -419,6 +480,7 @@
             this.btnSave.TabIndex = 51;
             this.btnSave.Text = "&Save";
             this.btnSave.UseVisualStyleBackColor = false;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // lblSupplierCode
             // 
@@ -473,6 +535,31 @@
             this.btnExit.UseVisualStyleBackColor = false;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(544, 192);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(45, 16);
+            this.label11.TabIndex = 62;
+            this.label11.Text = "Status";
+            // 
+            // errSRN
+            // 
+            this.errSRN.ContainerControl = this;
+            // 
+            // cmbStatus
+            // 
+            this.cmbStatus.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.cmbStatus.DropDownWidth = 17;
+            this.cmbStatus.FormattingEnabled = true;
+            this.cmbStatus.Location = new System.Drawing.Point(595, 191);
+            this.cmbStatus.Name = "cmbStatus";
+            this.cmbStatus.Size = new System.Drawing.Size(185, 21);
+            this.cmbStatus.TabIndex = 63;
+            this.cmbStatus.ViewColumn = 0;
+            // 
             // cmbMenuDepartment
             // 
             this.cmbMenuDepartment.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
@@ -517,75 +604,6 @@
             this.cmbPrintLocation.TabIndex = 17;
             this.cmbPrintLocation.ViewColumn = 0;
             // 
-            // cmbStatus
-            // 
-            this.cmbStatus.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
-            this.cmbStatus.DropDownWidth = 17;
-            this.cmbStatus.FormattingEnabled = true;
-            this.cmbStatus.Location = new System.Drawing.Point(595, 191);
-            this.cmbStatus.Name = "cmbStatus";
-            this.cmbStatus.Size = new System.Drawing.Size(185, 21);
-            this.cmbStatus.TabIndex = 63;
-            this.cmbStatus.ViewColumn = 0;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(544, 192);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(45, 16);
-            this.label11.TabIndex = 62;
-            this.label11.Text = "Status";
-            // 
-            // clmRecipeCode
-            // 
-            this.clmRecipeCode.HeaderText = "Recipe Code";
-            this.clmRecipeCode.Name = "clmRecipeCode";
-            this.clmRecipeCode.Width = 80;
-            // 
-            // clmRecipeDescription
-            // 
-            this.clmRecipeDescription.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.clmRecipeDescription.HeaderText = "Recipe Description";
-            this.clmRecipeDescription.Name = "clmRecipeDescription";
-            // 
-            // clmUnitPrice
-            // 
-            this.clmUnitPrice.HeaderText = "Unit Price";
-            this.clmUnitPrice.Name = "clmUnitPrice";
-            this.clmUnitPrice.Width = 80;
-            // 
-            // clmQuantity
-            // 
-            this.clmQuantity.HeaderText = "Quantity";
-            this.clmQuantity.Name = "clmQuantity";
-            this.clmQuantity.Width = 60;
-            // 
-            // clmTotalCost
-            // 
-            this.clmTotalCost.HeaderText = "Total Cost";
-            this.clmTotalCost.Name = "clmTotalCost";
-            this.clmTotalCost.Width = 80;
-            // 
-            // clmLocation
-            // 
-            this.clmLocation.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.clmLocation.HeaderText = "Location";
-            this.clmLocation.Name = "clmLocation";
-            // 
-            // clmSalePrice
-            // 
-            this.clmSalePrice.HeaderText = "Sale Price";
-            this.clmSalePrice.Name = "clmSalePrice";
-            this.clmSalePrice.Width = 80;
-            // 
-            // clmServiceChargePresentage
-            // 
-            this.clmServiceChargePresentage.HeaderText = "Service Charge Presentage %";
-            this.clmServiceChargePresentage.Name = "clmServiceChargePresentage";
-            this.clmServiceChargePresentage.Width = 80;
-            // 
             // frmMenuDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -605,10 +623,10 @@
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.lblSupplierCode);
             this.Controls.Add(this.txtTotalMenuCost);
-            this.Controls.Add(this.dataGridView2);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgvLocation);
+            this.Controls.Add(this.dgvRecipe);
             this.Controls.Add(this.btnSample);
-            this.Controls.Add(this.cmbServiceCharge);
+            this.Controls.Add(this.chkServiceCharge);
             this.Controls.Add(this.btnTextColor);
             this.Controls.Add(this.btBackColor);
             this.Controls.Add(this.cmbMenuCategory);
@@ -636,10 +654,11 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmMenuDetails";
             this.Load += new System.EventHandler(this.frmMenuDetails_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvRecipe)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvLocation)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errSRN)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -669,10 +688,10 @@
         private ColumnComboBox cmbMenuCategory;
         private System.Windows.Forms.Button btBackColor;
         private System.Windows.Forms.Button btnTextColor;
-        private System.Windows.Forms.CheckBox cmbServiceCharge;
+        private System.Windows.Forms.CheckBox chkServiceCharge;
         private System.Windows.Forms.Button btnSample;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.DataGridView dgvRecipe;
+        private System.Windows.Forms.DataGridView dgvLocation;
         private System.Windows.Forms.TextBox txtTotalMenuCost;
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.Panel panel4;
@@ -691,6 +710,7 @@
         private System.Windows.Forms.ColorDialog colorForground;
         private ColumnComboBox cmbStatus;
         private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.ErrorProvider errSRN;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmRecipeCode;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmRecipeDescription;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmUnitPrice;
