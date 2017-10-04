@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using BusinessLogic;
 using BusinessObject;
+using System.IO;
 
 namespace RMS.Forms
 {
@@ -21,6 +22,10 @@ namespace RMS.Forms
         double total = 0;
         string strSubLocation = "";
         double TotalAmount;
+
+        MemoryStream ms;
+        byte[] photo_aray;
+        string FileName;
         
         #endregion
 
@@ -53,7 +58,7 @@ namespace RMS.Forms
             if (result == DialogResult.OK)
             {
                 // Set form background to the selected color.
-                btnSample.BackColor = colorBacground.Color;
+                pnlMenuButton.BackColor = colorBacground.Color;
             }
         }
 
@@ -64,7 +69,7 @@ namespace RMS.Forms
             if (result == DialogResult.OK)
             {
                 // Set form background to the selected color.
-                btnSample.ForeColor = colorForground.Color;
+                lblMenuButtonName.ForeColor = colorForground.Color;
             }
         }
 
@@ -273,8 +278,8 @@ namespace RMS.Forms
             oMenuDetails.TimeToPrepare = Convert.ToInt32(this.txtPrepareTime.Text);
             oMenuDetails.Status = Convert.ToInt32(this.cmbStatus["fldStatusCode"].ToString());
             oMenuDetails.TotalCost = Convert.ToDouble(this.txtTotalMenuCost.Text);
-            oMenuDetails.ButtonBackground = this.btnSample.BackColor.ToString();
-            oMenuDetails.ButtonForground = this.btnSample.ForeColor.ToString();
+            oMenuDetails.ButtonBackground = this.btBackColor.BackColor.ToString();
+            oMenuDetails.ButtonForground = this.btnTextColor.ForeColor.ToString();
 
 
             oMenuDetails.dtRecipeDetails = DataGridToDataTable(dgvRecipe, oMenuDetails.MenuCode);
@@ -745,9 +750,38 @@ namespace RMS.Forms
         }
         #endregion 
 
-        private void chkServiceCharge_CheckedChanged(object sender, EventArgs e)
+
+        private void label12_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnImageBrowse_Click(object sender, EventArgs e)
+        {
+            // open file dialog   
+            OpenFileDialog open = new OpenFileDialog();
+            // image filters  
+            open.Filter = "Image Files(*.jpg; *.jpeg; *.png)|*.jpg; *.jpeg; *.png";
+            if (open.ShowDialog() == DialogResult.OK)
+            {
+                // display image in picture box  
+                picMenuButton.Image = new Bitmap(open.FileName);
+                picMenuButton.SizeMode = PictureBoxSizeMode.StretchImage;
+                // image file path  
+                txtImageLocation.Text = open.FileName;
+                FileName = open.FileName;
+            }
+        }
+
+        private void btnImageFont_Click(object sender, EventArgs e)
+        {
+            MenuButtonFont.ShowDialog();
+            lblMenuButtonName.Font = MenuButtonFont.Font;
+        }
+
+        private void txtButtonName_TextChanged(object sender, EventArgs e)
+        {
+            lblMenuButtonName.Text = txtButtonName.Text;
         }
 
     }

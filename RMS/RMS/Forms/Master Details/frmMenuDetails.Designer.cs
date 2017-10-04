@@ -50,7 +50,6 @@
             this.btBackColor = new System.Windows.Forms.Button();
             this.btnTextColor = new System.Windows.Forms.Button();
             this.chkServiceCharge = new System.Windows.Forms.CheckBox();
-            this.btnSample = new System.Windows.Forms.Button();
             this.dgvRecipe = new System.Windows.Forms.DataGridView();
             this.clmRecipeCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmRecipeDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -78,6 +77,17 @@
             this.colorForground = new System.Windows.Forms.ColorDialog();
             this.label11 = new System.Windows.Forms.Label();
             this.errSRN = new System.Windows.Forms.ErrorProvider(this.components);
+            this.pnlMenuButton = new System.Windows.Forms.Panel();
+            this.pnlMenuButtonLabel = new System.Windows.Forms.Panel();
+            this.lblMenuButtonName = new System.Windows.Forms.Label();
+            this.picMenuButton = new System.Windows.Forms.PictureBox();
+            this.btnImageBrowse = new System.Windows.Forms.Button();
+            this.txtImageLocation = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.MenuButtonFont = new System.Windows.Forms.FontDialog();
+            this.btnImageFont = new System.Windows.Forms.Button();
+            this.txtButtonName = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
             this.cmbStatus = new RMS.ColumnComboBox();
             this.cmbMenuDepartment = new RMS.ColumnComboBox();
             this.cmbMenuCategory = new RMS.ColumnComboBox();
@@ -87,6 +97,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvLocation)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errSRN)).BeginInit();
+            this.pnlMenuButton.SuspendLayout();
+            this.pnlMenuButtonLabel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picMenuButton)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -163,7 +176,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
-            this.label8.Location = new System.Drawing.Point(544, 78);
+            this.label8.Location = new System.Drawing.Point(12, 222);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(105, 16);
             this.label8.TabIndex = 7;
@@ -183,7 +196,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
-            this.label10.Location = new System.Drawing.Point(718, 78);
+            this.label10.Location = new System.Drawing.Point(194, 222);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(67, 16);
             this.label10.TabIndex = 9;
@@ -236,7 +249,7 @@
             // 
             // txtPrepareTime
             // 
-            this.txtPrepareTime.Location = new System.Drawing.Point(651, 77);
+            this.txtPrepareTime.Location = new System.Drawing.Point(127, 221);
             this.txtPrepareTime.Name = "txtPrepareTime";
             this.txtPrepareTime.Size = new System.Drawing.Size(66, 20);
             this.txtPrepareTime.TabIndex = 20;
@@ -247,9 +260,9 @@
             this.btBackColor.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Maroon;
             this.btBackColor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btBackColor.ForeColor = System.Drawing.SystemColors.Control;
-            this.btBackColor.Location = new System.Drawing.Point(547, 106);
+            this.btBackColor.Location = new System.Drawing.Point(548, 159);
             this.btBackColor.Name = "btBackColor";
-            this.btBackColor.Size = new System.Drawing.Size(86, 23);
+            this.btBackColor.Size = new System.Drawing.Size(78, 36);
             this.btBackColor.TabIndex = 22;
             this.btBackColor.Text = "Background";
             this.btBackColor.UseVisualStyleBackColor = false;
@@ -261,9 +274,9 @@
             this.btnTextColor.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Maroon;
             this.btnTextColor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnTextColor.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnTextColor.Location = new System.Drawing.Point(547, 134);
+            this.btnTextColor.Location = new System.Drawing.Point(651, 159);
             this.btnTextColor.Name = "btnTextColor";
-            this.btnTextColor.Size = new System.Drawing.Size(86, 23);
+            this.btnTextColor.Size = new System.Drawing.Size(78, 36);
             this.btnTextColor.TabIndex = 23;
             this.btnTextColor.Text = "Text Color";
             this.btnTextColor.UseVisualStyleBackColor = false;
@@ -273,24 +286,12 @@
             // 
             this.chkServiceCharge.AutoSize = true;
             this.chkServiceCharge.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
-            this.chkServiceCharge.Location = new System.Drawing.Point(547, 168);
+            this.chkServiceCharge.Location = new System.Drawing.Point(270, 221);
             this.chkServiceCharge.Name = "chkServiceCharge";
             this.chkServiceCharge.Size = new System.Drawing.Size(120, 20);
             this.chkServiceCharge.TabIndex = 26;
             this.chkServiceCharge.Text = "Service Charge";
             this.chkServiceCharge.UseVisualStyleBackColor = true;
-            this.chkServiceCharge.CheckedChanged += new System.EventHandler(this.chkServiceCharge_CheckedChanged);
-            // 
-            // btnSample
-            // 
-            this.btnSample.BackColor = System.Drawing.Color.White;
-            this.btnSample.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSample.Location = new System.Drawing.Point(651, 105);
-            this.btnSample.Name = "btnSample";
-            this.btnSample.Size = new System.Drawing.Size(129, 51);
-            this.btnSample.TabIndex = 28;
-            this.btnSample.Text = "Sample";
-            this.btnSample.UseVisualStyleBackColor = false;
             // 
             // dgvRecipe
             // 
@@ -301,9 +302,9 @@
             this.clmUnitPrice,
             this.clmQuantity,
             this.clmTotalCost});
-            this.dgvRecipe.Location = new System.Drawing.Point(16, 225);
+            this.dgvRecipe.Location = new System.Drawing.Point(16, 247);
             this.dgvRecipe.Name = "dgvRecipe";
-            this.dgvRecipe.Size = new System.Drawing.Size(512, 253);
+            this.dgvRecipe.Size = new System.Drawing.Size(512, 231);
             this.dgvRecipe.TabIndex = 29;
             this.dgvRecipe.CellValidated += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvRecipe_CellValidated);
             this.dgvRecipe.CurrentCellDirtyStateChanged += new System.EventHandler(this.dgvRecipe_CurrentCellDirtyStateChanged);
@@ -349,9 +350,9 @@
             this.clmLocation,
             this.clmSalePrice,
             this.clmServiceChargePresentage});
-            this.dgvLocation.Location = new System.Drawing.Point(537, 226);
+            this.dgvLocation.Location = new System.Drawing.Point(537, 247);
             this.dgvLocation.Name = "dgvLocation";
-            this.dgvLocation.Size = new System.Drawing.Size(318, 171);
+            this.dgvLocation.Size = new System.Drawing.Size(318, 150);
             this.dgvLocation.TabIndex = 30;
             this.dgvLocation.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dgvLocation_KeyDown);
             // 
@@ -539,7 +540,7 @@
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(544, 192);
+            this.label11.Location = new System.Drawing.Point(545, 215);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(45, 16);
             this.label11.TabIndex = 62;
@@ -549,12 +550,118 @@
             // 
             this.errSRN.ContainerControl = this;
             // 
+            // pnlMenuButton
+            // 
+            this.pnlMenuButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(41)))), ((int)(((byte)(46)))));
+            this.pnlMenuButton.Controls.Add(this.pnlMenuButtonLabel);
+            this.pnlMenuButton.Controls.Add(this.picMenuButton);
+            this.pnlMenuButton.Location = new System.Drawing.Point(740, 116);
+            this.pnlMenuButton.Name = "pnlMenuButton";
+            this.pnlMenuButton.Size = new System.Drawing.Size(115, 79);
+            this.pnlMenuButton.TabIndex = 64;
+            // 
+            // pnlMenuButtonLabel
+            // 
+            this.pnlMenuButtonLabel.BackColor = System.Drawing.Color.Transparent;
+            this.pnlMenuButtonLabel.Controls.Add(this.lblMenuButtonName);
+            this.pnlMenuButtonLabel.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.pnlMenuButtonLabel.Location = new System.Drawing.Point(0, 58);
+            this.pnlMenuButtonLabel.Name = "pnlMenuButtonLabel";
+            this.pnlMenuButtonLabel.Size = new System.Drawing.Size(115, 21);
+            this.pnlMenuButtonLabel.TabIndex = 2;
+            // 
+            // lblMenuButtonName
+            // 
+            this.lblMenuButtonName.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblMenuButtonName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMenuButtonName.ForeColor = System.Drawing.Color.Transparent;
+            this.lblMenuButtonName.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.lblMenuButtonName.Location = new System.Drawing.Point(0, 0);
+            this.lblMenuButtonName.Name = "lblMenuButtonName";
+            this.lblMenuButtonName.Size = new System.Drawing.Size(115, 21);
+            this.lblMenuButtonName.TabIndex = 0;
+            this.lblMenuButtonName.Text = "Name";
+            this.lblMenuButtonName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblMenuButtonName.Click += new System.EventHandler(this.label12_Click);
+            // 
+            // picMenuButton
+            // 
+            this.picMenuButton.Location = new System.Drawing.Point(3, 3);
+            this.picMenuButton.Name = "picMenuButton";
+            this.picMenuButton.Size = new System.Drawing.Size(109, 59);
+            this.picMenuButton.TabIndex = 1;
+            this.picMenuButton.TabStop = false;
+            // 
+            // btnImageBrowse
+            // 
+            this.btnImageBrowse.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(41)))), ((int)(((byte)(46)))));
+            this.btnImageBrowse.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Maroon;
+            this.btnImageBrowse.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnImageBrowse.ForeColor = System.Drawing.Color.White;
+            this.btnImageBrowse.Location = new System.Drawing.Point(786, 71);
+            this.btnImageBrowse.Name = "btnImageBrowse";
+            this.btnImageBrowse.Size = new System.Drawing.Size(70, 23);
+            this.btnImageBrowse.TabIndex = 68;
+            this.btnImageBrowse.Text = "Browse";
+            this.btnImageBrowse.UseVisualStyleBackColor = false;
+            this.btnImageBrowse.Click += new System.EventHandler(this.btnImageBrowse_Click);
+            // 
+            // txtImageLocation
+            // 
+            this.txtImageLocation.Location = new System.Drawing.Point(597, 73);
+            this.txtImageLocation.Name = "txtImageLocation";
+            this.txtImageLocation.Size = new System.Drawing.Size(183, 20);
+            this.txtImageLocation.TabIndex = 67;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
+            this.label13.Location = new System.Drawing.Point(545, 74);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(46, 16);
+            this.label13.TabIndex = 69;
+            this.label13.Text = "Image";
+            // 
+            // btnImageFont
+            // 
+            this.btnImageFont.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(41)))), ((int)(((byte)(46)))));
+            this.btnImageFont.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Maroon;
+            this.btnImageFont.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnImageFont.ForeColor = System.Drawing.Color.White;
+            this.btnImageFont.Location = new System.Drawing.Point(687, 129);
+            this.btnImageFont.Name = "btnImageFont";
+            this.btnImageFont.Size = new System.Drawing.Size(50, 26);
+            this.btnImageFont.TabIndex = 70;
+            this.btnImageFont.Text = "Font";
+            this.btnImageFont.UseVisualStyleBackColor = false;
+            this.btnImageFont.Click += new System.EventHandler(this.btnImageFont_Click);
+            // 
+            // txtButtonName
+            // 
+            this.txtButtonName.Location = new System.Drawing.Point(547, 133);
+            this.txtButtonName.Name = "txtButtonName";
+            this.txtButtonName.Size = new System.Drawing.Size(134, 20);
+            this.txtButtonName.TabIndex = 71;
+            this.txtButtonName.Text = "Name";
+            this.txtButtonName.TextChanged += new System.EventHandler(this.txtButtonName_TextChanged);
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
+            this.label14.Location = new System.Drawing.Point(545, 110);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(85, 16);
+            this.label14.TabIndex = 72;
+            this.label14.Text = "Button Name";
+            // 
             // cmbStatus
             // 
             this.cmbStatus.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
             this.cmbStatus.DropDownWidth = 17;
             this.cmbStatus.FormattingEnabled = true;
-            this.cmbStatus.Location = new System.Drawing.Point(595, 191);
+            this.cmbStatus.Location = new System.Drawing.Point(596, 214);
             this.cmbStatus.Name = "cmbStatus";
             this.cmbStatus.Size = new System.Drawing.Size(185, 21);
             this.cmbStatus.TabIndex = 63;
@@ -609,6 +716,13 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(868, 491);
+            this.Controls.Add(this.label14);
+            this.Controls.Add(this.txtButtonName);
+            this.Controls.Add(this.btnImageFont);
+            this.Controls.Add(this.label13);
+            this.Controls.Add(this.btnImageBrowse);
+            this.Controls.Add(this.txtImageLocation);
+            this.Controls.Add(this.pnlMenuButton);
             this.Controls.Add(this.cmbStatus);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.cmbMenuDepartment);
@@ -625,7 +739,6 @@
             this.Controls.Add(this.txtTotalMenuCost);
             this.Controls.Add(this.dgvLocation);
             this.Controls.Add(this.dgvRecipe);
-            this.Controls.Add(this.btnSample);
             this.Controls.Add(this.chkServiceCharge);
             this.Controls.Add(this.btnTextColor);
             this.Controls.Add(this.btBackColor);
@@ -659,6 +772,9 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errSRN)).EndInit();
+            this.pnlMenuButton.ResumeLayout(false);
+            this.pnlMenuButtonLabel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.picMenuButton)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -689,7 +805,6 @@
         private System.Windows.Forms.Button btBackColor;
         private System.Windows.Forms.Button btnTextColor;
         private System.Windows.Forms.CheckBox chkServiceCharge;
-        private System.Windows.Forms.Button btnSample;
         private System.Windows.Forms.DataGridView dgvRecipe;
         private System.Windows.Forms.DataGridView dgvLocation;
         private System.Windows.Forms.TextBox txtTotalMenuCost;
@@ -719,5 +834,16 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn clmLocation;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmSalePrice;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmServiceChargePresentage;
+        private System.Windows.Forms.Button btnImageBrowse;
+        private System.Windows.Forms.TextBox txtImageLocation;
+        private System.Windows.Forms.Panel pnlMenuButton;
+        private System.Windows.Forms.Panel pnlMenuButtonLabel;
+        private System.Windows.Forms.Label lblMenuButtonName;
+        private System.Windows.Forms.PictureBox picMenuButton;
+        private System.Windows.Forms.Button btnImageFont;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.FontDialog MenuButtonFont;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.TextBox txtButtonName;
     }
 }
