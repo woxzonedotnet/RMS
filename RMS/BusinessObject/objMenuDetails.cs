@@ -22,12 +22,18 @@ namespace BusinessObject
         public double TimeToPrepare { get; set; }
         public string ButtonBackground { get; set; }
         public string ButtonForground { get; set; }
+        public byte[] photo_aray { get; set; }
+        public string FileName { get; set; }
+        public string ButtonName { get; set; }
+        public string FontName { get; set; }
+        public double FontSize { get; set; }
+        public string FontStyle { get; set; }
         public bool ServiceCharge { get; set; }
         public double TotalCost { get; set; }
         public int Status { get; set; }
         public bool IsExists { get; set; }
         public DataTable dtRecipeDetails { get; set; }
         public DataTable dtLocation { get; set; }
-       // public DataTable dtMenuDetails { get; set; }
+        
     }
 }

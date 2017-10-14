@@ -1,6 +1,6 @@
 ﻿namespace RMS_FrontEnd
 {
-    partial class Main
+    partial class Front_Main
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Front_Main));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -72,15 +72,16 @@
             this.txtTax = new System.Windows.Forms.TextBox();
             this.lblSubTotal = new System.Windows.Forms.Label();
             this.dgvItem = new MetroFramework.Controls.MetroGrid();
-            this.clmName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmMinus = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.clmQty = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnPlus = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.clmEach = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnlShortCut = new System.Windows.Forms.Panel();
             this.button6 = new System.Windows.Forms.Button();
             this.DateTimeUpdate = new System.Windows.Forms.Timer(this.components);
+            this.clmMenuID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmMinus = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.clmQty = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmPlus = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.clmEach = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnlHeader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.pnlMenu.SuspendLayout();
@@ -454,6 +455,7 @@
             this.txtTotal.Name = "txtTotal";
             this.txtTotal.Size = new System.Drawing.Size(85, 38);
             this.txtTotal.TabIndex = 8;
+            this.txtTotal.Text = "0.00";
             this.txtTotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtTotal.DoubleClick += new System.EventHandler(this.txtTotal_DoubleClick);
             // 
@@ -464,6 +466,7 @@
             this.txtDiscount.Name = "txtDiscount";
             this.txtDiscount.Size = new System.Drawing.Size(202, 20);
             this.txtDiscount.TabIndex = 5;
+            this.txtDiscount.Text = "0.00";
             this.txtDiscount.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // lblTax
@@ -495,6 +498,7 @@
             this.txtSubTotal.Name = "txtSubTotal";
             this.txtSubTotal.Size = new System.Drawing.Size(202, 20);
             this.txtSubTotal.TabIndex = 7;
+            this.txtSubTotal.Text = "0.00";
             this.txtSubTotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // txtTax
@@ -504,6 +508,7 @@
             this.txtTax.Name = "txtTax";
             this.txtTax.Size = new System.Drawing.Size(202, 20);
             this.txtTax.TabIndex = 6;
+            this.txtTax.Text = "0.00";
             this.txtTax.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // lblSubTotal
@@ -519,6 +524,7 @@
             // 
             // dgvItem
             // 
+            this.dgvItem.AllowUserToAddRows = false;
             this.dgvItem.AllowUserToResizeRows = false;
             this.dgvItem.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.dgvItem.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -534,10 +540,11 @@
             this.dgvItem.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvItem.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvItem.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.clmMenuID,
             this.clmName,
             this.clmMinus,
             this.clmQty,
-            this.btnPlus,
+            this.clmPlus,
             this.clmEach,
             this.clmTotal});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -573,55 +580,7 @@
             this.dgvItem.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvItem.Size = new System.Drawing.Size(518, 83);
             this.dgvItem.TabIndex = 0;
-            // 
-            // clmName
-            // 
-            this.clmName.HeaderText = "Name";
-            this.clmName.MinimumWidth = 150;
-            this.clmName.Name = "clmName";
-            this.clmName.ReadOnly = true;
-            this.clmName.Width = 150;
-            // 
-            // clmMinus
-            // 
-            this.clmMinus.HeaderText = "-";
-            this.clmMinus.MinimumWidth = 45;
-            this.clmMinus.Name = "clmMinus";
-            this.clmMinus.Text = "-";
-            this.clmMinus.UseColumnTextForButtonValue = true;
-            this.clmMinus.Width = 45;
-            // 
-            // clmQty
-            // 
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.clmQty.DefaultCellStyle = dataGridViewCellStyle2;
-            this.clmQty.HeaderText = "Qty";
-            this.clmQty.MinimumWidth = 40;
-            this.clmQty.Name = "clmQty";
-            this.clmQty.Width = 40;
-            // 
-            // btnPlus
-            // 
-            this.btnPlus.HeaderText = "+";
-            this.btnPlus.MinimumWidth = 45;
-            this.btnPlus.Name = "btnPlus";
-            this.btnPlus.Text = "+";
-            this.btnPlus.UseColumnTextForButtonValue = true;
-            this.btnPlus.Width = 45;
-            // 
-            // clmEach
-            // 
-            this.clmEach.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.clmEach.HeaderText = "Each";
-            this.clmEach.Name = "clmEach";
-            this.clmEach.ReadOnly = true;
-            // 
-            // clmTotal
-            // 
-            this.clmTotal.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.clmTotal.HeaderText = "Total";
-            this.clmTotal.Name = "clmTotal";
-            this.clmTotal.ReadOnly = true;
+            this.dgvItem.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvItem_CellContentClick);
             // 
             // pnlShortCut
             // 
@@ -652,6 +611,61 @@
             // 
             this.DateTimeUpdate.Enabled = true;
             this.DateTimeUpdate.Tick += new System.EventHandler(this.DateTimeUpdate_Tick);
+            // 
+            // clmMenuID
+            // 
+            this.clmMenuID.HeaderText = "Menu ID";
+            this.clmMenuID.Name = "clmMenuID";
+            this.clmMenuID.Visible = false;
+            // 
+            // clmName
+            // 
+            this.clmName.HeaderText = "Name";
+            this.clmName.MinimumWidth = 150;
+            this.clmName.Name = "clmName";
+            this.clmName.ReadOnly = true;
+            this.clmName.Width = 150;
+            // 
+            // clmMinus
+            // 
+            this.clmMinus.HeaderText = "-";
+            this.clmMinus.MinimumWidth = 45;
+            this.clmMinus.Name = "clmMinus";
+            this.clmMinus.Text = "-";
+            this.clmMinus.UseColumnTextForButtonValue = true;
+            this.clmMinus.Width = 45;
+            // 
+            // clmQty
+            // 
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.clmQty.DefaultCellStyle = dataGridViewCellStyle2;
+            this.clmQty.HeaderText = "Qty";
+            this.clmQty.MinimumWidth = 40;
+            this.clmQty.Name = "clmQty";
+            this.clmQty.Width = 40;
+            // 
+            // clmPlus
+            // 
+            this.clmPlus.HeaderText = "+";
+            this.clmPlus.MinimumWidth = 45;
+            this.clmPlus.Name = "clmPlus";
+            this.clmPlus.Text = "+";
+            this.clmPlus.UseColumnTextForButtonValue = true;
+            this.clmPlus.Width = 45;
+            // 
+            // clmEach
+            // 
+            this.clmEach.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.clmEach.HeaderText = "Each";
+            this.clmEach.Name = "clmEach";
+            this.clmEach.ReadOnly = true;
+            // 
+            // clmTotal
+            // 
+            this.clmTotal.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.clmTotal.HeaderText = "Total";
+            this.clmTotal.Name = "clmTotal";
+            this.clmTotal.ReadOnly = true;
             // 
             // Main
             // 
@@ -691,12 +705,6 @@
         private System.Windows.Forms.Panel pnlShortCut;
         private MetroFramework.Controls.MetroGrid dgvItem;
         private MetroFramework.Controls.MetroTabControl tbMenu;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clmName;
-        private System.Windows.Forms.DataGridViewButtonColumn clmMinus;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clmQty;
-        private System.Windows.Forms.DataGridViewButtonColumn btnPlus;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clmEach;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clmTotal;
         private System.Windows.Forms.Label lblTotal;
         private System.Windows.Forms.Label lblSubTotal;
         private System.Windows.Forms.Label lblTax;
@@ -730,5 +738,12 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmMenuID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmName;
+        private System.Windows.Forms.DataGridViewButtonColumn clmMinus;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmQty;
+        private System.Windows.Forms.DataGridViewButtonColumn clmPlus;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmEach;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmTotal;
     }
 }

@@ -8,10 +8,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DataAccess;
+using System.IO;
+using System.Drawing.Imaging;
 
 namespace RMS_FrontEnd
 {
-    public partial class Main : Form
+    public partial class Front_Main : Form
     {
 
         #region Variable
@@ -29,7 +31,7 @@ namespace RMS_FrontEnd
         clsDBConnection cDBConnection = new clsDBConnection();
         #endregion
 
-        public Main()
+        public Front_Main()
         {
             InitializeComponent();
         }
@@ -113,6 +115,7 @@ namespace RMS_FrontEnd
             pnlSubCategory.BackColor = Color.FromArgb(255, 255, 255);
             pnlSubCategory.AutoScroll = true;
             pnlSubCategory.AutoScrollPosition = new Point(10,10);
+            pnlSubCategory.VerticalScrollbarHighlightOnWheel = true;
             gbSubCategory.Controls.Add(pnlSubCategory);
             
 
@@ -348,7 +351,7 @@ namespace RMS_FrontEnd
 
 
 
-        #region String to Color
+        #region Color Function
         public Color[] convertToColorArray(string[] colorList)
         {
             Color[] color = new Color[colorList.Length];
@@ -411,6 +414,7 @@ namespace RMS_FrontEnd
                 b.ForeColor = Color.FromArgb(119, 168, 27);
                 b.FlatAppearance.BorderColor = Color.FromArgb(119, 168, 27);
                 b.FlatAppearance.MouseOverBackColor = Color.FromArgb(255, 219, 89);
+                b.FlatAppearance.MouseDownBackColor = Color.FromArgb(119, 168, 27);
                 b.Location = newLoc;
                 newLoc.Offset(0, b.Height + 10);
                 pnlSubCategory.Controls.Add(b);
@@ -422,7 +426,7 @@ namespace RMS_FrontEnd
                     {
                         //MessageBox.Show(b.Text+ "   Clicked");
                         gbItems.Text = b.Text + " ITEMS";
-                        btnItemConfig(pnlItemList, tabName);
+                        btnItemConfig(pnlItemList, b.Name);
                     }
                     catch (Exception ex)
                     {
@@ -456,16 +460,17 @@ namespace RMS_FrontEnd
         {
             //metroPanel1.Controls.Clear();
             //metroPanel1.VerticalScrollbar = true;
+            pnlItemList.Controls.Clear();
 
             DataTable dtCategory = new DataTable();
             string code = tabName;
-            string where = "fldMenuDepartmentCode = '" + code + "'";
-            dtCategory = cDBConnection.SearchData("tbl_MenuCategory", where);
+            string where = "fldMenuCategoryCode = '" + code + "'";
+            dtCategory = cDBConnection.SearchData("tbl_MenuDetails", where);
 
             //string[] btnName = new string[] { "ADD", "Cancel", "CuT", "Put", "lol", "ADD", "Cancel", "CuT", "Put", "lol" };
-            string[] btnBackColor = new string[] { "6,199,255", "0,255,0", "0,0,255", "125,24,156", "200,100,50", "6,199,255", "0,255,0", "0,0,255", "125,24,156", "200,100,50" };
+            //string[] btnBackColor = new string[] { "6,199,255", "0,255,0", "0,0,255", "125,24,156", "200,100,50", "6,199,255", "0,255,0", "0,0,255", "125,24,156", "200,100,50" };
 
-            Color[] backColor = convertToColorArray(btnBackColor);
+            //Color[] backColor = convertToColorArray(btnBackColor);
             int x = 15;
             int y = 10;
             Point newLoc = new Point(x, y); // Set whatever you want for initial location
@@ -473,23 +478,101 @@ namespace RMS_FrontEnd
             int DataCount = dtCategory.Rows.Count;
             int count = 0;
 
-            for (int j=0; j < Math.Abs(DataCount/4)+1; j++)
-            {
-                for (int i = 0; i < 4; i++)
+            //for (int j=0; j < Math.Abs(DataCount/4)+1; j++)
+            //{
+                for (int i = 0; i < DataCount; i++)
                 {
                     try
                     {
-                        Button b = new Button();
-                        b.FlatStyle = FlatStyle.Flat;
-                        b.FlatAppearance.BorderColor = Color.FromArgb(0, 154, 199);
-                        b.Size = new Size(110, 50);
-                        b.Text = dtCategory.Rows[count]["fldMenuCategoryName"].ToString();
-                        b.Name = dtCategory.Rows[count]["fldMenuCategoryCode"].ToString();
-                        b.BackColor = backColor[count];
-                        b.ForeColor = Color.White;
-                        b.Location = newLoc;
-                        newLoc.Offset(0, b.Height + 10);
-                        pnlItemList.Controls.Add(b);
+                        Panel buttonBackPnl = new Panel();
+                        buttonBackPnl.Size = new System.Drawing.Size(100,78);
+                        buttonBackPnl.Location = newLoc;
+                        buttonBackPnl.BackColor = System.Drawing.ColorTranslator.FromHtml("#"+dtCategory.Rows[i]["fldBackgroundColor"].ToString());
+
+                        Panel imgPanel = new Panel();
+                        imgPanel.Size = new System.Drawing.Size(buttonBackPnl.Width - 4, (buttonBackPnl.Height * 70) / 100);
+                        imgPanel.Location = new Point(2,2);
+                        //imgPanel.BackColor = Color.Red;
+                        buttonBackPnl.Controls.Add(imgPanel);
+                        PictureBox picMenuButton = new PictureBox();
+                        imgPanel.Controls.Add(picMenuButton);
+                        picMenuButton.Name = dtCategory.Rows[i]["fldMenuCode"].ToString();
+                        picMenuButton.Dock = DockStyle.Fill;
+                        byte[] photoArray = (byte[])dtCategory.Rows[i]["fldImage"];
+                        ArrayToImageBox(photoArray,picMenuButton);
+
+                        Panel ButtonTextPnl = new Panel();
+                        ButtonTextPnl.Size = new System.Drawing.Size(buttonBackPnl.Width, (buttonBackPnl.Height * 30) / 100);
+                        //ButtonTextPnl.BackColor = Color.Red;
+                        buttonBackPnl.Controls.Add(ButtonTextPnl);
+                        ButtonTextPnl.Dock = DockStyle.Bottom;
+
+                        Label buttonText = new Label();
+                        ButtonTextPnl.Controls.Add(buttonText);
+                        buttonText.Dock = DockStyle.Fill;
+                        buttonText.TextAlign = ContentAlignment.MiddleCenter;
+                        buttonText.Text = dtCategory.Rows[i]["fldButtonName"].ToString();
+                        buttonText.ForeColor = System.Drawing.ColorTranslator.FromHtml("#" + dtCategory.Rows[i]["fldForegroundColor"].ToString());
+                        string fontFamily = dtCategory.Rows[i]["fldFontName"].ToString();
+                        float fontsize = float.Parse(dtCategory.Rows[i]["fldFontSize"].ToString());
+                        FontStyle fontStyle = (FontStyle)Enum.Parse(typeof(FontStyle),dtCategory.Rows[i]["fldFontStyle"].ToString(), true);
+                        buttonText.Font = new System.Drawing.Font(fontFamily, fontsize, fontStyle);
+
+                        picMenuButton.Click += delegate
+                        {
+                            try
+                            {
+                                string where2 = "fldMenuCode = '" + picMenuButton.Name + "'";
+                                DataTable dtCategoryClick = new DataTable();
+                                dtCategoryClick = cDBConnection.SearchData("tbl_MenuDetails", where2);
+                                bool existing = false;
+                                for (int k = 0; k < dgvItem.Rows.Count; k++)
+                                {
+                                    if (dgvItem.Rows[k].Cells["clmMenuID"].Value != null && picMenuButton.Name.Equals(dgvItem.Rows[k].Cells["clmMenuID"].Value))
+                                    {
+                                        int qty = Convert.ToInt32(dgvItem.Rows[k].Cells["clmQty"].Value);
+                                        dgvItem.Rows[k].Cells["clmQty"].Value = qty + 1;
+                                        existing = true;
+                                        break;
+                                    }
+                                    else
+                                    {
+                                        existing = false;
+                                    }
+                                }
+                                if (!existing)
+                                {
+                                    int noOfRows = 0;
+                                    noOfRows = dgvItem.Rows.Count;
+                                    DataGridViewRow row = new DataGridViewRow();
+                                    row.CreateCells(dgvItem);
+                                    row.Cells[0].Value = dtCategoryClick.Rows[0]["fldMenuCode"].ToString();
+                                    row.Cells[1].Value = dtCategoryClick.Rows[0]["fldDescription"].ToString();
+                                    row.Cells[3].Value = 1;
+                                    row.Cells[5].Value = dtCategoryClick.Rows[0]["fldSellingPrice"].ToString();
+                                    row.Cells[6].Value = dtCategoryClick.Rows[0]["fldSellingPrice"].ToString();
+                                    row.Height = 40;
+                                    dgvItem.Rows.Add(row);
+                                    
+                                }
+                                totalCalculate();
+                            }
+                            catch (Exception ex)
+                            {
+
+                            }
+                        };
+                        //Button b = new Button();
+                        //b.FlatStyle = FlatStyle.Flat;
+                        //b.FlatAppearance.BorderColor = Color.FromArgb(0, 154, 199);
+                        //b.Size = new Size(110, 50);
+                        //b.Text = dtCategory.Rows[count]["fldMenuCategoryName"].ToString();
+                        //b.Name = dtCategory.Rows[count]["fldMenuCategoryCode"].ToString();
+                        //b.BackColor = backColor[count];
+                        //b.ForeColor = Color.White;
+                        //b.Location = newLoc;
+                        //newLoc.Offset(0, b.Height + 10);
+                        pnlItemList.Controls.Add(buttonBackPnl);
                         newLoc = new Point(x += 140, y);
                         count++;
                     }
@@ -499,7 +582,7 @@ namespace RMS_FrontEnd
                     }
                 }
                 newLoc = new Point(x=15, y += 70);
-            }
+            //}
         }
         #endregion
 
@@ -512,15 +595,95 @@ namespace RMS_FrontEnd
 
         private void button6_Click(object sender, EventArgs e)
         {
-            frmCalculator Calculator = new frmCalculator();
+            frmFront_Calculator Calculator = new frmFront_Calculator();
             Calculator.Show();
         }
 
         private void txtTotal_DoubleClick(object sender, EventArgs e)
         {
-            frmCalculator Calculator = new frmCalculator(this.txtTotal);
+            frmFront_Calculator Calculator = new frmFront_Calculator(this.txtTotal);
             Calculator.Show();
         }
 
+        public void totalCalculate()
+        {
+            double subTotal = 0;
+            double Total = 0;
+
+            for (int i = 0; i < dgvItem.Rows.Count; i++)
+            {
+                int qty = Convert.ToInt32(dgvItem.Rows[i].Cells["clmQty"].Value);
+                double each = Convert.ToDouble(dgvItem.Rows[i].Cells["clmEach"].Value);
+                double rowTotal =  qty * each;
+                dgvItem.Rows[i].Cells["clmTotal"].Value = rowTotal;
+                subTotal += rowTotal;
+            }
+            txtSubTotal.Text = subTotal.ToString();
+            double discount = Convert.ToDouble(txtDiscount.Text);
+            double tax = Convert.ToDouble(txtTax.Text);
+            Total = subTotal - discount + tax;
+            txtTotal.Text = Total.ToString();
+        }
+
+        #region Image Functions
+        public byte[] ImageBoxToArray(PictureBox picMenuButton)
+        {
+            byte[] imgArray;
+
+            MemoryStream ms = new MemoryStream();
+            picMenuButton.Image.Save(ms, ImageFormat.Png);
+            imgArray = new byte[ms.Length];
+            ms.Position = 0;
+            ms.Read(imgArray, 0, imgArray.Length);
+
+            return imgArray;
+        }
+
+        public void ArrayToImageBox(byte[] imgArray, PictureBox picMenuButton)
+        {
+            MemoryStream ms = new MemoryStream(imgArray);
+            picMenuButton.Image = Image.FromStream(ms);
+            picMenuButton.SizeMode = PictureBoxSizeMode.StretchImage;
+        }
+
+        #endregion
+
+        private void dgvItem_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dgvItem.Columns[e.ColumnIndex] is DataGridViewButtonColumn &&
+        e.RowIndex >= 0 && dgvItem.Columns[e.ColumnIndex].Name =="clmMinus")
+            {
+                int val = Convert.ToInt32(dgvItem.CurrentRow.Cells["clmQty"].Value);
+                if (val > 0)
+                {
+                    dgvItem.CurrentRow.Cells["clmQty"].Value = --val;
+                }
+                else
+                {
+                    dgvItem.CurrentRow.Cells["clmQty"].Value = --val;
+                    if (val < 0)
+                    {
+                        DialogResult response = MessageBox.Show("Do You Want To Remove This From List?", "Remove Item", MessageBoxButtons.YesNo);
+                        if (response == DialogResult.Yes)
+                        {
+                            dgvItem.Rows.RemoveAt(dgvItem.CurrentRow.Index);
+                        }
+                        else
+                        {
+                            dgvItem.CurrentRow.Cells["clmQty"].Value = 0;
+                        }
+                    }
+                }
+                
+            }
+            else if (dgvItem.Columns[e.ColumnIndex] is DataGridViewButtonColumn &&
+        e.RowIndex >= 0 && dgvItem.Columns[e.ColumnIndex].Name == "clmPlus")
+            {
+                int val = Convert.ToInt32(dgvItem.CurrentRow.Cells["clmQty"].Value);
+                dgvItem.CurrentRow.Cells["clmQty"].Value = ++val;
+            }
+
+            totalCalculate();
+        }
     }
 }

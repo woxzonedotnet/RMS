@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace RMS_FrontEnd
 {
-    public partial class frmCalculator : Form
+    public partial class frmFront_Calculator : Form
     {
         #region Variable
         Control ctrl;
@@ -23,12 +23,12 @@ namespace RMS_FrontEnd
 
         char Operator=' ';
         #endregion
-        public frmCalculator()
+        public frmFront_Calculator()
         {
             InitializeComponent();
         }
 
-        public frmCalculator(Control contol)
+        public frmFront_Calculator(Control contol)
         {
             InitializeComponent();
             ctrl = contol;

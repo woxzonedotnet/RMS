@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using BusinessLogic;
 using BusinessObject;
 using System.IO;
+using System.Drawing.Imaging;
 
 namespace RMS.Forms
 {
@@ -88,7 +89,7 @@ namespace RMS.Forms
             cCommonMethods.loadComboRMS(cSubLocation.GetSubLocationData(cGlobleVariable.LocationCode), cmbLocation, 2);
             cCommonMethods.loadComboRMS(cSubLocation.GetPrinterLocation(cGlobleVariable.LocationCode), cmbPrintLocation, 2);
             cCommonMethods.loadComboRMS(cMenuDepartment.GetMenuDepartmentData(cGlobleVariable.LocationCode), cmbMenuDepartment, 2);
-            cCommonMethods.loadComboRMS(cMenuCategory.GetMenuCategoryData(cGlobleVariable.LocationCode), cmbMenuCategory, 3);
+            //cCommonMethods.loadComboRMS(cMenuCategory.GetMenuCategoryData(cGlobleVariable.LocationCode), cmbMenuCategory, 3);
             cCommonMethods.loadComboRMS(cStatusMaster.GetStatusDetails(), cmbStatus, 1);
 
             //cmbMenuCategory        
@@ -267,23 +268,38 @@ namespace RMS.Forms
         private int InsertUpdateData()
         {
             oMenuDetails.LocationCode = cGlobleVariable.LocationCode;
+            oMenuDetails.MenuCode = this.txtMenuCode.Text;
             oMenuDetails.FullDescription = this.txtDescription.Text;
             oMenuDetails.BillDescription = this.txtDiscriptionOnBill.Text;
             oMenuDetails.SubLocationCode = this.cmbLocation["fldSubLocationCode"].ToString();
             oMenuDetails.PrintLocationCode = this.cmbPrintLocation["fldSubLocationCode"].ToString();
-            oMenuDetails.MenuDepartmentCode = this.cmbPrintLocation["fldDepartmentCode"].ToString();
+            oMenuDetails.MenuDepartmentCode = this.cmbMenuDepartment["fldMenuDepartmentCode"].ToString();
             oMenuDetails.MenuCategoryCode = this.cmbMenuCategory["fldMenuCategoryCode"].ToString();
             oMenuDetails.SellingPrice = Convert.ToDouble(this.txtSellingPrice.Text);
             oMenuDetails.PackingCharges = Convert.ToDouble(this.txtPackingCharge.Text);
             oMenuDetails.TimeToPrepare = Convert.ToInt32(this.txtPrepareTime.Text);
-            oMenuDetails.Status = Convert.ToInt32(this.cmbStatus["fldStatusCode"].ToString());
+            oMenuDetails.ButtonBackground = pnlMenuButton.BackColor.ToArgb().ToString("x");
+            oMenuDetails.ButtonForground = lblMenuButtonName.ForeColor.ToArgb().ToString("x");
+            oMenuDetails.photo_aray = ImageBoxToArray();
+            oMenuDetails.FileName = this.txtMenuCode.Text;
+            oMenuDetails.ButtonName = txtButtonName.Text;
+            oMenuDetails.FontName = MenuButtonFont.Font.Name;
+            oMenuDetails.FontSize = MenuButtonFont.Font.Size;
+            oMenuDetails.FontStyle = MenuButtonFont.Font.Style.ToString();
+            if (chkServiceCharge.Checked == true)
+            {
+                oMenuDetails.ServiceCharge = true;
+            }
+            else
+            {
+                oMenuDetails.ServiceCharge = false;
+            }
             oMenuDetails.TotalCost = Convert.ToDouble(this.txtTotalMenuCost.Text);
-            oMenuDetails.ButtonBackground = this.btBackColor.BackColor.ToString();
-            oMenuDetails.ButtonForground = this.btnTextColor.ForeColor.ToString();
+            oMenuDetails.Status = Convert.ToInt32(this.cmbStatus["fldStatusCode"].ToString());
 
-
-            oMenuDetails.dtRecipeDetails = DataGridToDataTable(dgvRecipe, oMenuDetails.MenuCode);
-            if (oMenuDetails.dtRecipeDetails.Rows.Count == 0)
+            oMenuDetails.dtRecipeDetails = RecipeDataGridToDataTable(dgvRecipe, oMenuDetails.MenuCode);
+            oMenuDetails.dtLocation = LocationDataGridToDataTable(dgvLocation, oMenuDetails.MenuCode);
+            if (oMenuDetails.dtRecipeDetails.Rows.Count == 0 && oMenuDetails.dtLocation.Rows.Count == 0)
             {
                 return -5;
             }
@@ -425,7 +441,7 @@ namespace RMS.Forms
         }
         #endregion
 
-        public DataTable DataGridToDataTable(DataGridView dgv, string strMenuCode)
+        public DataTable RecipeDataGridToDataTable(DataGridView dgv, string strMenuCode)
         {
             DataTable dt = new DataTable();
             dt.Columns.Add("fldMenuCode");
@@ -448,7 +464,37 @@ namespace RMS.Forms
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.Message);
+                    //MessageBox.Show(ex.Message);
+                }
+
+            }
+            return dt;
+        }
+
+        public DataTable LocationDataGridToDataTable(DataGridView dgv, string strMenuCode)
+        {
+            DataTable dt = new DataTable();
+            dt.Columns.Add("fldMenuCode");
+            dt.Columns.Add("fldSubLocationCode");
+            dt.Columns.Add("fldSalePrice");
+            dt.Columns.Add("fldServiceChargePresentage");
+
+
+            foreach (DataGridViewRow row in dgv.Rows)
+            {
+                DataRow dRow = dt.NewRow();
+                try
+                {
+                    dRow["fldMenuCode"] = strMenuCode;
+                    dRow["fldSubLocationCode"] = row.Cells["clmLocationCode"].Value.ToString();
+                    dRow["fldSalePrice"] = row.Cells["clmSalePrice"].Value.ToString();
+                    dRow["fldServiceChargePresentage"] = row.Cells["clmServiceChargePresentage"].Value.ToString();
+
+                    dt.Rows.Add(dRow);
+                }
+                catch (Exception ex)
+                {
+                    //MessageBox.Show(ex.Message);
                 }
 
             }
@@ -498,6 +544,7 @@ namespace RMS.Forms
             }
         }
         #endregion
+
         #region Load Recipe Details
         private void LoadRecipeDetails()
         {
@@ -636,7 +683,7 @@ namespace RMS.Forms
 
         private void dgvLocation_KeyDown(object sender, KeyEventArgs e)
         {
-            if ((e.KeyCode == Keys.Space) && this.dgvLocation.CurrentCell.OwningColumn.Name.Equals("clmLocation"))
+            if ((e.KeyCode == Keys.Space) && this.dgvLocation.CurrentCell.OwningColumn.Name.Equals("clmLocationCode"))
             {
                 LoadLocation();
             }
@@ -671,7 +718,6 @@ namespace RMS.Forms
         private void LoadLocationDetails()
         {
             oSubLocation = cSubLocation.GetSubLocationData(cGlobleVariable.LocationCode, strSubLocation);
-            //oItemLocation = cItemLocation.GetItemLocationData(cGlobleVariable.LocationCode, this.txtItemCode.Text);
             oSetupSetting = cSetupSetting.GetSetupSettingData(cGlobleVariable.LocationCode);
 
             int isExist = 0;
@@ -691,11 +737,8 @@ namespace RMS.Forms
             if (isExist == 1)
             {
                 this.dgvLocation.Rows.Add();
-                //this.dgvLocation.Rows[this.dgvLocation.CurrentCell.RowIndex - 1].Cells["clmLocationCode"].Value = oSubLocation.SubLocationCode;
+                this.dgvLocation.Rows[this.dgvLocation.CurrentCell.RowIndex - 1].Cells["clmLocationCode"].Value = oSubLocation.SubLocationCode;
                 this.dgvLocation.Rows[this.dgvLocation.CurrentCell.RowIndex - 1].Cells["clmLocation"].Value = oSubLocation.SubLocationName;
-                //this.dgvLocation.Rows[this.dgvLocation.CurrentCell.RowIndex - 1].Cells["clmShelfQty"].Value = oItemLocation.ShelfStock;
-                //this.dgvLocation.Rows[this.dgvLocation.CurrentCell.RowIndex - 1].Cells["clmDamageQty"].Value = oItemLocation.DamageStock;
-                //this.dgvLocation.Rows[this.dgvLocation.CurrentCell.RowIndex - 1].Cells["clmMonthOpenQty"].Value = oItemLocation.MonthlyOpenQty;
                 this.dgvLocation.Rows[this.dgvLocation.CurrentCell.RowIndex - 1].Cells["clmSalePrice"].Value = txtSellingPrice.Text;
                 this.dgvLocation.Rows[this.dgvLocation.CurrentCell.RowIndex - 1].Cells["clmServiceChargePresentage"].Value = oSetupSetting.ServiceCharge;
 
@@ -783,6 +826,74 @@ namespace RMS.Forms
         {
             lblMenuButtonName.Text = txtButtonName.Text;
         }
+
+        private void cmbMenuDepartment_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            cmbMenuCategory.ClearItems();
+            cCommonMethods.loadComboRMS(cMenuCategory.GetMenuCategoryData(cGlobleVariable.LocationCode,cmbMenuDepartment["fldMenuDepartmentCode"].ToString()), cmbMenuCategory, 3);
+        }
+
+        #region Image Functions
+        public byte[] ImageBoxToArray()
+        {
+            byte[] imgArray;
+
+            MemoryStream ms = new MemoryStream();
+            picMenuButton.Image.Save(ms, ImageFormat.Png);
+            imgArray = new byte[ms.Length];
+            ms.Position = 0;
+            ms.Read(imgArray, 0, imgArray.Length);
+
+            return imgArray;
+        }
+
+        public void ArrayToImageBox(byte[] imgArray)
+        {
+            MemoryStream ms = new MemoryStream(imgArray);
+            picMenuButton.Image = Image.FromStream(ms);
+            picMenuButton.SizeMode = PictureBoxSizeMode.StretchImage;
+        }
+
+        #endregion
+
+        #region Color Function
+        public Color[] convertToColorArray(string[] colorList)
+        {
+            Color[] color = new Color[colorList.Length];
+            for (int j = 0; j < colorList.Length; j++)
+            {
+                var splitString = colorList[j].Split(',');
+                int red, green, blue;
+                red = int.Parse(splitString[0]);
+                green = int.Parse(splitString[1]);
+                blue = int.Parse(splitString[2]);
+
+                color[j] = Color.FromArgb(red, green, blue);
+            }
+            return color;
+        }
+
+        public Color convertToColorArray(string strcolor)
+        {
+            Color color = new Color();
+
+            var splitString = strcolor.Split(',');
+            int red, green, blue;
+            red = int.Parse(splitString[0]);
+            green = int.Parse(splitString[1]);
+            blue = int.Parse(splitString[2]);
+            color = Color.FromArgb(red, green, blue);
+
+            return color;
+        }
+
+        public string colorToString(Color color)
+        {
+            string strColor = color.ToString();
+
+            return strColor;
+        }
+        #endregion
 
     }
 

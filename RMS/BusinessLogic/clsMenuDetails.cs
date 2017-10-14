@@ -13,19 +13,20 @@ namespace BusinessLogic
 
     public class clsMenuDetails
     {
-        #region Objects
+       #region Objects
         clsDBConnection cDBConnection = new clsDBConnection();
         objMenuDetails oMenuDetails = new objMenuDetails();
         #endregion
 
-        #region Get Purchase Order Data using ItemCode
+       #region Get Menu Data using MenuCode
         public objMenuDetails GetMenuData(string strLocationCode, string strMenuDetailsCode)
         {
             string strWhere1 = "fldMenuCode='" + strMenuDetailsCode + "' AND fldLocationCode='" + strLocationCode + "'";
             string strWhere2 = "fldMenuCode='" + strMenuDetailsCode + "'";
 
             DataTable dtMenuDetails = cDBConnection.SearchData("tbl_MenuDetails", strWhere1);
-            DataTable dtMenuList = cDBConnection.SearchData("tbl_POItemList", strWhere2);
+            DataTable dtMenuRecipe = cDBConnection.SearchData("tbl_MenuRecipe", strWhere2);
+            DataTable dtMenuLocation = cDBConnection.SearchData("tbl_MenuLocation", strWhere2);
 
             if (dtMenuDetails.Rows.Count > 0)
             {
@@ -42,18 +43,21 @@ namespace BusinessLogic
                 oMenuDetails.TimeToPrepare = Convert.ToInt32(dtMenuDetails.Rows[0]["fldTimeToPrepare"].ToString());
                 oMenuDetails.ButtonBackground = dtMenuDetails.Rows[0]["fldBackgroundColor"].ToString();
                 oMenuDetails.ButtonForground = dtMenuDetails.Rows[0]["fldForegroundColor"].ToString();
+                oMenuDetails.photo_aray = Encoding.ASCII.GetBytes(dtMenuDetails.Rows[0]["fldImage"].ToString());
+                oMenuDetails.FileName = dtMenuDetails.Rows[0]["fldFileName"].ToString();
+                oMenuDetails.ButtonName = dtMenuDetails.Rows[0]["fldButtonName"].ToString();
+                oMenuDetails.FontName = dtMenuDetails.Rows[0]["fldFontName"].ToString();
+                oMenuDetails.FontSize = Convert.ToDouble(dtMenuDetails.Rows[0]["fldFontSize"].ToString());
+                oMenuDetails.FontStyle = dtMenuDetails.Rows[0]["fldFontStyle"].ToString();
                 oMenuDetails.ServiceCharge = Convert.ToBoolean(dtMenuDetails.Rows[0]["fldServiceCharge"].ToString());
                 oMenuDetails.TotalCost= Convert.ToDouble(dtMenuDetails.Rows[0]["fldTotalMenuCost"].ToString());
                 oMenuDetails.Status = Convert.ToInt32(dtMenuDetails.Rows[0]["fldStatus"].ToString());
-                //oPurchaseOrder.SubLocationCode = dtPODetails.Rows[0]["fldSubLocationCode"].ToString();
-                //oPurchaseOrder.SupplierCode = dtPODetails.Rows[0]["fldSupplierCode"].ToString();
-                //oPurchaseOrder.Date = Convert.ToDateTime(dtPODetails.Rows[0]["fldDate"].ToString());
-                //oPurchaseOrder.VAT = Convert.ToDouble(dtPODetails.Rows[0]["fldVatAmount"].ToString());
-                //oPurchaseOrder.NetAmount = Convert.ToDouble(dtPODetails.Rows[0]["fldPONetAmount"].ToString());
-                //oPurchaseOrder.Remarks = dtPODetails.Rows[0]["fldRemarks"].ToString();
 
-                //Price Table
-                oMenuDetails.dtRecipeDetails = dtMenuDetails;
+                //Recipe Table
+                oMenuDetails.dtRecipeDetails = dtMenuRecipe;
+
+                //Location Table
+                oMenuDetails.dtLocation = dtMenuLocation;
 
                 oMenuDetails.IsExists = true;
             }
@@ -65,11 +69,10 @@ namespace BusinessLogic
         }
         #endregion
 
-       
        #region InsertUpdateData
         public int InsertUpdateData(objMenuDetails oMenuDetails)
         {
-            System.Object[,] arrParameter = new Object[19, 2];
+            System.Object[,] arrParameter = new Object[24, 2];
 
             arrParameter[0, 0] = "@mfldLocationCode";
             arrParameter[0, 1] = oMenuDetails.LocationCode;
@@ -97,18 +100,28 @@ namespace BusinessLogic
             arrParameter[11, 1] = oMenuDetails.ButtonBackground;
             arrParameter[12, 0] = "@mfldButtonForground";
             arrParameter[12, 1] = oMenuDetails.ButtonForground;
-            arrParameter[13, 0] = "@mfldServiceCharge";
-            arrParameter[13, 1] = oMenuDetails.ServiceCharge;
-            arrParameter[14, 0] = "@mfldTotalCost";
-            arrParameter[14, 1] = oMenuDetails.TotalCost;
-            arrParameter[15, 0] = "@mfldStatus";
-            arrParameter[15, 1] = oMenuDetails.Status;
-            arrParameter[16, 0] = "@mfldIsExists";
-            arrParameter[16, 1] = oMenuDetails.IsExists;
-            arrParameter[17, 0] = "@mflddtRecipeDetails";
-            arrParameter[17, 1] = oMenuDetails.dtRecipeDetails;
-            arrParameter[18, 0] = "@mflddtLocation";
-            arrParameter[18, 1] = oMenuDetails.dtLocation;
+            arrParameter[13, 0] = "@mfldImage";
+            arrParameter[13, 1] = oMenuDetails.photo_aray;
+            arrParameter[14, 0] = "@mfldFileName";
+            arrParameter[14, 1] = oMenuDetails.FileName;
+            arrParameter[15, 0] = "@mfldButtonName";
+            arrParameter[15, 1] = oMenuDetails.ButtonName;
+            arrParameter[16, 0] = "@mfldFontName";
+            arrParameter[16, 1] = oMenuDetails.FontName;
+            arrParameter[17, 0] = "@mfldFontSize";
+            arrParameter[17, 1] = oMenuDetails.FontSize;
+            arrParameter[18, 0] = "@mfldFontStyle";
+            arrParameter[18, 1] = oMenuDetails.FontStyle;
+            arrParameter[19, 0] = "@mfldServiceCharge";
+            arrParameter[19, 1] = oMenuDetails.ServiceCharge;
+            arrParameter[20, 0] = "@mfldTotalCost";
+            arrParameter[20, 1] = oMenuDetails.TotalCost;
+            arrParameter[21, 0] = "@mfldStatus";
+            arrParameter[21, 1] = oMenuDetails.Status;
+            arrParameter[22, 0] = "@mflddtRecipeDetails";
+            arrParameter[22, 1] = oMenuDetails.dtRecipeDetails;
+            arrParameter[23, 0] = "@mflddtLocation";
+            arrParameter[23, 1] = oMenuDetails.dtLocation;
             
             
             return cDBConnection.Insert("sp_insert_update_MenuDetails", arrParameter);

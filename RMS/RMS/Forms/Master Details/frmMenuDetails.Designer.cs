@@ -57,9 +57,6 @@
             this.clmQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmTotalCost = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvLocation = new System.Windows.Forms.DataGridView();
-            this.clmLocation = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmSalePrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmServiceChargePresentage = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtTotalMenuCost = new System.Windows.Forms.TextBox();
             this.btnSearch = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
@@ -93,6 +90,10 @@
             this.cmbMenuCategory = new RMS.ColumnComboBox();
             this.cmbLocation = new RMS.ColumnComboBox();
             this.cmbPrintLocation = new RMS.ColumnComboBox();
+            this.clmLocationCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmLocation = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmSalePrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmServiceChargePresentage = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRecipe)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLocation)).BeginInit();
             this.panel1.SuspendLayout();
@@ -347,6 +348,7 @@
             // 
             this.dgvLocation.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvLocation.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.clmLocationCode,
             this.clmLocation,
             this.clmSalePrice,
             this.clmServiceChargePresentage});
@@ -355,25 +357,6 @@
             this.dgvLocation.Size = new System.Drawing.Size(318, 150);
             this.dgvLocation.TabIndex = 30;
             this.dgvLocation.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dgvLocation_KeyDown);
-            // 
-            // clmLocation
-            // 
-            this.clmLocation.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.clmLocation.HeaderText = "Location";
-            this.clmLocation.Name = "clmLocation";
-            this.clmLocation.ReadOnly = true;
-            // 
-            // clmSalePrice
-            // 
-            this.clmSalePrice.HeaderText = "Sale Price";
-            this.clmSalePrice.Name = "clmSalePrice";
-            this.clmSalePrice.Width = 80;
-            // 
-            // clmServiceChargePresentage
-            // 
-            this.clmServiceChargePresentage.HeaderText = "Service Charge Presentage %";
-            this.clmServiceChargePresentage.Name = "clmServiceChargePresentage";
-            this.clmServiceChargePresentage.Width = 80;
             // 
             // txtTotalMenuCost
             // 
@@ -574,7 +557,7 @@
             // 
             this.lblMenuButtonName.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblMenuButtonName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMenuButtonName.ForeColor = System.Drawing.Color.Transparent;
+            this.lblMenuButtonName.ForeColor = System.Drawing.Color.White;
             this.lblMenuButtonName.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.lblMenuButtonName.Location = new System.Drawing.Point(0, 0);
             this.lblMenuButtonName.Name = "lblMenuButtonName";
@@ -677,6 +660,7 @@
             this.cmbMenuDepartment.Size = new System.Drawing.Size(134, 21);
             this.cmbMenuDepartment.TabIndex = 61;
             this.cmbMenuDepartment.ViewColumn = 0;
+            this.cmbMenuDepartment.SelectedIndexChanged += new System.EventHandler(this.cmbMenuDepartment_SelectedIndexChanged);
             // 
             // cmbMenuCategory
             // 
@@ -710,6 +694,31 @@
             this.cmbPrintLocation.Size = new System.Drawing.Size(151, 21);
             this.cmbPrintLocation.TabIndex = 17;
             this.cmbPrintLocation.ViewColumn = 0;
+            // 
+            // clmLocationCode
+            // 
+            this.clmLocationCode.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.clmLocationCode.HeaderText = "Location Code";
+            this.clmLocationCode.Name = "clmLocationCode";
+            this.clmLocationCode.ReadOnly = true;
+            // 
+            // clmLocation
+            // 
+            this.clmLocation.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.clmLocation.HeaderText = "Location";
+            this.clmLocation.Name = "clmLocation";
+            // 
+            // clmSalePrice
+            // 
+            this.clmSalePrice.HeaderText = "Sale Price";
+            this.clmSalePrice.Name = "clmSalePrice";
+            this.clmSalePrice.Width = 80;
+            // 
+            // clmServiceChargePresentage
+            // 
+            this.clmServiceChargePresentage.HeaderText = "Service Charge Presentage %";
+            this.clmServiceChargePresentage.Name = "clmServiceChargePresentage";
+            this.clmServiceChargePresentage.Width = 80;
             // 
             // frmMenuDetails
             // 
@@ -831,9 +840,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn clmUnitPrice;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmQuantity;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmTotalCost;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clmLocation;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clmSalePrice;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clmServiceChargePresentage;
         private System.Windows.Forms.Button btnImageBrowse;
         private System.Windows.Forms.TextBox txtImageLocation;
         private System.Windows.Forms.Panel pnlMenuButton;
@@ -845,5 +851,9 @@
         private System.Windows.Forms.FontDialog MenuButtonFont;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.TextBox txtButtonName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmLocationCode;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmLocation;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmSalePrice;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmServiceChargePresentage;
     }
 }

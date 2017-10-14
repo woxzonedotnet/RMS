@@ -16,7 +16,7 @@ namespace RMS_FrontEnd
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Front_Main());
+            Application.Run(new Form1());
         }
     }
 }

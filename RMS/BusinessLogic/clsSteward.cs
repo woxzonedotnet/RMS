@@ -16,9 +16,7 @@ namespace BusinessLogic
         objSteward oSteward = new objSteward();
         #endregion
 
-
-
-        #region GetDepartment Data Using DepartmentCode
+        #region Steward Data Using StewardCode
         public objSteward GetStewardData(string strLocationCode, string strStewardCode)
         {
             string strWhere = "fldLocationCode='" + strLocationCode + "' AND fldStewardCode='" + strStewardCode + "'";
@@ -43,9 +41,6 @@ namespace BusinessLogic
             return oSteward;
         }
         #endregion
-
-
-
 
         #region GetSteward Data
         public DataTable GetStewardData(string strLocationCode)

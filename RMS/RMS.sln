@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusinessLogic", "BusinessLo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Reports", "Reports\Reports.csproj", "{D86268CC-D369-40F9-BCB3-A5DA453208DA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RMS_FrontEnd", "RMS_FrontEnd\RMS_FrontEnd.csproj", "{BFC36E16-3A56-4407-AC28-540C03DE0C1B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		CD_ROM|Any CPU = CD_ROM|Any CPU
@@ -72,6 +74,16 @@ Global
 		{D86268CC-D369-40F9-BCB3-A5DA453208DA}.Release|Any CPU.Build.0 = Release|Any CPU
 		{D86268CC-D369-40F9-BCB3-A5DA453208DA}.SingleImage|Any CPU.ActiveCfg = Release|Any CPU
 		{D86268CC-D369-40F9-BCB3-A5DA453208DA}.SingleImage|Any CPU.Build.0 = Release|Any CPU
+		{BFC36E16-3A56-4407-AC28-540C03DE0C1B}.CD_ROM|Any CPU.ActiveCfg = Release|Any CPU
+		{BFC36E16-3A56-4407-AC28-540C03DE0C1B}.CD_ROM|Any CPU.Build.0 = Release|Any CPU
+		{BFC36E16-3A56-4407-AC28-540C03DE0C1B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BFC36E16-3A56-4407-AC28-540C03DE0C1B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BFC36E16-3A56-4407-AC28-540C03DE0C1B}.DVD-5|Any CPU.ActiveCfg = Debug|Any CPU
+		{BFC36E16-3A56-4407-AC28-540C03DE0C1B}.DVD-5|Any CPU.Build.0 = Debug|Any CPU
+		{BFC36E16-3A56-4407-AC28-540C03DE0C1B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BFC36E16-3A56-4407-AC28-540C03DE0C1B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BFC36E16-3A56-4407-AC28-540C03DE0C1B}.SingleImage|Any CPU.ActiveCfg = Release|Any CPU
+		{BFC36E16-3A56-4407-AC28-540C03DE0C1B}.SingleImage|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

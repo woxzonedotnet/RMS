@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{C5B9E75B-DE6E-4A18-8502-BA55B19171C2}</ProjectGuid>
+    <ProjectGuid>{BFC36E16-3A56-4407-AC28-540C03DE0C1B}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>RMS_FrontEnd</RootNamespace>
@@ -32,18 +32,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="MetroFramework, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
-      <HintPath>..\packages\MetroModernUI.1.4.0.0\lib\net\MetroFramework.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="MetroFramework.Design, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
-      <HintPath>..\packages\MetroModernUI.1.4.0.0\lib\net\MetroFramework.Design.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="MetroFramework.Fonts, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
-      <HintPath>..\packages\MetroModernUI.1.4.0.0\lib\net\MetroFramework.Fonts.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -56,35 +44,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="frmFront_Calculator.cs">
+    <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmFront_Calculator.Designer.cs">
-      <DependentUpon>frmFront_Calculator.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmFront_Steward.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmFront_Steward.Designer.cs">
-      <DependentUpon>frmFront_Steward.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Front_Main.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Front_Main.Designer.cs">
-      <DependentUpon>Front_Main.cs</DependentUpon>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="frmFront_Calculator.resx">
-      <DependentUpon>frmFront_Calculator.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmFront_Steward.resx">
-      <DependentUpon>frmFront_Steward.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Front_Main.resx">
-      <DependentUpon>Front_Main.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -94,7 +61,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -107,16 +73,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\BusinessLogic\BusinessLogic.csproj">
-      <Project>{f64c7317-6802-46d6-b66d-784de6dcbd6e}</Project>
-      <Name>BusinessLogic</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\DataAccess\DataAccess.csproj">
-      <Project>{366449db-d7e2-4022-99fc-d4b92f4d4a3d}</Project>
-      <Name>DataAccess</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -1,6 +1,6 @@
 ﻿namespace RMS_FrontEnd
 {
-    partial class frmCalculator
+    partial class frmFront_Calculator
     {
         /// <summary>
         /// Required designer variable.
