@@ -16,6 +16,17 @@ namespace BusinessLogic
         objTableMaster oTableMaster = new objTableMaster();
         #endregion
 
+        #region GetTableMaster Data
+        public DataTable GetTableMasterData(string strLocationCode, string strTableCategoryCode)
+        {
+            string strWhere = "fldLocationCode='" + strLocationCode + "' AND fldTableCategoryCode='" + strTableCategoryCode + "'";
+
+            DataTable dtTableMaster = cDBConnection.SearchData("tbl_TableMaster", strWhere);
+
+            return dtTableMaster;
+        }
+        #endregion
+
         #region GetTableMaster Data Using TableCategoryCode and TableCode
         public objTableMaster GetTableMasterData(string strLocationCode, string strTableCategoryCode,string strTableCode)
         {

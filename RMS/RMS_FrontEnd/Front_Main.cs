@@ -685,5 +685,45 @@ namespace RMS_FrontEnd
 
             totalCalculate();
         }
+
+        private void btnTakeaway_Click(object sender, EventArgs e)
+        {
+            if (dgvItem.Rows.Count > 0)
+            {
+                frmFront_Steward steward = new frmFront_Steward(lblSteward);
+                steward.ShowDialog();
+                this.lblOrderType.Text = "Take Away";
+            }
+        }
+
+        private void btnTable_Click(object sender, EventArgs e)
+        {
+            if (dgvItem.Rows.Count > 0)
+            {
+                frmFront_Steward steward = new frmFront_Steward(lblSteward);
+                steward.ShowDialog();
+                this.lblOrderType.Text = "Table";
+
+                frmFront_Table table = new frmFront_Table(lblTableNo);
+                table.ShowDialog();
+            }
+            else
+            {
+                frmFront_Table table = new frmFront_Table();
+                table.ShowDialog();
+            }
+            
+        }
+
+        private void btnRoom_Click(object sender, EventArgs e)
+        {
+            if (dgvItem.Rows.Count > 0)
+            {
+                frmFront_Steward steward = new frmFront_Steward(lblSteward);
+                steward.ShowDialog();
+                this.lblOrderType.Text = "Room";
+            }
+            
+        }
     }
 }

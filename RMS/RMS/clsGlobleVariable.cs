@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace RMS
 {
-    class clsGlobleVariable
+    public class clsGlobleVariable
     {
         private static string _LocationCode = "LOC01";
         private static string _User = "USER01";

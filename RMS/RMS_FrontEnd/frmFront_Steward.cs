@@ -7,6 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BusinessObject;
+using BusinessLogic;
+using RMS;
 
 namespace RMS_FrontEnd
 {
@@ -15,20 +18,74 @@ namespace RMS_FrontEnd
         #region Variable
         Control ctrl;
         #endregion
+
+        #region Objects
+        clsGlobleVariable cGlobleVariable = new clsGlobleVariable();
+        clsCommonMethods cCommonMethods = new clsCommonMethods();
+        objSteward oSteward = new objSteward();
+        clsSteward cSteward = new clsSteward();
+        #endregion
         public frmFront_Steward()
         {
             InitializeComponent();
+            this.StartPosition = FormStartPosition.CenterScreen;
         }
 
         public frmFront_Steward(Control control)
         {
             InitializeComponent();
+            this.StartPosition = FormStartPosition.CenterScreen;
             ctrl = control;
+            int screenHeight = System.Windows.Forms.SystemInformation.WorkingArea.Height;
+            int screenWidth = System.Windows.Forms.SystemInformation.WorkingArea.Width;
         }
 
         private void frmSteward_Load(object sender, EventArgs e)
         {
+            DataTable  stewards = cSteward.GetStewardData(cGlobleVariable.LocationCode);
+            int x = 12;
+            int y = 10;
+            Point newLoc = new Point(x, y);
+            Panel pnlLayout = new Panel();
+            pnlLayout.Location = new Point(0, 0);
+            pnlLayout.Width = this.Width;
+            pnlLayout.Height = this.Height;
+            pnlLayout.BackColor = Color.White;
+            this.Controls.Add(pnlLayout);
 
+            for (int i = 0; i < stewards.Rows.Count; i++)
+            {
+                Button b = new Button();
+                b.Location = newLoc;
+                b.Width = 220;
+                b.Height = 47;
+                b.FlatStyle = FlatStyle.Flat;
+                b.Font = new System.Drawing.Font("Microsoft Sans Serif", 10, FontStyle.Bold);
+                b.ForeColor = Color.White;
+                b.BackColor = Color.FromArgb(250, 148, 18);
+                b.FlatAppearance.MouseOverBackColor = Color.FromArgb(254, 131, 1);
+
+                b.Name = stewards.Rows[i]["fldStewardCode"].ToString();
+                b.Text = stewards.Rows[i]["fldStewardName"].ToString();
+                pnlLayout.Controls.Add(b);
+
+                b.Click += delegate
+                {
+                    try
+                    {
+                        ctrl.Text = b.Name;
+                        this.Dispose();
+                    }
+                    catch (Exception ex)
+                    {
+
+                    }
+                };
+
+                newLoc = new Point(x, y+=50);
+            }
+            this.Height = newLoc.Y + 60;
+            pnlLayout.Height = this.Height;
         }
     }
 }
