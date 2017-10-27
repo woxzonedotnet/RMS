@@ -73,6 +73,12 @@
     <Compile Include="frmFront_Table.Designer.cs">
       <DependentUpon>frmFront_Table.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmPayBill.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPayBill.Designer.cs">
+      <DependentUpon>frmPayBill.cs</DependentUpon>
+    </Compile>
     <Compile Include="Front_Main.cs">
       <SubType>Form</SubType>
     </Compile>

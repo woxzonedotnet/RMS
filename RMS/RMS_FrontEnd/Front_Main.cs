@@ -10,6 +10,8 @@ using System.Windows.Forms;
 using System.IO;
 using System.Drawing.Imaging;
 using DataAccess;
+using BusinessObject;
+using BusinessLogic;
 
 namespace RMS_FrontEnd
 {
@@ -21,6 +23,8 @@ namespace RMS_FrontEnd
         int screenHeight = 0;
         Point startPoint;
         Point menuscroll;
+        string LocCode = "LOC01";
+        string subLocCode = "ddd";
         #endregion
 
         #region Object
@@ -28,6 +32,8 @@ namespace RMS_FrontEnd
         
         #endregion
 
+        objFoodOrder oFoodOrder = new objFoodOrder();
+        clsFoodOrder cFoodOrder = new clsFoodOrder();
         clsDBConnection cDBConnection = new clsDBConnection();
         #endregion
 
@@ -38,13 +44,13 @@ namespace RMS_FrontEnd
 
         private void Main_Load(object sender, EventArgs e)
         {
+
             screenWidth = this.Width;
             screenHeight = this.Height;
             DataTable dtMenu = new DataTable();
-            string code = "LOC01";
-            string where = "fldLocationCode = '"+code+"'";
-            dtMenu = cDBConnection.SearchData("tbl_MenuDepartment",where);
-            
+            string where = "fldLocationCode = '" + LocCode + "'";
+            dtMenu = cDBConnection.SearchData("tbl_MenuDepartment", where);
+
             #region Header
             //panel Header
             pnlHeader.BackColor = Color.FromArgb(0, 154, 199);
@@ -57,8 +63,9 @@ namespace RMS_FrontEnd
 
             #region Menu
             //panel Menu
-            pnlMenu.BackColor = Color.FromArgb(6, 199, 255);
-            pnlMenu.Location = new Point(3, 58);
+            //pnlMenu.BackColor = Color.FromArgb(6, 199, 255);
+            pnlMenu.BackColor = Color.White;
+            pnlMenu.Location = new Point(0, 58);
             pnlMenu.Height = (screenHeight * 90) / 100;
             pnlMenu.Width = (screenWidth * 50) / 100;
 
@@ -81,167 +88,167 @@ namespace RMS_FrontEnd
                 tb.Text = dtMenu.Rows[i]["fldMenuDepartmentName"].ToString();
                 tb.Name = dtMenu.Rows[i]["fldMenuDepartmentCode"].ToString();
 
-            #region Category
-            //Sub Category
-            GroupBox gbSubCategory = new GroupBox();
-            gbSubCategory.Location = new Point(10, 10);
-            gbSubCategory.Width = tbMenu.Width - 30;
-            gbSubCategory.Height = (tbMenu.Height * 18) / 100;
-            gbSubCategory.BackColor = Color.White;
-            gbSubCategory.Text = "CATEGORY";
-            gbSubCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 10, FontStyle.Bold);
-            tb.Controls.Add(gbSubCategory);
+                #region Category
+                //Sub Category
+                GroupBox gbSubCategory = new GroupBox();
+                gbSubCategory.Location = new Point(10, 10);
+                gbSubCategory.Width = tbMenu.Width - 30;
+                gbSubCategory.Height = (tbMenu.Height * 18) / 100;
+                gbSubCategory.BackColor = Color.White;
+                gbSubCategory.Text = "CATEGORY";
+                gbSubCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 10, FontStyle.Bold);
+                tb.Controls.Add(gbSubCategory);
 
-            //Button Previous
-            Button btnSubCategoryPrevious = new Button();
-            btnSubCategoryPrevious.Location = new Point(10, 30);
-            btnSubCategoryPrevious.Height = gbSubCategory.Height - 50;
-            btnSubCategoryPrevious.Width = (gbSubCategory.Width * 7) / 100;
-            btnSubCategoryPrevious.Font = new System.Drawing.Font("Microsoft Sans Serif", 20, FontStyle.Bold);
-            btnSubCategoryPrevious.ForeColor = Color.White;
-            btnSubCategoryPrevious.Text = "<";
-            btnSubCategoryPrevious.BackColor = Color.FromArgb(240,173,78);
-            btnSubCategoryPrevious.FlatAppearance.MouseOverBackColor = Color.FromArgb(238, 162, 34);
-            btnSubCategoryPrevious.FlatStyle = FlatStyle.Flat;
-            gbSubCategory.Controls.Add(btnSubCategoryPrevious);
-            
-
-            //Button Panel
-            MetroFramework.Controls.MetroPanel pnlSubCategory = new MetroFramework.Controls.MetroPanel();
-            pnlSubCategory.Location = new Point(btnSubCategoryPrevious.Location.X + btnSubCategoryPrevious.Width + 5, 30);
-            pnlSubCategory.Height = gbSubCategory.Height - 50;
-            pnlSubCategory.Width = (gbSubCategory.Width * 81) / 100;
-            pnlSubCategory.UseCustomBackColor = true;
-            pnlSubCategory.BackColor = Color.FromArgb(255, 255, 255);
-            pnlSubCategory.AutoScroll = true;
-            pnlSubCategory.AutoScrollPosition = new Point(10,10);
-            pnlSubCategory.VerticalScrollbarHighlightOnWheel = true;
-            gbSubCategory.Controls.Add(pnlSubCategory);
-            
+                //Button Previous
+                Button btnSubCategoryPrevious = new Button();
+                btnSubCategoryPrevious.Location = new Point(10, 30);
+                btnSubCategoryPrevious.Height = gbSubCategory.Height - 50;
+                btnSubCategoryPrevious.Width = (gbSubCategory.Width * 7) / 100;
+                btnSubCategoryPrevious.Font = new System.Drawing.Font("Microsoft Sans Serif", 20, FontStyle.Bold);
+                btnSubCategoryPrevious.ForeColor = Color.White;
+                btnSubCategoryPrevious.Text = "<";
+                btnSubCategoryPrevious.BackColor = Color.FromArgb(240, 173, 78);
+                btnSubCategoryPrevious.FlatAppearance.MouseOverBackColor = Color.FromArgb(238, 162, 34);
+                btnSubCategoryPrevious.FlatStyle = FlatStyle.Flat;
+                gbSubCategory.Controls.Add(btnSubCategoryPrevious);
 
 
-            //Button Next
-            Button btnSubCategoryNext = new Button();
-            btnSubCategoryNext.Location = new Point(pnlSubCategory.Location.X + pnlSubCategory.Width + 5, 30);
-            btnSubCategoryNext.Height = gbSubCategory.Height - 50;
-            btnSubCategoryNext.Width = (gbSubCategory.Width * 7) / 100;
-            btnSubCategoryNext.Font = new System.Drawing.Font("Microsoft Sans Serif", 20, FontStyle.Bold);
-            btnSubCategoryNext.ForeColor = Color.White;
-            btnSubCategoryNext.Text = ">";
-            btnSubCategoryNext.BackColor = Color.FromArgb(240, 173, 78);
-            btnSubCategoryNext.FlatAppearance.MouseOverBackColor = Color.FromArgb(238, 162, 34);
-            btnSubCategoryNext.FlatStyle = FlatStyle.Flat;
-            gbSubCategory.Controls.Add(btnSubCategoryNext);
+                //Button Panel
+                MetroFramework.Controls.MetroPanel pnlSubCategory = new MetroFramework.Controls.MetroPanel();
+                pnlSubCategory.Location = new Point(btnSubCategoryPrevious.Location.X + btnSubCategoryPrevious.Width + 5, 30);
+                pnlSubCategory.Height = gbSubCategory.Height - 50;
+                pnlSubCategory.Width = (gbSubCategory.Width * 81) / 100;
+                pnlSubCategory.UseCustomBackColor = true;
+                pnlSubCategory.BackColor = Color.FromArgb(255, 255, 255);
+                pnlSubCategory.AutoScroll = true;
+                pnlSubCategory.AutoScrollPosition = new Point(10, 10);
+                pnlSubCategory.VerticalScrollbarHighlightOnWheel = true;
+                gbSubCategory.Controls.Add(pnlSubCategory);
 
-            //previous button click event
-            btnSubCategoryPrevious.Click += delegate
-            {
-                try
+
+
+                //Button Next
+                Button btnSubCategoryNext = new Button();
+                btnSubCategoryNext.Location = new Point(pnlSubCategory.Location.X + pnlSubCategory.Width + 5, 30);
+                btnSubCategoryNext.Height = gbSubCategory.Height - 50;
+                btnSubCategoryNext.Width = (gbSubCategory.Width * 7) / 100;
+                btnSubCategoryNext.Font = new System.Drawing.Font("Microsoft Sans Serif", 20, FontStyle.Bold);
+                btnSubCategoryNext.ForeColor = Color.White;
+                btnSubCategoryNext.Text = ">";
+                btnSubCategoryNext.BackColor = Color.FromArgb(240, 173, 78);
+                btnSubCategoryNext.FlatAppearance.MouseOverBackColor = Color.FromArgb(238, 162, 34);
+                btnSubCategoryNext.FlatStyle = FlatStyle.Flat;
+                gbSubCategory.Controls.Add(btnSubCategoryNext);
+
+                //previous button click event
+                btnSubCategoryPrevious.Click += delegate
                 {
-                    pnlSubCategory.HorizontalScroll.Value -= 200;
-                }
-                catch (Exception ex)
+                    try
+                    {
+                        pnlSubCategory.HorizontalScroll.Value -= 200;
+                    }
+                    catch (Exception ex)
+                    {
+                        pnlSubCategory.AutoScrollPosition = new Point(0, 0);
+                    }
+                };
+
+                //next button click event
+                btnSubCategoryNext.Click += delegate
                 {
-                    pnlSubCategory.AutoScrollPosition = new Point(0, 0);
-                }
-            };
+                    try
+                    {
+                        pnlSubCategory.HorizontalScroll.Value += 200;
+                    }
+                    catch (Exception ex)
+                    {
+                        //pnlSubCategory.AutoScrollPosition = new Point(0, 0);
+                    }
 
-            //next button click event
-            btnSubCategoryNext.Click += delegate
-            {
-                try
+                };
+
+                #endregion
+
+                #region Item List
+                //Item List
+                GroupBox gbItems = new GroupBox();
+                gbItems.Location = new Point(10, gbSubCategory.Location.Y + gbSubCategory.Height + 20);
+                gbItems.Width = tbMenu.Width - 100;
+                gbItems.Height = (tbMenu.Height * 70) / 100;
+                gbItems.BackColor = Color.White;
+                gbItems.Text = "ITEMS";
+                gbItems.Font = new System.Drawing.Font("Microsoft Sans Serif", 10, FontStyle.Bold);
+                tb.Controls.Add(gbItems);
+
+                //Button Panel
+                MetroFramework.Controls.MetroPanel pnlItemList = new MetroFramework.Controls.MetroPanel();
+                pnlItemList.Location = new Point(2, 20);
+                pnlItemList.Height = gbItems.Height - 22;
+                pnlItemList.Width = gbItems.Width - 4;
+                pnlItemList.UseCustomBackColor = true;
+                pnlItemList.BackColor = Color.FromArgb(255, 255, 255);
+                pnlItemList.AutoScroll = true;
+                pnlItemList.AutoScrollPosition = new Point(10, 10);
+                gbItems.Controls.Add(pnlItemList);
+
+                //Button Up
+                Button btnItemUp = new Button();
+                btnItemUp.Location = new Point(gbItems.Location.X + gbItems.Width + 5, gbSubCategory.Location.Y + gbSubCategory.Height + 30);
+                btnItemUp.Height = 40;
+                btnItemUp.Width = (tbMenu.Width * 10) / 100;
+                btnItemUp.Font = new System.Drawing.Font("Microsoft Sans Serif", 20, FontStyle.Bold);
+                btnItemUp.ForeColor = Color.White;
+                btnItemUp.Text = "˄";
+                btnItemUp.BackColor = Color.FromArgb(240, 173, 78);
+                btnItemUp.FlatAppearance.MouseOverBackColor = Color.FromArgb(238, 162, 34);
+                btnItemUp.FlatStyle = FlatStyle.Flat;
+                tb.Controls.Add(btnItemUp);
+
+                //Button Down
+                Button btnItemDown = new Button();
+                btnItemDown.Location = new Point(gbItems.Location.X + gbItems.Width + 5, btnItemUp.Location.Y + btnItemUp.Height + 10);
+                btnItemDown.Height = 40;
+                btnItemDown.Width = (tbMenu.Width * 10) / 100;
+                btnItemDown.Font = new System.Drawing.Font("Microsoft Sans Serif", 20, FontStyle.Bold);
+                btnItemDown.ForeColor = Color.White;
+                btnItemDown.Text = "˅";
+                btnItemDown.BackColor = Color.FromArgb(240, 173, 78);
+                btnItemDown.FlatAppearance.MouseOverBackColor = Color.FromArgb(238, 162, 34);
+                btnItemDown.FlatStyle = FlatStyle.Flat;
+                tb.Controls.Add(btnItemDown);
+
+                //Up button click event
+                btnItemUp.Click += delegate
                 {
-                    pnlSubCategory.HorizontalScroll.Value += 200;
-                }
-                catch (Exception ex)
+                    try
+                    {
+                        pnlItemList.VerticalScroll.Value -= 200;
+                    }
+                    catch (Exception ex)
+                    {
+                        pnlItemList.AutoScrollPosition = new Point(0, 0);
+                    }
+                };
+
+                //next button click event
+                btnItemDown.Click += delegate
                 {
-                    //pnlSubCategory.AutoScrollPosition = new Point(0, 0);
-                }
-                
-            };
+                    try
+                    {
+                        pnlItemList.VerticalScroll.Value += 200;
+                    }
+                    catch (Exception ex)
+                    {
+                        //pnlItemList.AutoScrollPosition = new Point(0, 0);
+                    }
 
-            #endregion
+                };
 
-            #region Item List
-            //Item List
-            GroupBox gbItems = new GroupBox();
-            gbItems.Location = new Point(10, gbSubCategory.Location.Y + gbSubCategory.Height + 20);
-            gbItems.Width = tbMenu.Width - 100;
-            gbItems.Height = (tbMenu.Height * 70) / 100;
-            gbItems.BackColor = Color.White;
-            gbItems.Text = "ITEMS";
-            gbItems.Font = new System.Drawing.Font("Microsoft Sans Serif", 10, FontStyle.Bold);
-            tb.Controls.Add(gbItems);
+                #endregion
 
-            //Button Panel
-            MetroFramework.Controls.MetroPanel pnlItemList = new MetroFramework.Controls.MetroPanel();
-            pnlItemList.Location = new Point(2, 20);
-            pnlItemList.Height = gbItems.Height-22;
-            pnlItemList.Width = gbItems.Width-4;
-            pnlItemList.UseCustomBackColor = true;
-            pnlItemList.BackColor = Color.FromArgb(255, 255, 255);
-            pnlItemList.AutoScroll = true;
-            pnlItemList.AutoScrollPosition = new Point(10, 10);
-            gbItems.Controls.Add(pnlItemList);
+                btnCategoryConfig(gbItems, pnlItemList, pnlSubCategory, tb.Name);
 
-            //Button Up
-            Button btnItemUp = new Button();
-            btnItemUp.Location = new Point(gbItems.Location.X + gbItems.Width + 5, gbSubCategory.Location.Y + gbSubCategory.Height + 30);
-            btnItemUp.Height = 40;
-            btnItemUp.Width = (tbMenu.Width * 10) / 100;
-            btnItemUp.Font = new System.Drawing.Font("Microsoft Sans Serif", 20, FontStyle.Bold);
-            btnItemUp.ForeColor = Color.White;
-            btnItemUp.Text = "˄";
-            btnItemUp.BackColor = Color.FromArgb(240, 173, 78);
-            btnItemUp.FlatAppearance.MouseOverBackColor = Color.FromArgb(238, 162, 34);
-            btnItemUp.FlatStyle = FlatStyle.Flat;
-            tb.Controls.Add(btnItemUp);
-
-            //Button Down
-            Button btnItemDown = new Button();
-            btnItemDown.Location = new Point(gbItems.Location.X + gbItems.Width + 5, btnItemUp.Location.Y + btnItemUp.Height + 10);
-            btnItemDown.Height = 40;
-            btnItemDown.Width = (tbMenu.Width * 10) / 100;
-            btnItemDown.Font = new System.Drawing.Font("Microsoft Sans Serif", 20, FontStyle.Bold);
-            btnItemDown.ForeColor = Color.White;
-            btnItemDown.Text = "˅";
-            btnItemDown.BackColor = Color.FromArgb(240, 173, 78);
-            btnItemDown.FlatAppearance.MouseOverBackColor = Color.FromArgb(238, 162, 34);
-            btnItemDown.FlatStyle = FlatStyle.Flat;
-            tb.Controls.Add(btnItemDown);
-
-            //Up button click event
-            btnItemUp.Click += delegate
-            {
-                try
-                {
-                    pnlItemList.VerticalScroll.Value -= 200;
-                }
-                catch (Exception ex)
-                {
-                    pnlItemList.AutoScrollPosition = new Point(0, 0);
-                }
-            };
-
-            //next button click event
-            btnItemDown.Click += delegate
-            {
-                try
-                {
-                    pnlItemList.VerticalScroll.Value += 200;
-                }
-                catch (Exception ex)
-                {
-                    //pnlItemList.AutoScrollPosition = new Point(0, 0);
-                }
-
-            };
-
-            #endregion
-
-            btnCategoryConfig(gbItems,pnlItemList, pnlSubCategory, tb.Name);
-
-            tbMenu.TabPages.Add(tb);
+                tbMenu.TabPages.Add(tb);
             }//Tab Page End
 
             #endregion
@@ -253,20 +260,39 @@ namespace RMS_FrontEnd
             pnlBill.BackColor = Color.FromArgb(255, 255, 255);
             pnlBill.Location = new Point(pnlMenu.Location.X + pnlMenu.Width, 58);
             pnlBill.Height = (screenHeight * 90) / 100;
-            pnlBill.Width = (screenWidth * 45) / 100;
+            pnlBill.Width = (screenWidth * 50) / 100;
             DateTimeUpdate.Start();
             pnlBill.BringToFront();
 
+            //Bill Head
+            lDate.Location = new Point(5, 10);
+            lblDate.Location = new Point(lDate.Location.X + lDate.Width + 5, 10);
+
+            lSteward.Location = new Point(((pnlBill.Width*50)/100),10);
+            lblSteward.Location = new Point(lSteward.Location.X + lSteward.Width + 5, 10);
+
+            lTime.Location = new Point(5, lDate.Location.Y + lDate.Height+10);
+            lblTime.Location = new Point(lTime.Location.X + lTime.Width + 5, lDate.Location.Y + lDate.Height+10);
+
+            lOrderType.Location = new Point(((pnlBill.Width * 50) / 100), lSteward.Location.Y + lSteward.Height + 10);
+            lblOrderType.Location = new Point(lOrderType.Location.X + lOrderType.Width + 5, lSteward.Location.Y + lSteward.Height + 10);
+
+            lOrderNo.Location = new Point(5, lTime.Location.Y + lTime.Height + 10);
+            lblOrderNo.Location = new Point(lOrderNo.Location.X + lOrderNo.Width + 5, lTime.Location.Y + lTime.Height + 10);
+
+            lTableNo.Location = new Point(((pnlBill.Width * 50) / 100), lOrderType.Location.Y + lOrderType.Height + 10);
+            lblTableNo.Location = new Point(lTableNo.Location.X + lTableNo.Width + 5, lOrderType.Location.Y + lOrderType.Height + 10);
+
             //Item Grid
             dgvItem.Location = new Point(5, 90);
-            dgvItem.Height = (pnlBill.Height*45)/100;
+            dgvItem.Height = (pnlBill.Height * 45) / 100;
             dgvItem.Width = pnlBill.Width - 10;
             dgvItem.Columns["clmName"].Width = (dgvItem.Width * 40) / 100;
             dgvItem.BorderStyle = BorderStyle.FixedSingle;
             pnlBill.Controls.Add(dgvItem);
 
             //Bill Info
-            gbBillInfo.Location = new Point(5,dgvItem.Location.Y+dgvItem.Height+10);
+            gbBillInfo.Location = new Point(5, dgvItem.Location.Y + dgvItem.Height + 10);
             gbBillInfo.Height = (pnlBill.Height * 40) / 100;
             gbBillInfo.Width = pnlBill.Width - 10;
             gbBillInfo.BackColor = Color.White;
@@ -277,66 +303,100 @@ namespace RMS_FrontEnd
             int gbBillWidth = gbBillInfo.Width;
             int gbBillHeight = gbBillInfo.Height;
 
-            lblSubTotal.Location = new Point(5,25);
+            lblSubTotal.Location = new Point(5, 25);
             lblSubTotal.Width = (gbBillWidth * 8) / 100;
             lblSubTotal.Height = (gbBillHeight * 2) / 100;
+            lblSubTotal.Font = fontRechange(gbBillInfo, 2);
 
-            txtSubTotal.Location = new Point(lblSubTotal.Location.X+lblSubTotal.Width, 25);
-            txtSubTotal.Width = (gbBillWidth * 35) / 100;
+            txtSubTotal.Location = new Point(lblSubTotal.Location.X + lblSubTotal.Width, 25);
+            txtSubTotal.Width = (gbBillWidth * 28) / 100;
             txtSubTotal.Height = (gbBillHeight * 2) / 100;
+            txtSubTotal.AutoSize = true;
+            txtSubTotal.Font = fontRechange(gbBillInfo, 2);
 
-            lblTotal.Location = new Point(txtSubTotal.Location.X + txtSubTotal.Width+15, 25);
+            lblTotal.Location = new Point(txtSubTotal.Location.X + txtSubTotal.Width + 5, 25);
             lblTotal.Width = (gbBillWidth * 20) / 100;
             lblTotal.Height = (gbBillHeight * 2) / 100;
+            lblTotal.Font = fontRechange(gbBillInfo, 4);
 
-            txtTotal.Location = new Point(lblTotal.Location.X + lblTotal.Width + 2, 25);
-            txtTotal.Width = (gbBillWidth * 34) / 100;
+            txtTotal.Location = new Point(lblTotal.Location.X + lblTotal.Width, 25);
+            txtTotal.Width = (gbBillWidth * 35) / 100;
             txtTotal.Height = (gbBillHeight * 2) / 100;
+            txtTotal.AutoSize = true;
+            txtTotal.Margin = new System.Windows.Forms.Padding(0, 0, 20, 0);
+            txtTotal.Font = fontRechange(gbBillInfo, 4);
 
-            lblDiscount.Location = new Point(5, lblSubTotal.Location.Y+lblSubTotal.Height+15);
+            lblDiscount.Location = new Point(5, lblSubTotal.Location.Y + lblSubTotal.Height + 15);
             lblDiscount.Width = (gbBillWidth * 8) / 100;
             lblDiscount.Height = (gbBillHeight * 2) / 100;
+            lblDiscount.Font = fontRechange(gbBillInfo, 2);
 
             txtDiscount.Location = new Point(lblSubTotal.Location.X + lblSubTotal.Width, txtSubTotal.Location.Y + txtSubTotal.Height + 5);
-            txtDiscount.Width = (gbBillWidth * 35) / 100;
+            txtDiscount.Width = (gbBillWidth * 28) / 100;
             txtDiscount.Height = (gbBillHeight * 2) / 100;
+            txtDiscount.Font = fontRechange(gbBillInfo, 2);
 
             lblTax.Location = new Point(5, lblDiscount.Location.Y + lblDiscount.Height + 15);
             lblTax.Width = (gbBillWidth * 8) / 100;
             lblTax.Height = (gbBillHeight * 2) / 100;
+            lblTax.Font = fontRechange(gbBillInfo, 2);
 
             txtTax.Location = new Point(lblSubTotal.Location.X + lblSubTotal.Width, txtDiscount.Location.Y + txtDiscount.Height + 5);
-            txtTax.Width = (gbBillWidth * 35) / 100;
+            txtTax.Width = (gbBillWidth * 28) / 100;
             txtTax.Height = (gbBillHeight * 2) / 100;
+            txtTax.Font = fontRechange(gbBillInfo, 2);
 
             //Buttons
-            btnTakeaway.Location = new Point(10,lblTax.Location.Y+lblTax.Height+10);
-            btnTakeaway.Width = (gbBillWidth * 22) / 100;
+            btnTakeaway.Location = new Point(5, lblTax.Location.Y + lblTax.Height + 10);
+            btnTakeaway.Width = (gbBillWidth * 20) / 100;
             btnTakeaway.Height = (gbBillHeight * 15) / 100;
+            btnTakeaway.Font = fontRechange(btnTakeaway, 9);
 
-            btnTable.Location = new Point(btnTakeaway.Location.X + btnTakeaway.Width+20, lblTax.Location.Y + lblTax.Height + 10);
-            btnTable.Width = (gbBillWidth * 22) / 100;
+            btnTable.Location = new Point(btnTakeaway.Location.X + btnTakeaway.Width + 10, lblTax.Location.Y + lblTax.Height + 10);
+            btnTable.Width = (gbBillWidth * 20) / 100;
             btnTable.Height = (gbBillHeight * 15) / 100;
+            btnTable.Font = fontRechange(btnTable, 10);
 
-            btnRoom.Location = new Point(btnTable.Location.X + btnTable.Width + 20, lblTax.Location.Y + lblTax.Height + 10);
-            btnRoom.Width = (gbBillWidth * 22) / 100;
+            btnRoom.Location = new Point(btnTable.Location.X + btnTable.Width + 10, lblTax.Location.Y + lblTax.Height + 10);
+            btnRoom.Width = (gbBillWidth * 20) / 100;
             btnRoom.Height = (gbBillHeight * 15) / 100;
+            btnRoom.Font = fontRechange(btnRoom, 10);
 
-            btnPayBill.Location = new Point(btnRoom.Location.X + btnRoom.Width + 20, lblTax.Location.Y + lblTax.Height + 10);
-            btnPayBill.Width = (gbBillWidth * 22) / 100;
+            btnPayBill.Location = new Point(btnRoom.Location.X + btnRoom.Width + 10, lblTax.Location.Y + lblTax.Height + 10);
+            btnPayBill.Width = (gbBillWidth * 20) / 100;
             btnPayBill.Height = (gbBillHeight * 15) / 100;
+            btnPayBill.Font = fontRechange(btnPayBill, 10);
+
+            btnBooking.Location = new Point(5, btnTakeaway.Location.Y + btnTakeaway.Height + 10);
+            btnBooking.Width = (gbBillWidth * 20) / 100;
+            btnBooking.Height = (gbBillHeight * 15) / 100;
+            btnBooking.Font = fontRechange(btnBooking, 10);
+
+            btnJoingBill.Location = new Point(btnBooking.Location.X + btnBooking.Width + 10, btnTakeaway.Location.Y + btnTakeaway.Height + 10);
+            btnJoingBill.Width = (gbBillWidth * 20) / 100;
+            btnJoingBill.Height = (gbBillHeight * 15) / 100;
+            btnJoingBill.Font = fontRechange(btnJoingBill, 10);
+
+            btnHoldOrder.Location = new Point(btnJoingBill.Location.X + btnJoingBill.Width + 10, btnTakeaway.Location.Y + btnTakeaway.Height + 10);
+            btnHoldOrder.Width = (gbBillWidth * 20) / 100;
+            btnHoldOrder.Height = (gbBillHeight * 15) / 100;
+            btnHoldOrder.Font = fontRechange(btnHoldOrder, 10);
+
+            btnCancelBill.Location = new Point(btnHoldOrder.Location.X + btnHoldOrder.Width + 10, btnTakeaway.Location.Y + btnTakeaway.Height + 10);
+            btnCancelBill.Width = (gbBillWidth * 20) / 100;
+            btnCancelBill.Height = (gbBillHeight * 15) / 100;
+            btnCancelBill.Font = fontRechange(btnCancelBill, 10);
 
             #endregion
 
             #region Sortcut
             //panel SortCut
-            pnlShortCut.BackColor = Color.FromArgb(6, 199, 255);
-            pnlShortCut.Location = new Point(pnlBill.Location.X + pnlBill.Width, 58);
-            pnlShortCut.Height = (screenHeight * 90) / 100;
-            pnlShortCut.Width = (screenWidth * 10) / 100;
+            //pnlShortCut.BackColor = Color.FromArgb(6, 199, 255);
+            //pnlShortCut.Location = new Point(pnlBill.Location.X + pnlBill.Width, 58);
+            //pnlShortCut.Height = (screenHeight * 90) / 100;
+            //pnlShortCut.Width = (screenWidth * 10) / 100;
 
             #endregion
-
             
 
             
@@ -693,6 +753,10 @@ namespace RMS_FrontEnd
                 frmFront_Steward steward = new frmFront_Steward(lblSteward);
                 steward.ShowDialog();
                 this.lblOrderType.Text = "Take Away";
+                if (dgvItem.Rows.Count > 0)
+                {
+                    this.btnPayBill.Enabled = true;
+                }
             }
         }
 
@@ -706,11 +770,20 @@ namespace RMS_FrontEnd
 
                 frmFront_Table table = new frmFront_Table(lblTableNo);
                 table.ShowDialog();
+
+                if (dgvItem.Rows.Count > 0)
+                {
+                    this.btnPayBill.Enabled = true;
+                }
             }
             else
             {
                 frmFront_Table table = new frmFront_Table();
                 table.ShowDialog();
+                if (dgvItem.Rows.Count > 0)
+                {
+                    this.btnPayBill.Enabled = true;
+                }
             }
             
         }
@@ -722,8 +795,75 @@ namespace RMS_FrontEnd
                 frmFront_Steward steward = new frmFront_Steward(lblSteward);
                 steward.ShowDialog();
                 this.lblOrderType.Text = "Room";
+                if (dgvItem.Rows.Count > 0)
+                {
+                    this.btnPayBill.Enabled = true;
+                }
+                
             }
             
+        }
+
+        private void Front_Main_SizeChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        public Font fontRechange(Control ctrl,double size)
+        {
+            Font newFont = new System.Drawing.Font("Microsoft Sans Serif", (float)((ctrl.Width*size)/100), FontStyle.Bold);
+            return newFont;
+        }
+
+        public void placeOrder(string orderNo,string stewardCode,string tableCode,double subTotal,double discount,double tax,DataGridView dataGrid)
+        {
+            oFoodOrder.LocationCode = LocCode;
+            oFoodOrder.SubLocationCode = subLocCode;
+            oFoodOrder.OrderNo= orderNo;
+            oFoodOrder.StewardCode = stewardCode;
+            oFoodOrder.TableCode = tableCode;
+            oFoodOrder.Date = DateTime.Today.Date;
+            oFoodOrder.Time = DateTime.Today;
+            oFoodOrder.SubTotal = subTotal;
+            oFoodOrder.Discount = discount;
+            oFoodOrder.Tax = tax;
+            oFoodOrder.OrderState = 2;
+
+            oFoodOrder.Items = DataGridToDataTable(dataGrid,orderNo);
+
+            cFoodOrder.InsertUpdateData(oFoodOrder);
+        }
+
+        public DataTable DataGridToDataTable(DataGridView dgv, string strOrderNo)
+        {
+            DataTable dt = new DataTable();
+
+            dt.Columns.Add("fldOrderNo");
+            dt.Columns.Add("fldMenuCode");
+            dt.Columns.Add("fldMenuName");
+            dt.Columns.Add("fldQty");
+            dt.Columns.Add("fldCost");
+
+
+            foreach (DataGridViewRow row in dgv.Rows)
+            {
+                DataRow dRow = dt.NewRow();
+                try
+                {
+                    dRow["fldOrderNo"] = strOrderNo;
+                    dRow["fldMenuCode"] = row.Cells["clmMenuID"].Value.ToString();
+                    dRow["fldMenuName"] = row.Cells["clmName"].Value.ToString();
+                    dRow["fldQty"] = row.Cells["clmQty"].Value.ToString();
+                    dRow["fldCost"] = Convert.ToDouble(row.Cells["clmEach"].Value);
+                    dt.Rows.Add(dRow);
+                }
+                catch (Exception ex)
+                {
+
+                }
+
+            }
+            return dt;
         }
     }
 }

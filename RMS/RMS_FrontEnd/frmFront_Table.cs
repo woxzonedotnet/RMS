@@ -85,7 +85,11 @@ namespace RMS_FrontEnd
                 {
                     try
                     {
-                        ctrl.Text = b.Name;
+                        if (ctrl != null)
+                        {
+                            ctrl.Text = b.Name;
+                        }
+                        
                         btnSelect.Enabled = true;
                     }
                     catch (Exception ex)
