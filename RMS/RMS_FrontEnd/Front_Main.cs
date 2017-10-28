@@ -865,5 +865,14 @@ namespace RMS_FrontEnd
             }
             return dt;
         }
+
+        private void btnPayBill_Click(object sender, EventArgs e)
+        {
+            if (dgvItem.Rows.Count > 0)
+            {
+                frmFront_PayBill payBill = new frmFront_PayBill(lblSteward);
+                payBill.ShowDialog();
+            }
+        }
     }
 }

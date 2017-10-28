@@ -61,6 +61,12 @@
     <Compile Include="frmFront_Calculator.Designer.cs">
       <DependentUpon>frmFront_Calculator.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmFront_PayBill.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmFront_PayBill.Designer.cs">
+      <DependentUpon>frmFront_PayBill.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmFront_Steward.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -73,12 +79,6 @@
     <Compile Include="frmFront_Table.Designer.cs">
       <DependentUpon>frmFront_Table.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmPayBill.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmPayBill.Designer.cs">
-      <DependentUpon>frmPayBill.cs</DependentUpon>
-    </Compile>
     <Compile Include="Front_Main.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -89,6 +89,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="frmFront_Calculator.resx">
       <DependentUpon>frmFront_Calculator.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmFront_PayBill.resx">
+      <DependentUpon>frmFront_PayBill.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmFront_Steward.resx">
       <DependentUpon>frmFront_Steward.cs</DependentUpon>
