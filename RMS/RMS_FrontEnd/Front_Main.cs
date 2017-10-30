@@ -870,7 +870,7 @@ namespace RMS_FrontEnd
         {
             if (dgvItem.Rows.Count > 0)
             {
-                frmFront_PayBill payBill = new frmFront_PayBill(lblSteward);
+                frmFront_PayBill payBill = new frmFront_PayBill(txtTotal);
                 payBill.ShowDialog();
             }
         }
