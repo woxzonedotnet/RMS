@@ -289,6 +289,7 @@ namespace RMS_FrontEnd
             else
             {
                 ctrl.Text = txtMainValue.Text;
+                this.Dispose();
             }
         }
 

@@ -153,16 +153,6 @@ namespace RMS_FrontEnd
             {
                 MessageBox.Show("Please Enter the Amount!");
             }
-            if (Convert.ToDouble(txtCashBalance.Text) >= 0)
-            {
-                CardEnable(false);
-                ChequeEnable(false);
-            }
-            else
-            {
-                CardEnable(true);
-                ChequeEnable(true);
-            }
 
         }
 
@@ -216,71 +206,9 @@ namespace RMS_FrontEnd
             {
                 MessageBox.Show("Please Fill the Card Details");
             }
-            if (Convert.ToDouble(txtCardBalance.Text) >= 0)
-            {
-                CashEnable(false);
-                ChequeEnable(false);
-            }
-            else
-            {
-                CashEnable(true);
-                ChequeEnable(true);
-            }
         }
-
-        private void txtCardNumber_Validated(object sender, EventArgs e)
-        {
-            string number = Regex.Match(txtCardNumber.Text, @"\d+").Value;
-            if (number.Length == 15)
-            {
-                txtCardNumber.Text = number.Substring(0, 4) + "-" + number.Substring(4, 6) + "-" + number.Substring(9, 5);
-            }
-            else
-            {
-                var numberParts = SplitIntoParts(number, 4);
-                txtCardNumber.Text = string.Join("-", numberParts);
-            }
-
-            if (!ValidateCreditCard(txtCardNumber.Text))
-            {
-                txtCardNumber.Clear();
-                MessageBox.Show(null, "Invalid Card Number!", "INVALID", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            }
-            else
-            {
-                txtCardPayment.Text=((-1) * Convert.ToDouble(txtHeadBalance.Text)).ToString();
-            }
-        }
-
-        public static List<string> SplitIntoParts(string s, int partLength)
-        {
-            var list = new List<string>();
-
-            if (!string.IsNullOrEmpty(s) && partLength > 0)
-            {
-                for (var i = 0; i < s.Length; i += partLength)
-                {
-                    list.Add(s.Substring(i, Math.Min(partLength, s.Length - i)));
-                }
-            }
-
-            return list;
-        }
-        public bool ValidateCreditCard(string creditCardNumber)
-        {
-            //Strip any non-numeric values
-            creditCardNumber = Regex.Replace(creditCardNumber, @"[^\d]", "");
-
-            //Build your Regular Expression
-            Regex expression = new Regex(@"^(?:4[0-9]{12}(?:[0-9]{3})?|5[1-5][0-9]{14}|6(?:011|5[0-9][0-9])[0-9]{12}|3[47][0-9]{13}|3(?:0[0-5]|[68][0-9])[0-9]{11}|(?:2131|1800|35\d{3})\d{11})$");
-
-            //Return if it was a match or not
-            return expression.IsMatch(creditCardNumber);
-        }
-
         #endregion
 
-        #region Cheque
         public void ChequeEnable(bool value)
         {
             cmbChequeBank.Enabled = value;
@@ -290,53 +218,9 @@ namespace RMS_FrontEnd
             btnChequePay.Enabled = value;
         }
 
-        private void txtChequePayment_TextChanged(object sender, EventArgs e)
-        {
-            double available = Convert.ToDouble(txtHeadBalance.Text);
-            double cash = Convert.ToDouble(txtChequePayment.Text);
-            txtChequeBalance.Text = (available + cash).ToString();
-        }
+        
 
-        private void btnChequePay_Click(object sender, EventArgs e)
-        {
-            if (cmbChequeBank.SelectedValue != null && txtChequeNumber.Text != "" && dtChequeDate.Value != null)
-            {
-                if (txtChequePayment.Text != "0.00" && txtChequePayment.Text != null && btnChequePay.Enabled == true)
-                {
-                    oFrontPayBill.ChequeBank = cmbChequeBank.SelectedValue.ToString();
-                    oFrontPayBill.ChequeNumber = txtChequeNumber.Text;
-                    oFrontPayBill.ChequeDate = dtChequeDate.Value;
-                    oFrontPayBill.ChequeAmount = Convert.ToDouble(txtChequePayment.Text);
-                    dgvPayMethod.Rows.Add("Cheque", oFrontPayBill.ChequeAmount);
-                    txtHeadBalance.Text = txtChequeBalance.Text;
-                    ChequeEnable(false);
-                }
-                else
-                {
-                    MessageBox.Show("Please Enter the Amount!");
-                }
-            }
-            else
-            {
-                MessageBox.Show("Please Fill the Cheque Details");
-            }
-            if (Convert.ToDouble(txtChequeBalance.Text) >= 0)
-            {
-                CashEnable(false);
-                CardEnable(false);
-            }
-            else
-            {
-                CashEnable(true);
-                CardEnable(true);
-            }
-        }
-
-        private void txtChequeNumber_Validated(object sender, EventArgs e)
-        {
-            txtChequePayment.Text = ((-1) * Convert.ToDouble(txtHeadBalance.Text)).ToString();
-        }
-        #endregion
+        
 
         private void tbTableCat_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -354,16 +238,57 @@ namespace RMS_FrontEnd
             }
         }
 
-        
+        private void txtCardNumber_TextChanged(object sender, EventArgs e)
+        {
+            
 
-        
+            
+            
+        }
 
-        
+        public static List<string> SplitIntoParts(string s, int partLength)
+        {
+            var list = new List<string>();
 
+            if (!string.IsNullOrEmpty(s) && partLength > 0)
+            {
+                for (var i = 0; i < s.Length; i += partLength)
+                {
+                    list.Add(s.Substring(i, Math.Min(partLength, s.Length - i)));
+                }
+            }
 
-        
+            return list;
+        }
 
-        
+        private void txtCardNumber_Validating(object sender, CancelEventArgs e)
+        {
+            
+        }
+
+        private void txtCardNumber_Validated(object sender, EventArgs e)
+        {
+            string number = Regex.Match(txtCardNumber.Text, @"\d+").Value;
+            var numberParts = SplitIntoParts(number, 4);
+            txtCardNumber.Text = string.Join("-", numberParts);
+            if (!ValidateCreditCard(txtCardNumber.Text))
+            {
+                txtCardNumber.Clear();
+                MessageBox.Show(null,"Invalid Card Number!","INVALID",MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
+            }
+        }
+
+        public bool ValidateCreditCard(string creditCardNumber)
+        {
+            //Strip any non-numeric values
+            creditCardNumber = Regex.Replace(creditCardNumber, @"[^\d]", "");
+
+            //Build your Regular Expression
+            Regex expression = new Regex(@"^(?:4[0-9]{12}(?:[0-9]{3})?|5[1-5][0-9]{14}|6(?:011|5[0-9][0-9])[0-9]{12}|3[47][0-9]{13}|3(?:0[0-5]|[68][0-9])[0-9]{11}|(?:2131|1800|35\d{3})\d{11})$");
+
+            //Return if it was a match or not
+            return expression.IsMatch(creditCardNumber);
+        }
 
 
         

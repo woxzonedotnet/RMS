@@ -40,18 +40,6 @@
             this.label9 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.btnCashPay = new System.Windows.Forms.Button();
-            this.tbCreditCard = new MetroFramework.Controls.MetroTabPage();
-            this.txtCardPayment = new System.Windows.Forms.TextBox();
-            this.cmbCardType = new MetroFramework.Controls.MetroComboBox();
-            this.txtCardNumber = new MetroFramework.Controls.MetroTextBox();
-            this.cmbCardBank = new MetroFramework.Controls.MetroComboBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.txtCardBalance = new MetroFramework.Controls.MetroTextBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.btnCardPay = new System.Windows.Forms.Button();
             this.tbCheque = new MetroFramework.Controls.MetroTabPage();
             this.txtChequePayment = new System.Windows.Forms.TextBox();
             this.dtChequeDate = new MetroFramework.Controls.MetroDateTime();
@@ -64,6 +52,18 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.btnChequePay = new System.Windows.Forms.Button();
+            this.tbCreditCard = new MetroFramework.Controls.MetroTabPage();
+            this.txtCardPayment = new System.Windows.Forms.TextBox();
+            this.cmbCardType = new MetroFramework.Controls.MetroComboBox();
+            this.txtCardNumber = new MetroFramework.Controls.MetroTextBox();
+            this.cmbCardBank = new MetroFramework.Controls.MetroComboBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.txtCardBalance = new MetroFramework.Controls.MetroTextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.btnCardPay = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lblHeader = new System.Windows.Forms.Label();
             this.btnClose = new System.Windows.Forms.Button();
@@ -85,8 +85,8 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.tbTableCat.SuspendLayout();
             this.tbCash.SuspendLayout();
-            this.tbCreditCard.SuspendLayout();
             this.tbCheque.SuspendLayout();
+            this.tbCreditCard.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -100,14 +100,14 @@
             // tbTableCat
             // 
             this.tbTableCat.Controls.Add(this.tbCash);
-            this.tbTableCat.Controls.Add(this.tbCreditCard);
             this.tbTableCat.Controls.Add(this.tbCheque);
+            this.tbTableCat.Controls.Add(this.tbCreditCard);
             this.tbTableCat.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tbTableCat.FontSize = MetroFramework.MetroTabControlSize.Tall;
             this.tbTableCat.FontWeight = MetroFramework.MetroTabControlWeight.Bold;
             this.tbTableCat.Location = new System.Drawing.Point(0, 0);
             this.tbTableCat.Name = "tbTableCat";
-            this.tbTableCat.SelectedIndex = 2;
+            this.tbTableCat.SelectedIndex = 0;
             this.tbTableCat.Size = new System.Drawing.Size(447, 301);
             this.tbTableCat.SizeMode = System.Windows.Forms.TabSizeMode.FillToRight;
             this.tbTableCat.TabIndex = 0;
@@ -218,204 +218,6 @@
             this.btnCashPay.UseVisualStyleBackColor = false;
             this.btnCashPay.Click += new System.EventHandler(this.btnCashPay_Click);
             // 
-            // tbCreditCard
-            // 
-            this.tbCreditCard.Controls.Add(this.txtCardPayment);
-            this.tbCreditCard.Controls.Add(this.cmbCardType);
-            this.tbCreditCard.Controls.Add(this.txtCardNumber);
-            this.tbCreditCard.Controls.Add(this.cmbCardBank);
-            this.tbCreditCard.Controls.Add(this.label11);
-            this.tbCreditCard.Controls.Add(this.label12);
-            this.tbCreditCard.Controls.Add(this.label13);
-            this.tbCreditCard.Controls.Add(this.label14);
-            this.tbCreditCard.Controls.Add(this.txtCardBalance);
-            this.tbCreditCard.Controls.Add(this.label10);
-            this.tbCreditCard.Controls.Add(this.btnCardPay);
-            this.tbCreditCard.HorizontalScrollbarBarColor = true;
-            this.tbCreditCard.HorizontalScrollbarHighlightOnWheel = false;
-            this.tbCreditCard.HorizontalScrollbarSize = 10;
-            this.tbCreditCard.Location = new System.Drawing.Point(4, 44);
-            this.tbCreditCard.Name = "tbCreditCard";
-            this.tbCreditCard.Size = new System.Drawing.Size(439, 253);
-            this.tbCreditCard.TabIndex = 2;
-            this.tbCreditCard.Text = "CREDIT CARD";
-            this.tbCreditCard.VerticalScrollbarBarColor = true;
-            this.tbCreditCard.VerticalScrollbarHighlightOnWheel = false;
-            this.tbCreditCard.VerticalScrollbarSize = 10;
-            // 
-            // txtCardPayment
-            // 
-            this.txtCardPayment.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCardPayment.Location = new System.Drawing.Point(144, 153);
-            this.txtCardPayment.Name = "txtCardPayment";
-            this.txtCardPayment.Size = new System.Drawing.Size(247, 27);
-            this.txtCardPayment.TabIndex = 23;
-            this.txtCardPayment.Text = "0.00";
-            this.txtCardPayment.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.txtCardPayment.TextChanged += new System.EventHandler(this.txtCardPayment_TextChanged);
-            this.txtCardPayment.DoubleClick += new System.EventHandler(this.txtCardPayment_DoubleClick);
-            // 
-            // cmbCardType
-            // 
-            this.cmbCardType.FormattingEnabled = true;
-            this.cmbCardType.ItemHeight = 23;
-            this.cmbCardType.Location = new System.Drawing.Point(144, 59);
-            this.cmbCardType.Name = "cmbCardType";
-            this.cmbCardType.Size = new System.Drawing.Size(247, 29);
-            this.cmbCardType.TabIndex = 22;
-            this.cmbCardType.UseSelectable = true;
-            // 
-            // txtCardNumber
-            // 
-            // 
-            // 
-            // 
-            this.txtCardNumber.CustomButton.Image = null;
-            this.txtCardNumber.CustomButton.Location = new System.Drawing.Point(219, 2);
-            this.txtCardNumber.CustomButton.Name = "";
-            this.txtCardNumber.CustomButton.Size = new System.Drawing.Size(25, 25);
-            this.txtCardNumber.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this.txtCardNumber.CustomButton.TabIndex = 1;
-            this.txtCardNumber.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.txtCardNumber.CustomButton.UseSelectable = true;
-            this.txtCardNumber.CustomButton.Visible = false;
-            this.txtCardNumber.FontSize = MetroFramework.MetroTextBoxSize.Tall;
-            this.txtCardNumber.FontWeight = MetroFramework.MetroTextBoxWeight.Bold;
-            this.txtCardNumber.Lines = new string[0];
-            this.txtCardNumber.Location = new System.Drawing.Point(144, 104);
-            this.txtCardNumber.MaxLength = 16;
-            this.txtCardNumber.Name = "txtCardNumber";
-            this.txtCardNumber.PasswordChar = '\0';
-            this.txtCardNumber.PromptText = "Card Number (XXXX-XXXX-XXXX-XXXX)";
-            this.txtCardNumber.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.txtCardNumber.SelectedText = "";
-            this.txtCardNumber.SelectionLength = 0;
-            this.txtCardNumber.SelectionStart = 0;
-            this.txtCardNumber.ShortcutsEnabled = true;
-            this.txtCardNumber.Size = new System.Drawing.Size(247, 30);
-            this.txtCardNumber.TabIndex = 20;
-            this.txtCardNumber.UseSelectable = true;
-            this.txtCardNumber.WaterMark = "Card Number (XXXX-XXXX-XXXX-XXXX)";
-            this.txtCardNumber.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.txtCardNumber.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
-            this.txtCardNumber.Validated += new System.EventHandler(this.txtCardNumber_Validated);
-            // 
-            // cmbCardBank
-            // 
-            this.cmbCardBank.FormattingEnabled = true;
-            this.cmbCardBank.ItemHeight = 23;
-            this.cmbCardBank.Location = new System.Drawing.Point(144, 14);
-            this.cmbCardBank.Name = "cmbCardBank";
-            this.cmbCardBank.Size = new System.Drawing.Size(247, 29);
-            this.cmbCardBank.TabIndex = 19;
-            this.cmbCardBank.UseSelectable = true;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.BackColor = System.Drawing.Color.Transparent;
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(8, 164);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(123, 16);
-            this.label11.TabIndex = 18;
-            this.label11.Text = "Payment Amount";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.BackColor = System.Drawing.Color.Transparent;
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(8, 118);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(99, 16);
-            this.label12.TabIndex = 17;
-            this.label12.Text = "Card Number";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.BackColor = System.Drawing.Color.Transparent;
-            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(8, 73);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(81, 16);
-            this.label13.TabIndex = 16;
-            this.label13.Text = "Card Type";
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.BackColor = System.Drawing.Color.Transparent;
-            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(8, 27);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(88, 16);
-            this.label14.TabIndex = 15;
-            this.label14.Text = "Bank Name";
-            // 
-            // txtCardBalance
-            // 
-            // 
-            // 
-            // 
-            this.txtCardBalance.CustomButton.Image = null;
-            this.txtCardBalance.CustomButton.Location = new System.Drawing.Point(192, 2);
-            this.txtCardBalance.CustomButton.Name = "";
-            this.txtCardBalance.CustomButton.Size = new System.Drawing.Size(25, 25);
-            this.txtCardBalance.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this.txtCardBalance.CustomButton.TabIndex = 1;
-            this.txtCardBalance.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.txtCardBalance.CustomButton.UseSelectable = true;
-            this.txtCardBalance.CustomButton.Visible = false;
-            this.txtCardBalance.FontSize = MetroFramework.MetroTextBoxSize.Tall;
-            this.txtCardBalance.FontWeight = MetroFramework.MetroTextBoxWeight.Bold;
-            this.txtCardBalance.Lines = new string[] {
-        "0.00"};
-            this.txtCardBalance.Location = new System.Drawing.Point(79, 214);
-            this.txtCardBalance.MaxLength = 32767;
-            this.txtCardBalance.Name = "txtCardBalance";
-            this.txtCardBalance.PasswordChar = '\0';
-            this.txtCardBalance.ReadOnly = true;
-            this.txtCardBalance.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.txtCardBalance.SelectedText = "";
-            this.txtCardBalance.SelectionLength = 0;
-            this.txtCardBalance.SelectionStart = 0;
-            this.txtCardBalance.ShortcutsEnabled = true;
-            this.txtCardBalance.Size = new System.Drawing.Size(220, 30);
-            this.txtCardBalance.TabIndex = 9;
-            this.txtCardBalance.Text = "0.00";
-            this.txtCardBalance.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.txtCardBalance.UseSelectable = true;
-            this.txtCardBalance.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.txtCardBalance.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.BackColor = System.Drawing.Color.Transparent;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(8, 224);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(65, 16);
-            this.label10.TabIndex = 6;
-            this.label10.Text = "Balance";
-            // 
-            // btnCardPay
-            // 
-            this.btnCardPay.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(168)))), ((int)(((byte)(27)))));
-            this.btnCardPay.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(130)))), ((int)(((byte)(0)))));
-            this.btnCardPay.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCardPay.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCardPay.ForeColor = System.Drawing.Color.White;
-            this.btnCardPay.Location = new System.Drawing.Point(344, 214);
-            this.btnCardPay.Name = "btnCardPay";
-            this.btnCardPay.Size = new System.Drawing.Size(92, 36);
-            this.btnCardPay.TabIndex = 3;
-            this.btnCardPay.Text = "PAY";
-            this.btnCardPay.UseVisualStyleBackColor = false;
-            this.btnCardPay.Click += new System.EventHandler(this.btnCardPay_Click);
-            // 
             // tbCheque
             // 
             this.tbCheque.Controls.Add(this.txtChequePayment);
@@ -450,13 +252,12 @@
             this.txtChequePayment.TabIndex = 14;
             this.txtChequePayment.Text = "0.00";
             this.txtChequePayment.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.txtChequePayment.TextChanged += new System.EventHandler(this.txtChequePayment_TextChanged);
             this.txtChequePayment.DoubleClick += new System.EventHandler(this.txtChequePayment_DoubleClick);
             // 
             // dtChequeDate
             // 
             this.dtChequeDate.Location = new System.Drawing.Point(144, 105);
-            this.dtChequeDate.MinimumSize = new System.Drawing.Size(0, 29);
+            this.dtChequeDate.MinimumSize = new System.Drawing.Size(4, 29);
             this.dtChequeDate.Name = "dtChequeDate";
             this.dtChequeDate.Size = new System.Drawing.Size(247, 29);
             this.dtChequeDate.TabIndex = 0;
@@ -494,7 +295,6 @@
             this.txtChequeNumber.WaterMark = "Cheque Number";
             this.txtChequeNumber.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txtChequeNumber.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
-            this.txtChequeNumber.Validated += new System.EventHandler(this.txtChequeNumber_Validated);
             // 
             // cmbChequeBank
             // 
@@ -610,7 +410,201 @@
             this.btnChequePay.TabIndex = 3;
             this.btnChequePay.Text = "PAY";
             this.btnChequePay.UseVisualStyleBackColor = false;
-            this.btnChequePay.Click += new System.EventHandler(this.btnChequePay_Click);
+            // 
+            // tbCreditCard
+            // 
+            this.tbCreditCard.Controls.Add(this.txtCardPayment);
+            this.tbCreditCard.Controls.Add(this.cmbCardType);
+            this.tbCreditCard.Controls.Add(this.txtCardNumber);
+            this.tbCreditCard.Controls.Add(this.cmbCardBank);
+            this.tbCreditCard.Controls.Add(this.label11);
+            this.tbCreditCard.Controls.Add(this.label12);
+            this.tbCreditCard.Controls.Add(this.label13);
+            this.tbCreditCard.Controls.Add(this.label14);
+            this.tbCreditCard.Controls.Add(this.txtCardBalance);
+            this.tbCreditCard.Controls.Add(this.label10);
+            this.tbCreditCard.Controls.Add(this.btnCardPay);
+            this.tbCreditCard.HorizontalScrollbarBarColor = true;
+            this.tbCreditCard.HorizontalScrollbarHighlightOnWheel = false;
+            this.tbCreditCard.HorizontalScrollbarSize = 10;
+            this.tbCreditCard.Location = new System.Drawing.Point(4, 44);
+            this.tbCreditCard.Name = "tbCreditCard";
+            this.tbCreditCard.Size = new System.Drawing.Size(439, 253);
+            this.tbCreditCard.TabIndex = 2;
+            this.tbCreditCard.Text = "CREDIT CARD";
+            this.tbCreditCard.VerticalScrollbarBarColor = true;
+            this.tbCreditCard.VerticalScrollbarHighlightOnWheel = false;
+            this.tbCreditCard.VerticalScrollbarSize = 10;
+            // 
+            // txtCardPayment
+            // 
+            this.txtCardPayment.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCardPayment.Location = new System.Drawing.Point(144, 153);
+            this.txtCardPayment.Name = "txtCardPayment";
+            this.txtCardPayment.Size = new System.Drawing.Size(247, 27);
+            this.txtCardPayment.TabIndex = 23;
+            this.txtCardPayment.Text = "0.00";
+            this.txtCardPayment.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtCardPayment.DoubleClick += new System.EventHandler(this.txtCardPayment_DoubleClick);
+            // 
+            // cmbCardType
+            // 
+            this.cmbCardType.FormattingEnabled = true;
+            this.cmbCardType.ItemHeight = 23;
+            this.cmbCardType.Location = new System.Drawing.Point(144, 59);
+            this.cmbCardType.Name = "cmbCardType";
+            this.cmbCardType.Size = new System.Drawing.Size(247, 29);
+            this.cmbCardType.TabIndex = 22;
+            this.cmbCardType.UseSelectable = true;
+            // 
+            // txtCardNumber
+            // 
+            // 
+            // 
+            // 
+            this.txtCardNumber.CustomButton.Image = null;
+            this.txtCardNumber.CustomButton.Location = new System.Drawing.Point(219, 2);
+            this.txtCardNumber.CustomButton.Name = "";
+            this.txtCardNumber.CustomButton.Size = new System.Drawing.Size(25, 25);
+            this.txtCardNumber.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.txtCardNumber.CustomButton.TabIndex = 1;
+            this.txtCardNumber.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.txtCardNumber.CustomButton.UseSelectable = true;
+            this.txtCardNumber.CustomButton.Visible = false;
+            this.txtCardNumber.FontSize = MetroFramework.MetroTextBoxSize.Tall;
+            this.txtCardNumber.FontWeight = MetroFramework.MetroTextBoxWeight.Bold;
+            this.txtCardNumber.Lines = new string[0];
+            this.txtCardNumber.Location = new System.Drawing.Point(144, 104);
+            this.txtCardNumber.MaxLength = 32767;
+            this.txtCardNumber.Name = "txtCardNumber";
+            this.txtCardNumber.PasswordChar = '\0';
+            this.txtCardNumber.PromptText = "Card Number";
+            this.txtCardNumber.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.txtCardNumber.SelectedText = "";
+            this.txtCardNumber.SelectionLength = 0;
+            this.txtCardNumber.SelectionStart = 0;
+            this.txtCardNumber.ShortcutsEnabled = true;
+            this.txtCardNumber.Size = new System.Drawing.Size(247, 30);
+            this.txtCardNumber.TabIndex = 20;
+            this.txtCardNumber.UseSelectable = true;
+            this.txtCardNumber.WaterMark = "Card Number";
+            this.txtCardNumber.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.txtCardNumber.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            // 
+            // cmbCardBank
+            // 
+            this.cmbCardBank.FormattingEnabled = true;
+            this.cmbCardBank.ItemHeight = 23;
+            this.cmbCardBank.Location = new System.Drawing.Point(144, 14);
+            this.cmbCardBank.Name = "cmbCardBank";
+            this.cmbCardBank.Size = new System.Drawing.Size(247, 29);
+            this.cmbCardBank.TabIndex = 19;
+            this.cmbCardBank.UseSelectable = true;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.BackColor = System.Drawing.Color.Transparent;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(8, 164);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(123, 16);
+            this.label11.TabIndex = 18;
+            this.label11.Text = "Payment Amount";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.BackColor = System.Drawing.Color.Transparent;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(8, 118);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(99, 16);
+            this.label12.TabIndex = 17;
+            this.label12.Text = "Card Number";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.BackColor = System.Drawing.Color.Transparent;
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(8, 73);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(81, 16);
+            this.label13.TabIndex = 16;
+            this.label13.Text = "Card Type";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.BackColor = System.Drawing.Color.Transparent;
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(8, 27);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(88, 16);
+            this.label14.TabIndex = 15;
+            this.label14.Text = "Bank Name";
+            // 
+            // txtCardBalance
+            // 
+            // 
+            // 
+            // 
+            this.txtCardBalance.CustomButton.Image = null;
+            this.txtCardBalance.CustomButton.Location = new System.Drawing.Point(192, 2);
+            this.txtCardBalance.CustomButton.Name = "";
+            this.txtCardBalance.CustomButton.Size = new System.Drawing.Size(25, 25);
+            this.txtCardBalance.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.txtCardBalance.CustomButton.TabIndex = 1;
+            this.txtCardBalance.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.txtCardBalance.CustomButton.UseSelectable = true;
+            this.txtCardBalance.CustomButton.Visible = false;
+            this.txtCardBalance.FontSize = MetroFramework.MetroTextBoxSize.Tall;
+            this.txtCardBalance.FontWeight = MetroFramework.MetroTextBoxWeight.Bold;
+            this.txtCardBalance.Lines = new string[] {
+        "0.00"};
+            this.txtCardBalance.Location = new System.Drawing.Point(79, 214);
+            this.txtCardBalance.MaxLength = 32767;
+            this.txtCardBalance.Name = "txtCardBalance";
+            this.txtCardBalance.PasswordChar = '\0';
+            this.txtCardBalance.ReadOnly = true;
+            this.txtCardBalance.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.txtCardBalance.SelectedText = "";
+            this.txtCardBalance.SelectionLength = 0;
+            this.txtCardBalance.SelectionStart = 0;
+            this.txtCardBalance.ShortcutsEnabled = true;
+            this.txtCardBalance.Size = new System.Drawing.Size(220, 30);
+            this.txtCardBalance.TabIndex = 9;
+            this.txtCardBalance.Text = "0.00";
+            this.txtCardBalance.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtCardBalance.UseSelectable = true;
+            this.txtCardBalance.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.txtCardBalance.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.BackColor = System.Drawing.Color.Transparent;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(8, 224);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(65, 16);
+            this.label10.TabIndex = 6;
+            this.label10.Text = "Balance";
+            // 
+            // btnCardPay
+            // 
+            this.btnCardPay.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(168)))), ((int)(((byte)(27)))));
+            this.btnCardPay.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(130)))), ((int)(((byte)(0)))));
+            this.btnCardPay.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCardPay.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCardPay.ForeColor = System.Drawing.Color.White;
+            this.btnCardPay.Location = new System.Drawing.Point(344, 214);
+            this.btnCardPay.Name = "btnCardPay";
+            this.btnCardPay.Size = new System.Drawing.Size(92, 36);
+            this.btnCardPay.TabIndex = 3;
+            this.btnCardPay.Text = "PAY";
+            this.btnCardPay.UseVisualStyleBackColor = false;
             // 
             // panel1
             // 
@@ -948,10 +942,10 @@
             this.tbTableCat.ResumeLayout(false);
             this.tbCash.ResumeLayout(false);
             this.tbCash.PerformLayout();
-            this.tbCreditCard.ResumeLayout(false);
-            this.tbCreditCard.PerformLayout();
             this.tbCheque.ResumeLayout(false);
             this.tbCheque.PerformLayout();
+            this.tbCreditCard.ResumeLayout(false);
+            this.tbCreditCard.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
