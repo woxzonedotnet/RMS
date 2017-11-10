@@ -83,7 +83,17 @@ namespace RMS_FrontEnd
             frmFront_Calculator Calculator = new frmFront_Calculator(this.txtCardPayment);
             Calculator.ShowDialog();
         }
-        
+
+        private void txtCardNumber_DoubleClick(object sender, EventArgs e)
+        {
+            frmFront_Calculator Calculator = new frmFront_Calculator(this.txtCardNumber);
+            Calculator.ShowDialog();
+        }
+
+        private void txtChequeNumber_DoubleClick(object sender, EventArgs e)
+        {
+            
+        }
 
         private void txtCashBalance_TextChanged(object sender, EventArgs e)
         {
@@ -353,6 +363,23 @@ namespace RMS_FrontEnd
                 txtCardPayment.Text = "0.00";
             }
         }
+
+        private void dgvPayMethod_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if(dgvPayMethod.Columns[e.ColumnIndex] is DataGridViewButtonColumn &&
+        e.RowIndex >= 0 && dgvPayMethod.Columns[e.ColumnIndex].Name == "clmStatus")
+            {
+               //dgvPayMethod
+            }
+        }
+
+        private void txtChequeNumber_Click(object sender, EventArgs e)
+        {
+            frmFront_Calculator Calculator = new frmFront_Calculator(this.txtChequeNumber);
+            Calculator.ShowDialog();
+        }
+
+        
 
         
 

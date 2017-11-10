@@ -376,7 +376,7 @@
             this.btnCancel.UseVisualStyleBackColor = false;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
-            // frmCalculator
+            // frmFront_Calculator
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -401,7 +401,8 @@
             this.Controls.Add(this.btn8);
             this.Controls.Add(this.btn7);
             this.Controls.Add(this.panel1);
-            this.Name = "frmCalculator";
+            this.Name = "frmFront_Calculator";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Calculator";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
