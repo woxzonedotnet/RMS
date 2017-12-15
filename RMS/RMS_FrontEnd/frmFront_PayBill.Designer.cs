@@ -33,6 +33,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmFront_PayBill));
             this.tbTableCat = new MetroFramework.Controls.MetroTabControl();
             this.tbCash = new MetroFramework.Controls.MetroTabPage();
             this.txtCashPayment = new System.Windows.Forms.TextBox();
@@ -83,6 +84,7 @@
             this.lblHeadBalance = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tbTableCat.SuspendLayout();
             this.tbCash.SuspendLayout();
             this.tbCreditCard.SuspendLayout();
@@ -95,6 +97,7 @@
             this.panel6.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // tbTableCat
@@ -107,7 +110,7 @@
             this.tbTableCat.FontWeight = MetroFramework.MetroTabControlWeight.Bold;
             this.tbTableCat.Location = new System.Drawing.Point(0, 0);
             this.tbTableCat.Name = "tbTableCat";
-            this.tbTableCat.SelectedIndex = 2;
+            this.tbTableCat.SelectedIndex = 0;
             this.tbTableCat.Size = new System.Drawing.Size(447, 301);
             this.tbTableCat.SizeMode = System.Windows.Forms.TabSizeMode.FillToRight;
             this.tbTableCat.TabIndex = 0;
@@ -116,6 +119,7 @@
             // 
             // tbCash
             // 
+            this.tbCash.Controls.Add(this.pictureBox1);
             this.tbCash.Controls.Add(this.txtCashPayment);
             this.tbCash.Controls.Add(this.txtCashBalance);
             this.tbCash.Controls.Add(this.label9);
@@ -939,6 +943,17 @@
             this.panel4.Size = new System.Drawing.Size(713, 393);
             this.panel4.TabIndex = 6;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(-4, 64);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(327, 144);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 10;
+            this.pictureBox1.TabStop = false;
+            // 
             // frmFront_PayBill
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -968,6 +983,7 @@
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
             this.panel4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1024,6 +1040,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn clmType;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmAmount;
         private System.Windows.Forms.DataGridViewButtonColumn clmStatus;
+        private System.Windows.Forms.PictureBox pictureBox1;
 
     }
 }

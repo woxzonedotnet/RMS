@@ -42,15 +42,9 @@
             this.pnlMenu = new System.Windows.Forms.Panel();
             this.tbMenu = new MetroFramework.Controls.MetroTabControl();
             this.pnlBill = new System.Windows.Forms.Panel();
-            this.lblTableNo = new System.Windows.Forms.Label();
-            this.lblOrderType = new System.Windows.Forms.Label();
-            this.lblSteward = new System.Windows.Forms.Label();
             this.lblOrderNo = new System.Windows.Forms.Label();
             this.lblTime = new System.Windows.Forms.Label();
             this.lblDate = new System.Windows.Forms.Label();
-            this.lTableNo = new System.Windows.Forms.Label();
-            this.lOrderType = new System.Windows.Forms.Label();
-            this.lSteward = new System.Windows.Forms.Label();
             this.lOrderNo = new System.Windows.Forms.Label();
             this.lTime = new System.Windows.Forms.Label();
             this.lDate = new System.Windows.Forms.Label();
@@ -81,12 +75,24 @@
             this.clmEach = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DateTimeUpdate = new System.Windows.Forms.Timer(this.components);
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.lSteward = new System.Windows.Forms.Label();
+            this.lOrderType = new System.Windows.Forms.Label();
+            this.lTableNo = new System.Windows.Forms.Label();
+            this.lblSteward = new System.Windows.Forms.Label();
+            this.lblOrderType = new System.Windows.Forms.Label();
+            this.lblTableNo = new System.Windows.Forms.Label();
             this.pnlHeader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.pnlMenu.SuspendLayout();
             this.pnlBill.SuspendLayout();
             this.gbBillInfo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvItem)).BeginInit();
+            this.panel1.SuspendLayout();
+            this.panel3.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlHeader
@@ -167,64 +173,21 @@
             // pnlBill
             // 
             this.pnlBill.BackColor = System.Drawing.Color.White;
-            this.pnlBill.Controls.Add(this.lblTableNo);
-            this.pnlBill.Controls.Add(this.lblOrderType);
-            this.pnlBill.Controls.Add(this.lblSteward);
-            this.pnlBill.Controls.Add(this.lblOrderNo);
-            this.pnlBill.Controls.Add(this.lblTime);
-            this.pnlBill.Controls.Add(this.lblDate);
-            this.pnlBill.Controls.Add(this.lTableNo);
-            this.pnlBill.Controls.Add(this.lOrderType);
-            this.pnlBill.Controls.Add(this.lSteward);
-            this.pnlBill.Controls.Add(this.lOrderNo);
-            this.pnlBill.Controls.Add(this.lTime);
-            this.pnlBill.Controls.Add(this.lDate);
+            this.pnlBill.Controls.Add(this.panel3);
             this.pnlBill.Controls.Add(this.gbBillInfo);
             this.pnlBill.Controls.Add(this.dgvItem);
             this.pnlBill.Location = new System.Drawing.Point(251, 58);
             this.pnlBill.Name = "pnlBill";
+            this.pnlBill.Padding = new System.Windows.Forms.Padding(5);
             this.pnlBill.Size = new System.Drawing.Size(612, 467);
             this.pnlBill.TabIndex = 2;
-            // 
-            // lblTableNo
-            // 
-            this.lblTableNo.AutoSize = true;
-            this.lblTableNo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTableNo.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.lblTableNo.Location = new System.Drawing.Point(456, 61);
-            this.lblTableNo.Name = "lblTableNo";
-            this.lblTableNo.Size = new System.Drawing.Size(52, 16);
-            this.lblTableNo.TabIndex = 22;
-            this.lblTableNo.Text = "TB001";
-            // 
-            // lblOrderType
-            // 
-            this.lblOrderType.AutoSize = true;
-            this.lblOrderType.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblOrderType.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.lblOrderType.Location = new System.Drawing.Point(456, 35);
-            this.lblOrderType.Name = "lblOrderType";
-            this.lblOrderType.Size = new System.Drawing.Size(49, 16);
-            this.lblOrderType.TabIndex = 21;
-            this.lblOrderType.Text = "Table";
-            // 
-            // lblSteward
-            // 
-            this.lblSteward.AutoSize = true;
-            this.lblSteward.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSteward.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.lblSteward.Location = new System.Drawing.Point(456, 9);
-            this.lblSteward.Name = "lblSteward";
-            this.lblSteward.Size = new System.Drawing.Size(64, 16);
-            this.lblSteward.TabIndex = 20;
-            this.lblSteward.Text = "_______";
             // 
             // lblOrderNo
             // 
             this.lblOrderNo.AutoSize = true;
             this.lblOrderNo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblOrderNo.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.lblOrderNo.Location = new System.Drawing.Point(96, 61);
+            this.lblOrderNo.Location = new System.Drawing.Point(81, 58);
             this.lblOrderNo.Name = "lblOrderNo";
             this.lblOrderNo.Size = new System.Drawing.Size(62, 16);
             this.lblOrderNo.TabIndex = 19;
@@ -235,7 +198,7 @@
             this.lblTime.AutoSize = true;
             this.lblTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTime.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.lblTime.Location = new System.Drawing.Point(96, 35);
+            this.lblTime.Location = new System.Drawing.Point(81, 32);
             this.lblTime.Name = "lblTime";
             this.lblTime.Size = new System.Drawing.Size(51, 16);
             this.lblTime.TabIndex = 18;
@@ -246,47 +209,17 @@
             this.lblDate.AutoSize = true;
             this.lblDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDate.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.lblDate.Location = new System.Drawing.Point(96, 9);
+            this.lblDate.Location = new System.Drawing.Point(81, 6);
             this.lblDate.Name = "lblDate";
             this.lblDate.Size = new System.Drawing.Size(49, 16);
             this.lblDate.TabIndex = 17;
             this.lblDate.Text = "Date :";
             // 
-            // lTableNo
-            // 
-            this.lTableNo.AutoSize = true;
-            this.lTableNo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lTableNo.Location = new System.Drawing.Point(326, 61);
-            this.lTableNo.Name = "lTableNo";
-            this.lTableNo.Size = new System.Drawing.Size(127, 16);
-            this.lTableNo.TabIndex = 16;
-            this.lTableNo.Text = "Table/Room No :";
-            // 
-            // lOrderType
-            // 
-            this.lOrderType.AutoSize = true;
-            this.lOrderType.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lOrderType.Location = new System.Drawing.Point(326, 35);
-            this.lOrderType.Name = "lOrderType";
-            this.lOrderType.Size = new System.Drawing.Size(95, 16);
-            this.lOrderType.TabIndex = 15;
-            this.lOrderType.Text = "Order Type :";
-            // 
-            // lSteward
-            // 
-            this.lSteward.AutoSize = true;
-            this.lSteward.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lSteward.Location = new System.Drawing.Point(326, 9);
-            this.lSteward.Name = "lSteward";
-            this.lSteward.Size = new System.Drawing.Size(72, 16);
-            this.lSteward.TabIndex = 14;
-            this.lSteward.Text = "Steward :";
-            // 
             // lOrderNo
             // 
             this.lOrderNo.AutoSize = true;
             this.lOrderNo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lOrderNo.Location = new System.Drawing.Point(11, 61);
+            this.lOrderNo.Location = new System.Drawing.Point(3, 58);
             this.lOrderNo.Name = "lOrderNo";
             this.lOrderNo.Size = new System.Drawing.Size(79, 16);
             this.lOrderNo.TabIndex = 13;
@@ -296,7 +229,7 @@
             // 
             this.lTime.AutoSize = true;
             this.lTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lTime.Location = new System.Drawing.Point(11, 35);
+            this.lTime.Location = new System.Drawing.Point(3, 32);
             this.lTime.Name = "lTime";
             this.lTime.Size = new System.Drawing.Size(51, 16);
             this.lTime.TabIndex = 12;
@@ -306,7 +239,7 @@
             // 
             this.lDate.AutoSize = true;
             this.lDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lDate.Location = new System.Drawing.Point(11, 9);
+            this.lDate.Location = new System.Drawing.Point(3, 6);
             this.lDate.Name = "lDate";
             this.lDate.Size = new System.Drawing.Size(49, 16);
             this.lDate.TabIndex = 11;
@@ -663,6 +596,109 @@
             this.DateTimeUpdate.Enabled = true;
             this.DateTimeUpdate.Tick += new System.EventHandler(this.DateTimeUpdate_Tick);
             // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.lDate);
+            this.panel1.Controls.Add(this.lTime);
+            this.panel1.Controls.Add(this.lblOrderNo);
+            this.panel1.Controls.Add(this.lOrderNo);
+            this.panel1.Controls.Add(this.lblTime);
+            this.panel1.Controls.Add(this.lblDate);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(200, 75);
+            this.panel1.TabIndex = 24;
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.Transparent;
+            this.panel3.Controls.Add(this.panel2);
+            this.panel3.Controls.Add(this.panel1);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel3.Location = new System.Drawing.Point(5, 5);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(602, 75);
+            this.panel3.TabIndex = 25;
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.Transparent;
+            this.panel2.Controls.Add(this.lblTableNo);
+            this.panel2.Controls.Add(this.lblOrderType);
+            this.panel2.Controls.Add(this.lblSteward);
+            this.panel2.Controls.Add(this.lTableNo);
+            this.panel2.Controls.Add(this.lOrderType);
+            this.panel2.Controls.Add(this.lSteward);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel2.Location = new System.Drawing.Point(402, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(200, 75);
+            this.panel2.TabIndex = 25;
+            // 
+            // lSteward
+            // 
+            this.lSteward.AutoSize = true;
+            this.lSteward.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lSteward.Location = new System.Drawing.Point(3, 3);
+            this.lSteward.Name = "lSteward";
+            this.lSteward.Size = new System.Drawing.Size(72, 16);
+            this.lSteward.TabIndex = 0;
+            this.lSteward.Text = "Steward :";
+            // 
+            // lOrderType
+            // 
+            this.lOrderType.AutoSize = true;
+            this.lOrderType.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lOrderType.Location = new System.Drawing.Point(3, 29);
+            this.lOrderType.Name = "lOrderType";
+            this.lOrderType.Size = new System.Drawing.Size(95, 16);
+            this.lOrderType.TabIndex = 1;
+            this.lOrderType.Text = "Order Type :";
+            // 
+            // lTableNo
+            // 
+            this.lTableNo.AutoSize = true;
+            this.lTableNo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lTableNo.Location = new System.Drawing.Point(3, 55);
+            this.lTableNo.Name = "lTableNo";
+            this.lTableNo.Size = new System.Drawing.Size(127, 16);
+            this.lTableNo.TabIndex = 2;
+            this.lTableNo.Text = "Table/Room No :";
+            // 
+            // lblSteward
+            // 
+            this.lblSteward.AutoSize = true;
+            this.lblSteward.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSteward.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.lblSteward.Location = new System.Drawing.Point(81, 5);
+            this.lblSteward.Name = "lblSteward";
+            this.lblSteward.Size = new System.Drawing.Size(64, 16);
+            this.lblSteward.TabIndex = 3;
+            this.lblSteward.Text = "_______";
+            // 
+            // lblOrderType
+            // 
+            this.lblOrderType.AutoSize = true;
+            this.lblOrderType.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblOrderType.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.lblOrderType.Location = new System.Drawing.Point(104, 29);
+            this.lblOrderType.Name = "lblOrderType";
+            this.lblOrderType.Size = new System.Drawing.Size(49, 16);
+            this.lblOrderType.TabIndex = 4;
+            this.lblOrderType.Text = "Table";
+            // 
+            // lblTableNo
+            // 
+            this.lblTableNo.AutoSize = true;
+            this.lblTableNo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTableNo.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.lblTableNo.Location = new System.Drawing.Point(136, 55);
+            this.lblTableNo.Name = "lblTableNo";
+            this.lblTableNo.Size = new System.Drawing.Size(52, 16);
+            this.lblTableNo.TabIndex = 5;
+            this.lblTableNo.Text = "TB001";
+            // 
             // Front_Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -683,10 +719,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.pnlMenu.ResumeLayout(false);
             this.pnlBill.ResumeLayout(false);
-            this.pnlBill.PerformLayout();
             this.gbBillInfo.ResumeLayout(false);
             this.gbBillInfo.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvItem)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            this.panel3.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -715,15 +755,9 @@
         private System.Windows.Forms.Button btnTakeaway;
         private System.Windows.Forms.Label lDate;
         private System.Windows.Forms.Label lTime;
-        private System.Windows.Forms.Label lblTableNo;
-        private System.Windows.Forms.Label lblOrderType;
-        private System.Windows.Forms.Label lblSteward;
         private System.Windows.Forms.Label lblOrderNo;
         private System.Windows.Forms.Label lblTime;
         private System.Windows.Forms.Label lblDate;
-        private System.Windows.Forms.Label lTableNo;
-        private System.Windows.Forms.Label lOrderType;
-        private System.Windows.Forms.Label lSteward;
         private System.Windows.Forms.Label lOrderNo;
         private System.Windows.Forms.Timer DateTimeUpdate;
         private System.Windows.Forms.Button btnCancelBill;
@@ -739,5 +773,14 @@
         private System.Windows.Forms.DataGridViewButtonColumn clmPlus;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmEach;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmTotal;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Label lSteward;
+        private System.Windows.Forms.Label lblTableNo;
+        private System.Windows.Forms.Label lblOrderType;
+        private System.Windows.Forms.Label lblSteward;
+        private System.Windows.Forms.Label lTableNo;
+        private System.Windows.Forms.Label lOrderType;
     }
 }

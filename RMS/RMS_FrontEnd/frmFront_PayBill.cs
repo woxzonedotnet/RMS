@@ -369,7 +369,44 @@ namespace RMS_FrontEnd
             if(dgvPayMethod.Columns[e.ColumnIndex] is DataGridViewButtonColumn &&
         e.RowIndex >= 0 && dgvPayMethod.Columns[e.ColumnIndex].Name == "clmStatus")
             {
-               //dgvPayMethod
+                string type = dgvPayMethod.Rows[e.RowIndex].Cells["clmType"].Value.ToString();
+                double amount = Convert.ToDouble(dgvPayMethod.Rows[e.RowIndex].Cells["clmAmount"].Value.ToString());
+                dgvPayMethod.Rows.RemoveAt(e.RowIndex);
+                switch (type)
+                {
+                    case "Cash" :
+                        CashEnable(true);
+                        txtCashPayment.Text = "0.00";
+                        txtCashBalance.Text = "0.00";
+                        double balValue = Convert.ToDouble(txtHeadBalance.Text);
+                        balValue = balValue + ((-1) * (amount));
+                        txtHeadBalance.Text = balValue.ToString();
+                        break;
+
+                    case "Card":
+                        CardEnable(true);
+                        cmbCardBank.Text = "";
+                        cmbCardType.Text = "";
+                        txtCardNumber.Text = "";
+                        txtCardPayment.Text = "0.00";
+                        txtCardBalance.Text = "0.00";
+                        balValue = Convert.ToDouble(txtHeadBalance.Text);
+                        balValue = balValue + ((-1) * (amount));
+                        txtHeadBalance.Text = balValue.ToString();
+                        break;
+
+                    case "Cheque":
+                        ChequeEnable(true);
+                        cmbChequeBank.Text = "";
+                        txtChequeNumber.Text = "";
+                        dtChequeDate.Value = DateTime.Now;
+                        txtChequePayment.Text = "0.00";
+                        txtChequeBalance.Text = "0.00";
+                        balValue = Convert.ToDouble(txtHeadBalance.Text);
+                        balValue = balValue + ((-1) * (amount));
+                        txtHeadBalance.Text = balValue.ToString();
+                        break;
+                }
             }
         }
 
