@@ -183,7 +183,7 @@ namespace RMS_FrontEnd
                 valOne = cal(valOne, valTwo, Operator);
                 txtMainValue.Text = valOne.ToString();
             }
-
+            // what is the thing
 
             value2 = "";
             Operator = '-';
@@ -334,6 +334,11 @@ namespace RMS_FrontEnd
             }
             
             return Result;
+        }
+
+        private void frmFront_Calculator_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

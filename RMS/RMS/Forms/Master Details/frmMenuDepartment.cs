@@ -221,5 +221,15 @@ namespace RMS.Forms
         {
             clear();
         }
+
+        private void txtMenuDepartmentCode_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cmbStatus_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

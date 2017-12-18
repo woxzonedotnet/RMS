@@ -39,7 +39,7 @@ namespace RMS.Forms
 
 
         public frmItemDetails()
-        {
+        {   
             InitializeComponent();
             this.lblTitle.Text = this.Text;
             clear();
@@ -90,6 +90,7 @@ namespace RMS.Forms
             cCommonMethods.loadComboRMS(cMenuCategory.GetMenuCategoryData(cGlobleVariable.LocationCode), cmbMenuCategory, 3);
             cCommonMethods.loadComboRMS(cUnit.GetUnitData(), cmbUnit, 2);
             cCommonMethods.loadComboRMS(cUnit.GetUnitSize(), cmbCapacity, 1);
+   
         }
 
         private void cmbDepartment_SelectedIndexChanged(object sender, EventArgs e)
@@ -135,7 +136,8 @@ namespace RMS.Forms
 
         #region Clear
         public void clear()
-        {
+        {   
+            
             cCommonMethods.ClearForm(this);
             this.txtItemCode.Enabled = true;
             this.btnSave.Enabled = true;
@@ -356,7 +358,7 @@ namespace RMS.Forms
         }
         #endregion
 
-
+   
 
         public DataTable DataGridToDataTable(DataGridView dgv, string strItemCode)
         {
@@ -365,10 +367,12 @@ namespace RMS.Forms
             dt.Columns.Add("fldLocationCode");
             dt.Columns.Add("fldSubLocationCode");
             dt.Columns.Add("fldItemCode");
+            
 
 
             foreach (DataGridViewRow row in dgv.Rows)
             {
+                
                 DataRow dRow = dt.NewRow();
                 try
                 {
@@ -376,6 +380,7 @@ namespace RMS.Forms
                     dRow[1] = row.Cells[0].Value.ToString();
                     dRow[2] = this.txtItemCode.Text;
                     dt.Rows.Add(dRow);
+                    
                 }
                 catch (Exception ex)
                 {
@@ -561,7 +566,8 @@ namespace RMS.Forms
         private void panel1_MouseMove(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
-            {
+            {   
+                
                 this.Left += e.X - lastClick.X;
                 this.Top += e.Y - lastClick.Y;
             }

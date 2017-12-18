@@ -752,6 +752,7 @@ namespace RMS_FrontEnd
             {
                 frmFront_Steward steward = new frmFront_Steward(lblSteward);
                 steward.ShowDialog();
+                
                 this.lblOrderType.Text = "Take Away";
                 if (dgvItem.Rows.Count > 0)
                 {
@@ -796,7 +797,7 @@ namespace RMS_FrontEnd
                 steward.ShowDialog();
                 this.lblOrderType.Text = "Room";
                 if (dgvItem.Rows.Count > 0)
-                {
+                {  
                     this.btnPayBill.Enabled = true;
                 }
                 
@@ -813,6 +814,7 @@ namespace RMS_FrontEnd
         {
             Font newFont = new System.Drawing.Font("Microsoft Sans Serif", (float)((ctrl.Width*size)/100), FontStyle.Bold);
             return newFont;
+            
         }
 
         public void placeOrder(string orderNo,string stewardCode,string tableCode,double subTotal,double discount,double tax,DataGridView dataGrid)
@@ -830,7 +832,7 @@ namespace RMS_FrontEnd
             oFoodOrder.OrderState = 2;
 
             oFoodOrder.Items = DataGridToDataTable(dataGrid,orderNo);
-
+            
             cFoodOrder.InsertUpdateData(oFoodOrder);
         }
 
@@ -843,8 +845,8 @@ namespace RMS_FrontEnd
             dt.Columns.Add("fldMenuName");
             dt.Columns.Add("fldQty");
             dt.Columns.Add("fldCost");
-
-
+            
+            
             foreach (DataGridViewRow row in dgv.Rows)
             {
                 DataRow dRow = dt.NewRow();
@@ -856,10 +858,13 @@ namespace RMS_FrontEnd
                     dRow["fldQty"] = row.Cells["clmQty"].Value.ToString();
                     dRow["fldCost"] = Convert.ToDouble(row.Cells["clmEach"].Value);
                     dt.Rows.Add(dRow);
+                    
+                    // what 2i
+
                 }
                 catch (Exception ex)
                 {
-
+                    //
                 }
 
             }
@@ -872,7 +877,13 @@ namespace RMS_FrontEnd
             {
                 frmFront_PayBill payBill = new frmFront_PayBill(txtTotal);
                 payBill.ShowDialog();
+                
             }
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }

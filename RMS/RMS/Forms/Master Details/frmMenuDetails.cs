@@ -240,10 +240,10 @@ namespace RMS.Forms
                 oMenuDetails = cMenuDetails.GetMenuData(cGlobleVariable.LocationCode, this.txtMenuCode.Text);
 
                 if (oMenuDetails.IsExists == false)
-                {
+                {   
                     result = InsertUpdateData();
                     if (result == -5)
-                    {
+                    {   
                         MessageBox.Show("Data Not Changed...!", "Supplier Return Note", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     else if (result != -1)
@@ -628,7 +628,7 @@ namespace RMS.Forms
         {
             //try
             //{
-                
+            //   
             //        dgvRecipe.EndEdit();
             //        if ((this.dgvRecipe.CurrentCell.Value != null))
             //        {
@@ -640,13 +640,13 @@ namespace RMS.Forms
             //        {
             //           // this.dgvRecipe.Rows[this.dgvRecipe.CurrentCell.RowIndex].Cells["clmTaxAmount"].Value = "0.00";
             //        }
-                
-
-
+            //   
+            //
+            //
             //}
             //catch (Exception ex)
             //{
-
+            //
             //}
         }
         public void taxCalculate()
@@ -800,7 +800,7 @@ namespace RMS.Forms
         }
 
         private void btnImageBrowse_Click(object sender, EventArgs e)
-        {
+        {   
             // open file dialog   
             OpenFileDialog open = new OpenFileDialog();
             // image filters  
@@ -894,6 +894,11 @@ namespace RMS.Forms
             return strColor;
         }
         #endregion
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+
+        }
 
     }
 

@@ -57,6 +57,10 @@
             this.clmQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmTotalCost = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvLocation = new System.Windows.Forms.DataGridView();
+            this.clmLocationCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmLocation = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmSalePrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmServiceChargePresentage = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtTotalMenuCost = new System.Windows.Forms.TextBox();
             this.btnSearch = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
@@ -90,10 +94,6 @@
             this.cmbMenuCategory = new RMS.ColumnComboBox();
             this.cmbLocation = new RMS.ColumnComboBox();
             this.cmbPrintLocation = new RMS.ColumnComboBox();
-            this.clmLocationCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmLocation = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmSalePrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmServiceChargePresentage = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRecipe)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLocation)).BeginInit();
             this.panel1.SuspendLayout();
@@ -358,6 +358,31 @@
             this.dgvLocation.TabIndex = 30;
             this.dgvLocation.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dgvLocation_KeyDown);
             // 
+            // clmLocationCode
+            // 
+            this.clmLocationCode.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.clmLocationCode.HeaderText = "Location Code";
+            this.clmLocationCode.Name = "clmLocationCode";
+            this.clmLocationCode.ReadOnly = true;
+            // 
+            // clmLocation
+            // 
+            this.clmLocation.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.clmLocation.HeaderText = "Location";
+            this.clmLocation.Name = "clmLocation";
+            // 
+            // clmSalePrice
+            // 
+            this.clmSalePrice.HeaderText = "Sale Price";
+            this.clmSalePrice.Name = "clmSalePrice";
+            this.clmSalePrice.Width = 80;
+            // 
+            // clmServiceChargePresentage
+            // 
+            this.clmServiceChargePresentage.HeaderText = "Service Charge Presentage %";
+            this.clmServiceChargePresentage.Name = "clmServiceChargePresentage";
+            this.clmServiceChargePresentage.Width = 80;
+            // 
             // txtTotalMenuCost
             // 
             this.txtTotalMenuCost.Location = new System.Drawing.Point(651, 406);
@@ -434,6 +459,7 @@
             this.btnUpdate.TabIndex = 53;
             this.btnUpdate.Text = "&Update";
             this.btnUpdate.UseVisualStyleBackColor = false;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // btnClear
             // 
@@ -694,31 +720,6 @@
             this.cmbPrintLocation.Size = new System.Drawing.Size(151, 21);
             this.cmbPrintLocation.TabIndex = 17;
             this.cmbPrintLocation.ViewColumn = 0;
-            // 
-            // clmLocationCode
-            // 
-            this.clmLocationCode.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.clmLocationCode.HeaderText = "Location Code";
-            this.clmLocationCode.Name = "clmLocationCode";
-            this.clmLocationCode.ReadOnly = true;
-            // 
-            // clmLocation
-            // 
-            this.clmLocation.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.clmLocation.HeaderText = "Location";
-            this.clmLocation.Name = "clmLocation";
-            // 
-            // clmSalePrice
-            // 
-            this.clmSalePrice.HeaderText = "Sale Price";
-            this.clmSalePrice.Name = "clmSalePrice";
-            this.clmSalePrice.Width = 80;
-            // 
-            // clmServiceChargePresentage
-            // 
-            this.clmServiceChargePresentage.HeaderText = "Service Charge Presentage %";
-            this.clmServiceChargePresentage.Name = "clmServiceChargePresentage";
-            this.clmServiceChargePresentage.Width = 80;
             // 
             // frmMenuDetails
             // 

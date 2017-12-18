@@ -140,6 +140,7 @@ namespace RMS_FrontEnd
                         txtHeadBalance.ForeColor = Color.FromArgb(225, 18, 2);
                         btnComplete.Enabled = false;
                         lblHeadBalance.Text = "Available Amount";
+                        
                     }
                 }
 
@@ -298,6 +299,7 @@ namespace RMS_FrontEnd
             dtChequeDate.Enabled = value;
             txtChequePayment.Enabled = value;
             btnChequePay.Enabled = value;
+
         }
 
         private void txtChequePayment_TextChanged(object sender, EventArgs e)
@@ -305,6 +307,7 @@ namespace RMS_FrontEnd
             double available = Convert.ToDouble(txtHeadBalance.Text);
             double cash = Convert.ToDouble(txtChequePayment.Text);
             txtChequeBalance.Text = (available + cash).ToString();
+            
         }
 
         private void btnChequePay_Click(object sender, EventArgs e)
@@ -320,6 +323,7 @@ namespace RMS_FrontEnd
                     dgvPayMethod.Rows.Add("Cheque", oFrontPayBill.ChequeAmount);
                     txtHeadBalance.Text = txtChequeBalance.Text;
                     ChequeEnable(false);
+                    
                 }
                 else
                 {
@@ -357,6 +361,7 @@ namespace RMS_FrontEnd
             else if (tbTableCat.SelectedTab.Name == "tbCheque" && btnChequePay.Enabled == true)
             {
                 txtChequePayment.Text = "0.00";
+                
             }
             else if (tbTableCat.SelectedTab.Name == "tbCreditCard" && btnCardPay.Enabled == true)
             {
@@ -369,7 +374,10 @@ namespace RMS_FrontEnd
             if(dgvPayMethod.Columns[e.ColumnIndex] is DataGridViewButtonColumn &&
         e.RowIndex >= 0 && dgvPayMethod.Columns[e.ColumnIndex].Name == "clmStatus")
             {
-               //dgvPayMethod
+                //dgvPayMethod
+                //
+                //
+              
             }
         }
 
@@ -377,6 +385,11 @@ namespace RMS_FrontEnd
         {
             frmFront_Calculator Calculator = new frmFront_Calculator(this.txtChequeNumber);
             Calculator.ShowDialog();
+        }
+
+        private void btnComplete_Click(object sender, EventArgs e)
+        {
+
         }
 
         

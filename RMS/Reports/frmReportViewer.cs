@@ -120,6 +120,7 @@ namespace Reports
             SetDBLogonForReport(connectionInfo, cReportDocument);
             //cReportDocument.SetDatabaseLogon(cDBConnection.strUsername, cDBConnection.strPassword,);
             crystalReportViewer.ReportSource = cReportDocument;
+            
         }
 
         private void SetDBLogonForReport(ConnectionInfo connectionInfo, ReportDocument reportDocument)
@@ -130,6 +131,7 @@ namespace Reports
                 TableLogOnInfo tableLogonInfo = table.LogOnInfo;
                 tableLogonInfo.ConnectionInfo = connectionInfo;
                 table.ApplyLogOnInfo(tableLogonInfo);
+                // 
             }
         }
 
@@ -137,7 +139,7 @@ namespace Reports
         {
             ReportDocument reportDocument;
             ParameterFields paramFields;
-
+            
             ParameterField paramField;
             ParameterDiscreteValue paramDiscreteValue;
 
@@ -145,7 +147,8 @@ namespace Reports
             paramFields = new ParameterFields();
 
             for (int i = 0; i <= arrParameter.GetLength(0) - 1; i++)
-            {
+            {   
+
                 paramField = new ParameterField();
                 paramField.Name = arrParameter[i, 0].ToString();
                 paramDiscreteValue = new ParameterDiscreteValue();

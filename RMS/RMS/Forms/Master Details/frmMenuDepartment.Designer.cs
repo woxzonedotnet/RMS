@@ -218,6 +218,7 @@
             this.txtMenuDepartmentCode.Name = "txtMenuDepartmentCode";
             this.txtMenuDepartmentCode.Size = new System.Drawing.Size(153, 21);
             this.txtMenuDepartmentCode.TabIndex = 48;
+            this.txtMenuDepartmentCode.TextChanged += new System.EventHandler(this.txtMenuDepartmentCode_TextChanged);
             this.txtMenuDepartmentCode.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtMenuDepartmentCode_KeyDown);
             // 
             // label1
@@ -259,6 +260,7 @@
             this.cmbStatus.Size = new System.Drawing.Size(155, 21);
             this.cmbStatus.TabIndex = 13;
             this.cmbStatus.ViewColumn = 0;
+            this.cmbStatus.SelectedIndexChanged += new System.EventHandler(this.cmbStatus_SelectedIndexChanged);
             // 
             // frmMenuDepartment
             // 
