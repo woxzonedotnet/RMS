@@ -265,23 +265,24 @@ namespace RMS_FrontEnd
             pnlBill.BringToFront();
 
             //Bill Head
-            lDate.Location = new Point(5, 10);
-            lblDate.Location = new Point(lDate.Location.X + lDate.Width + 5, 10);
 
-            lSteward.Location = new Point(((pnlBill.Width*50)/100),10);
-            lblSteward.Location = new Point(lSteward.Location.X + lSteward.Width + 5, 10);
+            //lDate.Location = new Point(5, 10);
+            //lblDate.Location = new Point(lDate.Location.X + lDate.Width + 5, 10);
 
-            lTime.Location = new Point(5, lDate.Location.Y + lDate.Height+10);
-            lblTime.Location = new Point(lTime.Location.X + lTime.Width + 5, lDate.Location.Y + lDate.Height+10);
+            //fgdfg.Location = new Point(((pnlBill.Width*50)/100),10);
+            //gfdgf.Location = new Point(fgdfg.Location.X + fgdfg.Width + 5, 10);
 
-            lOrderType.Location = new Point(((pnlBill.Width * 50) / 100), lSteward.Location.Y + lSteward.Height + 10);
-            lblOrderType.Location = new Point(lOrderType.Location.X + lOrderType.Width + 5, lSteward.Location.Y + lSteward.Height + 10);
+            //lTime.Location = new Point(5, lDate.Location.Y + lDate.Height+10);
+            //lblTime.Location = new Point(lTime.Location.X + lTime.Width + 5, lDate.Location.Y + lDate.Height+10);
 
-            lOrderNo.Location = new Point(5, lTime.Location.Y + lTime.Height + 10);
-            lblOrderNo.Location = new Point(lOrderNo.Location.X + lOrderNo.Width + 5, lTime.Location.Y + lTime.Height + 10);
+            //dfgdfg.Location = new Point(((pnlBill.Width * 50) / 100), fgdfg.Location.Y + fgdfg.Height + 10);
+            //ghgfhghg.Location = new Point(dfgdfg.Location.X + dfgdfg.Width + 5, fgdfg.Location.Y + fgdfg.Height + 10);
 
-            lTableNo.Location = new Point(((pnlBill.Width * 50) / 100), lOrderType.Location.Y + lOrderType.Height + 10);
-            lblTableNo.Location = new Point(lTableNo.Location.X + lTableNo.Width + 5, lOrderType.Location.Y + lOrderType.Height + 10);
+            //lOrderNo.Location = new Point(5, lTime.Location.Y + lTime.Height + 10);
+            //lblOrderNo.Location = new Point(lOrderNo.Location.X + lOrderNo.Width + 5, lTime.Location.Y + lTime.Height + 10);
+
+            //tythj.Location = new Point(((pnlBill.Width * 50) / 100), dfgdfg.Location.Y + dfgdfg.Height + 10);
+            //jklhjkjh.Location = new Point(tythj.Location.X + tythj.Width + 5, dfgdfg.Location.Y + dfgdfg.Height + 10);
 
             //Item Grid
             dgvItem.Location = new Point(5, 90);

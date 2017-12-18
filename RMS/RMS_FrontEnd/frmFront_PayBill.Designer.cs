@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmFront_PayBill));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -35,6 +36,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tbTableCat = new MetroFramework.Controls.MetroTabControl();
             this.tbCash = new MetroFramework.Controls.MetroTabPage();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.txtCashPayment = new System.Windows.Forms.TextBox();
             this.txtCashBalance = new MetroFramework.Controls.MetroTextBox();
             this.label9 = new System.Windows.Forms.Label();
@@ -85,6 +87,7 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.tbTableCat.SuspendLayout();
             this.tbCash.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tbCreditCard.SuspendLayout();
             this.tbCheque.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -107,7 +110,7 @@
             this.tbTableCat.FontWeight = MetroFramework.MetroTabControlWeight.Bold;
             this.tbTableCat.Location = new System.Drawing.Point(0, 0);
             this.tbTableCat.Name = "tbTableCat";
-            this.tbTableCat.SelectedIndex = 2;
+            this.tbTableCat.SelectedIndex = 0;
             this.tbTableCat.Size = new System.Drawing.Size(447, 301);
             this.tbTableCat.SizeMode = System.Windows.Forms.TabSizeMode.FillToRight;
             this.tbTableCat.TabIndex = 0;
@@ -116,6 +119,7 @@
             // 
             // tbCash
             // 
+            this.tbCash.Controls.Add(this.pictureBox1);
             this.tbCash.Controls.Add(this.txtCashPayment);
             this.tbCash.Controls.Add(this.txtCashBalance);
             this.tbCash.Controls.Add(this.label9);
@@ -132,6 +136,17 @@
             this.tbCash.VerticalScrollbarBarColor = true;
             this.tbCash.VerticalScrollbarHighlightOnWheel = false;
             this.tbCash.VerticalScrollbarSize = 10;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(-4, 64);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(327, 144);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 10;
+            this.pictureBox1.TabStop = false;
             // 
             // txtCashPayment
             // 
@@ -457,7 +472,7 @@
             // dtChequeDate
             // 
             this.dtChequeDate.Location = new System.Drawing.Point(144, 105);
-            this.dtChequeDate.MinimumSize = new System.Drawing.Size(0, 29);
+            this.dtChequeDate.MinimumSize = new System.Drawing.Size(4, 29);
             this.dtChequeDate.Name = "dtChequeDate";
             this.dtChequeDate.Size = new System.Drawing.Size(247, 29);
             this.dtChequeDate.TabIndex = 0;
@@ -947,7 +962,7 @@
             this.ClientSize = new System.Drawing.Size(713, 425);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmFront_PayBill";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmFront_PayBill";
@@ -955,6 +970,7 @@
             this.tbTableCat.ResumeLayout(false);
             this.tbCash.ResumeLayout(false);
             this.tbCash.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.tbCreditCard.ResumeLayout(false);
             this.tbCreditCard.PerformLayout();
             this.tbCheque.ResumeLayout(false);
@@ -1025,6 +1041,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn clmType;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmAmount;
         private System.Windows.Forms.DataGridViewButtonColumn clmStatus;
+        private System.Windows.Forms.PictureBox pictureBox1;
 
     }
 }
