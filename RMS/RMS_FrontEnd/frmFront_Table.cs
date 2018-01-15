@@ -17,6 +17,7 @@ namespace RMS_FrontEnd
     {
         #region Variable
         Control ctrl;
+        string tableName="";
         #endregion
 
         #region Objects
@@ -87,7 +88,7 @@ namespace RMS_FrontEnd
                     {
                         if (ctrl != null)
                         {
-                            ctrl.Text = b.Name;
+                            tableName = b.Name;
                         }
                         
                         btnSelect.Enabled = true;
@@ -116,6 +117,7 @@ namespace RMS_FrontEnd
 
         private void btnSelect_Click(object sender, EventArgs e)
         {
+            ctrl.Text = tableName;
             this.Dispose();
         }
     }
