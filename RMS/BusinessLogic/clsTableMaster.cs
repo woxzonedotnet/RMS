@@ -42,7 +42,7 @@ namespace BusinessLogic
                 oTableMaster.SubLocationCode = dtTableMaster.Rows[0][3].ToString();
                 oTableMaster.TableSeats=Convert.ToInt16(dtTableMaster.Rows[0][4]);
                 oTableMaster.TableStatus = Convert.ToInt16(dtTableMaster.Rows[0][5]);
-
+                //when will be t
                 oTableMaster.IsExists = true;
             }
             else

@@ -697,7 +697,6 @@
             this.btnComplete.TabIndex = 1;
             this.btnComplete.Text = "COMPLETE";
             this.btnComplete.UseVisualStyleBackColor = false;
-            this.btnComplete.Click += new System.EventHandler(this.btnComplete_Click);
             // 
             // btnCancel
             // 

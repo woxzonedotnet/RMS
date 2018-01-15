@@ -37,8 +37,8 @@ namespace BusinessLogic
                 oCustomerMaster.IsCreditCustomer = Convert.ToBoolean(dtCustomer.Rows[0][9]);
                 oCustomerMaster.IsComplementary = Convert.ToBoolean(dtCustomer.Rows[0][10]);
                 oCustomerMaster.VatNo = dtCustomer.Rows[0][11].ToString();
-
                 oCustomerMaster.IsExists = true;
+                //what will be the help that they need to be pf that i
             }
             else
             {

@@ -22,9 +22,9 @@ namespace BusinessLogic
 
             string strSystem = "AS";
             string strWhereString = "fldSystem ='" + strSystem + "'";
-
+            
             DataTable dtReports = cDBConnection.SearchData("tbl_ReportMaster");
-
+            
             return dtReports;
         }
 
@@ -42,7 +42,9 @@ namespace BusinessLogic
                     oReportMaster.ReportTitle = dtReports.Rows[0]["fldReportTitle"].ToString();
                     oReportMaster.SelectionFormular = dtReports.Rows[0]["fldSelectionFormular"].ToString();
                     oReportMaster.SelectedTable = dtReports.Rows[0]["fldSelectTable"].ToString();
+                    
                 }
+
             }
             catch (Exception ex) {
                 

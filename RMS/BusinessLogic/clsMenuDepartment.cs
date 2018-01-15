@@ -29,7 +29,7 @@ namespace BusinessLogic
                 oMenuDepartment.MenuDepartmentCode = dtMenuDepartment.Rows[0][1].ToString();
                 oMenuDepartment.MenuDepartmentName = dtMenuDepartment.Rows[0][2].ToString();
                 oMenuDepartment.Status = Convert.ToInt16(dtMenuDepartment.Rows[0][3]);
-
+                
                 oMenuDepartment.IsExists = true;
             }
             else

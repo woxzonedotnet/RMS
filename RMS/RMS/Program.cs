@@ -18,6 +18,7 @@ namespace RMS
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new RMS.Forms.frmMain());
             Application.Run(new frmLogin());
+            //
         }
     }
 }
