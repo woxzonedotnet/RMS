@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Front_Main));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Front_Main));
             this.pnlHeader = new System.Windows.Forms.Panel();
             this.button6 = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -42,12 +42,21 @@
             this.pnlMenu = new System.Windows.Forms.Panel();
             this.tbMenu = new MetroFramework.Controls.MetroTabControl();
             this.pnlBill = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.lblTableNo = new System.Windows.Forms.Label();
+            this.lblOrderType = new System.Windows.Forms.Label();
+            this.lblSteward = new System.Windows.Forms.Label();
+            this.lTableNo = new System.Windows.Forms.Label();
+            this.lOrderType = new System.Windows.Forms.Label();
+            this.lSteward = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.lDate = new System.Windows.Forms.Label();
+            this.lTime = new System.Windows.Forms.Label();
             this.lblOrderNo = new System.Windows.Forms.Label();
+            this.lOrderNo = new System.Windows.Forms.Label();
             this.lblTime = new System.Windows.Forms.Label();
             this.lblDate = new System.Windows.Forms.Label();
-            this.lOrderNo = new System.Windows.Forms.Label();
-            this.lTime = new System.Windows.Forms.Label();
-            this.lDate = new System.Windows.Forms.Label();
             this.gbBillInfo = new System.Windows.Forms.GroupBox();
             this.btnCancelBill = new System.Windows.Forms.Button();
             this.btnHoldOrder = new System.Windows.Forms.Button();
@@ -75,29 +84,22 @@
             this.clmEach = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DateTimeUpdate = new System.Windows.Forms.Timer(this.components);
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.lSteward = new System.Windows.Forms.Label();
-            this.lOrderType = new System.Windows.Forms.Label();
-            this.lTableNo = new System.Windows.Forms.Label();
-            this.lblSteward = new System.Windows.Forms.Label();
-            this.lblOrderType = new System.Windows.Forms.Label();
-            this.lblTableNo = new System.Windows.Forms.Label();
+            this.btnKeyBoard = new System.Windows.Forms.Button();
             this.pnlHeader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.pnlMenu.SuspendLayout();
             this.pnlBill.SuspendLayout();
-            this.gbBillInfo.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvItem)).BeginInit();
-            this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.panel1.SuspendLayout();
+            this.gbBillInfo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvItem)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlHeader
             // 
             this.pnlHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(154)))), ((int)(((byte)(199)))));
+            this.pnlHeader.Controls.Add(this.btnKeyBoard);
             this.pnlHeader.Controls.Add(this.button6);
             this.pnlHeader.Controls.Add(this.pictureBox1);
             this.pnlHeader.Controls.Add(this.btnClose);
@@ -108,10 +110,10 @@
             // 
             // button6
             // 
-            this.button6.BackColor = System.Drawing.Color.White;
+            this.button6.BackColor = System.Drawing.Color.Transparent;
             this.button6.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button6.BackgroundImage")));
             this.button6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button6.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(75)))), ((int)(((byte)(98)))));
+            this.button6.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.button6.FlatAppearance.BorderSize = 2;
             this.button6.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(131)))), ((int)(((byte)(1)))));
             this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -183,6 +185,129 @@
             this.pnlBill.Size = new System.Drawing.Size(612, 467);
             this.pnlBill.TabIndex = 2;
             // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.Transparent;
+            this.panel3.Controls.Add(this.panel2);
+            this.panel3.Controls.Add(this.panel1);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel3.Location = new System.Drawing.Point(5, 5);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(602, 75);
+            this.panel3.TabIndex = 25;
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.Transparent;
+            this.panel2.Controls.Add(this.lblTableNo);
+            this.panel2.Controls.Add(this.lblOrderType);
+            this.panel2.Controls.Add(this.lblSteward);
+            this.panel2.Controls.Add(this.lTableNo);
+            this.panel2.Controls.Add(this.lOrderType);
+            this.panel2.Controls.Add(this.lSteward);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel2.Location = new System.Drawing.Point(402, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(200, 75);
+            this.panel2.TabIndex = 25;
+            // 
+            // lblTableNo
+            // 
+            this.lblTableNo.AutoSize = true;
+            this.lblTableNo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTableNo.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.lblTableNo.Location = new System.Drawing.Point(136, 55);
+            this.lblTableNo.Name = "lblTableNo";
+            this.lblTableNo.Size = new System.Drawing.Size(52, 16);
+            this.lblTableNo.TabIndex = 5;
+            this.lblTableNo.Text = "TB001";
+            // 
+            // lblOrderType
+            // 
+            this.lblOrderType.AutoSize = true;
+            this.lblOrderType.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblOrderType.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.lblOrderType.Location = new System.Drawing.Point(104, 29);
+            this.lblOrderType.Name = "lblOrderType";
+            this.lblOrderType.Size = new System.Drawing.Size(49, 16);
+            this.lblOrderType.TabIndex = 4;
+            this.lblOrderType.Text = "Table";
+            // 
+            // lblSteward
+            // 
+            this.lblSteward.AutoSize = true;
+            this.lblSteward.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSteward.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.lblSteward.Location = new System.Drawing.Point(81, 5);
+            this.lblSteward.Name = "lblSteward";
+            this.lblSteward.Size = new System.Drawing.Size(64, 16);
+            this.lblSteward.TabIndex = 3;
+            this.lblSteward.Text = "_______";
+            // 
+            // lTableNo
+            // 
+            this.lTableNo.AutoSize = true;
+            this.lTableNo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lTableNo.Location = new System.Drawing.Point(3, 55);
+            this.lTableNo.Name = "lTableNo";
+            this.lTableNo.Size = new System.Drawing.Size(127, 16);
+            this.lTableNo.TabIndex = 2;
+            this.lTableNo.Text = "Table/Room No :";
+            // 
+            // lOrderType
+            // 
+            this.lOrderType.AutoSize = true;
+            this.lOrderType.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lOrderType.Location = new System.Drawing.Point(3, 29);
+            this.lOrderType.Name = "lOrderType";
+            this.lOrderType.Size = new System.Drawing.Size(95, 16);
+            this.lOrderType.TabIndex = 1;
+            this.lOrderType.Text = "Order Type :";
+            // 
+            // lSteward
+            // 
+            this.lSteward.AutoSize = true;
+            this.lSteward.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lSteward.Location = new System.Drawing.Point(3, 3);
+            this.lSteward.Name = "lSteward";
+            this.lSteward.Size = new System.Drawing.Size(72, 16);
+            this.lSteward.TabIndex = 0;
+            this.lSteward.Text = "Steward :";
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.lDate);
+            this.panel1.Controls.Add(this.lTime);
+            this.panel1.Controls.Add(this.lblOrderNo);
+            this.panel1.Controls.Add(this.lOrderNo);
+            this.panel1.Controls.Add(this.lblTime);
+            this.panel1.Controls.Add(this.lblDate);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(200, 75);
+            this.panel1.TabIndex = 24;
+            // 
+            // lDate
+            // 
+            this.lDate.AutoSize = true;
+            this.lDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lDate.Location = new System.Drawing.Point(3, 6);
+            this.lDate.Name = "lDate";
+            this.lDate.Size = new System.Drawing.Size(49, 16);
+            this.lDate.TabIndex = 11;
+            this.lDate.Text = "Date :";
+            // 
+            // lTime
+            // 
+            this.lTime.AutoSize = true;
+            this.lTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lTime.Location = new System.Drawing.Point(3, 32);
+            this.lTime.Name = "lTime";
+            this.lTime.Size = new System.Drawing.Size(51, 16);
+            this.lTime.TabIndex = 12;
+            this.lTime.Text = "Time :";
+            // 
             // lblOrderNo
             // 
             this.lblOrderNo.AutoSize = true;
@@ -193,6 +318,16 @@
             this.lblOrderNo.Size = new System.Drawing.Size(62, 16);
             this.lblOrderNo.TabIndex = 19;
             this.lblOrderNo.Text = "OR0001";
+            // 
+            // lOrderNo
+            // 
+            this.lOrderNo.AutoSize = true;
+            this.lOrderNo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lOrderNo.Location = new System.Drawing.Point(3, 58);
+            this.lOrderNo.Name = "lOrderNo";
+            this.lOrderNo.Size = new System.Drawing.Size(79, 16);
+            this.lOrderNo.TabIndex = 13;
+            this.lOrderNo.Text = "Order No :";
             // 
             // lblTime
             // 
@@ -215,36 +350,6 @@
             this.lblDate.Size = new System.Drawing.Size(49, 16);
             this.lblDate.TabIndex = 17;
             this.lblDate.Text = "Date :";
-            // 
-            // lOrderNo
-            // 
-            this.lOrderNo.AutoSize = true;
-            this.lOrderNo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lOrderNo.Location = new System.Drawing.Point(3, 58);
-            this.lOrderNo.Name = "lOrderNo";
-            this.lOrderNo.Size = new System.Drawing.Size(79, 16);
-            this.lOrderNo.TabIndex = 13;
-            this.lOrderNo.Text = "Order No :";
-            // 
-            // lTime
-            // 
-            this.lTime.AutoSize = true;
-            this.lTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lTime.Location = new System.Drawing.Point(3, 32);
-            this.lTime.Name = "lTime";
-            this.lTime.Size = new System.Drawing.Size(51, 16);
-            this.lTime.TabIndex = 12;
-            this.lTime.Text = "Time :";
-            // 
-            // lDate
-            // 
-            this.lDate.AutoSize = true;
-            this.lDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lDate.Location = new System.Drawing.Point(3, 6);
-            this.lDate.Name = "lDate";
-            this.lDate.Size = new System.Drawing.Size(49, 16);
-            this.lDate.TabIndex = 11;
-            this.lDate.Text = "Date :";
             // 
             // gbBillInfo
             // 
@@ -597,108 +702,21 @@
             this.DateTimeUpdate.Enabled = true;
             this.DateTimeUpdate.Tick += new System.EventHandler(this.DateTimeUpdate_Tick);
             // 
-            // panel1
+            // btnKeyBoard
             // 
-            this.panel1.Controls.Add(this.lDate);
-            this.panel1.Controls.Add(this.lTime);
-            this.panel1.Controls.Add(this.lblOrderNo);
-            this.panel1.Controls.Add(this.lOrderNo);
-            this.panel1.Controls.Add(this.lblTime);
-            this.panel1.Controls.Add(this.lblDate);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(200, 75);
-            this.panel1.TabIndex = 24;
-            // 
-            // panel3
-            // 
-            this.panel3.BackColor = System.Drawing.Color.Transparent;
-            this.panel3.Controls.Add(this.panel2);
-            this.panel3.Controls.Add(this.panel1);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel3.Location = new System.Drawing.Point(5, 5);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(602, 75);
-            this.panel3.TabIndex = 25;
-            // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.Transparent;
-            this.panel2.Controls.Add(this.lblTableNo);
-            this.panel2.Controls.Add(this.lblOrderType);
-            this.panel2.Controls.Add(this.lblSteward);
-            this.panel2.Controls.Add(this.lTableNo);
-            this.panel2.Controls.Add(this.lOrderType);
-            this.panel2.Controls.Add(this.lSteward);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel2.Location = new System.Drawing.Point(402, 0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(200, 75);
-            this.panel2.TabIndex = 25;
-            // 
-            // lSteward
-            // 
-            this.lSteward.AutoSize = true;
-            this.lSteward.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lSteward.Location = new System.Drawing.Point(3, 3);
-            this.lSteward.Name = "lSteward";
-            this.lSteward.Size = new System.Drawing.Size(72, 16);
-            this.lSteward.TabIndex = 0;
-            this.lSteward.Text = "Steward :";
-            // 
-            // lOrderType
-            // 
-            this.lOrderType.AutoSize = true;
-            this.lOrderType.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lOrderType.Location = new System.Drawing.Point(3, 29);
-            this.lOrderType.Name = "lOrderType";
-            this.lOrderType.Size = new System.Drawing.Size(95, 16);
-            this.lOrderType.TabIndex = 1;
-            this.lOrderType.Text = "Order Type :";
-            // 
-            // lTableNo
-            // 
-            this.lTableNo.AutoSize = true;
-            this.lTableNo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lTableNo.Location = new System.Drawing.Point(3, 55);
-            this.lTableNo.Name = "lTableNo";
-            this.lTableNo.Size = new System.Drawing.Size(127, 16);
-            this.lTableNo.TabIndex = 2;
-            this.lTableNo.Text = "Table/Room No :";
-            // 
-            // lblSteward
-            // 
-            this.lblSteward.AutoSize = true;
-            this.lblSteward.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSteward.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.lblSteward.Location = new System.Drawing.Point(81, 5);
-            this.lblSteward.Name = "lblSteward";
-            this.lblSteward.Size = new System.Drawing.Size(64, 16);
-            this.lblSteward.TabIndex = 3;
-            this.lblSteward.Text = "_______";
-            // 
-            // lblOrderType
-            // 
-            this.lblOrderType.AutoSize = true;
-            this.lblOrderType.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblOrderType.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.lblOrderType.Location = new System.Drawing.Point(104, 29);
-            this.lblOrderType.Name = "lblOrderType";
-            this.lblOrderType.Size = new System.Drawing.Size(49, 16);
-            this.lblOrderType.TabIndex = 4;
-            this.lblOrderType.Text = "Table";
-            // 
-            // lblTableNo
-            // 
-            this.lblTableNo.AutoSize = true;
-            this.lblTableNo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTableNo.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.lblTableNo.Location = new System.Drawing.Point(136, 55);
-            this.lblTableNo.Name = "lblTableNo";
-            this.lblTableNo.Size = new System.Drawing.Size(52, 16);
-            this.lblTableNo.TabIndex = 5;
-            this.lblTableNo.Text = "TB001";
+            this.btnKeyBoard.BackColor = System.Drawing.Color.Transparent;
+            this.btnKeyBoard.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnKeyBoard.BackgroundImage")));
+            this.btnKeyBoard.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnKeyBoard.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnKeyBoard.FlatAppearance.BorderSize = 2;
+            this.btnKeyBoard.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(131)))), ((int)(((byte)(1)))));
+            this.btnKeyBoard.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnKeyBoard.Location = new System.Drawing.Point(593, 7);
+            this.btnKeyBoard.Name = "btnKeyBoard";
+            this.btnKeyBoard.Size = new System.Drawing.Size(46, 44);
+            this.btnKeyBoard.TabIndex = 3;
+            this.btnKeyBoard.UseVisualStyleBackColor = false;
+            this.btnKeyBoard.Click += new System.EventHandler(this.btnKeyBoard_Click);
             // 
             // Front_Main
             // 
@@ -720,14 +738,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.pnlMenu.ResumeLayout(false);
             this.pnlBill.ResumeLayout(false);
-            this.gbBillInfo.ResumeLayout(false);
-            this.gbBillInfo.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvItem)).EndInit();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            this.gbBillInfo.ResumeLayout(false);
+            this.gbBillInfo.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvItem)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -783,5 +801,6 @@
         private System.Windows.Forms.Label lblSteward;
         private System.Windows.Forms.Label lTableNo;
         private System.Windows.Forms.Label lOrderType;
+        private System.Windows.Forms.Button btnKeyBoard;
     }
 }
