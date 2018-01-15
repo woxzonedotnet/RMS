@@ -79,6 +79,12 @@
     <Compile Include="frmFront_Table.Designer.cs">
       <DependentUpon>frmFront_Table.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmKeyBoard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmKeyBoard.Designer.cs">
+      <DependentUpon>frmKeyBoard.cs</DependentUpon>
+    </Compile>
     <Compile Include="Front_Main.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -98,6 +104,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmFront_Table.resx">
       <DependentUpon>frmFront_Table.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmKeyBoard.resx">
+      <DependentUpon>frmKeyBoard.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Front_Main.resx">
       <DependentUpon>Front_Main.cs</DependentUpon>

@@ -63,6 +63,12 @@
     <Compile Include="Forms\Extra\frmItemDiscount.Designer.cs">
       <DependentUpon>frmItemDiscount.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Extra\frmMenuDiscount.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Extra\frmMenuDiscount.Designer.cs">
+      <DependentUpon>frmMenuDiscount.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Master Details\frmBankCards.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -307,6 +313,9 @@
     <Compile Include="StringList.cs" />
     <EmbeddedResource Include="Forms\Extra\frmItemDiscount.resx">
       <DependentUpon>frmItemDiscount.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Extra\frmMenuDiscount.resx">
+      <DependentUpon>frmMenuDiscount.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Master Details\frmBankCards.resx">
       <DependentUpon>frmBankCards.cs</DependentUpon>

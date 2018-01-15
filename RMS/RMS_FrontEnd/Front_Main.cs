@@ -886,5 +886,11 @@ namespace RMS_FrontEnd
         {
             
         }
+
+        private void btnKeyBoard_Click(object sender, EventArgs e)
+        {
+            frmKeyBoard keyboard = new frmKeyBoard();
+            keyboard.Show();
+        }
     }
 }

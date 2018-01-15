@@ -32,8 +32,8 @@
             this.lblHeader = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
             this.pnlStewardList = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
             this.btnSelect = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
@@ -93,6 +93,15 @@
             this.panel2.Size = new System.Drawing.Size(548, 281);
             this.panel2.TabIndex = 3;
             // 
+            // pnlStewardList
+            // 
+            this.pnlStewardList.BackColor = System.Drawing.Color.White;
+            this.pnlStewardList.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlStewardList.Location = new System.Drawing.Point(2, 2);
+            this.pnlStewardList.Name = "pnlStewardList";
+            this.pnlStewardList.Size = new System.Drawing.Size(544, 240);
+            this.pnlStewardList.TabIndex = 1;
+            // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.White;
@@ -104,15 +113,6 @@
             this.panel3.Padding = new System.Windows.Forms.Padding(0, 2, 5, 2);
             this.panel3.Size = new System.Drawing.Size(544, 37);
             this.panel3.TabIndex = 0;
-            // 
-            // pnlStewardList
-            // 
-            this.pnlStewardList.BackColor = System.Drawing.Color.White;
-            this.pnlStewardList.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlStewardList.Location = new System.Drawing.Point(2, 2);
-            this.pnlStewardList.Name = "pnlStewardList";
-            this.pnlStewardList.Size = new System.Drawing.Size(544, 240);
-            this.pnlStewardList.TabIndex = 1;
             // 
             // btnSelect
             // 
@@ -129,6 +129,7 @@
             this.btnSelect.TabIndex = 3;
             this.btnSelect.Text = "SELECT";
             this.btnSelect.UseVisualStyleBackColor = false;
+            this.btnSelect.Click += new System.EventHandler(this.btnSelect_Click);
             // 
             // btnCancel
             // 

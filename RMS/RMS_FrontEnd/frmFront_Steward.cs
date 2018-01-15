@@ -17,6 +17,7 @@ namespace RMS_FrontEnd
     {
         #region Variable
         Control ctrl;
+        string stewardName = "";
         #endregion
 
         #region Objects
@@ -79,7 +80,8 @@ namespace RMS_FrontEnd
                     {
                         try
                         {
-                            ctrl.Text = b.Name;
+                            stewardName = b.Name;
+                            btnSelect.Enabled = true;
                             //this.Dispose();
                         }
                         catch (Exception ex)
@@ -138,6 +140,12 @@ namespace RMS_FrontEnd
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
+            this.Dispose();
+        }
+
+        private void btnSelect_Click(object sender, EventArgs e)
+        {
+            ctrl.Text = stewardName;
             this.Dispose();
         }
     }
